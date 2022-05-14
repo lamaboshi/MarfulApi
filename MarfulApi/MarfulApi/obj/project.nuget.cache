@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "cIc9ZrHBzCPs46LG8f6Nc7N2Pt7GJkiTd9Qp+2025DA6rccwEwTamKinY7C2HExr8j31SyiYxS2kKhTiY590dg==",
+  "success": true,
+  "projectFilePath": "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lamab\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\lamab\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\lamab\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\lamab\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\lamab\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\lamab\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
