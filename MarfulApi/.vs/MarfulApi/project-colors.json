@@ -1,5 +1,11 @@
 {
   "Version": 1,
-  "ProjectMap": {},
-  "NextColorIndex": 0
+  "ProjectMap": {
+    "9df9bf04-2afe-4330-a20a-dce3ebdeda6b": {
+      "ProjectGuid": "9df9bf04-2afe-4330-a20a-dce3ebdeda6b",
+      "DisplayName": "MarfulApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
 }
