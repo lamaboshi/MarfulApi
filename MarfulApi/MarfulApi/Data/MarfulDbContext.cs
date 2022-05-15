@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 using MarfulApi.Model;
+using MarfulApi.Data;
+
 
 namespace MarfulApi.Data
 {
