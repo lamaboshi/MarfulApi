@@ -3,9 +3,9 @@
     public class UserCompany
     {
         public int Id { set; get; }
-        public int IdUser { set; get; }
+        public int UserId { set; get; }
         public User User { set; get; }
-        public int IdCompany { set; get; }
+        public int CompanyId { set; get; }
         public Company Company { set; get; }
     }
 }

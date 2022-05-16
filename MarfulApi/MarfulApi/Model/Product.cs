@@ -8,9 +8,8 @@
         public string Description { set; get; }
         public byte[] Image { set; get; }
         public string Code { set; get; }
-        public int IdBrand { set; get; }
+        public int BrandId { set; get; }
 
         public Brand Brand { set; get; }
-        ICollection<Basket> Basket { set; get; }
     }
 }

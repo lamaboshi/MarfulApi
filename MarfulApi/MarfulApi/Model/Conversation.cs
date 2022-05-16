@@ -4,10 +4,10 @@
     {
         public int Id { set; get; }
         public DateTime Start { set; get; }
-        public int IdCompany { set; get; }
+        public int CompanyId { set; get; }
         public Company Company { set; get; }
-        public int IdInfulonser { set; get; }
+        public int InfulonserId { set; get; }
         public Infulonser Infulonser { set; get; }
-        ICollection<Message> Message { set; get; }
+        public ICollection<Message> Message { set; get; }
     }
 }

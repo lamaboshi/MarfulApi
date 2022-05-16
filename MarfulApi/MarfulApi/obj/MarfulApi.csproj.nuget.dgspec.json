@@ -1,28 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj": {}
+    "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj": {}
   },
   "projects": {
-    "D:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj": {
+    "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
+        "projectUniqueName": "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
         "projectName": "MarfulApi",
-        "projectPath": "D:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
-        "packagesPath": "C:\\Users\\Hadoool\\.nuget\\packages\\",
-        "outputPath": "D:\\MarfulApi\\MarfulApi\\MarfulApi\\obj\\",
+        "projectPath": "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
+        "packagesPath": "C:\\Users\\lamab\\.nuget\\packages\\",
+        "outputPath": "F:\\MarfulApi\\MarfulApi\\MarfulApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\ProgramData\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Hadoool\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lamab\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -47,9 +45,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "EntityFramework": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.4.4, )"
+              "version": "[7.0.0-preview.4.22229.2, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -61,9 +59,13 @@
               "target": "Package",
               "version": "[7.0.0-preview.4.22229.2, )"
             },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.0-preview.4.22259.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.3.0, )"
             }
           },
           "imports": [

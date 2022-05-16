@@ -10,9 +10,9 @@
         public string Address{ set; get; }
         public byte[] Image { set; get; }
         public string Description { set; get; }
-       ICollection<Conversation> conversation { set; get; }
-        ICollection<UserCompany> UserCompanie { set; get; }
-        ICollection<CompanyContent> CompanyContent { set; get; }
+        public ICollection<Conversation> conversation { set; get; }
+        public ICollection<UserCompany> UserCompanie { set; get; }
+        public ICollection<CompanyContent> CompanyContent { set; get; }
 
 
     }

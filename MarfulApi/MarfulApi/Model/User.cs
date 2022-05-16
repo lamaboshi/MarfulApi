@@ -11,9 +11,9 @@
         public int Age { set; get; }
         public string Baybal { set; get; }
         public byte[] Image { set; get; }
-        ICollection<InfulonserUser> infulonserUser { set; get; }
-        ICollection<UserPost> UserPost { set; get; }
-        ICollection<UserCompany> UserCompany { set; get; }
+        public ICollection<InfulonserUser> infulonserUser { set; get; }
+        public ICollection<UserPost> UserPost { set; get; }
+        public ICollection<UserCompany> UserCompany { set; get; }
 
     }
 }
