@@ -11,5 +11,6 @@
         public int BrandId { set; get; }
 
         public Brand Brand { set; get; }
+        public ICollection<Basket> Baskets { get; set; }
     }
 }

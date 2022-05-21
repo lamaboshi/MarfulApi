@@ -12,10 +12,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    [Migration("20220516211805_initzal")]
-    partial class initzal
+    [Migration("20220521112141_changeToString")]
+    partial class changeToString
     {
-        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
@@ -33,15 +32,18 @@ namespace MarfulApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("PostId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserPostId")
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
+
+                    b.Property<int>("UserPostId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PostId");
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("UserPostId");
 
@@ -95,9 +97,8 @@ namespace MarfulApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -206,9 +207,8 @@ namespace MarfulApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -233,6 +233,20 @@ namespace MarfulApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Infulonsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "USA LA",
+                            Description = "fdsfsgfd",
+                            Email = "test@test.com",
+                            Name = "NoorStars",
+                            Password = "0000",
+                            Paypal = "dskjfhjh",
+                            Phone = "0965465760",
+                            UserName = "NoorStars"
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.InfulonserContent", b =>
@@ -296,12 +310,17 @@ namespace MarfulApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("InfulonserId")
+                        .HasColumnType("int");
+
                     b.Property<double>("Salary")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
+
+                    b.HasIndex("InfulonserId");
 
                     b.ToTable("Jobs");
                 });
@@ -317,6 +336,9 @@ namespace MarfulApi.Migrations
                     b.Property<int>("ConversationId")
                         .HasColumnType("int");
 
+                    b.Property<int>("JobId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("SendTime")
                         .HasColumnType("datetime2");
 
@@ -327,6 +349,8 @@ namespace MarfulApi.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ConversationId");
+
+                    b.HasIndex("JobId");
 
                     b.ToTable("Messages");
                 });
@@ -346,13 +370,22 @@ namespace MarfulApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("InfulonserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("JobId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
+
+                    b.HasIndex("InfulonserId");
+
+                    b.HasIndex("JobId");
 
                     b.ToTable("Posts");
                 });
@@ -413,9 +446,8 @@ namespace MarfulApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -436,6 +468,41 @@ namespace MarfulApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Age = 20,
+                            Baybal = "Lb1267",
+                            Email = "test@test.com",
+                            Name = "Noor",
+                            Password = "0000",
+                            Phone = "0964654765",
+                            UserName = "NonoSy"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Age = 20,
+                            Baybal = "Lb1267",
+                            Email = "test@test.com",
+                            Name = "Ahamad",
+                            Password = "0000",
+                            Phone = "0964654765",
+                            UserName = "hamodaSy"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Age = 20,
+                            Baybal = "Lb1267",
+                            Email = "test@test.com",
+                            Name = "Tala",
+                            Password = "0000",
+                            Phone = "0964654765",
+                            UserName = "totoSy"
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.UserCompany", b =>
@@ -489,17 +556,21 @@ namespace MarfulApi.Migrations
 
             modelBuilder.Entity("MarfulApi.Model.Basket", b =>
                 {
-                    b.HasOne("MarfulApi.Model.Post", "Post")
-                        .WithMany()
-                        .HasForeignKey("PostId")
+                    b.HasOne("MarfulApi.Model.Product", "Product")
+                        .WithMany("Baskets")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MarfulApi.Model.UserPost", null)
+                    b.HasOne("MarfulApi.Model.UserPost", "UserPost")
                         .WithMany("Basket")
-                        .HasForeignKey("UserPostId");
+                        .HasForeignKey("UserPostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Post");
+                    b.Navigation("Product");
+
+                    b.Navigation("UserPost");
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Brand", b =>
@@ -605,7 +676,15 @@ namespace MarfulApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MarfulApi.Model.Infulonser", "Infulonser")
+                        .WithMany("Jobs")
+                        .HasForeignKey("InfulonserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Brand");
+
+                    b.Navigation("Infulonser");
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Message", b =>
@@ -616,7 +695,15 @@ namespace MarfulApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MarfulApi.Model.Job", "Job")
+                        .WithMany("Messages")
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Conversation");
+
+                    b.Navigation("Job");
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Post", b =>
@@ -627,7 +714,23 @@ namespace MarfulApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MarfulApi.Model.Infulonser", "Infulonser")
+                        .WithMany("Posts")
+                        .HasForeignKey("InfulonserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MarfulApi.Model.Job", "Job")
+                        .WithMany("Post")
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Brand");
+
+                    b.Navigation("Infulonser");
+
+                    b.Navigation("Job");
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Product", b =>
@@ -718,14 +821,30 @@ namespace MarfulApi.Migrations
 
                     b.Navigation("Conversation");
 
+                    b.Navigation("Jobs");
+
+                    b.Navigation("Posts");
+
                     b.Navigation("infulonserContent");
 
                     b.Navigation("infulonserUser");
                 });
 
+            modelBuilder.Entity("MarfulApi.Model.Job", b =>
+                {
+                    b.Navigation("Messages");
+
+                    b.Navigation("Post");
+                });
+
             modelBuilder.Entity("MarfulApi.Model.Post", b =>
                 {
                     b.Navigation("UserPost");
+                });
+
+            modelBuilder.Entity("MarfulApi.Model.Product", b =>
+                {
+                    b.Navigation("Baskets");
                 });
 
             modelBuilder.Entity("MarfulApi.Model.User", b =>

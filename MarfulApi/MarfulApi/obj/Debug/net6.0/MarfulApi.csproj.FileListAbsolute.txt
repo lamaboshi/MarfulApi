@@ -350,11 +350,6 @@ F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.dll
 F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\ref\MarfulApi.dll
 F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.pdb
 F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.genruntimeconfig.cache
-F:\MarfulApi\MarfulApi\MarfulApi\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
-F:\MarfulApi\MarfulApi\MarfulApi\bin\Debug\net6.0\Mono.TextTemplating.dll
-F:\MarfulApi\MarfulApi\MarfulApi\bin\Debug\net6.0\System.CodeDom.dll
 F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.csproj.AssemblyReference.cache
-F:\MarfulApi\MarfulApi\MarfulApi\bin\Debug\net6.0\System.Collections.Immutable.dll
-F:\MarfulApi\MarfulApi\MarfulApi\bin\Debug\net6.0\Azure.Core.dll
-F:\MarfulApi\MarfulApi\MarfulApi\bin\Debug\net6.0\Azure.Identity.dll
-F:\MarfulApi\MarfulApi\MarfulApi\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.RazorAssemblyInfo.cache
+F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.RazorAssemblyInfo.cs

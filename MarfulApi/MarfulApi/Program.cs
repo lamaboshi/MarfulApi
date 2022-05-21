@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MarfulApi.Data;
+using MarfulApi.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MarfulDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("sqlServer")));
+builder.Services.AddTransient<IContent,ContentRepo>(); 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

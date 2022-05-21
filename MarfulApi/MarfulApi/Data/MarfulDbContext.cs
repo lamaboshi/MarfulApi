@@ -27,7 +27,13 @@ namespace MarfulApi.Data
         public DbSet<User> Users { get; set; }
         public DbSet<UserCompany> UserCompanies { get; set; }
         public DbSet<UserPost> UserPosts { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasData(new User { Id = 1,Email="test@test.com",Name="Noor", UserName="NonoSy",Phone="0964654765",Age=20,Password="0000",Baybal="Lb1267"});
+            modelBuilder.Entity<User>().HasData(new User { Id = 2, Email = "test@test.com", Name = "Ahamad", UserName = "hamodaSy", Phone = "0964654765", Age = 20, Password = "0000", Baybal = "Lb1267" });
+            modelBuilder.Entity<User>().HasData(new User { Id = 3, Email = "test@test.com", Name = "Tala", UserName = "totoSy", Phone = "0964654765", Age = 20, Password = "0000", Baybal = "Lb1267" });
+            modelBuilder.Entity<Infulonser>().HasData(new Infulonser { Name="NoorStars",Phone="0965465760",Password="0000",Email="test@test.com",UserName="NoorStars",Address="USA LA",Description="fdsfsgfd",Id=1,Paypal="dskjfhjh" });
+        }
 
-       
     }
 }

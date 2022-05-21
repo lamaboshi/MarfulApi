@@ -8,7 +8,7 @@
         public string Email { set; get; }
         public string TelePhone { set; get; }
         public string Address{ set; get; }
-        public byte[] Image { set; get; }
+        public string? Image { set; get; }
         public string Description { set; get; }
         public ICollection<Conversation> conversation { set; get; }
         public ICollection<UserCompany> UserCompanie { set; get; }
