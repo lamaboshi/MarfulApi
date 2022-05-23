@@ -4,6 +4,9 @@ namespace MarfulApi.Infrastructure
 {
     public interface IContent
     {
-        public IQueryable<Content> GetContents { get; }
+        Content GetContent(int id);
+        IQueryable<Content> GetContents { get; }
+        void Save(Content content);
+        void Delete(int id);
     }
 }
