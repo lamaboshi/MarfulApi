@@ -8,9 +8,9 @@ namespace MarfulApi.Infrastructure
 {
     public interface IProduct
     {
-        Product GetProduct(int id);
-        IQueryable<Product> GetProducts { get; }
-        void Save(Product product);
-        void Delete(int id);
+        public Product GetProduct(int id);
+       public  IQueryable<Product> GetProducts { get; }
+       public void Save(Product product);
+      public  void Delete(int id);
     }
 }

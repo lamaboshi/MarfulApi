@@ -10,21 +10,23 @@ namespace MarfulApi.Data
     public class CompanyContentRepo : ICompanyContent
     {
         private readonly MarfulDbContext _db;
-        public BasketRepo(MarfulDbContext db)
+        public CompanyContentRepo(MarfulDbContext db)
         {
             _db = db;
         }
-        public IQueryable<Basket> GetCompanyContent => _db.CompanyContents;
+
+        public IQueryable<CompanyContent> GetCompanyContents => _db.CompanyContents;
+
         public void Delete(int id)
         {
-            CompanyContent companyContent = _db.CompanyContents.Find(id);
-            _db.Baskets.Remove(companyContent);
+            var companyContent = _db.CompanyContents.Find(id);
+            _db.CompanyContents.Remove(companyContent);
             _db.SaveChanges();
         }
         public CompanyContent GetCompanyContent(int id)
         {
-            CompanyContent companyContent = _db.CompanyContents.Find(id);
-            return basket;
+            var companyContent = _db.CompanyContents.Find(id);
+            return companyContent;
         }
         public void Save(CompanyContent companyContent)
         {

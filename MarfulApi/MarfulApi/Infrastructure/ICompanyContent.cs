@@ -8,9 +8,9 @@ namespace MarfulApi.Infrastructure
 {
     public interface ICompanyContent
     {
-        CompanyContent GetCompanyContent(int id);
-        IQueryable<CompanyContent> GetCompanyContents { get; }
-        void Save(CompanyContent companyContent);
-        void Delete(int id);
+      public  CompanyContent GetCompanyContent(int id);
+       public IQueryable<CompanyContent> GetCompanyContents { get; }
+      public  void Save(CompanyContent companyContent);
+      public  void Delete(int id);
     }
 }

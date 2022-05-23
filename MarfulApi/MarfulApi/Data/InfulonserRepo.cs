@@ -7,23 +7,25 @@ using MarfulApi.Model;
 
 namespace MarfulApi.Data
 {
-    public class InfulonserRepo :  IInfulonser
+    public class InfulonserRepo : IInfulonser
     {
         private readonly MarfulDbContext _db;
         public InfulonserRepo(MarfulDbContext db)
         {
             _db = db;
         }
-        public IQueryable<Infulonser> GetStudents => _db.Infulonsers;
+
+        public IQueryable<Infulonser> GetInfulonsers => _db.Infulonsers;
+
         public void Delete(int id)
         {
-            Infulonser infulonser = _db.Infulonsers.Find(id);
+            var infulonser = _db.Infulonsers.Find(id);
             _db.Infulonsers.Remove(infulonser);
             _db.SaveChanges();
         }
         public Infulonser GetInfulonser(int id)
         {
-            Infulonser infulonser = _db.Infulonsers.Find(id);
+            var infulonser = _db.Infulonsers.Find(id);
             return infulonser;
         }
         public void Save(Infulonser infulonser)
@@ -35,7 +37,7 @@ namespace MarfulApi.Data
             }
             else
             {
-                Infulonser Infulonser = _db.Infulonsers.Find(infulonser.Id);
+                var Infulonser = _db.Infulonsers.Find(infulonser.Id);
                 Infulonser.Address = infulonser.Address;
                 Infulonser.Description = infulonser.Description;
                 Infulonser.Email = infulonser.Email;

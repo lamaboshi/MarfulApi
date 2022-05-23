@@ -8,9 +8,9 @@ namespace MarfulApi.Infrastructure
 {
     public interface IBasket
     {
-        Basket GetBasket(int id);
-        IQueryable<Basket> GetStudents { get; }
-        void Save(Basket basket);
-        void Delete(int id);
+       public Basket GetBasket(int id);
+       public IQueryable<Basket> GetStudents { get; }
+       public void Save(Basket basket);
+      public  void Delete(int id);
     }
 }

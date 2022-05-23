@@ -11,7 +11,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MarfulDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("sqlServer")));
-builder.Services.AddTransient<IContent,ContentRepo>(); 
+builder.Services.AddTransient<IContent,ContentRepo>();
+builder.Services.AddTransient<IBasket, BasketRepo>();
+builder.Services.AddTransient<IBrand, BrandRepo>();
+builder.Services.AddTransient<ICompanyContent, ICompanyContent>();
+builder.Services.AddTransient<IInfulonser, InfulonserRepo>();
+builder.Services.AddTransient<IInfulonserContent, InfulonserContentRepo>();
+builder.Services.AddTransient<IInfulonserUser, InfulonserUserRepo>();
+builder.Services.AddTransient<IProduct, ProductRepo>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

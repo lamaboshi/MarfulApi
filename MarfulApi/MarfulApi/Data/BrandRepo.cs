@@ -10,21 +10,39 @@ namespace MarfulApi.Data
         {
             _db = db;
         }
-        public IQueryable<Brand> GetBrands => throw new NotImplementedException();
+        public IQueryable<Brand> GetBrands => _db.Brands;
 
         public void Delte(int IdBrand)
         {
-            throw new NotImplementedException();
+            var brand = _db.Brands.First(t => t.Id == IdBrand);
+            if (brand != null)
+            {
+                _db.Brands.Remove(brand);
+                _db.SaveChanges();
+            }
         }
 
         public Brand GetBrand(int IdBrand)
         {
-            throw new NotImplementedException();
+            var brand = _db.Brands.First(t => t.Id == IdBrand);
+            if (brand != null) return brand;
+            else throw new NotImplementedException();
+
         }
 
-        public void Save()
+        public void Save(Brand brand)
         {
-            throw new NotImplementedException();
+            if (brand.Id!=0)
+            {
+                _db.Brands.Add(brand);
+            }
+            else
+            {
+                var brandEntity = _db.Brands.Find(brand.Id);
+                brandEntity.Name = brand.Name;
+              
+            }
+            _db.SaveChanges();
         }
     }
 }

@@ -14,24 +14,27 @@ namespace MarfulApi.Data
         {
             _db = db;
         }
-        public IQueryable<InfulonserContent> GetInfulonserContent => _db.InfulonserContents;
+
+        public IQueryable<InfulonserContent> GetInfulonserContents => _db.InfulonserContents;
+
         public void Delete(int id)
         {
             InfulonserContent infulonserContent = _db.InfulonserContents.Find(id);
             _db.InfulonserContents.Remove(infulonserContent);
             _db.SaveChanges();
         }
+
         public InfulonserContent GetInfulonserContent(int id)
         {
             InfulonserContent infulonserContent = _db.InfulonserContents.Find(id);
             return infulonserContent;
         }
+
         public void Save(InfulonserContent infulonserContent)
         {
-           
-                _db.InfulonserContents.Add(infulonserContent);
-                _db.SaveChanges();
-            
+            _db.InfulonserContents.Add(infulonserContent);
+            _db.SaveChanges();
         }
+
     }
 }

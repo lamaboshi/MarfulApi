@@ -1,38 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "C:\\marfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj": {}
+    "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj": {}
   },
   "projects": {
-    "C:\\marfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj": {
+    "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\marfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
+        "projectUniqueName": "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
         "projectName": "MarfulApi",
-        "projectPath": "C:\\marfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
-        "packagesPath": "C:\\Users\\Hadoool\\.nuget\\packages\\",
-        "outputPath": "C:\\marfulApi\\MarfulApi\\MarfulApi\\obj\\",
+        "projectPath": "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
+        "packagesPath": "C:\\Users\\lamab\\.nuget\\packages\\",
+        "outputPath": "F:\\MarfulApi\\MarfulApi\\MarfulApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\ProgramData\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Hadoool\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lamab\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net60"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net60": {
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -43,7 +42,8 @@
         }
       },
       "frameworks": {
-        "net60": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -67,12 +67,26 @@
               "target": "Package",
               "version": "[6.3.0, )"
             }
-          }
-        }
-      },
-      "runtimes": {
-        "win7-x86": {
-          "#import": []
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
