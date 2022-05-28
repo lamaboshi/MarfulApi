@@ -4,8 +4,8 @@
     {
         public int Id { set; get; }
         public int UserId { set; get; }
-        public User User { set; get; }
+        public virtual User User { set; get; }
         public int CompanyId { set; get; }
-        public Company Company { set; get; }
+        public virtual Company Company { set; get; }
     }
 }

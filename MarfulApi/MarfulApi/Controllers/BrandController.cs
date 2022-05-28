@@ -23,7 +23,7 @@ namespace MarfulApi.Controllers
         [HttpPost]
         public IActionResult AddBrand([FromBody] Brand brand)
         {
-            if(brand != null)
+            if(brand == null)
             {
                 return BadRequest();
             }

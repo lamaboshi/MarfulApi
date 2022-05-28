@@ -9,11 +9,11 @@
         public string Password { set; get; }
         public string Phone { set; get; }
         public int Age { set; get; }
-        public string Baybal { set; get; }
-        public string? Image { set; get; }
-        public ICollection<InfulonserUser> infulonserUser { set; get; }
-        public ICollection<UserPost> UserPost { set; get; }
-        public ICollection<UserCompany> UserCompany { set; get; }
+        public string Paypal { set; get; }
+        public byte[]? Image { set; get; }
+        public virtual ICollection<InfulonserUser> infulonserUser { set; get; }
+        public virtual ICollection<UserPost> UserPost { set; get; }
+        public virtual ICollection<UserCompany> UserCompany { set; get; }
 
     }
 }

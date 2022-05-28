@@ -20,7 +20,7 @@ namespace MarfulApi.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TelePhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -55,7 +55,7 @@ namespace MarfulApi.Migrations
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -75,8 +75,8 @@ namespace MarfulApi.Migrations
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
-                    Baybal = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                    Paypal = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -221,7 +221,9 @@ namespace MarfulApi.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    InfulonserId = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    InfulonserId = table.Column<int>(type: "int", nullable: true),
                     CompanyContentId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -237,8 +239,7 @@ namespace MarfulApi.Migrations
                         name: "FK_Brands_Infulonsers_InfulonserId",
                         column: x => x.InfulonserId,
                         principalTable: "Infulonsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -266,7 +267,7 @@ namespace MarfulApi.Migrations
                         column: x => x.InfulonserId,
                         principalTable: "Infulonsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -278,7 +279,7 @@ namespace MarfulApi.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BrandId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -328,7 +329,7 @@ namespace MarfulApi.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     BrandId = table.Column<int>(type: "int", nullable: false),
                     JobId = table.Column<int>(type: "int", nullable: false),
                     InfulonserId = table.Column<int>(type: "int", nullable: false)
@@ -347,7 +348,7 @@ namespace MarfulApi.Migrations
                         column: x => x.InfulonserId,
                         principalTable: "Infulonsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Posts_Jobs_JobId",
                         column: x => x.JobId,
@@ -409,6 +410,41 @@ namespace MarfulApi.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Companies",
+                columns: new[] { "Id", "Address", "Description", "Email", "Image", "Name", "Phone", "TelePhone" },
+                values: new object[] { 1, "From Streat", "MakeUp For Weman", "Test@test.com", null, "JUICY BEAUTY", "0921423432", "4232543" });
+
+            migrationBuilder.InsertData(
+                table: "Contents",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[] { 1, "Just for Weman", "MackeUp" });
+
+            migrationBuilder.InsertData(
+                table: "Infulonsers",
+                columns: new[] { "Id", "Address", "Description", "Email", "Image", "Name", "Password", "Paypal", "Phone", "UserName" },
+                values: new object[] { 1, "USA LA", "fdsfsgfd", "test@test.com", null, "NoorStars", "0000", "dskjfhjh", "0965465760", "NoorStars" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Age", "Email", "Image", "Name", "Password", "Paypal", "Phone", "UserName" },
+                values: new object[,]
+                {
+                    { 1, 20, "test@test.com", null, "Noor", "0000", "Lb1267", "0964654765", "NonoSy" },
+                    { 2, 20, "test@test.com", null, "Ahamad", "0000", "Lb1267", "0964654765", "hamodaSy" },
+                    { 3, 20, "test@test.com", null, "Tala", "0000", "Lb1267", "0964654765", "totoSy" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CompanyContents",
+                columns: new[] { "Id", "CompanyId", "ContentId" },
+                values: new object[] { 1, 1, 1 });
+
+            migrationBuilder.InsertData(
+                table: "Brands",
+                columns: new[] { "Id", "CompanyContentId", "Description", "Image", "InfulonserId", "Name" },
+                values: new object[] { 1, 1, "Juicy Beauty was first founded in 2012 in Syria, Damascus. Juicy Beauty was first introduced in Lebanon in 2018.Juicy Beauty is an example of innovation in form due to its display with the largest makeup color made of vibrant and pure pigments and in substancethanks to the exclusive formulas and the revolutionary texture of its makeup products.Behind each product is the excellent research of an expert scientific team that develops new technologies and original formulas.High quality and extreme safety in addition to creativity, taste, and a focus on detail.That’s how JUICY ensures the finest standards of excellence through products that are both gentle and highly effective: Makeup formulas are produced in Europe. The range is subjected to accurate and in-depth safety evaluation.Juicy Beauty is the definition of having fun with makeup, trying new things,and feeling free! Not sure where to start? Why not visit our branches that are all over lebanon and test our products!", null, null, "JUICY BEAUTY" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Baskets_ProductId",
