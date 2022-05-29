@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    [Migration("20220528160542_init")]
+    [Migration("20220529212728_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,7 +62,6 @@ namespace MarfulApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Image")
@@ -106,7 +105,6 @@ namespace MarfulApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -121,11 +119,9 @@ namespace MarfulApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TelePhone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -185,7 +181,6 @@ namespace MarfulApi.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -240,11 +235,9 @@ namespace MarfulApi.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -267,11 +260,9 @@ namespace MarfulApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -351,7 +342,6 @@ namespace MarfulApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Code")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("InfulonserId")
@@ -411,7 +401,6 @@ namespace MarfulApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Image")
@@ -446,11 +435,9 @@ namespace MarfulApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Code")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Image")
@@ -468,6 +455,71 @@ namespace MarfulApi.Migrations
                     b.HasIndex("BrandId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 3,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Foundation",
+                            Price = 350.0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "CareKream",
+                            Price = 290.0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "CareSun",
+                            Price = 400.0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Plasher",
+                            Price = 600.0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Oclador",
+                            Price = 178.0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Mascara",
+                            Price = 1300.0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Tant",
+                            Price = 700.0
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.User", b =>
@@ -501,11 +553,9 @@ namespace MarfulApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

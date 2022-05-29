@@ -12,7 +12,7 @@ namespace MarfulApi.Data
         }
         public IQueryable<Brand> GetBrands => _db.Brands;
 
-        public void Delte(int IdBrand)
+        public void Delete(int IdBrand)
         {
             var brand = _db.Brands.First(t => t.Id == IdBrand);
             if (brand != null)
@@ -20,29 +20,38 @@ namespace MarfulApi.Data
                 _db.Brands.Remove(brand);
                 _db.SaveChanges();
             }
+            else throw new FileNotFoundException();
         }
 
         public Brand GetBrand(int IdBrand)
         {
             var brand = _db.Brands.First(t => t.Id == IdBrand);
             if (brand != null) return brand;
-            else throw new NotImplementedException();
+            else throw new FileNotFoundException();
 
         }
 
         public void Save(Brand brand)
         {
-            if (brand.Id!=0)
+            if (brand.Id == 0)
             {
                 _db.Brands.Add(brand);
+                _db.SaveChanges();
             }
-            else
+        }
+
+        public void Update(Brand brand)
+        {
+            var brandEntity = _db.Brands.First(t => t.Id == brand.Id);
+            if (brandEntity != null)
             {
-                var brandEntity = _db.Brands.Find(brand.Id);
                 brandEntity.Name = brand.Name;
-              
+                brandEntity.Description = brand.Description;
+                brandEntity.Image = brand.Image;
+                brandEntity.InfulonserId = brand.InfulonserId;
+                brandEntity.CompanyContentId = brand.CompanyContentId;
+                _db.SaveChanges();
             }
-            _db.SaveChanges();
         }
     }
 }

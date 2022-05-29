@@ -1,30 +1,29 @@
 ﻿using MarfulApi.Infrastructure;
 using MarfulApi.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MarfulApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class CompanyController : ControllerBase
     {
-        private readonly IProduct db;
-        public ProductController(IProduct _db)
+        private readonly ICompany db;
+        public CompanyController(ICompany _db)
         {
             db = _db;
         }
         [HttpGet]
-        public IActionResult GetProduct()
+        public IActionResult GetCompany()
         {
-            IQueryable<Product> data = db.GetProducts;
+            IQueryable<Company> data = db.GetCompanys;
             return Ok(data);
         }
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var data= db.GetProduct(id);
+            var data = db.GetCompany(id);
             if (data != null)
             {
                 return Ok(data);
@@ -33,31 +32,31 @@ namespace MarfulApi.Controllers
 
         }
 
- 
+
         [HttpPost]
-        public IActionResult AddProduct([FromBody] Product product)
+        public IActionResult AddCompany([FromBody] Company company)
         {
-            if (product == null)
+            if (company == null)
             {
                 return BadRequest();
             }
             else
             {
-                db.Save(product);
+                db.Save(company);
                 return Ok();
             }
 
         }
         [HttpPut("{id}")]
-        public IActionResult Put( [FromBody] Product product)
+        public IActionResult Put([FromBody] Company company)
         {
-            if (product == null || product.Id==0)
+            if (company == null || company.Id == 0)
             {
                 return BadRequest();
             }
             else
             {
-                db.Update(product);
+                db.Update(company);
                 return Ok();
             }
         }
@@ -65,7 +64,7 @@ namespace MarfulApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-           db.Delete(id);
+            db.Delete(id);
             return Ok();
         }
     }

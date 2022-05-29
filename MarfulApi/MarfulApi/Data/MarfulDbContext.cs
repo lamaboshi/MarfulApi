@@ -24,7 +24,7 @@ namespace MarfulApi.Data
         public DbSet<Message> Messages { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> Users{ get; set; }
         public DbSet<UserCompany> UserCompanies { get; set; }
         public DbSet<UserPost> UserPosts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

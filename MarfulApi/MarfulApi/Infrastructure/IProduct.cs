@@ -11,6 +11,7 @@ namespace MarfulApi.Infrastructure
         public Product GetProduct(int id);
        public  IQueryable<Product> GetProducts { get; }
        public void Save(Product product);
+        public void Update(Product product);
       public  void Delete(int id);
     }
 }

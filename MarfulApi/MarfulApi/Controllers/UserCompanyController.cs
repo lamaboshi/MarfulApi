@@ -7,23 +7,23 @@ namespace MarfulApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandController : ControllerBase
+    public class UserCompanyController : ControllerBase
     {
-        private readonly IBrand db;
-        public BrandController(IBrand _db)
+        private readonly IUserCompany db;
+        public UserCompanyController(IUserCompany _db)
         {
             db = _db;
         }
         [HttpGet]
-        public IActionResult GetBrands()
+        public IActionResult GetUserCompany()
         {
-            IQueryable<Brand> data = db.GetBrands;
+            IQueryable<UserCompany> data = db.GetUserCompanys;
             return Ok(data);
         }
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var data = db.GetBrand(id);
+            var data = db.GetUserCompany(id);
             if (data != null)
             {
                 return Ok(data);
@@ -34,31 +34,18 @@ namespace MarfulApi.Controllers
 
 
         [HttpPost]
-        public IActionResult AddBrand([FromBody] Brand brand)
+        public IActionResult AddUserCompany([FromBody] UserCompany userCompany)
         {
-            if (brand == null)
+            if (userCompany == null)
             {
                 return BadRequest();
             }
             else
             {
-                db.Save(brand);
+                db.Save(userCompany);
                 return Ok();
             }
 
-        }
-        [HttpPut("{id}")]
-        public IActionResult Put([FromBody] Brand brand)
-        {
-            if (brand == null || brand.Id == 0)
-            {
-                return BadRequest();
-            }
-            else
-            {
-                db.Update(brand);
-                return Ok();
-            }
         }
 
         [HttpDelete("{id}")]
@@ -66,6 +53,6 @@ namespace MarfulApi.Controllers
         {
             db.Delete(id);
             return Ok();
-         }
+        }
     }
 }
