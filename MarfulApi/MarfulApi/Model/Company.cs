@@ -6,6 +6,7 @@
         public string Name { set; get; }
         public string? Phone { set; get; }
         public string Email { set; get; }
+        public string Password { set; get; }
         public string? TelePhone { set; get; }
         public string Address{ set; get; }
         public byte[]? Image { set; get; }

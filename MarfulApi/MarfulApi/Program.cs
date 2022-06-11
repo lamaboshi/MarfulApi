@@ -30,6 +30,7 @@ builder.Services.AddTransient<IUserPost, UserPostRepo>();
 builder.Services.AddTransient<IUser, UserRepo>();
 builder.Services.AddTransient<IUserCompany, UserCompanyRepo>();
 builder.Services.AddTransient<ICompany, CompanyRepo>();
+builder.Services.AddTransient<IAuth, AuthRepo>();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
