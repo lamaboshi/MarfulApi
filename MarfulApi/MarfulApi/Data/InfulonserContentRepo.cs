@@ -19,22 +19,44 @@ namespace MarfulApi.Data
 
         public void Delete(int id)
         {
-            InfulonserContent infulonserContent = _db.InfulonserContents.Find(id);
-            _db.InfulonserContents.Remove(infulonserContent);
-            _db.SaveChanges();
+            var infulonserContent = _db.InfulonserContents.First(p=> p.Id== id);
+            if (infulonserContent != null)
+            {
+                _db.InfulonserContents.Remove(infulonserContent);
+                _db.SaveChanges();
+            }
+            else
+                throw new FileNotFoundException();
+            
         }
 
         public InfulonserContent GetInfulonserContent(int id)
         {
-            InfulonserContent infulonserContent = _db.InfulonserContents.Find(id);
-            return infulonserContent;
+            var infulonserContent = _db.InfulonserContents.First(p => p.Id == id);
+            if (infulonserContent != null)
+                return infulonserContent;
+             else throw new FileNotFoundException();
+
+
         }
 
         public void Save(InfulonserContent infulonserContent)
         {
-            _db.InfulonserContents.Add(infulonserContent);
-            _db.SaveChanges();
+            if (infulonserContent.Id == 0)
+            {
+                _db.InfulonserContents.Add(infulonserContent);
+                _db.SaveChanges();
+            }
         }
-
+        public void Update(InfulonserContent infulonserContent)
+        {
+            var infulonsercontent = _db.InfulonserContents.First(p => p.Id == infulonserContent.Id);
+            if (infulonserContent !=null)
+            {
+                infulonsercontent.ContentId = infulonserContent.ContentId;
+                infulonsercontent.InfulonserId = infulonserContent.InfulonserId;
+                _db.SaveChanges();
+            }
+        }
     }
 }

@@ -4,7 +4,8 @@ namespace MarfulApi.Infrastructure
 {
     public interface IMessage
     {
-        public IQueryable<Message> GetAllMessages { get;  }
         public void SaveMessage(Message message);
+        public IQueryable<Message> GetMessages{ get; }
+        public Message GetMessage(int IdMessage);
     }
 }

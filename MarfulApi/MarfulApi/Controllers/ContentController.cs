@@ -20,5 +20,50 @@ namespace MarfulApi.Controllers
             IQueryable<Content> data = db.GetContents;
             return Ok(data);
         }
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var data = db.GetContent(id);
+            if (data != null)
+            {
+                return Ok(data);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+        [HttpPost]
+        public IActionResult AddContent([FromBody] Content content)
+        {
+            if (content == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.Save(content);
+                return Ok();
+            }
+        }
+        [HttpPut("{id}")]
+        public IActionResult Put([FromBody] Content content)
+        {
+            if(content==null || content.Id==0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.Update(content);
+                return Ok();
+            }
+        }
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            db.Delete(id);
+            return Ok();
+        }
     }
 }

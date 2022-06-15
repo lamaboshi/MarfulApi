@@ -20,15 +20,52 @@ namespace MarfulApi.Controllers
             IQueryable<Brand> data = db.GetBrands;
             return Ok(data);
         }
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var data = db.GetBrand(id);
+            if (data != null)
+            {
+                return Ok(data);
+            }
+            return NotFound();
+
+        }
+
+
         [HttpPost]
         public IActionResult AddBrand([FromBody] Brand brand)
         {
-            if(brand != null)
+            if (brand == null)
             {
                 return BadRequest();
             }
-            db.Save(brand);
-            return Ok();
+            else
+            {
+                db.Save(brand);
+                return Ok();
+            }
+
         }
+        [HttpPut("{id}")]
+        public IActionResult Put([FromBody] Brand brand)
+        {
+            if (brand == null || brand.Id == 0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.Update(brand);
+                return Ok();
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            db.Delete(id);
+            return Ok();
+         }
     }
 }

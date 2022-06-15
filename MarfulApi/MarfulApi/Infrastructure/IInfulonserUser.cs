@@ -12,5 +12,6 @@ namespace MarfulApi.Infrastructure
         public IQueryable<InfulonserUser> GetInfulonserUsers { get; }
         public void Save(InfulonserUser infulonserUser);
         public void Delete(int id);
+        public void Update(InfulonserUser infulonserUser);
     }
 }

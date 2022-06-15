@@ -19,22 +19,40 @@ namespace MarfulApi.Data
 
         public void Delete(int id)
         {
-            var companyContent = _db.CompanyContents.Find(id);
-            _db.CompanyContents.Remove(companyContent);
-            _db.SaveChanges();
+            var companyContent = _db.CompanyContents.First(p=> p.Id == id);
+            if (companyContent != null)
+            {
+                _db.CompanyContents.Remove(companyContent);
+                _db.SaveChanges();
+            }
+            else throw new FileNotFoundException();
+           
         }
         public CompanyContent GetCompanyContent(int id)
         {
-            var companyContent = _db.CompanyContents.Find(id);
-            return companyContent;
+            var companyContent = _db.CompanyContents.First(p=> p.Id ==id);
+            if (companyContent != null)
+                return companyContent;
+            else
+                throw new FileNotFoundException();
         }
         public void Save(CompanyContent companyContent)
         {
-            
+            if (companyContent.Id == 0)
+            {
                 _db.CompanyContents.Add(companyContent);
                 _db.SaveChanges();
-            
-           
+            }
+        }
+        public void Update(CompanyContent companyContent)
+        {
+            var companycontent = _db.CompanyContents.First(p => p.Id == companyContent.Id);
+            if(companyContent != null)
+            {
+                companycontent.CompanyId = companyContent.CompanyId;
+                companycontent.ContentId = companyContent.ContentId;
+                _db.SaveChanges();
+            }
         }
     }
 }

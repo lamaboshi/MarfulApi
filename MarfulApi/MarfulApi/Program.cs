@@ -21,8 +21,17 @@ builder.Services.AddTransient<IInfulonser, InfulonserRepo>();
 builder.Services.AddTransient<IInfulonserContent, InfulonserContentRepo>();
 builder.Services.AddTransient<IInfulonserUser, InfulonserUserRepo>();
 builder.Services.AddTransient<IProduct, ProductRepo>();
+builder.Services.AddTransient<ICompany, CompanyRepo>();
+builder.Services.AddTransient<IPost, PostRepo>();
+builder.Services.AddTransient<IJob, JobRepo>();
+builder.Services.AddTransient<IMessage, MessageRepo>();
+builder.Services.AddTransient<IConversation, ConversationRepo>();
+builder.Services.AddTransient<IUserPost, UserPostRepo>();
+builder.Services.AddTransient<IUser, UserRepo>();
+builder.Services.AddTransient<IUserCompany, UserCompanyRepo>();
+builder.Services.AddTransient<ICompany, CompanyRepo>();
+builder.Services.AddTransient<IAuth, AuthRepo>();
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

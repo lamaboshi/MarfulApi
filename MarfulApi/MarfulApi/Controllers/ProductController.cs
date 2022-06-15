@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MarfulApi.Infrastructure;
+using MarfulApi.Model;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +10,63 @@ namespace MarfulApi.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        // GET: api/<ProductController>
+        private readonly IProduct db;
+        public ProductController(IProduct _db)
+        {
+            db = _db;
+        }
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult GetProduct()
         {
-            return new string[] { "value1", "value2" };
+            IQueryable<Product> data = db.GetProducts;
+            return Ok(data);
         }
-
-        // GET api/<ProductController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var data= db.GetProduct(id);
+            if (data != null)
+            {
+                return Ok(data);
+            }
+            return NotFound();
+
         }
 
-        // POST api/<ProductController>
+ 
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult AddProduct([FromBody] Product product)
         {
-        }
+            if (product == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.Save(product);
+                return Ok();
+            }
 
-        // PUT api/<ProductController>/5
+        }
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put( [FromBody] Product product)
         {
+            if (product == null || product.Id==0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.Update(product);
+                return Ok();
+            }
         }
 
-        // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+           db.Delete(id);
+            return Ok();
         }
     }
 }

@@ -19,14 +19,22 @@ namespace MarfulApi.Data
 
         public void Delete(int id)
         {
-            var infulonser = _db.Infulonsers.Find(id);
-            _db.Infulonsers.Remove(infulonser);
-            _db.SaveChanges();
+            var infulonser = _db.Infulonsers.First(p=>p.Id==id);
+            if (infulonser != null)
+            {
+                _db.Infulonsers.Remove(infulonser);
+                _db.SaveChanges();
+            }
+            else
+                throw new FileNotFoundException();
         }
         public Infulonser GetInfulonser(int id)
         {
-            var infulonser = _db.Infulonsers.Find(id);
-            return infulonser;
+            var infulonser = _db.Infulonsers.First(p=> p.Id==id);
+            if (infulonser != null)
+                return infulonser;
+            else
+                throw new FileNotFoundException();
         }
         public void Save(Infulonser infulonser)
         {
@@ -35,9 +43,13 @@ namespace MarfulApi.Data
                 _db.Infulonsers.Add(infulonser);
                 _db.SaveChanges();
             }
-            else
+           
+        }
+        public void Update(Infulonser infulonser)
+        {
+            var Infulonser = _db.Infulonsers.First(p => p.Id == infulonser.Id);
+            if(Infulonser != null)
             {
-                var Infulonser = _db.Infulonsers.Find(infulonser.Id);
                 Infulonser.Address = infulonser.Address;
                 Infulonser.Description = infulonser.Description;
                 Infulonser.Email = infulonser.Email;

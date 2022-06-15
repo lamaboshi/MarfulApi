@@ -18,24 +18,45 @@ namespace MarfulApi.Data
 
         public void Delete(int id)
         {
-            InfulonserUser infulonserUser = _db.InfulonserUsers.Find(id);
-            _db.InfulonserUsers.Remove(infulonserUser);
-            _db.SaveChanges();
+            var infulonserUser = _db.InfulonserUsers.First(p => p.Id == id);
+            if (infulonserUser != null)
+            {
+                _db.InfulonserUsers.Remove(infulonserUser);
+                _db.SaveChanges();
+            }
+            else
+                throw new FileNotFoundException();
+           
         }
+        public InfulonserUser GetInfulonserUser(int id)
+        {
+            var infulonserUser = _db.InfulonserUsers.First(p => p.Id == id);
+            if (infulonserUser != null)
 
+                return infulonserUser;
+            else
+                 throw new FileNotFoundException();
+            
+
+        }
         public void Save(InfulonserUser infulonserUser)
         {
-           
+           if(infulonserUser.Id ==0)
                 _db.InfulonserUsers.Add(infulonserUser);
                 _db.SaveChanges();
            
         }
 
-
-        InfulonserUser IInfulonserUser.GetInfulonserUser(int id)
+        public void Update(InfulonserUser infulonserUser)
         {
-            InfulonserUser infulonserUser = _db.InfulonserUsers.Find(id);
-            return infulonserUser;
+            var Infulonseruser = _db.InfulonserUsers.First(p => p.Id == infulonserUser.Id);
+            if(Infulonseruser !=null)
+            {
+                Infulonseruser.InfulonserId = infulonserUser.InfulonserId;
+                Infulonseruser.UserId = infulonserUser.UserId;
+                _db.SaveChanges();
+            }
         }
+        
     }
 }

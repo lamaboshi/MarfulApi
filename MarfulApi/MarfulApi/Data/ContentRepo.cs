@@ -3,7 +3,7 @@ using MarfulApi.Model;
 
 namespace MarfulApi.Data
 {
-    public class ContentRepo: IContent
+    public class ContentRepo : IContent
     {
         private readonly MarfulDbContext _db;
         public ContentRepo(MarfulDbContext db)
@@ -14,14 +14,23 @@ namespace MarfulApi.Data
   
         public void Delete(int id)
         {
-            Content content = _db.Contents.Find(id);
-            _db.Contents.Remove(content);
-            _db.SaveChanges();
+            var content = _db.Contents.First(p => p.Id == id);
+            if (content != null)
+            {
+                _db.Contents.Remove(content);
+                _db.SaveChanges();
+            }
+            else throw new FileNotFoundException();
+            
         }
         public Content GetContent(int id)
         {
-            Content content = _db.Contents.Find(id);
-            return content;
+            var content = _db.Contents.First(p => p.Id == id);
+            if (content != null)
+                return content;
+            else
+                throw new FileNotFoundException();
+           
         }
         public void Save(Content content)
         {
@@ -30,9 +39,13 @@ namespace MarfulApi.Data
                 _db.Contents.Add(content);
                 _db.SaveChanges();
             }
-            else
+           
+        }
+        public void  Update(Content content)
+        {
+            var Content = _db.Contents.First(p => p.Id == content.Id);
+            if(Content != null)
             {
-                Content Content = _db.Contents.Find(content.Id);
                 Content.Name = content.Name;
                 Content.Description = content.Description;
                 _db.SaveChanges();

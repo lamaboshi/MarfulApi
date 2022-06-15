@@ -12,5 +12,6 @@ namespace MarfulApi.Infrastructure
        public IQueryable<CompanyContent> GetCompanyContents { get; }
       public  void Save(CompanyContent companyContent);
       public  void Delete(int id);
+        public void Update(CompanyContent companycontent);
     }
 }

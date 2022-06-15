@@ -59,7 +59,13 @@ namespace MarfulApi.Migrations
                     b.Property<int>("CompanyContentId")
                         .HasColumnType("int");
 
-                    b.Property<int>("InfulonserId")
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<int?>("InfulonserId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -73,6 +79,15 @@ namespace MarfulApi.Migrations
                     b.HasIndex("InfulonserId");
 
                     b.ToTable("Brands");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyContentId = 1,
+                            Description = "Juicy Beauty was first founded in 2012 in Syria, Damascus. Juicy Beauty was first introduced in Lebanon in 2018.Juicy Beauty is an example of innovation in form due to its display with the largest makeup color made of vibrant and pure pigments and in substancethanks to the exclusive formulas and the revolutionary texture of its makeup products.Behind each product is the excellent research of an expert scientific team that develops new technologies and original formulas.High quality and extreme safety in addition to creativity, taste, and a focus on detail.That’s how JUICY ensures the finest standards of excellence through products that are both gentle and highly effective: Makeup formulas are produced in Europe. The range is subjected to accurate and in-depth safety evaluation.Juicy Beauty is the definition of having fun with makeup, trying new things,and feeling free! Not sure where to start? Why not visit our branches that are all over lebanon and test our products!",
+                            Name = "JUICY BEAUTY"
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Company", b =>
@@ -88,31 +103,45 @@ namespace MarfulApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("TelePhone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Companies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "From Streat",
+                            Description = "MakeUp For Weman",
+                            Email = "Test@test.com",
+                            Name = "JUICY BEAUTY",
+                            Password = "12123",
+                            Phone = "0921423432",
+                            TelePhone = "4232543"
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.CompanyContent", b =>
@@ -136,6 +165,14 @@ namespace MarfulApi.Migrations
                     b.HasIndex("ContentId");
 
                     b.ToTable("CompanyContents");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyId = 1,
+                            ContentId = 1
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Content", b =>
@@ -147,7 +184,6 @@ namespace MarfulApi.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -157,6 +193,14 @@ namespace MarfulApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Contents");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Just for Weman",
+                            Name = "MackeUp"
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Conversation", b =>
@@ -194,19 +238,17 @@ namespace MarfulApi.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -221,11 +263,9 @@ namespace MarfulApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -305,7 +345,6 @@ namespace MarfulApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Code")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("InfulonserId")
@@ -365,11 +404,10 @@ namespace MarfulApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<int>("InfulonserId")
                         .HasColumnType("int");
@@ -400,15 +438,12 @@ namespace MarfulApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Code")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Image")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Name")
@@ -423,6 +458,71 @@ namespace MarfulApi.Migrations
                     b.HasIndex("BrandId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 3,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Foundation",
+                            Price = 350.0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "CareKream",
+                            Price = 290.0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "CareSun",
+                            Price = 400.0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Plasher",
+                            Price = 600.0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Oclador",
+                            Price = 178.0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Mascara",
+                            Price = 1300.0
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BrandId = 1,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Tant",
+                            Price = 700.0
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.User", b =>
@@ -436,16 +536,12 @@ namespace MarfulApi.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("Baybal")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -455,12 +551,14 @@ namespace MarfulApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
+                    b.Property<string>("Paypal")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -472,10 +570,10 @@ namespace MarfulApi.Migrations
                         {
                             Id = 1,
                             Age = 20,
-                            Baybal = "Lb1267",
                             Email = "test@test.com",
                             Name = "Noor",
                             Password = "0000",
+                            Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "NonoSy"
                         },
@@ -483,10 +581,10 @@ namespace MarfulApi.Migrations
                         {
                             Id = 2,
                             Age = 20,
-                            Baybal = "Lb1267",
                             Email = "test@test.com",
                             Name = "Ahamad",
                             Password = "0000",
+                            Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "hamodaSy"
                         },
@@ -494,10 +592,10 @@ namespace MarfulApi.Migrations
                         {
                             Id = 3,
                             Age = 20,
-                            Baybal = "Lb1267",
                             Email = "test@test.com",
                             Name = "Tala",
                             Password = "0000",
+                            Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "totoSy"
                         });
@@ -581,9 +679,7 @@ namespace MarfulApi.Migrations
 
                     b.HasOne("MarfulApi.Model.Infulonser", "Infulonser")
                         .WithMany("Brand")
-                        .HasForeignKey("InfulonserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InfulonserId");
 
                     b.Navigation("CompanyContent");
 
