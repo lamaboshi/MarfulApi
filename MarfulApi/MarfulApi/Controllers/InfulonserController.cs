@@ -65,6 +65,20 @@ namespace MarfulApi.Controllers
                 return Ok();
             }
         }
+        [HttpPut]
+        public IActionResult Password([FromBody] Infulonser infulonser)
+        {
+            if (infulonser == null || infulonser.Id == 0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.ChangePassword(infulonser);
+                return Ok();
+            }
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
