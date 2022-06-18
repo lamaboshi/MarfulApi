@@ -64,8 +64,8 @@ namespace MarfulApi.Data
         }
         public bool IsExisting(string email)
         {
-            var data = _db.Infulonsers.Any(p => p.Email == email);
-            if (data != null)
+            bool data = _db.Infulonsers.Any(p => p.Email == email);
+            if (data == false)
             {
                 return false;
             }

@@ -31,8 +31,8 @@ namespace MarfulApi.Data
 
         public void Save(Company company)
         {
-            var data = _db.Companies.Any(p => p.Email == company.Email);
-            if (data == null)
+
+            if (company.Id == 0)
             {
                 _db.Companies.Add(company);
                 _db.SaveChanges();
@@ -56,6 +56,15 @@ namespace MarfulApi.Data
                     _db.SaveChanges();
                 }
             }
+        }
+        public bool IsExisting(string email)
+        {
+            bool data = _db.Companies.Any(p => p.Email == email);
+            if (data == false)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

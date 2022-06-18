@@ -36,16 +36,21 @@ namespace MarfulApi.Controllers
         [HttpPost]
         public IActionResult AddInfulonser([FromBody] Infulonser infulonser)
         {
-            if (infulonser == null)
+            if(infulonser == null)
             {
                 return BadRequest();
             }
-            else if (db.IsExisting(infulonser.Email))
+            else
             {
-                db.Save(infulonser);
-                return Ok();
-            }
-            else return NotFound();
+                bool data = db.IsExisting(infulonser.Email);
+                if (data == false)
+                {
+                    db.Save(infulonser);
+                    return Ok();
+                }
+                else
+                return NotFound();
+        }
         }
         [HttpPut("{id}")]
         public IActionResult Put([FromBody] Infulonser infulonser)

@@ -42,8 +42,13 @@ namespace MarfulApi.Controllers
             }
             else
             {
-                db.Save(company);
-                return Ok();
+                bool data = db.IsExisting(company.Email);
+                if (data == false)
+                {
+                    db.Save(company);
+                    return Ok();
+                }
+                else return NotFound();
             }
 
         }

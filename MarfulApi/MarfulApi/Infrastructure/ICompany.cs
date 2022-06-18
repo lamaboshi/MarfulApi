@@ -9,5 +9,6 @@ namespace MarfulApi.Infrastructure
         public void Save(Company company);
         public void Update(Company company);
         public void Delete(int id);
+        public bool IsExisting(string email);
     }
 }

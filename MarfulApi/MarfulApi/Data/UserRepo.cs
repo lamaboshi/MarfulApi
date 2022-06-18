@@ -31,7 +31,8 @@ namespace MarfulApi.Data
 
         public void Save(User user)
         {
-            if (user.Id == 0)
+            
+            if (user.Id == 0 )
             {
                 _db.Users.Add(user);
                 _db.SaveChanges();
@@ -56,6 +57,15 @@ namespace MarfulApi.Data
                     _db.SaveChanges();
                 }
             }
+        }
+        public bool IsExisting(string email)
+        {
+            bool data = _db.Users.Any(p => p.Email == email);
+            if (data == false)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
