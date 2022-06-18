@@ -31,7 +31,8 @@ namespace MarfulApi.Data
 
         public void Save(Company company)
         {
-            if (company.Id == 0)
+            var data = _db.Companies.Any(p => p.Email == company.Email);
+            if (data == null)
             {
                 _db.Companies.Add(company);
                 _db.SaveChanges();

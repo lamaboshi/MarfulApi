@@ -62,5 +62,14 @@ namespace MarfulApi.Data
                 _db.SaveChanges();
             }
         }
+        public bool IsExisting(string email)
+        {
+            var data = _db.Infulonsers.Any(p => p.Email == email);
+            if (data != null)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
