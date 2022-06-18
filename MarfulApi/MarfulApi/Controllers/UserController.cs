@@ -65,6 +65,19 @@ namespace MarfulApi.Controllers
                 return Ok();
             }
         }
+        [HttpPut]
+        public IActionResult Password([FromBody] User user)
+        {
+            if (user == null || user.Id == 0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.ChangePassword(user);
+                return Ok();
+            }
+        }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
