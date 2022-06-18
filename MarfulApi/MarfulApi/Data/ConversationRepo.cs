@@ -1,5 +1,6 @@
 ﻿using MarfulApi.Infrastructure;
 using MarfulApi.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarfulApi.Data
 {
@@ -10,7 +11,11 @@ namespace MarfulApi.Data
         {
             _db = db;
         }
-        public IQueryable<Conversation> GetConversations => _db.Conversations;
+        public List<Conversation> GetConversations()
+        {
+            var data = _db.Conversations.Include(t => t.Infulonser).Include(p => p.Company).ToList();
+            return data;
+        } 
 
         public void Delete(int id)
         {
