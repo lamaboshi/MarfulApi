@@ -15,7 +15,7 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
-builder.Services.AddSignalR();
+builder.Services.AddSignalR().AddJsonProtocol(x => x.PayloadSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddDbContext<MarfulDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("sqlServer")));
 builder.Services.AddTransient<IContent,ContentRepo>();
 builder.Services.AddTransient<IBasket, BasketRepo>();
