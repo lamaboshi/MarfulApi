@@ -42,9 +42,15 @@ namespace MarfulApi.Controllers
             }
             else
             {
-                db.Save(infulonser);
-                return Ok();
-            }
+                bool data = db.IsExisting(infulonser.Email);
+                if (data == false)
+                {
+                    db.Save(infulonser);
+                    return Ok();
+                }
+                else
+                return NotFound();
+        }
         }
         [HttpPut("{id}")]
         public IActionResult Put([FromBody] Infulonser infulonser)
@@ -59,6 +65,20 @@ namespace MarfulApi.Controllers
                 return Ok();
             }
         }
+        [HttpPut]
+        public IActionResult Password([FromBody] Infulonser infulonser)
+        {
+            if (infulonser == null || infulonser.Id == 0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.ChangePassword(infulonser);
+                return Ok();
+            }
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

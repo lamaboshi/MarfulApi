@@ -13,5 +13,7 @@ namespace MarfulApi.Infrastructure
        public void Save(Infulonser infulonser);
        public void Delete(int id);
        public void Update(Infulonser infulonser);
+        public bool IsExisting(string email);
+        public void ChangePassword(Infulonser infulonser);
     }
 }

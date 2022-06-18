@@ -62,5 +62,23 @@ namespace MarfulApi.Data
                 _db.SaveChanges();
             }
         }
+        public bool IsExisting(string email)
+        {
+            bool data = _db.Infulonsers.Any(p => p.Email == email);
+            if (data == false)
+            {
+                return false;
+            }
+            return true;
+        }
+        public void ChangePassword(Infulonser infulonser)
+        {
+            var data = _db.Infulonsers.First(p => p.Id == infulonser.Id);
+            if (data != null)
+            {
+                data.Password = infulonser.Password;
+                _db.SaveChanges();
+            }
+        }
     }
 }

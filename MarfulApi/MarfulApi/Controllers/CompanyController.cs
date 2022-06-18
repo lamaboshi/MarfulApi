@@ -42,8 +42,13 @@ namespace MarfulApi.Controllers
             }
             else
             {
-                db.Save(company);
-                return Ok();
+                bool data = db.IsExisting(company.Email);
+                if (data == false)
+                {
+                    db.Save(company);
+                    return Ok();
+                }
+                else return NotFound();
             }
 
         }
@@ -57,6 +62,19 @@ namespace MarfulApi.Controllers
             else
             {
                 db.Update(company);
+                return Ok();
+            }
+        }
+        [HttpPut]
+        public IActionResult Password([FromBody] Company company)
+        {
+            if (company == null || company.Id == 0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.ChangePassword(company);
                 return Ok();
             }
         }
