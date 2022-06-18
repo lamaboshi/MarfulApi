@@ -9640,30 +9640,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hadoool\\.nuget\\packages\\": {},
+    "C:\\Users\\lamab\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\ProgramData\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\marfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
+      "projectUniqueName": "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
       "projectName": "MarfulApi",
-      "projectPath": "C:\\marfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
-      "packagesPath": "C:\\Users\\Hadoool\\.nuget\\packages\\",
-      "outputPath": "C:\\marfulApi\\MarfulApi\\MarfulApi\\obj\\",
+      "projectPath": "F:\\MarfulApi\\MarfulApi\\MarfulApi\\MarfulApi.csproj",
+      "packagesPath": "C:\\Users\\lamab\\.nuget\\packages\\",
+      "outputPath": "F:\\MarfulApi\\MarfulApi\\MarfulApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\ProgramData\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Hadoool\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lamab\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
