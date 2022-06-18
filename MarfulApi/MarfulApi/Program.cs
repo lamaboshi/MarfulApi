@@ -2,14 +2,18 @@ using Microsoft.EntityFrameworkCore;
 using MarfulApi.Data;
 using MarfulApi.Infrastructure;
 using MarfulApi.Hubs;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
 builder.Services.AddDbContext<MarfulDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("sqlServer")));

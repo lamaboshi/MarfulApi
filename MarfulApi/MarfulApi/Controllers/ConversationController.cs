@@ -17,7 +17,7 @@ namespace MarfulApi.Controllers
         [HttpGet]
         public IActionResult GetConversation()
         {
-            IQueryable<Conversation> data = db.GetConversations;
+            var data = db.GetConversations();
             return Ok(data);
         }
         [HttpGet("{id}")]
