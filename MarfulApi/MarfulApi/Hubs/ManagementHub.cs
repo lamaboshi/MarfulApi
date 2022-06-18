@@ -30,12 +30,12 @@ namespace MarfulApi.Hubs
             return Task.FromResult($"World at {DateTime.Now}");
         }
 
-        //public async Task<List<Conversation>> GA_Conversations()
-        //{
-        //    var data= _repo.GetConversations.ToList();
-        //    return data;
+        public Task<List<Conversation>> GA_Conversations()
+        {
+            var data = _repo.GetConversations();
+            return Task.FromResult(data);
 
-        //}
+        }
         public async Task SendMessage(string user, Message message)
         {
             await Clients.All.SendAsync("ReceiveMessage", user, message);
