@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MarfulApi.Infrastructure;
 using MarfulApi.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarfulApi.Data
 {
@@ -14,7 +15,6 @@ namespace MarfulApi.Data
         {
             _db = db;
         }
-        public IQueryable<InfulonserUser> GetInfulonserUsers => _db.InfulonserUsers;
 
         public void Delete(int id)
         {
@@ -28,6 +28,13 @@ namespace MarfulApi.Data
                 throw new FileNotFoundException();
            
         }
+
+        public List<InfulonserUser> GetAllInfulonserUsers(int IdUser)
+        {
+            var data = _db.InfulonserUsers.Where(t => t.UserId == IdUser).Include(t=>t.Infulonser).ToList();
+            return data;
+        }
+
         public InfulonserUser GetInfulonserUser(int id)
         {
             var infulonserUser = _db.InfulonserUsers.First(p => p.Id == id);

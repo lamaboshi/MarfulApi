@@ -14,10 +14,10 @@ namespace MarfulApi.Controllers
         {
             db = _db;
         }
-        [HttpGet]
-        public IActionResult GetUserCompany()
+        [HttpGet("{userId}")]
+        public IActionResult GetUserCompany(int UserId)
         {
-            IQueryable<UserCompany> data = db.GetUserCompanys;
+            var data = db.GetAllUserCompanys(UserId);
             return Ok(data);
         }
         [HttpGet("{id}")]

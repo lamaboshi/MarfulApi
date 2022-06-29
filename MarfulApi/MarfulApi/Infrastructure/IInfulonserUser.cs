@@ -9,7 +9,7 @@ namespace MarfulApi.Infrastructure
     public interface IInfulonserUser
     {
         public  InfulonserUser GetInfulonserUser(int id);
-        public IQueryable<InfulonserUser> GetInfulonserUsers { get; }
+        public List<InfulonserUser> GetAllInfulonserUsers(int IdUser);
         public void Save(InfulonserUser infulonserUser);
         public void Delete(int id);
         public void Update(InfulonserUser infulonserUser);

@@ -45,9 +45,9 @@ namespace MarfulApi.Data
             modelBuilder.Entity<Product>().HasData(new Product { Id = 7, Name = "Oclador", Price = 178, Description = "This some Text about found", BrandId = 1, Code = "32434" });
             modelBuilder.Entity<Product>().HasData(new Product { Id = 8, Name = "Mascara", Price = 1300, Description = "This some Text about found", BrandId = 1, Code = "32434" });
             modelBuilder.Entity<Product>().HasData(new Product { Id = 9, Name = "Tant", Price = 700, Description = "This some Text about found", BrandId = 1, Code = "32434" });
-            modelBuilder.Entity<Conversation>().HasData(new Conversation { Id=1,CompanyId=1,InfulonserId=1, Start=DateTime.Parse("09/14/2009 8:00"), });
-            modelBuilder.Entity<Message>().HasData(new Message { Id = 1, ConversationId=1,MessageStatus=false,SendTime= DateTime.Parse("09/14/2009 8:00"),Text= "hi thanke you very match for this it was nice one" });
-            modelBuilder.Entity<Message>().HasData(new Message { Id = 2, ConversationId = 1, MessageStatus = true, SendTime = DateTime.Parse("09/14/2009 8:00"), Text = "hi thanke you very match for this it was nice one" });
+            modelBuilder.Entity<Conversation>().HasData(new Conversation { Id=1,CompanyId=1,InfulonserId=1, Start=DateTime.Now, });
+            modelBuilder.Entity<Message>().HasData(new Message { Id = 1, ConversationId=1,MessageStatus=false,SendTime= DateTime.Now,Text= "hi thanke you very match for this it was nice one" });
+            modelBuilder.Entity<Message>().HasData(new Message { Id = 2, ConversationId = 1, MessageStatus = true, SendTime = DateTime.Now, Text = "hi thanke you very match for this it was nice one" });
         }
 
     }
