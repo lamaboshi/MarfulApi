@@ -76,16 +76,41 @@ namespace MarfulApi.Data
                 _db.SaveChanges();
             }
         }
-        public void GetPost(User user)
+        public List<Post> GetPost(string email)
         {
-            List<InfulonserUser> infulonser = _db.InfulonserUsers.Where(p => p.UserId == user.Id).ToList();
-            if (infulonser != null)
+            User u = _db.Users.First(p => p.Email == email);
+            List<Post> posts = new List<Post>();
+            List<InfulonserUser> infulonsers = _db.InfulonserUsers.Where(p => p.UserId == u.Id).ToList();
+            List<UserCompany> companies = _db.UserCompanies.Where(p => p.UserId == u.Id).ToList();
+            
+            if(companies != null)
             {
-                for (int i = 0; i < infulonser.Count; i++)
+                foreach(UserCompany e in companies)
                 {
-                    List<Post> posts = _db.Posts.Where(p => p.InfulonserId == infulonser[i].InfulonserId).ToList();
+                    List<CompanyContent> companyContents = _db.CompanyContents.Where(p => p.CompanyId == e.CompanyId).ToList();
+                    foreach (CompanyContent n in companyContents)
+                    {
+                        List<Brand> brands = _db.Brands.Where(p => p.CompanyContentId == e.Id).ToList();
+
+                        foreach (Brand b in brands)
+                        {
+                           List< Post> compposts = _db.Posts.Where(p => p.BrandId == b.Id).ToList();
+                            posts.AddRange(compposts);
+                        }
+                    }
+                }   
+            }
+            
+            if (infulonsers !=null  )
+            {
+                foreach(InfulonserUser e in infulonsers)
+                {
+                  List< Post> infposts = _db.Posts.Where(p => p.InfulonserId == e.InfulonserId ).ToList();
+                    posts.AddRange(infposts);
                 }
             }
+            return posts;
+            
         }
     }
 }
