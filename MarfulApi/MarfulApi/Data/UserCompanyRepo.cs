@@ -1,5 +1,6 @@
 ﻿using MarfulApi.Infrastructure;
 using MarfulApi.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarfulApi.Data
 {
@@ -10,7 +11,6 @@ namespace MarfulApi.Data
         {
             _db = db;
         }
-        public IQueryable<UserCompany> GetUserCompanys => _db.UserCompanies;
 
         public void Delete(int id)
         {
@@ -20,6 +20,12 @@ namespace MarfulApi.Data
                 _db.UserCompanies.Remove(result);
                 _db.SaveChanges();
             }
+        }
+
+        public List<UserCompany> GetAllUserCompanys(int userId)
+        {
+            var data = _db.UserCompanies.Where(p => p.UserId == userId).Include(z => z.Company).ToList();
+            return data;
         }
 
         public UserCompany GetUserCompany(int id)

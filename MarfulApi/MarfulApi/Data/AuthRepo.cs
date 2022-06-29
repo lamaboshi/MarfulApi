@@ -1,4 +1,5 @@
-﻿using MarfulApi.Infrastructure;
+﻿using MarfulApi.Dto;
+using MarfulApi.Infrastructure;
 
 namespace MarfulApi.Data
 {
@@ -12,11 +13,11 @@ namespace MarfulApi.Data
         public object? GetAuth(string email, string password)
         {
             var data = _db.Users.Where(t => t.Email == email&&t.Password==password).FirstOrDefault();
-            if (data != null) return data;
+            if (data != null) return new AuthDto {Data=data,Type= "user" } ;
             var dataComapny = _db.Companies.Where(t => t.Email == email && t.Password == password).FirstOrDefault();
-            if (dataComapny != null) return dataComapny;
+            if (dataComapny != null) return new AuthDto { Data = dataComapny, Type = "comapny" };
             var dataiInful = _db.Infulonsers.Where(t => t.Email == email && t.Password == password).FirstOrDefault();
-            if (dataiInful != null) return dataiInful;
+            if (dataiInful != null) return new AuthDto { Data = dataiInful, Type = "infulonser" };
             return null;
         }
     }

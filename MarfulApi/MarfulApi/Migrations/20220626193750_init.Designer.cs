@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    [Migration("20220618113528_AddMessageStatu")]
-    partial class AddMessageStatu
+    [Migration("20220626193750_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,7 +138,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Address = "From Streat",
                             Description = "MakeUp For Weman",
-                            Email = "Test@test.com",
+                            Email = "company1@test.com",
                             Name = "JUICY BEAUTY",
                             Password = "12123",
                             Phone = "0921423432",
@@ -229,6 +229,15 @@ namespace MarfulApi.Migrations
                     b.HasIndex("InfulonserId");
 
                     b.ToTable("Conversations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyId = 1,
+                            InfulonserId = 1,
+                            Start = new DateTime(2009, 9, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Infulonser", b =>
@@ -280,7 +289,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Address = "USA LA",
                             Description = "fdsfsgfd",
-                            Email = "test@test.com",
+                            Email = "info@test.com",
                             Name = "NoorStars",
                             Password = "0000",
                             Paypal = "dskjfhjh",
@@ -375,7 +384,7 @@ namespace MarfulApi.Migrations
                     b.Property<int>("ConversationId")
                         .HasColumnType("int");
 
-                    b.Property<int>("JobId")
+                    b.Property<int?>("JobId")
                         .HasColumnType("int");
 
                     b.Property<bool>("MessageStatus")
@@ -395,6 +404,24 @@ namespace MarfulApi.Migrations
                     b.HasIndex("JobId");
 
                     b.ToTable("Messages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ConversationId = 1,
+                            MessageStatus = false,
+                            SendTime = new DateTime(2009, 9, 14, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            Text = "hi thanke you very match for this it was nice one"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ConversationId = 1,
+                            MessageStatus = true,
+                            SendTime = new DateTime(2009, 9, 14, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            Text = "hi thanke you very match for this it was nice one"
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Post", b =>
@@ -575,9 +602,9 @@ namespace MarfulApi.Migrations
                         {
                             Id = 1,
                             Age = 20,
-                            Email = "test@test.com",
+                            Email = "user1@test.com",
                             Name = "Noor",
-                            Password = "0000",
+                            Password = "123",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "NonoSy"
@@ -586,9 +613,9 @@ namespace MarfulApi.Migrations
                         {
                             Id = 2,
                             Age = 20,
-                            Email = "test@test.com",
+                            Email = "user2@test.com",
                             Name = "Ahamad",
-                            Password = "0000",
+                            Password = "456",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "hamodaSy"
@@ -597,9 +624,9 @@ namespace MarfulApi.Migrations
                         {
                             Id = 3,
                             Age = 20,
-                            Email = "test@test.com",
+                            Email = "user3@test.com",
                             Name = "Tala",
-                            Password = "0000",
+                            Password = "789",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "totoSy"
@@ -796,9 +823,7 @@ namespace MarfulApi.Migrations
 
                     b.HasOne("MarfulApi.Model.Job", "Job")
                         .WithMany("Messages")
-                        .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("JobId");
 
                     b.Navigation("Conversation");
 

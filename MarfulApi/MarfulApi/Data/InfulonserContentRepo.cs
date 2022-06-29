@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using MarfulApi.Infrastructure;
 
 using MarfulApi.Model;
+using Microsoft.EntityFrameworkCore;
+
 namespace MarfulApi.Data
 {
     public class InfulonserContentRepo : IInfulonserContent
@@ -15,7 +17,6 @@ namespace MarfulApi.Data
             _db = db;
         }
 
-        public IQueryable<InfulonserContent> GetInfulonserContents => _db.InfulonserContents;
 
         public void Delete(int id)
         {
@@ -30,12 +31,16 @@ namespace MarfulApi.Data
             
         }
 
+        public List<InfulonserContent> GetAllInfulonserContents(int IdInful)
+        {
+               var data = _db.InfulonserContents.Where(p => p.InfulonserId == IdInful).Include(t => t.Content).ToList();
+            return data;
+        }
+
         public InfulonserContent GetInfulonserContent(int id)
         {
-            var infulonserContent = _db.InfulonserContents.First(p => p.Id == id);
-            if (infulonserContent != null)
-                return infulonserContent;
-             else throw new FileNotFoundException();
+            var infulonserContent = _db.InfulonserContents.Where(p => p.InfulonserId == id).Include(t=>t.Content).First();
+            return infulonserContent;
 
 
         }

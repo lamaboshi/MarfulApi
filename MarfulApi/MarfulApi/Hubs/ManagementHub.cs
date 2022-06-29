@@ -11,10 +11,12 @@ namespace MarfulApi.Hubs
         /// <summary>
         /// Pings this instance.
         /// </summary>
-            private readonly IConversation _repo;
-        public ManagementHub(IConversation repo)
+            private readonly IConversation _repoConversation;
+        private readonly IMessage _repoMessage;
+        public ManagementHub(IConversation repoConversation, IMessage repoMessage)
         {
-            _repo = repo;
+            _repoConversation = repoConversation;
+            _repoMessage = repoMessage;
         }
         public async Task Ping()
         {
@@ -30,12 +32,18 @@ namespace MarfulApi.Hubs
             return Task.FromResult($"World at {DateTime.Now}");
         }
 
-        //public async Task<List<Conversation>> GA_Conversations()
-        //{
-        //    var data= _repo.GetConversations.ToList();
-        //    return data;
+        public Task<List<Conversation>> GA_Conversations()
+        {
+            var data = _repoConversation.GetConversations();
+            return Task.FromResult(data);
 
-        //}
+        }
+        public Task<List<Message>> GA_Messages(int IdConvo)
+        {
+            var data = _repoMessage.GetMessagesChat(IdConvo);
+            return Task.FromResult(data);
+
+        }
         public async Task SendMessage(string user, Message message)
         {
             await Clients.All.SendAsync("ReceiveMessage", user, message);
