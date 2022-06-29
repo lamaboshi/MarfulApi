@@ -18,6 +18,7 @@ namespace MarfulApi.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TelePhone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
@@ -302,7 +303,8 @@ namespace MarfulApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SendTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    JobId = table.Column<int>(type: "int", nullable: false),
+                    MessageStatus = table.Column<bool>(type: "bit", nullable: false),
+                    JobId = table.Column<int>(type: "int", nullable: true),
                     ConversationId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -318,8 +320,7 @@ namespace MarfulApi.Migrations
                         name: "FK_Messages_Jobs_JobId",
                         column: x => x.JobId,
                         principalTable: "Jobs",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -413,8 +414,8 @@ namespace MarfulApi.Migrations
 
             migrationBuilder.InsertData(
                 table: "Companies",
-                columns: new[] { "Id", "Address", "Description", "Email", "Image", "Name", "Phone", "TelePhone" },
-                values: new object[] { 1, "From Streat", "MakeUp For Weman", "Test@test.com", null, "JUICY BEAUTY", "0921423432", "4232543" });
+                columns: new[] { "Id", "Address", "Description", "Email", "Image", "Name", "Password", "Phone", "TelePhone" },
+                values: new object[] { 1, "From Streat", "MakeUp For Weman", "company1@test.com", null, "JUICY BEAUTY", "12123", "0921423432", "4232543" });
 
             migrationBuilder.InsertData(
                 table: "Contents",
@@ -424,16 +425,16 @@ namespace MarfulApi.Migrations
             migrationBuilder.InsertData(
                 table: "Infulonsers",
                 columns: new[] { "Id", "Address", "Description", "Email", "Image", "Name", "Password", "Paypal", "Phone", "UserName" },
-                values: new object[] { 1, "USA LA", "fdsfsgfd", "test@test.com", null, "NoorStars", "0000", "dskjfhjh", "0965465760", "NoorStars" });
+                values: new object[] { 1, "USA LA", "fdsfsgfd", "info@test.com", null, "NoorStars", "0000", "dskjfhjh", "0965465760", "NoorStars" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Age", "Email", "Image", "Name", "Password", "Paypal", "Phone", "UserName" },
                 values: new object[,]
                 {
-                    { 1, 20, "test@test.com", null, "Noor", "0000", "Lb1267", "0964654765", "NonoSy" },
-                    { 2, 20, "test@test.com", null, "Ahamad", "0000", "Lb1267", "0964654765", "hamodaSy" },
-                    { 3, 20, "test@test.com", null, "Tala", "0000", "Lb1267", "0964654765", "totoSy" }
+                    { 1, 20, "user1@test.com", null, "Noor", "123", "Lb1267", "0964654765", "NonoSy" },
+                    { 2, 20, "user2@test.com", null, "Ahamad", "456", "Lb1267", "0964654765", "hamodaSy" },
+                    { 3, 20, "user3@test.com", null, "Tala", "789", "Lb1267", "0964654765", "totoSy" }
                 });
 
             migrationBuilder.InsertData(
@@ -442,9 +443,24 @@ namespace MarfulApi.Migrations
                 values: new object[] { 1, 1, 1 });
 
             migrationBuilder.InsertData(
+                table: "Conversations",
+                columns: new[] { "Id", "CompanyId", "InfulonserId", "Start" },
+                values: new object[] { 1, 1, 1, new DateTime(2009, 9, 14, 8, 0, 0, 0, DateTimeKind.Unspecified) });
+
+            migrationBuilder.InsertData(
                 table: "Brands",
                 columns: new[] { "Id", "CompanyContentId", "Description", "Image", "InfulonserId", "Name" },
                 values: new object[] { 1, 1, "Juicy Beauty was first founded in 2012 in Syria, Damascus. Juicy Beauty was first introduced in Lebanon in 2018.Juicy Beauty is an example of innovation in form due to its display with the largest makeup color made of vibrant and pure pigments and in substancethanks to the exclusive formulas and the revolutionary texture of its makeup products.Behind each product is the excellent research of an expert scientific team that develops new technologies and original formulas.High quality and extreme safety in addition to creativity, taste, and a focus on detail.That’s how JUICY ensures the finest standards of excellence through products that are both gentle and highly effective: Makeup formulas are produced in Europe. The range is subjected to accurate and in-depth safety evaluation.Juicy Beauty is the definition of having fun with makeup, trying new things,and feeling free! Not sure where to start? Why not visit our branches that are all over lebanon and test our products!", null, null, "JUICY BEAUTY" });
+
+            migrationBuilder.InsertData(
+                table: "Messages",
+                columns: new[] { "Id", "ConversationId", "JobId", "MessageStatus", "SendTime", "Text" },
+                values: new object[] { 1, 1, null, false, new DateTime(2009, 9, 14, 8, 0, 0, 0, DateTimeKind.Unspecified), "hi thanke you very match for this it was nice one" });
+
+            migrationBuilder.InsertData(
+                table: "Messages",
+                columns: new[] { "Id", "ConversationId", "JobId", "MessageStatus", "SendTime", "Text" },
+                values: new object[] { 2, 1, null, true, new DateTime(2009, 9, 14, 8, 0, 0, 0, DateTimeKind.Unspecified), "hi thanke you very match for this it was nice one" });
 
             migrationBuilder.InsertData(
                 table: "Products",

@@ -20,6 +20,12 @@ namespace MarfulApi.Data
             else throw new NotImplementedException();
         }
 
+        public List<Message> GetMessagesChat(int IdConver)
+        {
+            var result = _db.Messages.Where(e => e.ConversationId == IdConver).ToList();
+            if (result != null) return result;
+            else throw new NotImplementedException();
+        }
 
         public void SaveMessage(Message message)
         {

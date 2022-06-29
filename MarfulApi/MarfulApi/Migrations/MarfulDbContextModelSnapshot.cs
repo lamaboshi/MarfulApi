@@ -136,7 +136,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Address = "From Streat",
                             Description = "MakeUp For Weman",
-                            Email = "Test@test.com",
+                            Email = "company1@test.com",
                             Name = "JUICY BEAUTY",
                             Password = "12123",
                             Phone = "0921423432",
@@ -287,7 +287,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Address = "USA LA",
                             Description = "fdsfsgfd",
-                            Email = "test@test.com",
+                            Email = "info@test.com",
                             Name = "NoorStars",
                             Password = "0000",
                             Paypal = "dskjfhjh",
@@ -600,9 +600,9 @@ namespace MarfulApi.Migrations
                         {
                             Id = 1,
                             Age = 20,
-                            Email = "test@test.com",
+                            Email = "user1@test.com",
                             Name = "Noor",
-                            Password = "0000",
+                            Password = "123",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "NonoSy"
@@ -611,9 +611,9 @@ namespace MarfulApi.Migrations
                         {
                             Id = 2,
                             Age = 20,
-                            Email = "test@test.com",
+                            Email = "user2@test.com",
                             Name = "Ahamad",
-                            Password = "0000",
+                            Password = "456",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "hamodaSy"
@@ -622,9 +622,9 @@ namespace MarfulApi.Migrations
                         {
                             Id = 3,
                             Age = 20,
-                            Email = "test@test.com",
+                            Email = "user3@test.com",
                             Name = "Tala",
-                            Password = "0000",
+                            Password = "789",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "totoSy"
