@@ -31,8 +31,8 @@ namespace MarfulApi.Data
 
         public void Save(User user)
         {
-            
-            if (user.Id == 0 )
+
+            if (user.Id == 0)
             {
                 _db.Users.Add(user);
                 _db.SaveChanges();
@@ -70,10 +70,21 @@ namespace MarfulApi.Data
         public void ChangePassword(User user)
         {
             var data = _db.Users.First(p => p.Id == user.Id);
-            if(data != null)
+            if (data != null)
             {
                 data.Password = user.Password;
                 _db.SaveChanges();
+            }
+        }
+        public void GetPost(User user)
+        {
+            List<InfulonserUser> infulonser = _db.InfulonserUsers.Where(p => p.UserId == user.Id).ToList();
+            if (infulonser != null)
+            {
+                for (int i = 0; i < infulonser.Count; i++)
+                {
+                    List<Post> posts = _db.Posts.Where(p => p.InfulonserId == infulonser[i].InfulonserId).ToList();
+                }
             }
         }
     }

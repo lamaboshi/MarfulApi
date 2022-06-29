@@ -85,5 +85,18 @@ namespace MarfulApi.Controllers
             db.Delete(id);
             return Ok();
         }
+        [HttpGet]
+        public IActionResult GetPost([FromBody] User user)
+        {
+            if(user == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.GetPost(user);
+                return Ok();
+            }
+        }
     }
 }

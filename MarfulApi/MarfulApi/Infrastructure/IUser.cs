@@ -11,5 +11,6 @@ namespace MarfulApi.Infrastructure
         public void Delete(int id);
         public bool IsExisting(string email);
         public void ChangePassword(User user);
+        public void GetPost(User user);
     }
 }
