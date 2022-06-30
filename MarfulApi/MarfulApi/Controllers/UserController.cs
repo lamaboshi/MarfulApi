@@ -87,19 +87,6 @@ namespace MarfulApi.Controllers
             db.Delete(id);
             return Ok();
         }
-        [HttpGet]
-        [ActionName("Posts")]
-        public IActionResult Posts( string  email)
-        {
-            if (email == null)
-            {
-                return BadRequest();
-            }
-            else
-            {
-               var data= db.GetPost(email);
-                return Ok(data);
-            }
-        }
+        
     }
 }

@@ -1,5 +1,5 @@
 ﻿using MarfulApi.Model;
-
+using MarfulApi.Dto;
 namespace MarfulApi.Infrastructure
 {
     public interface IUser
@@ -11,6 +11,6 @@ namespace MarfulApi.Infrastructure
         public void Delete(int id);
         public bool IsExisting(string email);
         public void ChangePassword(User user);
-        public List<Post> GetPost(string email);
+       
     }
 }
