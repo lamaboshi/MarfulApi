@@ -31,9 +31,9 @@ namespace MarfulApi.Data
             
         }
 
-        public List<InfulonserContent> GetAllInfulonserContents(int IdInful)
+        public List<Content> GetAllInfulonserContents(int IdInful)
         {
-               var data = _db.InfulonserContents.Where(p => p.InfulonserId == IdInful).Include(t => t.Content).ToList();
+               var data = _db.InfulonserContents.Where(p => p.InfulonserId == IdInful).Include(t => t.Content).Select(o=>o.Content).ToList();
             return data;
         }
 

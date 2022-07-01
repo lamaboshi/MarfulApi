@@ -22,9 +22,9 @@ namespace MarfulApi.Data
             }
         }
 
-        public List<UserCompany> GetAllUserCompanys(int userId)
+        public List<Company> GetAllUserCompanys(int userId)
         {
-            var data = _db.UserCompanies.Where(p => p.UserId == userId).Include(z => z.Company).ToList();
+            var data = _db.UserCompanies.Where(p => p.UserId == userId).Include(z => z.Company).Select(o=>o.Company).ToList();
             return data;
         }
 

@@ -16,22 +16,11 @@ namespace MarfulApi.Controllers
             db = _db;
         }
         [HttpGet("{idInful}")]
-        public IActionResult GetInfulonserContents(int idInful)
+        public IActionResult GetAllInfulonserContents(int idInful)
         {
-            List<InfulonserContent> data = db.GetAllInfulonserContents(idInful);
+           var data = db.GetAllInfulonserContents(idInful);
             if (data ==null) { return NotFound(); }
             return Ok(data);
-        }
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var data = db.GetInfulonserContent(id);
-            if (data == null)
-            {
-                return NotFound();
-            }
-            else
-                return Ok(data);
         }
         [HttpPost]
         public IActionResult AddInfulonserContent([FromBody] InfulonserContent infulonserContent)
