@@ -1,6 +1,6 @@
 ﻿using MarfulApi.Infrastructure;
 using MarfulApi.Model;
-
+using MarfulApi.Dto;
 namespace MarfulApi.Data
 {
     public class UserRepo : IUser
@@ -31,8 +31,8 @@ namespace MarfulApi.Data
 
         public void Save(User user)
         {
-            
-            if (user.Id == 0 )
+
+            if (user.Id == 0)
             {
                 _db.Users.Add(user);
                 _db.SaveChanges();
@@ -70,11 +70,12 @@ namespace MarfulApi.Data
         public void ChangePassword(User user)
         {
             var data = _db.Users.First(p => p.Id == user.Id);
-            if(data != null)
+            if (data != null)
             {
                 data.Password = user.Password;
                 _db.SaveChanges();
             }
         }
+       
     }
 }

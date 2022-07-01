@@ -4,6 +4,7 @@ using MarfulApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    partial class MarfulDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220629183151_a")]
+    partial class a
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -234,7 +236,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-                            Start = new DateTime(2022, 6, 30, 13, 50, 16, 988, DateTimeKind.Local).AddTicks(522)
+                            Start = new DateTime(2022, 6, 29, 21, 31, 50, 638, DateTimeKind.Local).AddTicks(1060)
                         });
                 });
 
@@ -340,14 +342,6 @@ namespace MarfulApi.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("InfulonserUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            InfulonserId = 1,
-                            UserId = 1
-                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Job", b =>
@@ -417,7 +411,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-                            SendTime = new DateTime(2022, 6, 30, 13, 50, 16, 988, DateTimeKind.Local).AddTicks(778),
+                            SendTime = new DateTime(2022, 6, 29, 21, 31, 50, 638, DateTimeKind.Local).AddTicks(1116),
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -425,7 +419,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-                            SendTime = new DateTime(2022, 6, 30, 13, 50, 16, 988, DateTimeKind.Local).AddTicks(830),
+                            SendTime = new DateTime(2022, 6, 29, 21, 31, 50, 638, DateTimeKind.Local).AddTicks(1132),
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -453,9 +447,6 @@ namespace MarfulApi.Migrations
                     b.Property<int?>("JobId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("dateTime")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
@@ -465,36 +456,6 @@ namespace MarfulApi.Migrations
                     b.HasIndex("JobId");
 
                     b.ToTable("Posts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = " test for infulonser post",
-                            InfulonserId = 1,
-                            dateTime = new DateTime(2022, 6, 30, 13, 50, 16, 988, DateTimeKind.Local).AddTicks(953)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = " test another post for infulonser",
-                            InfulonserId = 1,
-                            dateTime = new DateTime(2022, 6, 30, 13, 50, 16, 988, DateTimeKind.Local).AddTicks(996)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BrandId = 1,
-                            Description = " test for company post",
-                            dateTime = new DateTime(2022, 6, 30, 13, 50, 16, 988, DateTimeKind.Local).AddTicks(1032)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BrandId = 1,
-                            Description = " test another post for company",
-                            dateTime = new DateTime(2022, 6, 30, 13, 50, 16, 988, DateTimeKind.Local).AddTicks(1067)
-                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Product", b =>
@@ -693,14 +654,6 @@ namespace MarfulApi.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserCompanies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CompanyId = 1,
-                            UserId = 1
-                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.UserPost", b =>
@@ -727,29 +680,6 @@ namespace MarfulApi.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserPosts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            InterAction = true,
-                            PostId = 1,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            InterAction = false,
-                            PostId = 2,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            InterAction = true,
-                            PostId = 4,
-                            UserId = 1
-                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Basket", b =>

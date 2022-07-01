@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MarfulApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -15,12 +15,14 @@ namespace MarfulApi.Controllers
             db = _db;
         }
         [HttpGet]
+        [ActionName("GetUser")]
         public IActionResult GetUser()
         {
             IQueryable<User> data = db.GetUsers;
             return Ok(data);
         }
         [HttpGet("{id}")]
+        [ActionName("Get")]
         public IActionResult Get(int id)
         {
             var data = db.GetUser(id);
@@ -85,5 +87,6 @@ namespace MarfulApi.Controllers
             db.Delete(id);
             return Ok();
         }
+        
     }
 }
