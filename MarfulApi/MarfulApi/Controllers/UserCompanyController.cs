@@ -15,21 +15,10 @@ namespace MarfulApi.Controllers
             db = _db;
         }
         [HttpGet("{userId}")]
-        public IActionResult GetUserCompany(int UserId)
+        public IActionResult GetAllUserCompanys(int userId)
         {
-            var data = db.GetAllUserCompanys(UserId);
+            var data = db.GetAllUserCompanys(userId);
             return Ok(data);
-        }
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var data = db.GetUserCompany(id);
-            if (data != null)
-            {
-                return Ok(data);
-            }
-            return NotFound();
-
         }
 
 

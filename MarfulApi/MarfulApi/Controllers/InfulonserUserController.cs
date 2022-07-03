@@ -20,19 +20,7 @@ namespace MarfulApi.Controllers
             var data = db.GetAllInfulonserUsers(userId);
             return Ok(data);
         }
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var data = db.GetInfulonserUser(id);
-            if(data== null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(data);
-            }
-        }
+     
         [HttpPost]
         public IActionResult AddInfulonserUser([FromBody] InfulonserUser infulonserUser)
         {
