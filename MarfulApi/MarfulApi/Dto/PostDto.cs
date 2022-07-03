@@ -5,6 +5,8 @@ namespace MarfulApi.Dto
     {
         public Post post { get; set; }
         public bool Interaction { get; set; }
-        public bool NoInteraction { get; set; }
+        public bool NoInteraction { get; set; } 
+        public string Name { get; set; }
+        public byte[]? Image { set; get; }
     }
 }

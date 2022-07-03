@@ -91,7 +91,7 @@ namespace MarfulApi.Data
         public void GetCompanyPosts()
         {
             foreach (UserCompany e in companies)
-            {
+            { 
                 List<CompanyContent> companyContents = _db.CompanyContents.Where(p => p.CompanyId == e.CompanyId).ToList();
                 foreach (CompanyContent n in companyContents)
                 {
@@ -129,23 +129,60 @@ namespace MarfulApi.Data
        
         public void GetPostsReaction(List<Post> Posts)
         {
+            Company compName = new Company();
             foreach (Post e in Posts)
             {
                 PostDto p = new PostDto();
                 UserPost userPost = _db.UserPosts.Where(p => p.PostId == e.Id).FirstOrDefault();
+                Infulonser infName = _db.Infulonsers.Where(p => p.Id == e.InfulonserId).FirstOrDefault();
+                Brand brand = _db.Brands.Where(p => p.Id == e.BrandId).FirstOrDefault();
+                if (brand != null)
+                {
+                    CompanyContent compcontent = _db.CompanyContents.Where(p => p.Id == brand.CompanyContentId).FirstOrDefault();
+                    compName = _db.Companies.Where(p => p.Id == compcontent.CompanyId).FirstOrDefault();
+                }
+                else  compName = null;
                 if (userPost != null)
                 {
-                    p.post = e;
-                    p.Interaction = userPost.InterAction;
-                    p.NoInteraction = false;
-                    postDtos.Add(p);
+                    if (infName != null)
+                    {
+                        p.post = e;
+                        p.Interaction = userPost.InterAction;
+                        p.NoInteraction = false;
+                        p.Name = infName.Name;
+                        p.Image = infName.Image;
+                        postDtos.Add(p);
+                    }
+                    else if(compName != null)
+                    {
+                        p.post = e;
+                        p.Interaction = userPost.InterAction;
+                        p.NoInteraction = false;
+                        p.Name = compName.Name;
+                        p.Image = compName.Image;
+                        postDtos.Add(p);
+                    }
                 }
                 else
                 {
-                    p.post = e;
-                    p.Interaction = false;
-                    p.NoInteraction = true;
-                    postDtos.Add(p);
+                    if (infName != null)
+                    {
+                        p.post = e;
+                        p.Interaction = false;
+                        p.NoInteraction = true;
+                        p.Name = infName.Name;
+                        p.Image = infName.Image;
+                        postDtos.Add(p);
+                    }
+                    else if(compName != null)
+                    {
+                        p.post = e;
+                        p.Interaction = false;
+                        p.NoInteraction = true;
+                        p.Name = compName.Name;
+                        p.Image = compName.Image;
+                        postDtos.Add(p);
+                    }
                 }
 
             }
