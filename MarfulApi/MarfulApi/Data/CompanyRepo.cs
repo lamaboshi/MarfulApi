@@ -67,12 +67,12 @@ namespace MarfulApi.Data
             }
             return true;
         }
-        public void ChangePassword(Company company)
+        public void ChangePassword(int Id,string password)
         {
-            var data = _db.Companies.First(p => p.Id == company.Id);
+            var data = _db.Companies.First(p => p.Id == Id);
             if (data != null)
             {
-                data.Password = company.Password;
+                data.Password = password;
                 _db.SaveChanges();
             }
             

@@ -10,7 +10,7 @@ namespace MarfulApi.Infrastructure
         public void Update(User user);
         public void Delete(int id);
         public bool IsExisting(string email);
-        public void ChangePassword(User user);
+        public void ChangePassword(int Id, string password);
        
     }
 }

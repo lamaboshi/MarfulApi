@@ -79,15 +79,16 @@ namespace MarfulApi.Controllers
             }
         }
         [HttpPut]
-        public IActionResult Password([FromBody] Company company)
+        [ActionName("Password")]
+        public IActionResult Password([FromQuery] int Id,[FromQuery]string password)
         {
-            if (company == null || company.Id == 0)
+            if (password == null || Id == 0)
             {
                 return BadRequest();
             }
             else
             {
-                db.ChangePassword(company);
+                db.ChangePassword(Id,password);
                 return Ok();
             }
         }
