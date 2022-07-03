@@ -10,7 +10,8 @@ namespace MarfulApi.Infrastructure
     {
        public Infulonser GetInfulonser(int id);
        public IQueryable<Infulonser> GetInfulonsers { get; }
-       public void Save(Infulonser infulonser);
+        public List<Post> getAllPostInfulonser(int Id);
+        public void Save(Infulonser infulonser);
        public void Delete(int id);
        public void Update(Infulonser infulonser);
         public bool IsExisting(string email);
