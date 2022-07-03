@@ -6,6 +6,7 @@ namespace MarfulApi.Infrastructure
     {
         public Company GetCompany(int id);
         public IQueryable<Company> GetCompanys { get; }
+        public List<Post> GetAllCompanyPost(int Id);
         public void Save(Company company);
         public void Update(Company company);
         public void Delete(int id);

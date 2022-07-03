@@ -17,6 +17,11 @@ namespace MarfulApi.Data
 
         public IQueryable<Infulonser> GetInfulonsers => _db.Infulonsers;
 
+        public List<Post> getAllPostInfulonser(int Id) {
+            var data = _db.Posts.Where(p => p.InfulonserId == Id).ToList();
+            return data;
+        }
+
         public void Delete(int id)
         {
             var infulonser = _db.Infulonsers.First(p=>p.Id==id);

@@ -1,5 +1,6 @@
 ﻿using MarfulApi.Infrastructure;
 using MarfulApi.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarfulApi.Data
 {
@@ -75,6 +76,13 @@ namespace MarfulApi.Data
                 _db.SaveChanges();
             }
             
+        }
+
+        public  List<Post> GetAllCompanyPost(int Id)
+        {
+            var posts =  _db.Companies.Where(p=>p.Id==Id).SelectMany(p=>p.CompanyContent.SelectMany(t=>t.Brand.SelectMany(y=>y.Post))).Include(r=>r.Brand).ToList();
+            return posts;
+
         }
     }
 }

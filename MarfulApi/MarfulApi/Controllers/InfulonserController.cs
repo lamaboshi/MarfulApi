@@ -20,11 +20,19 @@ namespace MarfulApi.Controllers
             IQueryable<Infulonser> data = db.GetInfulonsers;
             return Ok(data);
         }
+        [HttpGet("{idInfulonser}")]
+        [ActionName("GetAllPosts")]
+        public IActionResult GetAllPosts(int idInfulonser)
+        {
+            var data = db.getAllPostInfulonser(idInfulonser);
+            if(data.Any()) return Ok(data);
+            return BadRequest();
+        }
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             var data = db.GetInfulonser(id);
-            if(data== null)
+            if (data == null)
             {
                 return NotFound();
             }

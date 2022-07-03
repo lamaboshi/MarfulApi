@@ -15,13 +15,15 @@ namespace MarfulApi.Controllers
             db = _db;
         }
         [HttpGet]
-        public IActionResult GetCompany()
+        [ActionName("GetAllCompany")]
+        public IActionResult GetAllCompany()
         {
             IQueryable<Company> data = db.GetCompanys;
             return Ok(data);
         }
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [ActionName("GetCompany")]
+        public IActionResult GetCompany(int id)
         {
             var data = db.GetCompany(id);
             if (data != null)
@@ -31,7 +33,18 @@ namespace MarfulApi.Controllers
             return NotFound();
 
         }
+        [HttpGet("{idCompany}")]
+        [ActionName("GetAllPosts")]
+        public IActionResult GetAllPosts(int idCompany)
+        {
+            var data = db.GetAllCompanyPost(idCompany);
+            if (data != null)
+            {
+                return Ok(data);
+            }
+            return NotFound();
 
+        }
 
         [HttpPost]
         public IActionResult AddCompany([FromBody] Company company)
