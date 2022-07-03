@@ -25,17 +25,17 @@ namespace MarfulApi.Data
             var dataUser = _db.Users.Where(p => p.Email == email).FirstOrDefault();
             if (dataUser != null)
             {
-                return new AuthDto { Data = dataUser, Type = "user" };
+                return new IsExistingDto { Id = dataUser.Id, Type = "user" };
             }
             var dataCompany = _db.Companies.Where(p => p.Email == email).FirstOrDefault();
             if (dataCompany != null)
             {
-                return new AuthDto { Data = dataCompany, Type = "company" };
+                return new IsExistingDto { Id = dataCompany.Id, Type = "company" };
             }
             var dataInfulonser = _db.Infulonsers.Where(p => p.Email == email).FirstOrDefault();
             if (dataInfulonser != null)
             {
-                return new AuthDto { Data = dataInfulonser, Type = "infulonser" };
+                return new IsExistingDto {  Id= dataInfulonser.Id, Type = "infulonser" };
             }
             return null;
         }

@@ -5,7 +5,7 @@ using MarfulApi.Model;
 
 namespace MarfulApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class InfulonserController : ControllerBase
     {
@@ -66,15 +66,16 @@ namespace MarfulApi.Controllers
             }
         }
         [HttpPut]
-        public IActionResult Password([FromBody] Infulonser infulonser)
+        [ActionName("Password")]
+        public IActionResult Password([FromQuery] int Id,[FromQuery] string password)
         {
-            if (infulonser == null || infulonser.Id == 0)
+            if (password == null || Id == 0)
             {
                 return BadRequest();
             }
             else
             {
-                db.ChangePassword(infulonser);
+                db.ChangePassword(Id,password);
                 return Ok();
             }
         }
