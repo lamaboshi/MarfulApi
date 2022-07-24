@@ -1,6 +1,8 @@
 ﻿using MarfulApi.Model;
 using MarfulApi.Dto;
 using MarfulApi.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+
 namespace MarfulApi.Data
 {
     public class MainRepo :IMain
@@ -122,7 +124,7 @@ namespace MarfulApi.Data
         {
             foreach (InfulonserUser e in infulonsers)
             {
-                List<Post> infposts = _db.Posts.Where(p => p.InfulonserId == e.InfulonserId).ToList();
+                List<Post> infposts = _db.Posts.Where(p => p.InfulonserId == e.InfulonserId).Include(r=>r.Infulonser ).ToList();
                 posts.AddRange(infposts);
             }
         }
@@ -161,7 +163,7 @@ namespace MarfulApi.Data
                         p.Name = compName.Name;
                         p.Image = compName.Image;
                         postDtos.Add(p);
-                    }
+                    }   
                 }
                 else
                 {
