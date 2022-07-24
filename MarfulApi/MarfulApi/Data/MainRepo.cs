@@ -1,6 +1,8 @@
 ﻿using MarfulApi.Model;
 using MarfulApi.Dto;
 using MarfulApi.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+
 namespace MarfulApi.Data
 {
     public class MainRepo :IMain
@@ -9,16 +11,11 @@ namespace MarfulApi.Data
         List<Post> posts = new List<Post>();
         //for get all posts with interaction 
         List<PostDto> postDtos = new List<PostDto>();
-      
-        
         //get all companies this user follow
         List<UserCompany> companies = new List<UserCompany>();
         //get all infulonser this user follow
         List<InfulonserUser> infulonsers = new List<InfulonserUser>();
-        // get compaines brands
-        List<Brand> brandscomp = new List<Brand>();
-        // get infulonser brands
-        List<Brand> brandinf = new List<Brand>();
+       
         private readonly MarfulDbContext _db;
         public MainRepo(MarfulDbContext db)
         {
@@ -67,7 +64,7 @@ namespace MarfulApi.Data
                         companies = _db.UserCompanies.Where(p => p.UserId == user.Id && p.CompanyId == e.CompanyId).ToList();
                     }
                     if (companies.Count != 0)
-                        GetCompanyPostBycontent();
+                        GetCompanyPosts();
                 }
                 if (infulonserContents.Count != 0)
                 {
@@ -90,39 +87,18 @@ namespace MarfulApi.Data
         }
         public void GetCompanyPosts()
         {
-            foreach (UserCompany e in companies)
-            { 
-                List<CompanyContent> companyContents = _db.CompanyContents.Where(p => p.CompanyId == e.CompanyId).ToList();
-                foreach (CompanyContent n in companyContents)
-                {
-                    List<Brand> brands = _db.Brands.Where(p => p.CompanyContentId == e.Id).ToList();
-
-                    foreach (Brand b in brands)
-                    {
-                        List<Post> compposts = _db.Posts.Where(p => p.BrandId == b.Id).ToList();
-                        posts.AddRange(compposts);
-                    }
-                }
-            }
-        }
-        public void GetCompanyPostBycontent()
-        {
-
-            foreach (UserCompany e in companies)
+            foreach(UserCompany e in companies)
             {
-                brandscomp = _db.Brands.Where(p => p.CompanyContent.CompanyId == e.CompanyId).ToList();
-                foreach (Brand b in brandscomp)
-                {
-                    List<Post> compPost = _db.Posts.Where(p => p.BrandId == b.Id).ToList();
-                    posts.AddRange(compPost);
-                }
+                var compposts = _db.Companies.Where(p => p.Id == e.CompanyId).SelectMany(p => p.CompanyContent.SelectMany(t => t.Brand.SelectMany(y => y.Post))).Include(r=>r.UserPost).Include(r=>r.Brand).ToList();
+                posts.AddRange(compposts);
             }
         }
+        
         public void GetInfulonserPosts()
         {
             foreach (InfulonserUser e in infulonsers)
             {
-                List<Post> infposts = _db.Posts.Where(p => p.InfulonserId == e.InfulonserId).ToList();
+                var infposts = _db.Infulonsers.Where(p => p.Id == e.InfulonserId).SelectMany(p => p.Posts).Include(r=>r.UserPost).Include(r=>r.Infulonser).ToList();
                 posts.AddRange(infposts);
             }
         }
@@ -133,27 +109,26 @@ namespace MarfulApi.Data
             foreach (Post e in Posts)
             {
                 PostDto p = new PostDto();
-                UserPost userPost = _db.UserPosts.Where(p => p.PostId == e.Id).FirstOrDefault();
-                Infulonser infName = _db.Infulonsers.Where(p => p.Id == e.InfulonserId).FirstOrDefault();
-                Brand brand = _db.Brands.Where(p => p.Id == e.BrandId).FirstOrDefault();
-                if (brand != null)
+                if (e.Brand != null)
                 {
-                    CompanyContent compcontent = _db.CompanyContents.Where(p => p.Id == brand.CompanyContentId).FirstOrDefault();
+
+                    CompanyContent compcontent = _db.CompanyContents.Where(p => p.Id == e.Brand.CompanyContentId).FirstOrDefault();
                     compName = _db.Companies.Where(p => p.Id == compcontent.CompanyId).FirstOrDefault();
                 }
-                else  compName = null;
-                if (userPost != null)
+                else compName = null;
+                if (e.UserPost.Count != 0)
                 {
-                    if (infName != null)
+                    UserPost userPost = _db.UserPosts.Where(p => p.PostId == e.Id).FirstOrDefault();
+                    if (e.Infulonser != null)
                     {
                         p.post = e;
                         p.Interaction = userPost.InterAction;
                         p.NoInteraction = false;
-                        p.Name = infName.Name;
-                        p.Image = infName.Image;
+                        p.Name = e.Infulonser.Name;
+                        p.Image = e.Infulonser.Image;
                         postDtos.Add(p);
                     }
-                    else if(compName != null)
+                    else
                     {
                         p.post = e;
                         p.Interaction = userPost.InterAction;
@@ -165,16 +140,16 @@ namespace MarfulApi.Data
                 }
                 else
                 {
-                    if (infName != null)
+                    if (e.Infulonser != null)
                     {
                         p.post = e;
                         p.Interaction = false;
                         p.NoInteraction = true;
-                        p.Name = infName.Name;
-                        p.Image = infName.Image;
+                        p.Name = e.Infulonser.Name;
+                        p.Image = e.Infulonser.Image;
                         postDtos.Add(p);
                     }
-                    else if(compName != null)
+                    else
                     {
                         p.post = e;
                         p.Interaction = false;
@@ -183,13 +158,9 @@ namespace MarfulApi.Data
                         p.Image = compName.Image;
                         postDtos.Add(p);
                     }
-                }
 
+                }
             }
-        }
-       
-      
-      
-        
+        }     
     }
 }
