@@ -15,15 +15,15 @@ namespace MarfulApi.Controllers
         }
         [HttpGet]
         [ActionName("Posts")]
-        public IActionResult Posts([FromQuery]string email)
+        public IActionResult Posts([FromQuery]string email,[FromQuery]string Type)
         {
-            if (email == null)
+            if (email == null || Type== null)
             {
                 return BadRequest();
             }
             else
             {
-                var data = db.GetPost(email);
+                var data = db.GetUserPost(email);
                 if (data != null)
                     return Ok(data);
                 else
@@ -40,7 +40,7 @@ namespace MarfulApi.Controllers
             }
             else
             {
-                var data = db.GetPostByConent(id, email);
+                var data = db.GetUserPostByConent(id, email);
                 if (data != null)
                     return Ok(data);
                 else

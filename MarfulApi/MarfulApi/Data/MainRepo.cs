@@ -21,7 +21,7 @@ namespace MarfulApi.Data
         {
             _db = db;
         }
-        public List<PostDto> GetPost(string email)
+        public List<PostDto> GetUserPost(string email)
         {
             User u = _db.Users.FirstOrDefault(p => p.Email == email);
             if (u != null)
@@ -49,7 +49,7 @@ namespace MarfulApi.Data
             else return null;
 
         }
-        public List<PostDto> GetPostByConent(int IdContent, string email)
+        public List<PostDto> GetUserPostByConent(int IdContent, string email)
         {
             Content content = _db.Contents.FirstOrDefault(p => p.Id == IdContent);
             User user = _db.Users.First(p => p.Email == email);

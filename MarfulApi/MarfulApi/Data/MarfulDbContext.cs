@@ -27,8 +27,25 @@ namespace MarfulApi.Data
         public DbSet<User> Users { get; set; }
         public DbSet<UserCompany> UserCompanies { get; set; }
         public DbSet<UserPost> UserPosts { get; set; }
+        public DbSet<InfulonserFollowInfulonser> InfulonserFollowInfulonsers { get; set; }
+        public DbSet<InfulonserCompany> InfulonserCompanies { get; set; }
+        public DbSet<InfulonserPost> InfulonserPosts { get; set; }
+
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<InfulonserFollowInfulonser>()
+                .HasOne(m => m.Follow)
+                .WithMany(m => m.Follow)
+                .HasForeignKey(m => m.FollowId)
+                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<InfulonserFollowInfulonser>()
+                .HasOne(x => x.Followed)
+                .WithMany(x => x.Followed)
+                .HasForeignKey(x => x.FollowedId)
+                .OnDelete(DeleteBehavior.NoAction);
+           
+
             modelBuilder.Entity<Company>().HasData(new Company { Id = 1, Name = "JUICY BEAUTY", Description = "MakeUp For Weman", Address = "From Streat", Email = "company1@test.com", Phone = "0921423432", TelePhone = "4232543", Password = "12123" });
             modelBuilder.Entity<Content>().HasData(new Content { Id = 1, Name = "MackeUp", Description = "Just for Weman", });
             modelBuilder.Entity<CompanyContent>().HasData(new CompanyContent { Id = 1, CompanyId = 1, ContentId = 1 });

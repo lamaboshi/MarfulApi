@@ -2,6 +2,7 @@
 {
     public class Infulonser
     {
+        
         public int Id { set; get; }
         public string Name { set; get; }
         public string? Phone { set; get; }
@@ -18,5 +19,9 @@
         public virtual ICollection<Brand>? Brand { set; get; }
         public virtual ICollection<InfulonserContent>? infulonserContent { set; get; }
         public virtual ICollection<InfulonserUser>? infulonserUser { set; get; }
+        public virtual ICollection<InfulonserFollowInfulonser>? Follow { set; get; }
+        public virtual ICollection<InfulonserFollowInfulonser>? Followed { set; get; }
+        public virtual ICollection<InfulonserCompany>? InfulonserCompany { set; get; }
+        public virtual ICollection<InfulonserPost>? InfulonserPost { set; get; }
     }
 }
