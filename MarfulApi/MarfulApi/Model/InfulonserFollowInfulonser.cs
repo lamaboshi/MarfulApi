@@ -10,7 +10,7 @@ namespace MarfulApi.Model
         public int Id { set; get; }
         
         public int? FollowId { set; get; }
-        public int FollowedId { set; get; }
+        public int? FollowedId { set; get; }
         public virtual Infulonser? Follow { set; get; }
         public virtual Infulonser? Followed { set; get; }
     }

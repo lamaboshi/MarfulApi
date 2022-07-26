@@ -4,6 +4,7 @@ using MarfulApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    partial class MarfulDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220726195630_g")]
+    partial class g
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -192,33 +194,6 @@ namespace MarfulApi.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MarfulApi.Model.CompanyInfulonser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("CompanyId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Followed")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("InfulonserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
-
-                    b.HasIndex("InfulonserId");
-
-                    b.ToTable("CompanyInfulonsers");
-                });
-
             modelBuilder.Entity("MarfulApi.Model.CompanyType", b =>
                 {
                     b.Property<int>("Id")
@@ -306,7 +281,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-                            Start = new DateTime(2022, 7, 26, 23, 0, 55, 717, DateTimeKind.Local).AddTicks(6467)
+                            Start = new DateTime(2022, 7, 26, 22, 56, 29, 45, DateTimeKind.Local).AddTicks(8452)
                         });
                 });
 
@@ -538,7 +513,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-                            SendTime = new DateTime(2022, 7, 26, 23, 0, 55, 717, DateTimeKind.Local).AddTicks(6520),
+                            SendTime = new DateTime(2022, 7, 26, 22, 56, 29, 45, DateTimeKind.Local).AddTicks(8515),
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -546,7 +521,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-                            SendTime = new DateTime(2022, 7, 26, 23, 0, 55, 717, DateTimeKind.Local).AddTicks(6532),
+                            SendTime = new DateTime(2022, 7, 26, 22, 56, 29, 45, DateTimeKind.Local).AddTicks(8532),
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -593,28 +568,28 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Description = " test for infulonser post",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 7, 26, 23, 0, 55, 717, DateTimeKind.Local).AddTicks(6567)
+                            dateTime = new DateTime(2022, 7, 26, 22, 56, 29, 45, DateTimeKind.Local).AddTicks(8581)
                         },
                         new
                         {
                             Id = 2,
                             Description = " test another post for infulonser",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 7, 26, 23, 0, 55, 717, DateTimeKind.Local).AddTicks(6580)
+                            dateTime = new DateTime(2022, 7, 26, 22, 56, 29, 45, DateTimeKind.Local).AddTicks(8600)
                         },
                         new
                         {
                             Id = 3,
                             BrandId = 1,
                             Description = " test for company post",
-                            dateTime = new DateTime(2022, 7, 26, 23, 0, 55, 717, DateTimeKind.Local).AddTicks(6590)
+                            dateTime = new DateTime(2022, 7, 26, 22, 56, 29, 45, DateTimeKind.Local).AddTicks(8692)
                         },
                         new
                         {
                             Id = 4,
                             BrandId = 1,
                             Description = " test another post for company",
-                            dateTime = new DateTime(2022, 7, 26, 23, 0, 55, 717, DateTimeKind.Local).AddTicks(6599)
+                            dateTime = new DateTime(2022, 7, 26, 22, 56, 29, 45, DateTimeKind.Local).AddTicks(8711)
                         });
                 });
 
@@ -950,21 +925,6 @@ namespace MarfulApi.Migrations
                     b.Navigation("Content");
                 });
 
-            modelBuilder.Entity("MarfulApi.Model.CompanyInfulonser", b =>
-                {
-                    b.HasOne("MarfulApi.Model.Company", "Company")
-                        .WithMany("CompanyInfulonser")
-                        .HasForeignKey("CompanyId");
-
-                    b.HasOne("MarfulApi.Model.Infulonser", "Infulonser")
-                        .WithMany("CompanyInfulonser")
-                        .HasForeignKey("InfulonserId");
-
-                    b.Navigation("Company");
-
-                    b.Navigation("Infulonser");
-                });
-
             modelBuilder.Entity("MarfulApi.Model.CompanyType", b =>
                 {
                     b.HasOne("MarfulApi.Model.Company", "Company")
@@ -1178,8 +1138,6 @@ namespace MarfulApi.Migrations
                 {
                     b.Navigation("CompanyContent");
 
-                    b.Navigation("CompanyInfulonser");
-
                     b.Navigation("CompanyType");
 
                     b.Navigation("UserCompanie");
@@ -1207,8 +1165,6 @@ namespace MarfulApi.Migrations
             modelBuilder.Entity("MarfulApi.Model.Infulonser", b =>
                 {
                     b.Navigation("Brand");
-
-                    b.Navigation("CompanyInfulonser");
 
                     b.Navigation("Conversation");
 

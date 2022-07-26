@@ -6,10 +6,10 @@ namespace MarfulApi.Infrastructure
     {
         public List<PostDto> GetUserPost(string email);
         public List<PostDto> GetUserPostByConent(int IdContent, string email);
-      //  public List<PostDto> GetInfulonserPost(string email);
-      //  public List<PostDto> GetIndulonserPostByConent(int IdContent, string email);
-      //  public List<PostDto> GetCompanyPost( string email);
-      //  public List<PostDto> GetCompanyPostByConent(int IdContent, string email);
+        public List<PostDto> GetInfulonserPost(string email);
+        public List<PostDto> GetInfulonserPostByConent(int IdContent, string email);
+        public List<Post> GetCompanyPost( string email);
+        public List<Post> GetCompanyPostByConent(int IdContent, string email);
 
     }
 }

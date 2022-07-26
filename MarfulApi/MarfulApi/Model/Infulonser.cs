@@ -21,7 +21,7 @@
         public virtual ICollection<InfulonserUser>? infulonserUser { set; get; }
         public virtual ICollection<InfulonserFollowInfulonser>? Follow { set; get; }
         public virtual ICollection<InfulonserFollowInfulonser>? Followed { set; get; }
-        public virtual ICollection<InfulonserCompany>? InfulonserCompany { set; get; }
+        public virtual ICollection<CompanyInfulonser>? CompanyInfulonser { set; get; }
         public virtual ICollection<PostInfulonser>? PostInfulonser { set; get; }
     }
 }

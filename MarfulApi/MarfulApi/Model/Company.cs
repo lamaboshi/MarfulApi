@@ -15,6 +15,6 @@
         public virtual ICollection<UserCompany>? UserCompanie { set; get; }
         public virtual ICollection<CompanyContent>? CompanyContent { set; get; }
         public virtual ICollection<CompanyType>? CompanyType { set; get; }
-        public virtual ICollection<InfulonserCompany>? InfulonserCompany { set; get; }
+        public virtual ICollection<CompanyInfulonser>? CompanyInfulonser { set; get; }
     }
 }
