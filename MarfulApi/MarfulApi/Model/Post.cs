@@ -13,6 +13,6 @@
         public int? InfulonserId { set; get; }
         public virtual Infulonser? Infulonser { set; get; }
         public virtual ICollection<UserPost>? UserPost { set; get; }
-        public virtual ICollection<InfulonserPost>? InfulonserPost { set; get; }
+        public virtual ICollection<PostInfulonser>? PostInfulonser { set; get; }
     }
 }

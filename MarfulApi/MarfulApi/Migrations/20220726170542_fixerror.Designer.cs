@@ -4,6 +4,7 @@ using MarfulApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    partial class MarfulDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220726170542_fixerror")]
+    partial class fixerror
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -192,28 +194,6 @@ namespace MarfulApi.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MarfulApi.Model.CompanyType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
-
-                    b.ToTable("CompanyTypes");
-                });
-
             modelBuilder.Entity("MarfulApi.Model.Content", b =>
                 {
                     b.Property<int>("Id")
@@ -279,7 +259,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-                            Start = new DateTime(2022, 7, 26, 20, 14, 59, 472, DateTimeKind.Local).AddTicks(6121)
+                            Start = new DateTime(2022, 7, 26, 20, 5, 40, 713, DateTimeKind.Local).AddTicks(8408)
                         });
                 });
 
@@ -544,7 +524,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-                            SendTime = new DateTime(2022, 7, 26, 20, 14, 59, 472, DateTimeKind.Local).AddTicks(6175),
+                            SendTime = new DateTime(2022, 7, 26, 20, 5, 40, 713, DateTimeKind.Local).AddTicks(8457),
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -552,7 +532,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-                            SendTime = new DateTime(2022, 7, 26, 20, 14, 59, 472, DateTimeKind.Local).AddTicks(6188),
+                            SendTime = new DateTime(2022, 7, 26, 20, 5, 40, 713, DateTimeKind.Local).AddTicks(8474),
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -599,28 +579,28 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Description = " test for infulonser post",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 7, 26, 20, 14, 59, 472, DateTimeKind.Local).AddTicks(6231)
+                            dateTime = new DateTime(2022, 7, 26, 20, 5, 40, 713, DateTimeKind.Local).AddTicks(8569)
                         },
                         new
                         {
                             Id = 2,
                             Description = " test another post for infulonser",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 7, 26, 20, 14, 59, 472, DateTimeKind.Local).AddTicks(6244)
+                            dateTime = new DateTime(2022, 7, 26, 20, 5, 40, 713, DateTimeKind.Local).AddTicks(8586)
                         },
                         new
                         {
                             Id = 3,
                             BrandId = 1,
                             Description = " test for company post",
-                            dateTime = new DateTime(2022, 7, 26, 20, 14, 59, 472, DateTimeKind.Local).AddTicks(6255)
+                            dateTime = new DateTime(2022, 7, 26, 20, 5, 40, 713, DateTimeKind.Local).AddTicks(8599)
                         },
                         new
                         {
                             Id = 4,
                             BrandId = 1,
                             Description = " test another post for company",
-                            dateTime = new DateTime(2022, 7, 26, 20, 14, 59, 472, DateTimeKind.Local).AddTicks(6265)
+                            dateTime = new DateTime(2022, 7, 26, 20, 5, 40, 713, DateTimeKind.Local).AddTicks(8613)
                         });
                 });
 
@@ -960,17 +940,6 @@ namespace MarfulApi.Migrations
                     b.Navigation("Content");
                 });
 
-            modelBuilder.Entity("MarfulApi.Model.CompanyType", b =>
-                {
-                    b.HasOne("MarfulApi.Model.Company", "Company")
-                        .WithMany("CompanyType")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Company");
-                });
-
             modelBuilder.Entity("MarfulApi.Model.Conversation", b =>
                 {
                     b.HasOne("MarfulApi.Model.Company", "Company")
@@ -1200,8 +1169,6 @@ namespace MarfulApi.Migrations
             modelBuilder.Entity("MarfulApi.Model.Company", b =>
                 {
                     b.Navigation("CompanyContent");
-
-                    b.Navigation("CompanyType");
 
                     b.Navigation("InfulonserCompany");
 

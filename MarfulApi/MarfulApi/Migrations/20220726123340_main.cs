@@ -70,9 +70,7 @@ namespace MarfulApi.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdInfulonser = table.Column<int>(type: "int", nullable: false),
                     InfulonserId = table.Column<int>(type: "int", nullable: false),
-                    IdPost = table.Column<int>(type: "int", nullable: false),
                     PostId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

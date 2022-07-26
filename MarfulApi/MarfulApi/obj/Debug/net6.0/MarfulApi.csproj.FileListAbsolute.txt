@@ -541,3 +541,4 @@ C:\marfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\ref\MarfulApi.dll
 C:\marfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.pdb
 C:\marfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.genruntimeconfig.cache
 F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.csproj.AssemblyReference.cache
+C:\marfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.csproj.AssemblyReference.cache

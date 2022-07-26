@@ -29,8 +29,8 @@ namespace MarfulApi.Data
         public DbSet<UserPost> UserPosts { get; set; }
         public DbSet<InfulonserFollowInfulonser> InfulonserFollowInfulonsers { get; set; }
         public DbSet<InfulonserCompany> InfulonserCompanies { get; set; }
-        public DbSet<InfulonserPost> InfulonserPosts { get; set; }
-
+        public DbSet<PostInfulonser> PostInfulonsers { get; set; }
+        public DbSet<CompanyType> CompanyTypes { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
