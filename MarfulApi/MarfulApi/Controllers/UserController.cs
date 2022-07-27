@@ -87,6 +87,39 @@ namespace MarfulApi.Controllers
             db.Delete(id);
             return Ok();
         }
-        
+        [HttpGet]
+        public IActionResult GetFollowed([FromQuery] string email)
+        {
+            if (email == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var data = db.GetFollowed(email);
+                if (data != null)
+                {
+                    return Ok(data);
+                }
+                else return NotFound();
+            }
+        }
+        [HttpGet]
+        public IActionResult GetFollowedCount([FromQuery] string email)
+        {
+            if(email== null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var data = db.GetFollowedCount(email);
+                if (data != -1)
+                {
+                    return Ok(data);
+                }
+                else return NotFound();
+            }
+        }
     }
 }

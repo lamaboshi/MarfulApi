@@ -163,10 +163,10 @@ namespace MarfulApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CompanyId")
+                    b.Property<int?>("CompanyId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ContentId")
+                    b.Property<int?>("ContentId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -190,6 +190,64 @@ namespace MarfulApi.Migrations
                             CompanyId = 2,
                             ContentId = 2
                         });
+                });
+
+            modelBuilder.Entity("MarfulApi.Model.CompanyInfulonser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Followed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("InfulonserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("InfulonserId");
+
+                    b.ToTable("CompanyInfulonsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyId = 1,
+                            Followed = "company",
+                            InfulonserId = 2
+                        });
+                });
+
+            modelBuilder.Entity("MarfulApi.Model.CompanyType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("CompanyTypes");
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Content", b =>
@@ -257,7 +315,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-                            Start = new DateTime(2022, 7, 25, 19, 22, 29, 645, DateTimeKind.Local).AddTicks(3530)
+                            Start = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9514)
                         });
                 });
 
@@ -339,10 +397,10 @@ namespace MarfulApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ContentId")
+                    b.Property<int?>("ContentId")
                         .HasColumnType("int");
 
-                    b.Property<int>("InfulonserId")
+                    b.Property<int?>("InfulonserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -368,6 +426,37 @@ namespace MarfulApi.Migrations
                         });
                 });
 
+            modelBuilder.Entity("MarfulApi.Model.InfulonserFollowInfulonser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("FollowId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FollowedId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FollowId");
+
+                    b.HasIndex("FollowedId");
+
+                    b.ToTable("InfulonserFollowInfulonsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FollowId = 2,
+                            FollowedId = 1
+                        });
+                });
+
             modelBuilder.Entity("MarfulApi.Model.InfulonserUser", b =>
                 {
                     b.Property<int>("Id")
@@ -376,10 +465,10 @@ namespace MarfulApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("InfulonserId")
+                    b.Property<int?>("InfulonserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -466,7 +555,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-                            SendTime = new DateTime(2022, 7, 25, 19, 22, 29, 645, DateTimeKind.Local).AddTicks(3585),
+                            SendTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9573),
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -474,7 +563,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-                            SendTime = new DateTime(2022, 7, 25, 19, 22, 29, 645, DateTimeKind.Local).AddTicks(3597),
+                            SendTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9585),
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -521,29 +610,55 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Description = " test for infulonser post",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 7, 25, 19, 22, 29, 645, DateTimeKind.Local).AddTicks(3677)
+                            dateTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9629)
                         },
                         new
                         {
                             Id = 2,
                             Description = " test another post for infulonser",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 7, 25, 19, 22, 29, 645, DateTimeKind.Local).AddTicks(3690)
+                            dateTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9642)
                         },
                         new
                         {
                             Id = 3,
                             BrandId = 1,
                             Description = " test for company post",
-                            dateTime = new DateTime(2022, 7, 25, 19, 22, 29, 645, DateTimeKind.Local).AddTicks(3698)
+                            dateTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9689)
                         },
                         new
                         {
                             Id = 4,
                             BrandId = 1,
                             Description = " test another post for company",
-                            dateTime = new DateTime(2022, 7, 25, 19, 22, 29, 645, DateTimeKind.Local).AddTicks(3707)
+                            dateTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9701)
                         });
+                });
+
+            modelBuilder.Entity("MarfulApi.Model.PostInfulonser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("InfulonserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Interaction")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InfulonserId");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("PostInfulonsers");
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Product", b =>
@@ -841,19 +956,41 @@ namespace MarfulApi.Migrations
                 {
                     b.HasOne("MarfulApi.Model.Company", "Company")
                         .WithMany("CompanyContent")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CompanyId");
 
                     b.HasOne("MarfulApi.Model.Content", "Content")
                         .WithMany("CompanyContent")
-                        .HasForeignKey("ContentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ContentId");
 
                     b.Navigation("Company");
 
                     b.Navigation("Content");
+                });
+
+            modelBuilder.Entity("MarfulApi.Model.CompanyInfulonser", b =>
+                {
+                    b.HasOne("MarfulApi.Model.Company", "Company")
+                        .WithMany("CompanyInfulonser")
+                        .HasForeignKey("CompanyId");
+
+                    b.HasOne("MarfulApi.Model.Infulonser", "Infulonser")
+                        .WithMany("CompanyInfulonser")
+                        .HasForeignKey("InfulonserId");
+
+                    b.Navigation("Company");
+
+                    b.Navigation("Infulonser");
+                });
+
+            modelBuilder.Entity("MarfulApi.Model.CompanyType", b =>
+                {
+                    b.HasOne("MarfulApi.Model.Company", "Company")
+                        .WithMany("CompanyType")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Company");
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Conversation", b =>
@@ -879,34 +1016,43 @@ namespace MarfulApi.Migrations
                 {
                     b.HasOne("MarfulApi.Model.Content", "Content")
                         .WithMany("InfulonserContent")
-                        .HasForeignKey("ContentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ContentId");
 
                     b.HasOne("MarfulApi.Model.Infulonser", "Infulonser")
                         .WithMany("infulonserContent")
-                        .HasForeignKey("InfulonserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InfulonserId");
 
                     b.Navigation("Content");
 
                     b.Navigation("Infulonser");
                 });
 
+            modelBuilder.Entity("MarfulApi.Model.InfulonserFollowInfulonser", b =>
+                {
+                    b.HasOne("MarfulApi.Model.Infulonser", "Follow")
+                        .WithMany("Follow")
+                        .HasForeignKey("FollowId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("MarfulApi.Model.Infulonser", "Followed")
+                        .WithMany("Followed")
+                        .HasForeignKey("FollowedId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("Follow");
+
+                    b.Navigation("Followed");
+                });
+
             modelBuilder.Entity("MarfulApi.Model.InfulonserUser", b =>
                 {
                     b.HasOne("MarfulApi.Model.Infulonser", "Infulonser")
                         .WithMany("infulonserUser")
-                        .HasForeignKey("InfulonserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InfulonserId");
 
                     b.HasOne("MarfulApi.Model.User", "User")
                         .WithMany("infulonserUser")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Infulonser");
 
@@ -970,6 +1116,25 @@ namespace MarfulApi.Migrations
                     b.Navigation("Job");
                 });
 
+            modelBuilder.Entity("MarfulApi.Model.PostInfulonser", b =>
+                {
+                    b.HasOne("MarfulApi.Model.Infulonser", "Infulonser")
+                        .WithMany("PostInfulonser")
+                        .HasForeignKey("InfulonserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MarfulApi.Model.Post", "Post")
+                        .WithMany("PostInfulonser")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Infulonser");
+
+                    b.Navigation("Post");
+                });
+
             modelBuilder.Entity("MarfulApi.Model.Product", b =>
                 {
                     b.HasOne("MarfulApi.Model.Brand", "Brand")
@@ -1030,6 +1195,10 @@ namespace MarfulApi.Migrations
                 {
                     b.Navigation("CompanyContent");
 
+                    b.Navigation("CompanyInfulonser");
+
+                    b.Navigation("CompanyType");
+
                     b.Navigation("UserCompanie");
 
                     b.Navigation("conversation");
@@ -1056,9 +1225,17 @@ namespace MarfulApi.Migrations
                 {
                     b.Navigation("Brand");
 
+                    b.Navigation("CompanyInfulonser");
+
                     b.Navigation("Conversation");
 
+                    b.Navigation("Follow");
+
+                    b.Navigation("Followed");
+
                     b.Navigation("Jobs");
+
+                    b.Navigation("PostInfulonser");
 
                     b.Navigation("Posts");
 
@@ -1076,6 +1253,8 @@ namespace MarfulApi.Migrations
 
             modelBuilder.Entity("MarfulApi.Model.Post", b =>
                 {
+                    b.Navigation("PostInfulonser");
+
                     b.Navigation("UserPost");
                 });
 

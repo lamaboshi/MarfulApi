@@ -16,6 +16,9 @@ namespace MarfulApi.Infrastructure
        public void Update(Infulonser infulonser);
         public bool IsExisting(string email);
         public void ChangePassword(int Id,string password);
-        
+        public double GetFollowersCount(string email);
+        public List<object> GetFollowers(string email);
+
+
     }
 }

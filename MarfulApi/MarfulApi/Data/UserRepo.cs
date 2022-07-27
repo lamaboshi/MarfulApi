@@ -76,6 +76,45 @@ namespace MarfulApi.Data
                 _db.SaveChanges();
             }
         }
-       
+        public List<object> GetFollowed(string email)
+        {
+            User user = _db.Users.FirstOrDefault(p => p.Email == email);
+            List<object> Account = new List<object>();
+            if (user != null)
+            {
+                List<InfulonserUser> infulonsers = _db.InfulonserUsers.Where(p => p.UserId == user.Id).ToList();
+                List<UserCompany> companies = _db.UserCompanies.Where(p => p.UserId == user.Id).ToList();
+                if (infulonsers == null && companies == null) return null;
+                if (infulonsers.Count !=0)
+                {
+                    foreach(InfulonserUser e in infulonsers)
+                    {
+                        Infulonser infAcount = _db.Infulonsers.FirstOrDefault(p => p.Id == e.InfulonserId);
+                        Account.Add(infAcount);
+                    }
+                }
+                 if (companies.Count != 0)
+                {
+                    foreach(UserCompany e in companies)
+                    {
+                        Company cmpAcount = _db.Companies.FirstOrDefault(p => p.Id == e.CompanyId);
+                        Account.Add(cmpAcount);
+                    }
+                }
+                return Account;
+            }
+            else return null;
+        }
+        public double GetFollowedCount(string email)
+        {
+            User user = _db.Users.FirstOrDefault(p => p.Email == email);
+            if (user != null)
+            {
+                double infCount = _db.InfulonserUsers.Where(p => p.UserId == user.Id).Count();
+                double cmpCount = _db.UserCompanies.Where(p => p.UserId == user.Id).Count();
+                return infCount + cmpCount;
+            }
+            else return -1;
+        }
     }
 }

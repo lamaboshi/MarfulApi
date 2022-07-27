@@ -99,5 +99,42 @@ namespace MarfulApi.Controllers
             db.Delete(id);
             return Ok();
         }
+
+        [HttpGet]
+        [ActionName("GetFollowersCount")]
+        public IActionResult GetFollowersCount([FromQuery] string email)
+        {
+            if (email == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var data = db.GetFollowersCount(email);
+                if (data != -1)
+                {
+                    return Ok(data);
+                }
+                else return NotFound();
+            }
+        }
+        [HttpGet]
+        [ActionName(" GetFollowers")]
+        public IActionResult GetFollowers([FromQuery] string email)
+        {
+            if (email == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var data = db.GetFollowers(email);
+                if (data != null)
+                {
+                    return Ok(data);
+                }
+                else return NotFound();
+            }
+        }
     }
 }

@@ -36,6 +36,11 @@ builder.Services.AddTransient<IUserCompany, UserCompanyRepo>();
 builder.Services.AddTransient<ICompany, CompanyRepo>();
 builder.Services.AddTransient<IAuth, AuthRepo>();
 builder.Services.AddTransient<IMain, MainRepo>();
+builder.Services.AddTransient<IInfulonserFollowInfulonser, InfulonserFollowInfulonserRepo>();
+builder.Services.AddTransient<ICompanyInfulonser, CompanyInfulonserRepo>();
+builder.Services.AddTransient<IPostInfulonser, PostInfulonserRepo>();
+builder.Services.AddTransient<ICompanyType, CompanyTypeRepo>();
+builder.Services.AddTransient<ISearch, SearchRepo>();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

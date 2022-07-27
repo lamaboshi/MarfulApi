@@ -12,5 +12,7 @@ namespace MarfulApi.Infrastructure
         public void Delete(int id);
         public bool IsExisting(string email);
         public void ChangePassword(int Id, string password);
+        public double GetFollowersCount(string email);
+        public List<object> GetFollowers(string email);
     }
 }

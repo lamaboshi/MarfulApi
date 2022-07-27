@@ -27,8 +27,25 @@ namespace MarfulApi.Data
         public DbSet<User> Users { get; set; }
         public DbSet<UserCompany> UserCompanies { get; set; }
         public DbSet<UserPost> UserPosts { get; set; }
+        public DbSet<InfulonserFollowInfulonser> InfulonserFollowInfulonsers { get; set; }
+        public DbSet<CompanyInfulonser> CompanyInfulonsers { get; set; }
+        public DbSet<PostInfulonser> PostInfulonsers { get; set; }
+        public DbSet<CompanyType> CompanyTypes { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<InfulonserFollowInfulonser>()
+                .HasOne(m => m.Follow)
+                .WithMany(m => m.Follow)
+                .HasForeignKey(m => m.FollowId)
+                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<InfulonserFollowInfulonser>()
+                .HasOne(x => x.Followed)
+                .WithMany(x => x.Followed)
+                .HasForeignKey(x => x.FollowedId)
+                .OnDelete(DeleteBehavior.NoAction);
+           
+
             modelBuilder.Entity<Company>().HasData(new Company { Id = 1, Name = "JUICY BEAUTY", Description = "MakeUp For Weman", Address = "From Streat", Email = "company1@test.com", Phone = "0921423432", TelePhone = "4232543", Password = "12123" });
             modelBuilder.Entity<Company>().HasData(new Company { Id = 2, Name = "ASIC", Description = "Asics sponsors a variety of sports associations", Address = "From Streat", Email = "Asics@test.com", Phone = "0921423432", TelePhone = "223554", Password = "111222" });
 
@@ -44,9 +61,9 @@ namespace MarfulApi.Data
             modelBuilder.Entity<User>().HasData(new User { Id = 2, Email = "user2@test.com", Name = "Ahamad", UserName = "hamodaSy", Phone = "0964654765", Age = 20, Password = "456", Paypal = "Lb1267" });
             modelBuilder.Entity<User>().HasData(new User { Id = 3, Email = "user3@test.com", Name = "Tala", UserName = "totoSy", Phone = "0964654765", Age = 20, Password = "789", Paypal = "Lb1267" });
             
-            modelBuilder.Entity<Infulonser>().HasData(new Infulonser { Name = "NoorStars", Phone = "0965465760", Password = "0000", Email = "info@test.com", UserName = "NoorStars", Address = "USA LA", Description = "Noor Stars, the first Arabic YouTuber to reach 10 million subscribers, was born in Iraq and grew up in Syria. Having spent her childhood in Damascus, she moved to Turkey for 3 years before moving to the United States with her mother and siblings. She completed her secondary education and university degree, specialising in business administration. Since her channel’s creation in 2014, Noor has posted over 550 videos on her channel, with over 18 million subscribers and 2 billion views in total. She was part of the Maybelline New York's Web series which was named Ramadan stars with Noor Stars and the web series won YouTube's The Lantern award 2019. Noor is best known for her content related to beauty, comics and vlogs.", Id = 1, Paypal = "dskjfhjh" });
-            modelBuilder.Entity<Infulonser>().HasData(new Infulonser { Name = "Joshua Patterson", Phone = "0965465760", Password = "1111", Email = "Joshua@test.com", UserName = "Joshua", Address = "USA LA", Description = "Joshua Patterson is an actor, known for ER (1994), 7th Heaven (1996) and Weird Science (1994).", Id = 2, Paypal = "dskjffff" });
-            
+            modelBuilder.Entity<Infulonser>().HasData(new Infulonser {Id=1, Name = "NoorStars", Phone = "0965465760", Password = "0000", Email = "info@test.com", UserName = "NoorStars", Address = "USA LA", Description = "Noor Stars, the first Arabic YouTuber to reach 10 million subscribers, was born in Iraq and grew up in Syria. Having spent her childhood in Damascus, she moved to Turkey for 3 years before moving to the United States with her mother and siblings. She completed her secondary education and university degree, specialising in business administration. Since her channel’s creation in 2014, Noor has posted over 550 videos on her channel, with over 18 million subscribers and 2 billion views in total. She was part of the Maybelline New York's Web series which was named Ramadan stars with Noor Stars and the web series won YouTube's The Lantern award 2019. Noor is best known for her content related to beauty, comics and vlogs.", Paypal = "dskjfhjh" });
+            modelBuilder.Entity<Infulonser>().HasData(new Infulonser {Id=2 ,Name = "Joshua Patterson", Phone = "0965465760", Password = "1111", Email = "Joshua@test.com", UserName = "Joshua", Address = "USA LA", Description = "Joshua Patterson is an actor, known for ER (1994), 7th Heaven (1996) and Weird Science (1994).", Paypal = "dskjffff" });
+
             modelBuilder.Entity<InfulonserContent>().HasData(new InfulonserContent { Id=1,ContentId=1,InfulonserId=1});
             modelBuilder.Entity<InfulonserContent>().HasData(new InfulonserContent { Id = 2, ContentId = 2, InfulonserId =2 });
 
@@ -76,6 +93,8 @@ namespace MarfulApi.Data
             modelBuilder.Entity<UserPost>().HasData(new UserPost { Id = 2, InterAction = false, UserId = 1, PostId = 2 });
             modelBuilder.Entity<UserPost>().HasData(new UserPost { Id = 3, InterAction = true, UserId = 1, PostId = 4 });
 
+            modelBuilder.Entity<InfulonserFollowInfulonser>().HasData(new InfulonserFollowInfulonser { Id = 1, FollowId = 2, FollowedId = 1 });
+            modelBuilder.Entity<CompanyInfulonser>().HasData(new CompanyInfulonser { Id = 1, CompanyId = 1, InfulonserId = 2, Followed = "company" });
         }
     }
 }
