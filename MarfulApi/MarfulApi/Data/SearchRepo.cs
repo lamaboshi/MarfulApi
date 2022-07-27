@@ -72,20 +72,25 @@ namespace MarfulApi.Data
         }
         public List<Content> SearchContent(string search)
         {
-           // List<object> Accounts = new List<object>();
-            List<Content> content = _db.Contents.Where(p => p.Name == search).Include(r => r.CompanyContent).Include(r => r.InfulonserContent).ToList();
-            //if (content.Count != 0)
-            //{
-            //    foreach (Content e in content)
-            //    {
-            //        var infContent = _db.InfulonserContents.Where(p => p.ContentId == e.Id).Include(r => r.Infulonser).ToList();
-            //        if (infContent != null) Accounts.AddRange(infContent);
-            //        var cmpContent = _db.CompanyContents.Where(p => p.ContentId == e.Id).Include(r => r.Company).ToList();
-            //        if (cmpContent != null) Accounts.AddRange(content);
-            //    }
-            //    return Accounts;
-            
+            List<Content> content = _db.Contents.Where(p => p.Name == search).Include(r => r.CompanyContent).Include(r => r.InfulonserContent).ToList();     
            return content;
+        }
+        public List<object> SearchSelectedContent(int Id, string search)
+        {
+             List<object> Accounts = new List<object>();
+            Content content = _db.Contents.FirstOrDefault(p => p.Id == Id);
+            if (content != null)
+            {
+
+                var infContent = _db.InfulonserContents.Where(p => p.ContentId == content.Id).Include(r => r.Infulonser).ToList();
+                if (infContent != null) Accounts.AddRange(infContent);
+                var cmpContent = _db.CompanyContents.Where(p => p.ContentId == content.Id).Include(r => r.Company).ToList();
+                if (cmpContent != null) Accounts.AddRange(cmpContent);
+                if (Accounts.Count != 0) return Accounts;
+                else return null;
+            }
+                
+            else return null;
         }
     }
 }

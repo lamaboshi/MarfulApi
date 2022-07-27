@@ -121,5 +121,23 @@ namespace MarfulApi.Controllers
                 else return NotFound();
             }
         }
+        [HttpGet]
+        [ActionName("SearchSelectedContent")]
+        public IActionResult SearchSelectedContent([FromQuery] string search,[FromQuery] int Id)
+        {
+            if (search == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var data = db.SearchSelectedContent(Id,search);
+                if (data != null)
+                {
+                    return Ok(data);
+                }
+                else return NotFound();
+            }
+        }
     }
 }

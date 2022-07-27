@@ -9,5 +9,6 @@ namespace MarfulApi.Infrastructure
         public List<Brand> SearchBrand(string search);
         public List<Product> SearchProduct(string search);
         public List<Content> SearchContent(string search);
+        public List<object> SearchSelectedContent( int Id,string search );
     }
 }
