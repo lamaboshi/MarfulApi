@@ -44,10 +44,13 @@ namespace MarfulApi.Hubs
             return Task.FromResult(data);
 
         }
-        public async Task SendMessage(string user, Message message)
+        public async Task SendMessage(string text, int idConv, bool iscCompa)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message);
+            
+           var res= _repoMessage.SaveMessage(new Message{Id=0,Text=text,ConversationId=idConv,MessageStatus=iscCompa,SendTime=DateTime.Now });
+           await Clients.All.SendAsync("SendMessage", res);
         }
+
 
         private async Task Return(string method, object[] args)
         {

@@ -27,13 +27,15 @@ namespace MarfulApi.Data
             else throw new NotImplementedException();
         }
 
-        public void SaveMessage(Message message)
+        public Message SaveMessage(Message message)
         {
             if (message.Id == 0)
             {
                 _db.Messages.Add(message);
                 _db.SaveChanges();
+                return message;
             }
+            return null;
         }
     }
 }
