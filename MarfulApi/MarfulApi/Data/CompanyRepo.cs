@@ -84,5 +84,39 @@ namespace MarfulApi.Data
             return posts;
 
         }
+
+        public double GetFollowersCount(string email)
+        {
+            Company company = _db.Companies.FirstOrDefault(p => p.Email == email);
+            if (company != null)
+            {
+                double inf = _db.CompanyInfulonsers.Where(p => p.CompanyId == company.Id && p.Followed=="company").Count();
+                double user = _db.UserCompanies.Where(p => p.CompanyId == company.Id).Count();
+                return inf + user;
+            }
+            else return -1;
+        }
+        public List<object> GetFollowers(string email)
+        {
+            Company company = _db.Companies.FirstOrDefault(p => p.Email == email);
+            if (company != null)
+            {
+                List<object> followers = new List<object>();
+                List<CompanyInfulonser> com = _db.CompanyInfulonsers.Where(p => p.CompanyId == company.Id && p.Followed == "company").ToList();
+                foreach (CompanyInfulonser e in com)
+                {
+                    Infulonser infAcount = _db.Infulonsers.Where(p => p.Id == e.InfulonserId).FirstOrDefault();
+                    followers.Add(infAcount);
+                }
+                List<UserCompany> user = _db.UserCompanies.Where(p => p.CompanyId == company.Id).ToList();
+                foreach (UserCompany e in user)
+                {
+                    User userAcount = _db.Users.Where(p => p.Id == e.UserId).FirstOrDefault();
+                    followers.Add(userAcount);
+                }
+                return followers;
+            }
+            else return null;
+        }
     }
 }

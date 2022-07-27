@@ -85,5 +85,45 @@ namespace MarfulApi.Data
                 _db.SaveChanges();
             }
         }
+        public double GetFollowersCount(string email)
+        {
+            Infulonser infulonser = _db.Infulonsers.FirstOrDefault(p => p.Email == email);
+            if (infulonser != null)
+            {
+                double inf = _db.InfulonserFollowInfulonsers.Where(p => p.FollowedId == infulonser.Id).Count();
+                double com = _db.CompanyInfulonsers.Where(p => p.InfulonserId == infulonser.Id && p.Followed == "infulonser").Count();
+                double user = _db.InfulonserUsers.Where(p => p.InfulonserId == infulonser.Id).Count();
+                return inf + com+user;
+            }
+            else return -1;
+        }
+        public List<object> GetFollowers(string email)
+        {
+            Infulonser infulonser = _db.Infulonsers.FirstOrDefault(p => p.Email == email);
+            if (infulonser != null)
+            {
+                List<object> followers = new List<object>();
+                List<InfulonserFollowInfulonser> inf = _db.InfulonserFollowInfulonsers.Where(p => p.FollowedId == infulonser.Id).ToList();
+                foreach (InfulonserFollowInfulonser e in inf)
+                {
+                    Infulonser infAcount = _db.Infulonsers.Where(p => p.Id == e.FollowId).FirstOrDefault();
+                    followers.Add(infAcount);
+                }
+                List<CompanyInfulonser> com = _db.CompanyInfulonsers.Where(p => p.InfulonserId == infulonser.Id && p.Followed == "infulonser").ToList();
+                foreach(CompanyInfulonser e in com)
+                {
+                    Company compAcount = _db.Companies.Where(p => p.Id == e.CompanyId).FirstOrDefault();
+                    followers.Add(compAcount);
+                }
+                List<InfulonserUser> user = _db.InfulonserUsers.Where(p => p.InfulonserId == infulonser.Id).ToList();
+                foreach(InfulonserUser e in user)
+                {
+                    User userAcount = _db.Users.Where(p => p.Id == e.UserId).FirstOrDefault();
+                    followers.Add(userAcount);
+                }
+                return followers;
+            }
+            else return null;
+        }
     }
 }

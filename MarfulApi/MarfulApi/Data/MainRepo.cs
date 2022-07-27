@@ -21,6 +21,34 @@ namespace MarfulApi.Data
         {
             _db = db;
         }
+        public double GetLikesCount(int id, string Type)
+        {
+            if (Type == "company")
+            {
+                return -1;
+            }
+            else if(Type=="infulonser" || Type=="user")
+            {
+                double userCount = _db.UserPosts.Where(p => p.PostId == id && p.InterAction== true).Count();
+                double infuCount = _db.PostInfulonsers.Where(p => p.PostId == id && p.Interaction == true).Count();
+                return userCount + infuCount;
+            }
+            return -1;
+        }
+        public double GetDisLikesCount(int id, string Type)
+        {
+            if (Type == "company")
+            {
+                return -1;
+            }
+            else if (Type == "infulonser" || Type == "user")
+            {
+                double userCount = _db.UserPosts.Where(p => p.PostId == id && p.InterAction == false).Count();
+                double infuCount = _db.PostInfulonsers.Where(p => p.PostId == id && p.Interaction == false).Count();
+                return userCount + infuCount;
+            }
+            return -1;
+        }
         public List<PostDto> GetUserPost(string email)
         {
             User u = _db.Users.FirstOrDefault(p => p.Email == email);

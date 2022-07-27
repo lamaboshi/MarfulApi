@@ -59,5 +59,41 @@ namespace MarfulApi.Controllers
                     return NotFound();
             }
         }
+        [HttpGet]
+        [ActionName("GetLikes")]
+        public IActionResult GetLikes([FromQuery] int id,[FromQuery] string type)
+        {
+            if(id==0 || type== null)
+            {
+               return BadRequest();
+            }
+            else
+            {
+                var data = db.GetLikesCount(id, type);
+                if (data != -1)
+                {
+                    return Ok(data);
+                }
+                else return NotFound();
+            }
+        }
+        [HttpGet]
+        [ActionName("GeDistLikes")]
+        public IActionResult GetDisLikes([FromQuery] int id, [FromQuery] string type)
+        {
+            if (id == 0 || type == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var data = db.GetDisLikesCount(id, type);
+                if (data != -1)
+                {
+                    return Ok(data);
+                }
+                else return NotFound();
+            }
+        }
     }
 }
