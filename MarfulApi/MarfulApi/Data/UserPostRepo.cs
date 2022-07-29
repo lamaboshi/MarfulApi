@@ -29,13 +29,46 @@ namespace MarfulApi.Data
             else throw new NotImplementedException();
         }
 
-        public void Save(UserPost user)
+        public double[] Save(UserPost user)
         {
             if (user.Id == 0)
             {
                 _db.UserPosts.Add(user);
                 _db.SaveChanges();
+                double[] data = new double[2];
+                data[0] = GetLikesCount(user.PostId, "user");
+                data[1] = GetDisLikesCount(user.PostId, "user");
+                return data;
             }
+            return null;
+        }
+        public double GetLikesCount(int id, string Type)
+        {
+            if (Type == "company")
+            {
+                return -1;
+            }
+            else if (Type == "infulonser" || Type == "user")
+            {
+                double userCount = _db.UserPosts.Where(p => p.PostId == id && p.InterAction == true).Count();
+                double infuCount = _db.PostInfulonsers.Where(p => p.PostId == id && p.Interaction == true).Count();
+                return userCount + infuCount;
+            }
+            return -1;
+        }
+        public double GetDisLikesCount(int id, string Type)
+        {
+            if (Type == "company")
+            {
+                return -1;
+            }
+            else if (Type == "infulonser" || Type == "user")
+            {
+                double userCount = _db.UserPosts.Where(p => p.PostId == id && p.InterAction == false).Count();
+                double infuCount = _db.PostInfulonsers.Where(p => p.PostId == id && p.Interaction == false).Count();
+                return userCount + infuCount;
+            }
+            return -1;
         }
     }
 }

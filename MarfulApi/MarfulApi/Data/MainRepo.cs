@@ -292,6 +292,8 @@ namespace MarfulApi.Data
                         p.NoInteraction = false;
                         p.Name = e.Infulonser.Name;
                         p.Image = e.Infulonser.Image;
+                        p.NumberLike = GetLikesCount(e.Id, "user");
+                        p.NumDislike = GetDisLikesCount(e.Id, "user");
                         postDtos.Add(p);
                     }
                     else
@@ -301,6 +303,8 @@ namespace MarfulApi.Data
                         p.NoInteraction = false;
                         p.Name = compName.Name;
                         p.Image = compName.Image;
+                        p.NumberLike = GetLikesCount(e.Id, "user");
+                        p.NumDislike = GetDisLikesCount(e.Id, "user");
                         postDtos.Add(p);
                     }   
                 }
@@ -313,6 +317,8 @@ namespace MarfulApi.Data
                         p.NoInteraction = true;
                         p.Name = e.Infulonser.Name;
                         p.Image = e.Infulonser.Image;
+                        p.NumberLike = GetLikesCount(e.Id, "user");
+                        p.NumDislike = GetDisLikesCount(e.Id, "user");
                         postDtos.Add(p);
                     }
                     else
@@ -322,6 +328,8 @@ namespace MarfulApi.Data
                         p.NoInteraction = true;
                         p.Name = compName.Name;
                         p.Image = compName.Image;
+                        p.NumberLike = GetLikesCount(e.Id, "user");
+                        p.NumDislike = GetDisLikesCount(e.Id, "user");
                         postDtos.Add(p);
                     }
 
@@ -351,6 +359,8 @@ namespace MarfulApi.Data
                         p.NoInteraction = false;
                         p.Name = e.Infulonser.Name;
                         p.Image = e.Infulonser.Image;
+                        p.NumberLike = GetLikesCount(e.Id, "infulonser");
+                        p.NumDislike = GetDisLikesCount(e.Id, "infulonser");
                         postDtos.Add(p);
                     }
                     else
@@ -360,6 +370,8 @@ namespace MarfulApi.Data
                         p.NoInteraction = false;
                         p.Name = compName.Name;
                         p.Image = compName.Image;
+                        p.NumberLike = GetLikesCount(e.Id, "infulonser");
+                        p.NumDislike = GetDisLikesCount(e.Id, "infulonser");
                         postDtos.Add(p);
                     }
                 }
@@ -372,6 +384,8 @@ namespace MarfulApi.Data
                         p.NoInteraction = true;
                         p.Name = e.Infulonser.Name;
                         p.Image = e.Infulonser.Image;
+                        p.NumberLike = GetLikesCount(e.Id, "infulonser");
+                        p.NumDislike = GetDisLikesCount(e.Id, "infulonser");
                         postDtos.Add(p);
                     }
                     else
@@ -381,6 +395,8 @@ namespace MarfulApi.Data
                         p.NoInteraction = true;
                         p.Name = compName.Name;
                         p.Image = compName.Image;
+                        p.NumberLike = GetLikesCount(e.Id, "infulonser");
+                        p.NumDislike = GetDisLikesCount(e.Id, "infulonser");
                         postDtos.Add(p);
                     }
 
