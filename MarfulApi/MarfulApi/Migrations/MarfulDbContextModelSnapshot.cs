@@ -315,7 +315,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-                            Start = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9514)
+                            Start = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3182)
                         });
                 });
 
@@ -485,6 +485,12 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             InfulonserId = 1,
                             UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            InfulonserId = 1,
+                            UserId = 2
                         });
                 });
 
@@ -555,7 +561,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-                            SendTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9573),
+                            SendTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3273),
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -563,7 +569,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-                            SendTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9585),
+                            SendTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3288),
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -610,28 +616,28 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Description = " test for infulonser post",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9629)
+                            dateTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3347)
                         },
                         new
                         {
                             Id = 2,
                             Description = " test another post for infulonser",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9642)
+                            dateTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3455)
                         },
                         new
                         {
                             Id = 3,
                             BrandId = 1,
                             Description = " test for company post",
-                            dateTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9689)
+                            dateTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3525)
                         },
                         new
                         {
                             Id = 4,
                             BrandId = 1,
                             Description = " test another post for company",
-                            dateTime = new DateTime(2022, 7, 27, 12, 0, 46, 744, DateTimeKind.Local).AddTicks(9701)
+                            dateTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3546)
                         });
                 });
 
