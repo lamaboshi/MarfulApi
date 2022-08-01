@@ -39,8 +39,10 @@ namespace MarfulApi.Controllers
             }
             else
             {
-                db.Save(postInfulonser);
-                return Ok();
+              var data= db.Save(postInfulonser);
+                if (data != null)
+                    return Ok();
+                else return NotFound();
             }
         }
         [HttpPut("{id}")]

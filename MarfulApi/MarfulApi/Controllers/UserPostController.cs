@@ -42,8 +42,10 @@ namespace MarfulApi.Controllers
             }
             else
             {
-                db.Save(userPost);
-                return Ok();
+               var data= db.Save(userPost);
+                if (data != null)
+                    return Ok(data);
+                else return NotFound();
             }
 
         }

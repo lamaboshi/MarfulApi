@@ -30,14 +30,18 @@ namespace MarfulApi.Data
             else
                 throw new NotImplementedException();
         }
-        public void Save(PostInfulonser postInfulonser)
+        public double[] Save(PostInfulonser postInfulonser)
         {
             if (postInfulonser.Id == 0)
             {
                 _db.PostInfulonsers.Add(postInfulonser);
                 _db.SaveChanges();
+                double[] data = new double[2];
+                data[0] = GetLikesCount(postInfulonser.PostId, "infulonser");
+                data[1] = GetDisLikesCount(postInfulonser.PostId, "infulonser");
+                return data;
             }
-
+            return null;
         }
         public void Update(PostInfulonser postInfulonser)
         {
@@ -49,6 +53,34 @@ namespace MarfulApi.Data
                 PostInfulonser.PostId = postInfulonser.PostId;
                 _db.SaveChanges();
             }
+        }
+        public double GetLikesCount(int id, string Type)
+        {
+            if (Type == "company")
+            {
+                return -1;
+            }
+            else if (Type == "infulonser" || Type == "user")
+            {
+                double userCount = _db.UserPosts.Where(p => p.PostId == id && p.InterAction == true).Count();
+                double infuCount = _db.PostInfulonsers.Where(p => p.PostId == id && p.Interaction == true).Count();
+                return userCount + infuCount;
+            }
+            return -1;
+        }
+        public double GetDisLikesCount(int id, string Type)
+        {
+            if (Type == "company")
+            {
+                return -1;
+            }
+            else if (Type == "infulonser" || Type == "user")
+            {
+                double userCount = _db.UserPosts.Where(p => p.PostId == id && p.InterAction == false).Count();
+                double infuCount = _db.PostInfulonsers.Where(p => p.PostId == id && p.Interaction == false).Count();
+                return userCount + infuCount;
+            }
+            return -1;
         }
     }
 }
