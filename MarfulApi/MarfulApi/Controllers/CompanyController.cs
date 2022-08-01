@@ -14,6 +14,15 @@ namespace MarfulApi.Controllers
         {
             db = _db;
         }
+
+        [HttpGet("{idContentCompany}")]
+        [ActionName("GetAllBarndCompany")]
+        public IActionResult GetAllBarndCompany(int idContentCompany)
+        {
+           var  data = db.GetCompanyBrand(idContentCompany);
+            return Ok(data);
+        }
+
         [HttpGet]
         [ActionName("GetAllCompany")]
         public IActionResult GetAllCompany()

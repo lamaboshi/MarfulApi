@@ -22,7 +22,12 @@ namespace MarfulApi.Data
                 _db.SaveChanges();
             }
         }
-
+        public List<Brand> GetCompanyBrand(int id)
+        {
+            var result = _db.Brands.Where(p => p.CompanyContentId == id).ToList();
+            if (result != null) return result;
+            else throw new NotImplementedException();
+        }
         public Company GetCompany(int id)
         {
             var result = _db.Companies.First(p => p.Id == id);
