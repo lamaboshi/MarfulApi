@@ -56,7 +56,8 @@ namespace MarfulApi.Data
             modelBuilder.Entity<CompanyContent>().HasData(new CompanyContent { Id =2, CompanyId = 2, ContentId = 2 });
 
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 1, Name = "JUICY BEAUTY", Description = "Juicy Beauty was first founded in 2012 in Syria, Damascus. Juicy Beauty was first introduced in Lebanon in 2018.Juicy Beauty is an example of innovation in form due to its display with the largest makeup color made of vibrant and pure pigments and in substancethanks to the exclusive formulas and the revolutionary texture of its makeup products.Behind each product is the excellent research of an expert scientific team that develops new technologies and original formulas.High quality and extreme safety in addition to creativity, taste, and a focus on detail.That’s how JUICY ensures the finest standards of excellence through products that are both gentle and highly effective: Makeup formulas are produced in Europe. The range is subjected to accurate and in-depth safety evaluation.Juicy Beauty is the definition of having fun with makeup, trying new things,and feeling free! Not sure where to start? Why not visit our branches that are all over lebanon and test our products!", CompanyContentId = 1 });
-            
+            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 2, Name = "Addidas", Description = "Our company has all kind 0f sport element type", CompanyContentId = 2});
+
             modelBuilder.Entity<User>().HasData(new User { Id = 1, Email = "user1@test.com", Name = "Noor", UserName = "NonoSy", Phone = "0964654765", Age = 20, Password = "123", Paypal = "Lb1267" });
             modelBuilder.Entity<User>().HasData(new User { Id = 2, Email = "user2@test.com", Name = "Ahamad", UserName = "hamodaSy", Phone = "0964654765", Age = 20, Password = "456", Paypal = "Lb1267" });
             modelBuilder.Entity<User>().HasData(new User { Id = 3, Email = "user3@test.com", Name = "Tala", UserName = "totoSy", Phone = "0964654765", Age = 20, Password = "789", Paypal = "Lb1267" });
@@ -88,13 +89,19 @@ namespace MarfulApi.Data
             modelBuilder.Entity<Post>().HasData(new Post { Id = 2, Description = " test another post for infulonser", InfulonserId = 1, dateTime = DateTime.Now });
             modelBuilder.Entity<Post>().HasData(new Post { Id = 3, Description = " test for company post", BrandId = 1, dateTime = DateTime.Now });
             modelBuilder.Entity<Post>().HasData(new Post { Id = 4, Description = " test another post for company", BrandId = 1, dateTime = DateTime.Now });
-           
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 5, Description = " this is the first post for sport company", BrandId = 2, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 6, Description = " this is the second post for sport company", BrandId = 2, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 7, Description = " Im infulonser with content sport", InfulonserId=2, dateTime = DateTime.Now });
+
+
+
             modelBuilder.Entity<UserPost>().HasData(new UserPost { Id = 1, InterAction = true, UserId = 1, PostId = 1 });
             modelBuilder.Entity<UserPost>().HasData(new UserPost { Id = 2, InterAction = false, UserId = 1, PostId = 2 });
             modelBuilder.Entity<UserPost>().HasData(new UserPost { Id = 3, InterAction = true, UserId = 1, PostId = 4 });
 
             modelBuilder.Entity<InfulonserFollowInfulonser>().HasData(new InfulonserFollowInfulonser { Id = 1, FollowId = 2, FollowedId = 1 });
             modelBuilder.Entity<CompanyInfulonser>().HasData(new CompanyInfulonser { Id = 1, CompanyId = 1, InfulonserId = 2, Followed = "company" });
+            modelBuilder.Entity<CompanyInfulonser>().HasData(new CompanyInfulonser { Id = 2, CompanyId = 1, InfulonserId = 1, Followed = "infulonser" });
         }
     }
 }

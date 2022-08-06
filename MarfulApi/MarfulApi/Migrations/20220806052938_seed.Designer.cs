@@ -4,6 +4,7 @@ using MarfulApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    partial class MarfulDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220806052938_seed")]
+    partial class seed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -253,10 +255,6 @@ namespace MarfulApi.Migrations
                     b.Property<int>("CompanyId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -333,7 +331,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-                            Start = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3044)
+                            Start = new DateTime(2022, 8, 6, 8, 29, 36, 702, DateTimeKind.Local).AddTicks(5115)
                         });
                 });
 
@@ -573,7 +571,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-                            SendTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3121),
+                            SendTime = new DateTime(2022, 8, 6, 8, 29, 36, 702, DateTimeKind.Local).AddTicks(5170),
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -581,7 +579,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-                            SendTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3146),
+                            SendTime = new DateTime(2022, 8, 6, 8, 29, 36, 702, DateTimeKind.Local).AddTicks(5186),
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -628,49 +626,49 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Description = " test for infulonser post",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3316)
+                            dateTime = new DateTime(2022, 8, 6, 8, 29, 36, 702, DateTimeKind.Local).AddTicks(5231)
                         },
                         new
                         {
                             Id = 2,
                             Description = " test another post for infulonser",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3349)
+                            dateTime = new DateTime(2022, 8, 6, 8, 29, 36, 702, DateTimeKind.Local).AddTicks(5249)
                         },
                         new
                         {
                             Id = 3,
                             BrandId = 1,
                             Description = " test for company post",
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3371)
+                            dateTime = new DateTime(2022, 8, 6, 8, 29, 36, 702, DateTimeKind.Local).AddTicks(5262)
                         },
                         new
                         {
                             Id = 4,
                             BrandId = 1,
                             Description = " test another post for company",
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3391)
+                            dateTime = new DateTime(2022, 8, 6, 8, 29, 36, 702, DateTimeKind.Local).AddTicks(5276)
                         },
                         new
                         {
                             Id = 5,
                             BrandId = 2,
                             Description = " this is the first post for sport company",
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3413)
+                            dateTime = new DateTime(2022, 8, 6, 8, 29, 36, 702, DateTimeKind.Local).AddTicks(5290)
                         },
                         new
                         {
                             Id = 6,
                             BrandId = 2,
                             Description = " this is the second post for sport company",
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3435)
+                            dateTime = new DateTime(2022, 8, 6, 8, 29, 36, 702, DateTimeKind.Local).AddTicks(5305)
                         },
                         new
                         {
                             Id = 7,
                             Description = " Im infulonser with content sport",
                             InfulonserId = 2,
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3458)
+                            dateTime = new DateTime(2022, 8, 6, 8, 29, 36, 702, DateTimeKind.Local).AddTicks(5319)
                         });
                 });
 
