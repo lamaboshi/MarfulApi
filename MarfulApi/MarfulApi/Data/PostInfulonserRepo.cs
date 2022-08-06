@@ -1,5 +1,6 @@
 ﻿using MarfulApi.Model;
 using MarfulApi.Infrastructure;
+
 namespace MarfulApi.Data
 {
     public class PostInfulonserRepo:IPostInfulonser
@@ -81,6 +82,12 @@ namespace MarfulApi.Data
                 return userCount + infuCount;
             }
             return -1;
+        }
+
+        public List<PostInfulonser> GetUserPostByInfu(int IdInfu)
+        {
+            var data = _db.PostInfulonsers.Where(t => t.InfulonserId == IdInfu).ToList();
+            return data;
         }
     }
 }

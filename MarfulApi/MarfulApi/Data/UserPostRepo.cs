@@ -70,5 +70,11 @@ namespace MarfulApi.Data
             }
             return -1;
         }
+
+        public List<UserPost> GetUserPostByUser(int IdUser)
+        {
+            var data = _db.UserPosts.Where(t => t.UserId == IdUser).ToList();
+            return data;
+        }
     }
 }

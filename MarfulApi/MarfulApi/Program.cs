@@ -3,14 +3,19 @@ using MarfulApi.Data;
 using MarfulApi.Infrastructure;
 using MarfulApi.Hubs;
 using System.Text.Json.Serialization;
+using Newtonsoft.Json.Converters;
+using MarfulApi.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 
-builder.Services.AddControllers().AddJsonOptions(x =>
-                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services.AddControllers().AddJsonOptions(config => {
+    config.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    config.JsonSerializerOptions.Converters.Add(new ByteArrayConverter());
+    config.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+              } ) ;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 

@@ -33,6 +33,7 @@ namespace MarfulApi.Data
         {
             if (post.Id == 0)
             {
+
                 _db.Posts.Add(post);
                 _db.SaveChanges();
             }

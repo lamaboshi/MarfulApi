@@ -113,7 +113,7 @@ namespace MarfulApi.Controllers
             }
         }
         [HttpGet]
-        [ActionName(" GetFollowers")]
+        [ActionName("GetFollowers")]
         public IActionResult GetFollowers([FromQuery] string email)
         {
             if (email == null)

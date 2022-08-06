@@ -5,7 +5,7 @@ using MarfulApi.Model;
 
 namespace MarfulApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class PostInfulonserController : ControllerBase
     {
@@ -15,12 +15,14 @@ namespace MarfulApi.Controllers
             db = _db;
         }
         [HttpGet]
+        [ActionName("GetPostInteraction")]
         public IActionResult GetPostInteraction()
         {
             IQueryable<PostInfulonser> data = db.GetPostInfulonsers;
             return Ok(data);
         }
         [HttpGet("{id}")]
+        [ActionName("Get")]
         public IActionResult Get(int id)
         {
             var data = db.GetPostInfulonser(id);
@@ -30,6 +32,22 @@ namespace MarfulApi.Controllers
             }
             return NotFound();
         }
+        [HttpGet("{idInfu}")]
+        [ActionName("GetByInfu")]
+        public IActionResult GetByInfu(int idInfu)
+        {
+            var data = db.GetUserPostByInfu(idInfu);
+            if (data != null)
+            {
+                return Ok(data);
+            }
+            return NotFound();
+
+        }
+
+
+
+
         [HttpPost]
         public IActionResult AddPostInfulonser([FromBody] PostInfulonser postInfulonser)
         {
@@ -41,7 +59,7 @@ namespace MarfulApi.Controllers
             {
               var data= db.Save(postInfulonser);
                 if (data != null)
-                    return Ok();
+                    return Ok(data);
                 else return NotFound();
             }
         }
