@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MarfulApi.Migrations
 {
-    public partial class init : Migration
+    public partial class addMoreSeeds : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -85,13 +85,33 @@ namespace MarfulApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CompanyTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CompanyId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CompanyTypes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CompanyTypes_Companies_CompanyId",
+                        column: x => x.CompanyId,
+                        principalTable: "Companies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CompanyContents",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CompanyId = table.Column<int>(type: "int", nullable: false),
-                    ContentId = table.Column<int>(type: "int", nullable: false)
+                    CompanyId = table.Column<int>(type: "int", nullable: true),
+                    ContentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -100,14 +120,37 @@ namespace MarfulApi.Migrations
                         name: "FK_CompanyContents_Companies_CompanyId",
                         column: x => x.CompanyId,
                         principalTable: "Companies",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_CompanyContents_Contents_ContentId",
                         column: x => x.ContentId,
                         principalTable: "Contents",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CompanyInfulonsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Followed = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    InfulonserId = table.Column<int>(type: "int", nullable: true),
+                    CompanyId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CompanyInfulonsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CompanyInfulonsers_Companies_CompanyId",
+                        column: x => x.CompanyId,
+                        principalTable: "Companies",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_CompanyInfulonsers_Infulonsers_InfulonserId",
+                        column: x => x.InfulonserId,
+                        principalTable: "Infulonsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -143,8 +186,8 @@ namespace MarfulApi.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    InfulonserId = table.Column<int>(type: "int", nullable: false),
-                    ContentId = table.Column<int>(type: "int", nullable: false)
+                    InfulonserId = table.Column<int>(type: "int", nullable: true),
+                    ContentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -153,14 +196,36 @@ namespace MarfulApi.Migrations
                         name: "FK_InfulonserContents_Contents_ContentId",
                         column: x => x.ContentId,
                         principalTable: "Contents",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_InfulonserContents_Infulonsers_InfulonserId",
                         column: x => x.InfulonserId,
                         principalTable: "Infulonsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "InfulonserFollowInfulonsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FollowId = table.Column<int>(type: "int", nullable: true),
+                    FollowedId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InfulonserFollowInfulonsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_InfulonserFollowInfulonsers_Infulonsers_FollowedId",
+                        column: x => x.FollowedId,
+                        principalTable: "Infulonsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_InfulonserFollowInfulonsers_Infulonsers_FollowId",
+                        column: x => x.FollowId,
+                        principalTable: "Infulonsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -169,8 +234,8 @@ namespace MarfulApi.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    InfulonserId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    InfulonserId = table.Column<int>(type: "int", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -179,14 +244,12 @@ namespace MarfulApi.Migrations
                         name: "FK_InfulonserUsers_Infulonsers_InfulonserId",
                         column: x => x.InfulonserId,
                         principalTable: "Infulonsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_InfulonserUsers_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -331,9 +394,10 @@ namespace MarfulApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    BrandId = table.Column<int>(type: "int", nullable: false),
-                    JobId = table.Column<int>(type: "int", nullable: false),
-                    InfulonserId = table.Column<int>(type: "int", nullable: false)
+                    dateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    BrandId = table.Column<int>(type: "int", nullable: true),
+                    JobId = table.Column<int>(type: "int", nullable: true),
+                    InfulonserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -342,20 +406,44 @@ namespace MarfulApi.Migrations
                         name: "FK_Posts_Brands_BrandId",
                         column: x => x.BrandId,
                         principalTable: "Brands",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Posts_Infulonsers_InfulonserId",
+                        column: x => x.InfulonserId,
+                        principalTable: "Infulonsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Posts_Jobs_JobId",
+                        column: x => x.JobId,
+                        principalTable: "Jobs",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PostInfulonsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Interaction = table.Column<bool>(type: "bit", nullable: false),
+                    InfulonserId = table.Column<int>(type: "int", nullable: false),
+                    PostId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PostInfulonsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PostInfulonsers_Infulonsers_InfulonserId",
                         column: x => x.InfulonserId,
                         principalTable: "Infulonsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Posts_Jobs_JobId",
-                        column: x => x.JobId,
-                        principalTable: "Jobs",
+                        name: "FK_PostInfulonsers_Posts_PostId",
+                        column: x => x.PostId,
+                        principalTable: "Posts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -409,23 +497,35 @@ namespace MarfulApi.Migrations
                         column: x => x.UserPostId,
                         principalTable: "UserPosts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
                 table: "Companies",
                 columns: new[] { "Id", "Address", "Description", "Email", "Image", "Name", "Password", "Phone", "TelePhone" },
-                values: new object[] { 1, "From Streat", "MakeUp For Weman", "company1@test.com", null, "JUICY BEAUTY", "12123", "0921423432", "4232543" });
+                values: new object[,]
+                {
+                    { 1, "From Streat", "MakeUp For Weman", "company1@test.com", null, "JUICY BEAUTY", "12123", "0921423432", "4232543" },
+                    { 2, "From Streat", "Asics sponsors a variety of sports associations", "Asics@test.com", null, "ASIC", "111222", "0921423432", "223554" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Contents",
                 columns: new[] { "Id", "Description", "Name" },
-                values: new object[] { 1, "Just for Weman", "MackeUp" });
+                values: new object[,]
+                {
+                    { 1, "Just for Weman", "MackeUp" },
+                    { 2, "All About sports", "Sports" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Infulonsers",
                 columns: new[] { "Id", "Address", "Description", "Email", "Image", "Name", "Password", "Paypal", "Phone", "UserName" },
-                values: new object[] { 1, "USA LA", "fdsfsgfd", "info@test.com", null, "NoorStars", "0000", "dskjfhjh", "0965465760", "NoorStars" });
+                values: new object[,]
+                {
+                    { 1, "USA LA", "Noor Stars, the first Arabic YouTuber to reach 10 million subscribers, was born in Iraq and grew up in Syria. Having spent her childhood in Damascus, she moved to Turkey for 3 years before moving to the United States with her mother and siblings. She completed her secondary education and university degree, specialising in business administration. Since her channel’s creation in 2014, Noor has posted over 550 videos on her channel, with over 18 million subscribers and 2 billion views in total. She was part of the Maybelline New York's Web series which was named Ramadan stars with Noor Stars and the web series won YouTube's The Lantern award 2019. Noor is best known for her content related to beauty, comics and vlogs.", "info@test.com", null, "NoorStars", "0000", "dskjfhjh", "0965465760", "NoorStars" },
+                    { 2, "USA LA", "Joshua Patterson is an actor, known for ER (1994), 7th Heaven (1996) and Weird Science (1994).", "Joshua@test.com", null, "Joshua Patterson", "1111", "dskjffff", "0965465760", "Joshua" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Users",
@@ -440,12 +540,58 @@ namespace MarfulApi.Migrations
             migrationBuilder.InsertData(
                 table: "CompanyContents",
                 columns: new[] { "Id", "CompanyId", "ContentId" },
-                values: new object[] { 1, 1, 1 });
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CompanyInfulonsers",
+                columns: new[] { "Id", "CompanyId", "Followed", "InfulonserId" },
+                values: new object[] { 1, 1, "company", 2 });
 
             migrationBuilder.InsertData(
                 table: "Conversations",
                 columns: new[] { "Id", "CompanyId", "InfulonserId", "Start" },
-                values: new object[] { 1, 1, 1, new DateTime(2009, 9, 14, 8, 0, 0, 0, DateTimeKind.Unspecified) });
+                values: new object[] { 1, 1, 1, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3182) });
+
+            migrationBuilder.InsertData(
+                table: "InfulonserContents",
+                columns: new[] { "Id", "ContentId", "InfulonserId" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "InfulonserFollowInfulonsers",
+                columns: new[] { "Id", "FollowId", "FollowedId" },
+                values: new object[] { 1, 2, 1 });
+
+            migrationBuilder.InsertData(
+                table: "InfulonserUsers",
+                columns: new[] { "Id", "InfulonserId", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 1, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Posts",
+                columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
+                values: new object[,]
+                {
+                    { 1, null, " test for infulonser post", null, 1, null, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3347) },
+                    { 2, null, " test another post for infulonser", null, 1, null, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3455) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "UserCompanies",
+                columns: new[] { "Id", "CompanyId", "UserId" },
+                values: new object[] { 1, 1, 1 });
 
             migrationBuilder.InsertData(
                 table: "Brands",
@@ -455,12 +601,29 @@ namespace MarfulApi.Migrations
             migrationBuilder.InsertData(
                 table: "Messages",
                 columns: new[] { "Id", "ConversationId", "JobId", "MessageStatus", "SendTime", "Text" },
-                values: new object[] { 1, 1, null, false, new DateTime(2009, 9, 14, 8, 0, 0, 0, DateTimeKind.Unspecified), "hi thanke you very match for this it was nice one" });
+                values: new object[,]
+                {
+                    { 1, 1, null, false, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3273), "hi thanke you very match for this it was nice one" },
+                    { 2, 1, null, true, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3288), "hi thanke you very match for this it was nice one" }
+                });
 
             migrationBuilder.InsertData(
-                table: "Messages",
-                columns: new[] { "Id", "ConversationId", "JobId", "MessageStatus", "SendTime", "Text" },
-                values: new object[] { 2, 1, null, true, new DateTime(2009, 9, 14, 8, 0, 0, 0, DateTimeKind.Unspecified), "hi thanke you very match for this it was nice one" });
+                table: "UserPosts",
+                columns: new[] { "Id", "InterAction", "PostId", "UserId" },
+                values: new object[,]
+                {
+                    { 1, true, 1, 1 },
+                    { 2, false, 2, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Posts",
+                columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
+                values: new object[,]
+                {
+                    { 3, 1, " test for company post", null, null, null, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3525) },
+                    { 4, 1, " test another post for company", null, null, null, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3546) }
+                });
 
             migrationBuilder.InsertData(
                 table: "Products",
@@ -475,6 +638,11 @@ namespace MarfulApi.Migrations
                     { 8, 1, "32434", "This some Text about found", null, "Mascara", 1300.0 },
                     { 9, 1, "32434", "This some Text about found", null, "Tant", 700.0 }
                 });
+
+            migrationBuilder.InsertData(
+                table: "UserPosts",
+                columns: new[] { "Id", "InterAction", "PostId", "UserId" },
+                values: new object[] { 3, true, 4, 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Baskets_ProductId",
@@ -507,6 +675,21 @@ namespace MarfulApi.Migrations
                 column: "ContentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CompanyInfulonsers_CompanyId",
+                table: "CompanyInfulonsers",
+                column: "CompanyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CompanyInfulonsers_InfulonserId",
+                table: "CompanyInfulonsers",
+                column: "InfulonserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CompanyTypes_CompanyId",
+                table: "CompanyTypes",
+                column: "CompanyId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Conversations_CompanyId",
                 table: "Conversations",
                 column: "CompanyId");
@@ -525,6 +708,16 @@ namespace MarfulApi.Migrations
                 name: "IX_InfulonserContents_InfulonserId",
                 table: "InfulonserContents",
                 column: "InfulonserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InfulonserFollowInfulonsers_FollowedId",
+                table: "InfulonserFollowInfulonsers",
+                column: "FollowedId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InfulonserFollowInfulonsers_FollowId",
+                table: "InfulonserFollowInfulonsers",
+                column: "FollowId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_InfulonserUsers_InfulonserId",
@@ -555,6 +748,16 @@ namespace MarfulApi.Migrations
                 name: "IX_Messages_JobId",
                 table: "Messages",
                 column: "JobId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PostInfulonsers_InfulonserId",
+                table: "PostInfulonsers",
+                column: "InfulonserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PostInfulonsers_PostId",
+                table: "PostInfulonsers",
+                column: "PostId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Posts_BrandId",
@@ -603,13 +806,25 @@ namespace MarfulApi.Migrations
                 name: "Baskets");
 
             migrationBuilder.DropTable(
+                name: "CompanyInfulonsers");
+
+            migrationBuilder.DropTable(
+                name: "CompanyTypes");
+
+            migrationBuilder.DropTable(
                 name: "InfulonserContents");
+
+            migrationBuilder.DropTable(
+                name: "InfulonserFollowInfulonsers");
 
             migrationBuilder.DropTable(
                 name: "InfulonserUsers");
 
             migrationBuilder.DropTable(
                 name: "Messages");
+
+            migrationBuilder.DropTable(
+                name: "PostInfulonsers");
 
             migrationBuilder.DropTable(
                 name: "UserCompanies");
