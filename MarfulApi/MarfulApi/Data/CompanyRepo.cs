@@ -123,5 +123,10 @@ namespace MarfulApi.Data
             }
             else return null;
         }
+        //public object GetCompanyAll(string email)
+        //{
+        //    var company =_db.Companies.Where(p => p.Email == email).Include(p => p.CompanyContent).ThenInclude(p=>p.Brand).ThenInclude(p=>p.Product);
+        //    return company;       
+        //}
     }
 }
