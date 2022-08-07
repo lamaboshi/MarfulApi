@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MarfulApi.Migrations
 {
-    public partial class addMoreSeeds : Migration
+    public partial class CreateDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -91,6 +91,7 @@ namespace MarfulApi.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CompanyId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -549,12 +550,16 @@ namespace MarfulApi.Migrations
             migrationBuilder.InsertData(
                 table: "CompanyInfulonsers",
                 columns: new[] { "Id", "CompanyId", "Followed", "InfulonserId" },
-                values: new object[] { 1, 1, "company", 2 });
+                values: new object[,]
+                {
+                    { 1, 1, "company", 2 },
+                    { 2, 1, "infulonser", 1 }
+                });
 
             migrationBuilder.InsertData(
                 table: "Conversations",
                 columns: new[] { "Id", "CompanyId", "InfulonserId", "Start" },
-                values: new object[] { 1, 1, 1, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3182) });
+                values: new object[] { 1, 1, 1, new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3566) });
 
             migrationBuilder.InsertData(
                 table: "InfulonserContents",
@@ -584,8 +589,9 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
                 values: new object[,]
                 {
-                    { 1, null, " test for infulonser post", null, 1, null, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3347) },
-                    { 2, null, " test another post for infulonser", null, 1, null, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3455) }
+                    { 1, null, " test for infulonser post", null, 1, null, new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3697) },
+                    { 2, null, " test another post for infulonser", null, 1, null, new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3711) },
+                    { 7, null, " Im infulonser with content sport", null, 2, null, new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3758) }
                 });
 
             migrationBuilder.InsertData(
@@ -596,15 +602,19 @@ namespace MarfulApi.Migrations
             migrationBuilder.InsertData(
                 table: "Brands",
                 columns: new[] { "Id", "CompanyContentId", "Description", "Image", "InfulonserId", "Name" },
-                values: new object[] { 1, 1, "Juicy Beauty was first founded in 2012 in Syria, Damascus. Juicy Beauty was first introduced in Lebanon in 2018.Juicy Beauty is an example of innovation in form due to its display with the largest makeup color made of vibrant and pure pigments and in substancethanks to the exclusive formulas and the revolutionary texture of its makeup products.Behind each product is the excellent research of an expert scientific team that develops new technologies and original formulas.High quality and extreme safety in addition to creativity, taste, and a focus on detail.That’s how JUICY ensures the finest standards of excellence through products that are both gentle and highly effective: Makeup formulas are produced in Europe. The range is subjected to accurate and in-depth safety evaluation.Juicy Beauty is the definition of having fun with makeup, trying new things,and feeling free! Not sure where to start? Why not visit our branches that are all over lebanon and test our products!", null, null, "JUICY BEAUTY" });
+                values: new object[,]
+                {
+                    { 1, 1, "Juicy Beauty was first founded in 2012 in Syria, Damascus. Juicy Beauty was first introduced in Lebanon in 2018.Juicy Beauty is an example of innovation in form due to its display with the largest makeup color made of vibrant and pure pigments and in substancethanks to the exclusive formulas and the revolutionary texture of its makeup products.Behind each product is the excellent research of an expert scientific team that develops new technologies and original formulas.High quality and extreme safety in addition to creativity, taste, and a focus on detail.That’s how JUICY ensures the finest standards of excellence through products that are both gentle and highly effective: Makeup formulas are produced in Europe. The range is subjected to accurate and in-depth safety evaluation.Juicy Beauty is the definition of having fun with makeup, trying new things,and feeling free! Not sure where to start? Why not visit our branches that are all over lebanon and test our products!", null, null, "JUICY BEAUTY" },
+                    { 2, 2, "Our company has all kind 0f sport element type", null, null, "Addidas" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Messages",
                 columns: new[] { "Id", "ConversationId", "JobId", "MessageStatus", "SendTime", "Text" },
                 values: new object[,]
                 {
-                    { 1, 1, null, false, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3273), "hi thanke you very match for this it was nice one" },
-                    { 2, 1, null, true, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3288), "hi thanke you very match for this it was nice one" }
+                    { 1, 1, null, false, new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3609), "hi thanke you very match for this it was nice one" },
+                    { 2, 1, null, true, new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3621), "hi thanke you very match for this it was nice one" }
                 });
 
             migrationBuilder.InsertData(
@@ -621,8 +631,10 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
                 values: new object[,]
                 {
-                    { 3, 1, " test for company post", null, null, null, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3525) },
-                    { 4, 1, " test another post for company", null, null, null, new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3546) }
+                    { 3, 1, " test for company post", null, null, null, new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3720) },
+                    { 4, 1, " test another post for company", null, null, null, new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3729) },
+                    { 5, 2, " this is the first post for sport company", null, null, null, new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3738) },
+                    { 6, 2, " this is the second post for sport company", null, null, null, new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3749) }
                 });
 
             migrationBuilder.InsertData(
