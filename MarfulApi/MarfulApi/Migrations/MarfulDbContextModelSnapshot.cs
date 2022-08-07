@@ -333,11 +333,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-<<<<<<< HEAD
-                            Start = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3044)
-=======
-                            Start = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3182)
->>>>>>> 23cfc810332e697142098a3917c6ca22fa8d8625
+                            Start = new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3566)
                         });
                 });
 
@@ -583,11 +579,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-<<<<<<< HEAD
-                            SendTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3121),
-=======
-                            SendTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3273),
->>>>>>> 23cfc810332e697142098a3917c6ca22fa8d8625
+                            SendTime = new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3609),
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -595,11 +587,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-<<<<<<< HEAD
-                            SendTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3146),
-=======
-                            SendTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3288),
->>>>>>> 23cfc810332e697142098a3917c6ca22fa8d8625
+                            SendTime = new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3621),
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -646,65 +634,49 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Description = " test for infulonser post",
                             InfulonserId = 1,
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3316)
-=======
-                            dateTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3347)
->>>>>>> 23cfc810332e697142098a3917c6ca22fa8d8625
+                            dateTime = new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3697)
                         },
                         new
                         {
                             Id = 2,
                             Description = " test another post for infulonser",
                             InfulonserId = 1,
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3349)
-=======
-                            dateTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3455)
->>>>>>> 23cfc810332e697142098a3917c6ca22fa8d8625
+                            dateTime = new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3711)
                         },
                         new
                         {
                             Id = 3,
                             BrandId = 1,
                             Description = " test for company post",
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3371)
-=======
-                            dateTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3525)
->>>>>>> 23cfc810332e697142098a3917c6ca22fa8d8625
+                            dateTime = new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3720)
                         },
                         new
                         {
                             Id = 4,
                             BrandId = 1,
                             Description = " test another post for company",
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3391)
+                            dateTime = new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3729)
                         },
                         new
                         {
                             Id = 5,
                             BrandId = 2,
                             Description = " this is the first post for sport company",
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3413)
+                            dateTime = new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3738)
                         },
                         new
                         {
                             Id = 6,
                             BrandId = 2,
                             Description = " this is the second post for sport company",
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3435)
+                            dateTime = new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3749)
                         },
                         new
                         {
                             Id = 7,
                             Description = " Im infulonser with content sport",
                             InfulonserId = 2,
-                            dateTime = new DateTime(2022, 8, 6, 8, 42, 14, 604, DateTimeKind.Local).AddTicks(3458)
-=======
-                            dateTime = new DateTime(2022, 7, 28, 0, 27, 11, 905, DateTimeKind.Local).AddTicks(3546)
->>>>>>> 23cfc810332e697142098a3917c6ca22fa8d8625
+                            dateTime = new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3758)
                         });
                 });
 
