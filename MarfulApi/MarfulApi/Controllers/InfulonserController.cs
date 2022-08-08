@@ -130,5 +130,21 @@ namespace MarfulApi.Controllers
                 else return NotFound();
             }
         }
+        [HttpGet]
+        [ActionName("InfulonserBrandProduct")]
+        public IActionResult InfulonserBrandProduct([FromQuery] string email)
+        {
+            if (email == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var data = db.GetInfulonserAll(email);
+                if (data != null)
+                    return Ok(data);
+                else return NotFound();
+            }
+        }
     }
 }

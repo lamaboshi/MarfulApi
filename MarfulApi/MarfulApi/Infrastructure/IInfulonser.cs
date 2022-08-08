@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MarfulApi.Model;
+using MarfulApi.Dto;
 
 namespace MarfulApi.Infrastructure
 {
@@ -19,6 +20,6 @@ namespace MarfulApi.Infrastructure
         public double GetFollowersCount(string email);
         public List<object> GetFollowers(string email);
 
-
+        public InfulonserWebDto GetInfulonserAll(string email);
     }
 }

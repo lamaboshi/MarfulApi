@@ -1,5 +1,6 @@
 ﻿using MarfulApi.Infrastructure;
 using MarfulApi.Model;
+using MarfulApi.Dto;
 using Microsoft.EntityFrameworkCore;
 
 namespace MarfulApi.Data
@@ -123,10 +124,21 @@ namespace MarfulApi.Data
             }
             else return null;
         }
-        //public object GetCompanyAll(string email)
-        //{
-        //    var company =_db.Companies.Where(p => p.Email == email).Include(p => p.CompanyContent).ThenInclude(p=>p.Brand).ThenInclude(p=>p.Product);
-        //    return company;       
-        //}
+        public CompanyWebDto GetCompanyAll(string email)
+        {
+            CompanyWebDto data = new CompanyWebDto();
+            Company company = _db.Companies.FirstOrDefault(p => p.Email == email);
+            if(company != null)
+            {
+                var comp = _db.Companies.Where(p => p.Id == company.Id).SelectMany(p => p.CompanyContent.SelectMany(t => t.Brand.SelectMany(y => y.Product))).Include(r => r.Brand).ThenInclude(r=>r.Product).ToList();
+               if(comp.Count != 0)
+                { 
+                data.company = company;
+                data.products = comp;
+                return data;
+                 }
+            }
+            return null;
+        }
     }
 }

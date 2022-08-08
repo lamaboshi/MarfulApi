@@ -1,4 +1,5 @@
 ﻿using MarfulApi.Model;
+using MarfulApi.Dto;
 
 namespace MarfulApi.Infrastructure
 {
@@ -15,6 +16,6 @@ namespace MarfulApi.Infrastructure
         public void ChangePassword(int Id, string password);
         public double GetFollowersCount(string email);
         public List<object> GetFollowers(string email);
-      //  public object GetCompanyAll(string email); 
+        public CompanyWebDto GetCompanyAll(string email); 
     }
 }
