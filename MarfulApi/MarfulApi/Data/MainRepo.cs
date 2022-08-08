@@ -114,7 +114,7 @@ namespace MarfulApi.Data
             }
             else return null;
         }
-        public List<Post> GetCompanyPost(string email)
+        public List<PostDto> GetCompanyPost(string email)
         {
             var company = _db.Companies.FirstOrDefault(p => p.Email == email);
             if (company != null)
@@ -130,7 +130,13 @@ namespace MarfulApi.Data
                 }
                 if (posts.Count != 0)
                 {
-                    return posts;
+                    foreach (Post e in posts)
+                    {
+                        PostDto dto = new PostDto();
+                        dto.post = e;
+                        postDtos.Add(dto);
+                    }
+                    return postDtos;
                 }
                 else return null;
                 return null;
@@ -223,7 +229,7 @@ namespace MarfulApi.Data
             }
             else return null;
         }
-        public List<Post> GetCompanyPostByConent(int IdContent, string email)
+        public List<PostDto> GetCompanyPostByConent(int IdContent, string email)
         {
             Company company = _db.Companies.FirstOrDefault(p => p.Email == email);
             Content content = _db.Contents.FirstOrDefault(p => p.Id == IdContent);
@@ -243,7 +249,12 @@ namespace MarfulApi.Data
                     }
                     if (posts.Count != 0)
                     {
-                        return posts;
+                        foreach (Post e in posts)
+                        {
+                            PostDto dto = new PostDto();
+                            postDtos.Add(dto);
+                        }
+                        return postDtos;
                     }
                     else return null;
                 }
