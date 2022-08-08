@@ -11,7 +11,7 @@ namespace MarfulApi.Infrastructure
         public List<Content> GetAllInfulonserContents(int IdInful);
         public InfulonserContent GetInfulonserContent(int id);
         public void Save(InfulonserContent infulonserContent);
-        public void Delete(int id);
+        public void Delete(int id, int IdInu);
         public void Update(InfulonserContent infulonserContent);
     }
 }

@@ -24,6 +24,7 @@ namespace MarfulApi.Data
 
         public Job GetJob(int IdJob)
         {
+              
             var result = _db.Jobs.First(p => p.Id == IdJob);
             if (result != null) return result;
             else throw new NotImplementedException();
@@ -33,8 +34,24 @@ namespace MarfulApi.Data
         {
             if (job.Id == 0)
             {
+                var allMessage = job.Messages.ToList();
+                job.Messages = null;
                 _db.Jobs.Add(job);
                 _db.SaveChanges();
+                foreach (var item in allMessage)
+                {
+                    var messageEntity = _db.Messages.First(t => t.Id == item.Id);
+                    if (messageEntity != null)
+                    {
+                        messageEntity.Id = item.Id;
+                        messageEntity.SendTime = item.SendTime;
+                        messageEntity.MessageStatus = item.MessageStatus;
+                        messageEntity.ConversationId = item.ConversationId;
+                        messageEntity.Text = item.Text;
+                        messageEntity.JobId = job.Id;
+                        _db.SaveChanges();
+                    }
+                }
             }
         }
 
