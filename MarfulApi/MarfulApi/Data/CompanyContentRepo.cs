@@ -17,9 +17,9 @@ namespace MarfulApi.Data
 
         public IQueryable<CompanyContent> GetCompanyContents => _db.CompanyContents;
 
-        public void Delete(int id)
+        public void Delete(int id,int IdComp)
         {
-            var companyContent = _db.CompanyContents.First(p=> p.Id == id);
+            var companyContent = _db.CompanyContents.First(p=> p.ContentId == id&&p.CompanyId==IdComp);
             if (companyContent != null)
             {
                 _db.CompanyContents.Remove(companyContent);

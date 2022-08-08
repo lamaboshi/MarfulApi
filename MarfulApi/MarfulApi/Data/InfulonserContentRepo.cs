@@ -18,9 +18,9 @@ namespace MarfulApi.Data
         }
 
 
-        public void Delete(int id)
+        public void Delete(int id,int IdInu)
         {
-            var infulonserContent = _db.InfulonserContents.First(p=> p.Id== id);
+            var infulonserContent = _db.InfulonserContents.First(p=> p.ContentId== id&&p.InfulonserId==IdInu);
             if (infulonserContent != null)
             {
                 _db.InfulonserContents.Remove(infulonserContent);

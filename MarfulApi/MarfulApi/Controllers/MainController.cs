@@ -28,7 +28,7 @@ namespace MarfulApi.Controllers
                     data = db.GetUserPost(email);
                 else if (Type == "infulonser")
                     data = db.GetInfulonserPost(email);
-                else if (Type == "company")
+                else if (Type == "comapny")
                     data = db.GetCompanyPost(email);
                 if (data != null)
                     return Ok(data);

@@ -59,10 +59,10 @@ namespace MarfulApi.Controllers
                 return Ok();
             }
         }
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("{id}/{IdComp}")]
+        public IActionResult Delete(int id, int IdComp)
         {
-            db.Delete(id);
+            db.Delete(id, IdComp);
             return Ok();
         }
 

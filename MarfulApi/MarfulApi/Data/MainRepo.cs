@@ -37,7 +37,7 @@ namespace MarfulApi.Data
         }
         public double GetDisLikesCount(int id, string Type)
         {
-            if (Type == "company")
+            if (Type == "comapny")
             {
                 return -1;
             }

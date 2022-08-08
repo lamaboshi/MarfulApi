@@ -269,6 +269,7 @@ F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.dll
 F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\ref\MarfulApi.dll
 F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.pdb
 F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\marfulApi\MarfulApi\MarfulApi\bin\Debug\net6.0\appsettings.Development.json
 C:\marfulApi\MarfulApi\MarfulApi\bin\Debug\net6.0\appsettings.json
 C:\marfulApi\MarfulApi\MarfulApi\bin\Debug\net6.0\MarfulApi.exe
@@ -541,3 +542,6 @@ C:\marfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.dll
 C:\marfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\ref\MarfulApi.dll
 C:\marfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.pdb
 C:\marfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.genruntimeconfig.cache
+=======
+F:\MarfulApi\MarfulApi\MarfulApi\obj\Debug\net6.0\MarfulApi.csproj.AssemblyReference.cache
+>>>>>>> eb3d3030d9135261872d3eff8c57bfbc5710eb84
