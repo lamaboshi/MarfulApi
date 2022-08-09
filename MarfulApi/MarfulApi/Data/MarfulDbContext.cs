@@ -93,6 +93,7 @@ namespace MarfulApi.Data
             modelBuilder.Entity<Post>().HasData(new Post { Id = 5, Description = " this is the first post for sport company", BrandId = 2, dateTime = DateTime.Now });
             modelBuilder.Entity<Post>().HasData(new Post { Id = 6, Description = " this is the second post for sport company", BrandId = 2, dateTime = DateTime.Now });
             modelBuilder.Entity<Post>().HasData(new Post { Id = 7, Description = " Im infulonser with content sport", InfulonserId=2, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 8, Description = " Im infulonser with content sport2", InfulonserId = 2, dateTime = DateTime.Now });
 
 
 

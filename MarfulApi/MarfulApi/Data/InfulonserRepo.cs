@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using MarfulApi.Infrastructure;
 using MarfulApi.Model;
+using MarfulApi.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarfulApi.Data
 {
@@ -124,6 +126,23 @@ namespace MarfulApi.Data
                 return followers;
             }
             else return null;
+        }
+
+        public InfulonserWebDto GetInfulonserAll(string email)
+        {
+            InfulonserWebDto data = new InfulonserWebDto();
+            Infulonser infulonser = _db.Infulonsers.FirstOrDefault(p => p.Email == email);
+            if (infulonser != null)
+            {
+                var inf = _db.Infulonsers.Where(p => p.Id == infulonser.Id).SelectMany(t => t.Brand.SelectMany(y => y.Product)).Include(r => r.Brand).ThenInclude(r => r.Product).ToList();
+                if (inf.Count != 0)
+                {
+                    data.Infulonser = infulonser;
+                    data.products = inf;
+                    return data;
+                }
+            }
+            return null;
         }
     }
 }

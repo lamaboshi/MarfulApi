@@ -145,22 +145,22 @@ namespace MarfulApi.Controllers
                 else return NotFound();
             }
         }
-        //[HttpGet]
-        //[ActionName("CompanyContentBrandProduct")]
-        // public IActionResult CompanyContentBrandProduct([FromQuery] string email)
-        //{
-        //    if(email == null)
-        //    {
-        //        return BadRequest();
-        //    }
-        //    else
-        //    {
-        //        var data = db.GetCompanyAll(email);
-        //        if (data != null)
-        //            return Ok(data);
-        //        else return NotFound();
-        //    }
-        //}
+        [HttpGet]
+        [ActionName("CompanyContentBrandProduct")]
+        public IActionResult CompanyContentBrandProduct([FromQuery] string email)
+        {
+            if (email == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var data = db.GetCompanyAll(email);
+                if (data != null)
+                    return Ok(data);
+                else return NotFound();
+            }
+        }
 
     }
 }
