@@ -13,5 +13,6 @@ namespace MarfulApi.Infrastructure
       public  void Save(CompanyContent companyContent);
       public  void Delete(int id, int IdComp);
         public void Update(CompanyContent companycontent);
+        public List<CompanyContent> GetAllCompanyContents(int IdCompany);
     }
 }

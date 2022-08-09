@@ -15,23 +15,23 @@ namespace MarfulApi.Controllers
         {
             db = _db;
         }
-        [HttpGet]
-        public IActionResult GetProduct()
+        [HttpGet("idBrand")]
+        public IActionResult GetProduct(int idBrand)
         {
-            IQueryable<Product> data = db.GetProducts;
+            List<Product> data = db.GetProducts(idBrand);
             return Ok(data);
         }
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var data= db.GetProduct(id);
-            if (data != null)
-            {
-                return Ok(data);
-            }
-            return NotFound();
+        //[HttpGet("{id}")]
+        //public IActionResult Get(int id)
+        //{
+        //    var data= db.GetProduct(id);
+        //    if (data != null)
+        //    {
+        //        return Ok(data);
+        //    }
+        //    return NotFound();
 
-        }
+        //}
 
  
         [HttpPost]
