@@ -1,4 +1,5 @@
 ﻿using MarfulApi.Model;
+using MarfulApi.Dto;
 using MarfulApi.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 namespace MarfulApi.Data
@@ -10,83 +11,157 @@ namespace MarfulApi.Data
         {
             _db = db;
         }
-        public List<object> Search(string search)
+        public List<SearchDto> Search(string search)
         {
-            List<object> data = new List<object>();
-           List< Infulonser>  inf = _db.Infulonsers.Where(p => p.Name == search).ToList();
-            List<Company> cmp = _db.Companies.Where(p => p.Name == search).ToList();
-            List<Brand> brand = _db.Brands.Where(p => p.Name == search).Include(r=>r.Infulonser).Include(r=>r.CompanyContent).ToList();
-            List<Product> product = _db.Products.Where(p => p.Name == search).Include(r=>r.Brand).ToList();
-            List<Content> content = _db.Contents.Where(p => p.Name == search).Include(r=>r.CompanyContent).Include(r=>r.InfulonserContent).ToList();
+            List<SearchDto> data = new List<SearchDto>();
+            List<object> inf = _db.Infulonsers.Where(p => p.Name == search).ToList<object>();
+            List<object> cmp = _db.Companies.Where(p => p.Name == search).ToList<object>();
+            List<object> brand = _db.Brands.Where(p => p.Name == search).Include(r => r.Infulonser).Include(r => r.CompanyContent).ToList<object>();
+            List<object> product = _db.Products.Where(p => p.Name == search).Include(r => r.Brand).ToList<object>();
+            List<object> content = _db.Contents.Where(p => p.Name == search).Include(r => r.CompanyContent).Include(r => r.InfulonserContent).ToList<object>();
             if (inf.Count != 0)
             {
-                data.AddRange(inf);
+                SearchDto dto = new SearchDto();
+                dto.search = inf;
+                dto.Type = "infulonser";
+                data.Add(dto);
+
             }
-            if(cmp.Count != 0)
+            if (cmp.Count != 0)
             {
-                data.AddRange(cmp);
+                SearchDto dto = new SearchDto();
+                dto.search = cmp;
+                dto.Type = "company";
+                data.Add(dto);
             }
             if (brand.Count != 0)
             {
-                data.AddRange(brand);
+                SearchDto dto = new SearchDto();
+                dto.search = brand;
+                dto.Type = "brand";
+                data.Add(dto);
+
             }
             if (product.Count != 0)
             {
-               
-                data.AddRange(product);
+                SearchDto dto = new SearchDto();
+                dto.search = product;
+                dto.Type = "product";
+                data.Add(dto);
             }
-            if(content.Count != 0)
+            if (content.Count != 0)
             {
                 //foreach (Content e in content)
                 //{
-                //    var infContent = _db.InfulonserContents.Where(p => p.ContentId == e.Id).Include(r => r.Infulonser).ToList();
-                //    if (infContent != null) data.AddRange(infContent);
-                //    var cmpContent = _db.CompanyContents.Where(p => p.ContentId == e.Id).Include(r => r.Company).ToList();
-                //    if (cmpContent != null) data.AddRange(content);
+                //    SearchDto dto = new SearchDto();
+                //    var infContent = _db.InfulonserContents.Where(p => p.ContentId == e.Id).Include(r => r.Infulonser).ToList<object>();
+                //    if (infContent != null)
+                //    {
+                //        dto.search = infContent;
+                //        dto.Type = "infulonser";
+                //        data.Add(dto);
+                //    }
+                //    var cmpContent = _db.CompanyContents.Where(p => p.ContentId == e.Id).Include(r => r.Company).ToList<object>();
+                //    if (cmpContent != null)
+                //    {
+                //        dto.search = cmpContent;
+                //        dto.Type = "company";
+                //        data.Add(dto);
+                //    }
                 //}
-                data.AddRange(content);
+                SearchDto dto = new SearchDto();
+                dto.search = content;
+                dto.Type = "content";
+                data.Add(dto);
             }
             if (data.Count != 0) return data;
-            else return null;
+            return null;
         }
-        public List<Infulonser> SearchInfulonser(string search)
+        public SearchDto SearchInfulonser(string search)
         {
-            List<Infulonser> inf = _db.Infulonsers.Where(p => p.Name == search).ToList();
-            return inf;
+            List<object> inf = _db.Infulonsers.Where(p => p.Name == search).ToList<object>();
+            SearchDto dto = new SearchDto();
+            if (inf.Count != 0)
+            {
+                dto.search = inf;
+                dto.Type = "infulonser";
+                return dto;
+            }
+            return null;
         }
-        public List<Company> SearchCompany(string search)
+        public SearchDto SearchCompany(string search)
         {
-            List<Company> cmp = _db.Companies.Where(p => p.Name == search).ToList();
-            return cmp;
-
+            List<object> cmp = _db.Companies.Where(p => p.Name == search).ToList<object>();
+            SearchDto dto = new SearchDto();
+            if (cmp.Count != 0)
+            {
+                dto.search = cmp;
+                dto.Type = "infulonser";
+                return dto;
+            }
+            return null;
         }
-        public List<Brand> SearchBrand(string search)
+        public SearchDto SearchBrand(string search)
         {
-            List<Brand> brand = _db.Brands.Where(p => p.Name == search).Include(r => r.Infulonser).Include(r => r.CompanyContent).ToList();
-            return brand;
+            List<object> brand = _db.Brands.Where(p => p.Name == search).Include(r => r.Infulonser).Include(r => r.CompanyContent).ToList<object>();
+            SearchDto dto = new SearchDto();
+            if (brand.Count != 0)
+            {
+                dto.search = brand;
+                dto.Type = "brand";
+                return dto;
+            }
+            return null;
         }
-        public List<Product> SearchProduct(string search)
+        public SearchDto SearchProduct(string search)
         {
-            List<Product> product = _db.Products.Where(p => p.Name == search).Include(r => r.Brand).ToList();
-            return product;
+            List<object> product = _db.Products.Where(p => p.Name == search).Include(r => r.Brand).ToList<object>();
+            SearchDto dto = new SearchDto();
+            if (product.Count != 0)
+            {
+                dto.search = product;
+                dto.Type = "product";
+                return dto;
+            }
+            return null;
         }
-        public List<Content> SearchContent(string search)
+        public SearchDto SearchContent(string search)
         {
-            List<Content> content = _db.Contents.Where(p => p.Name == search).Include(r => r.CompanyContent).Include(r => r.InfulonserContent).ToList();     
-           return content;
+            List<object> content = _db.Contents.Where(p => p.Name == search).Include(r => r.CompanyContent).Include(r => r.InfulonserContent).ToList<object>();
+            SearchDto dto = new SearchDto();
+            if (content.Count != 0)
+            {
+                dto.search = content;
+                dto.Type = "content";
+                return dto;
+            }
+            return null;
         }
-        public List<object> SearchSelectedContent(int Id, string search)
+        public List<SearchDto> SearchSelectedContent(int Id, string search)
         {
              List<object> Accounts = new List<object>();
+            List<SearchDto> dto = new List<SearchDto>();
             Content content = _db.Contents.FirstOrDefault(p => p.Id == Id);
             if (content != null)
             {
 
-                var infContent = _db.InfulonserContents.Where(p => p.ContentId == content.Id).Include(r => r.Infulonser).ToList();
-                if (infContent != null) Accounts.AddRange(infContent);
-                var cmpContent = _db.CompanyContents.Where(p => p.ContentId == content.Id).Include(r => r.Company).ToList();
-                if (cmpContent != null) Accounts.AddRange(cmpContent);
-                if (Accounts.Count != 0) return Accounts;
+                var infContent = _db.InfulonserContents.Where(p => p.ContentId == content.Id).Include(r => r.Infulonser).ToList<object>();
+                if (infContent.Count != 0)
+                {
+                    SearchDto Searchinf = new SearchDto();
+                    Searchinf.Type = "infulonser";
+                    Searchinf.search = infContent;
+                    dto.Add(Searchinf);
+                }
+                var cmpContent = _db.CompanyContents.Where(p => p.ContentId == content.Id).Include(r => r.Company).ToList<object>();
+                if (cmpContent.Count != 0)
+                {
+                    SearchDto Searchcmp = new SearchDto();
+                    Searchcmp.Type = "company";
+                    Searchcmp.search = cmpContent;
+                    dto.Add(Searchcmp);
+                }
+                if (dto.Count != 0) return dto;
                 else return null;
             }
                 

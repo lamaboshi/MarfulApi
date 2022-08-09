@@ -252,6 +252,7 @@ namespace MarfulApi.Data
                         foreach (Post e in posts)
                         {
                             PostDto dto = new PostDto();
+                            dto.post = e;
                             postDtos.Add(dto);
                         }
                         return postDtos;
