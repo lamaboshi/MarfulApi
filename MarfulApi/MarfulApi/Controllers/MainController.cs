@@ -48,11 +48,17 @@ namespace MarfulApi.Controllers
             {
                 object data = new object();
                 if (Type == "user")
+                {
                     data = db.GetUserPostByConent(id, email);
+                }
                 else if (Type == "infulonser")
+                {
                     data = db.GetInfulonserPostByConent(id, email);
-                else if (Type == "comapny")
+                }
+                else if (Type == "company")
+                {
                     data = db.GetCompanyPostByConent(id, email);
+                }
                 if (data != null)
                     return Ok(data);
                 else

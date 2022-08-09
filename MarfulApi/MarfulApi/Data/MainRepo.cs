@@ -256,6 +256,7 @@ namespace MarfulApi.Data
                             PostDto dto = new PostDto();
                             dto.Name = e.Infulonser != null ? e.Infulonser.Name : " ";
                             dto.Image = e.Infulonser != null ? e.Infulonser.Image : null;
+                            dto.post = e;
                             postDtos.Add(dto);
                         }
                         return postDtos;
