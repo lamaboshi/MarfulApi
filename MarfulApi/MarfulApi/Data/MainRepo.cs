@@ -134,6 +134,8 @@ namespace MarfulApi.Data
                     {
                         PostDto dto = new PostDto();
                         dto.post = e;
+                        dto.Name = e.Infulonser !=null?e.Infulonser.Name:" ";
+                        dto.Image = e.Infulonser != null ? e.Infulonser.Image:null;
                         postDtos.Add(dto);
                     }
                     return postDtos;
@@ -252,6 +254,8 @@ namespace MarfulApi.Data
                         foreach (Post e in posts)
                         {
                             PostDto dto = new PostDto();
+                            dto.Name = e.Infulonser != null ? e.Infulonser.Name : " ";
+                            dto.Image = e.Infulonser != null ? e.Infulonser.Image : null;
                             postDtos.Add(dto);
                         }
                         return postDtos;
