@@ -13,5 +13,6 @@ namespace MarfulApi.Infrastructure
        public void Save(Basket basket);
       public  void Delete(int id);
         public void Update(Basket basket);
+        public double GetMoney(int IdInf,int IdCmp);
     }
 }

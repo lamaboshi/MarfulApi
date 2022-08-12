@@ -4,7 +4,7 @@ using MarfulApi.Model;
 
 namespace MarfulApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
 
     public class BasketController : ControllerBase
@@ -61,6 +61,21 @@ namespace MarfulApi.Controllers
         {
             db.Delete(id);
             return Ok();
+        }
+        [HttpGet]
+        [ActionName("Salary")]
+        public IActionResult Salary([FromQuery] int IdInf,[FromQuery] int IdCmp)
+        {
+            if (IdInf == 0 || IdCmp==0)
+                return BadRequest();
+            else
+            {
+                double data = db.GetMoney(IdInf,IdCmp);
+                if (data != 0)
+                    return Ok(data);
+                else return NotFound();
+            }
+
         }
     }
 }
