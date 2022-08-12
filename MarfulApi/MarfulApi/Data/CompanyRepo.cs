@@ -86,7 +86,8 @@ namespace MarfulApi.Data
 
         public  List<Post> GetAllCompanyPost(int Id)
         {
-            var posts =  _db.Companies.Where(p=>p.Id==Id).SelectMany(p=>p.CompanyContent.SelectMany(t=>t.Brand.SelectMany(y=>y.Post))).Include(r=>r.Brand).ToList();
+
+            var posts = _db.Companies.Where(p => p.Id == Id).SelectMany(p => p.CompanyContent.SelectMany(t => t.Brand.SelectMany(y => y.Post))).Include(r => r.UserPost).Include(r => r.Brand).ToList();
             return posts;
 
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MarfulApi.Infrastructure;
 using MarfulApi.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarfulApi.Data
 {
@@ -27,6 +28,11 @@ namespace MarfulApi.Data
             }
             else throw new FileNotFoundException();
            
+        }
+        public List<CompanyContent> GetAllCompanyContents(int IdCompany)
+        {
+            var data = _db.CompanyContents.Where(p => p.CompanyId == IdCompany).Include(t => t.Content).ToList();
+            return data;
         }
         public CompanyContent GetCompanyContent(int id)
         {

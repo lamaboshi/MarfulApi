@@ -11,7 +11,7 @@ namespace MarfulApi.Data
         {
             _db = db;
         }
-        public IQueryable<Product> GetProducts => _db.Products;
+  
 
         public void Delete(int id)
         {
@@ -53,6 +53,12 @@ namespace MarfulApi.Data
                 _db.SaveChanges();
             }
            
+        }
+
+        public List<Product> GetProducts(int idBrand)
+        {
+            var data = _db.Products.Where(t => t.BrandId == idBrand).ToList();
+            return data;
         }
     }
 }

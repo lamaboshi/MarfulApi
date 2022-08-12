@@ -20,18 +20,12 @@ namespace MarfulApi.Controllers
             IQueryable<CompanyContent> data = db.GetCompanyContents;
             return Ok(data);
         }
-        [HttpGet("{id}")]
-        public IActionResult GetCompanyContent(int id)
+        [HttpGet("{idCompa}")]
+        public IActionResult GetAllInfulonserContents(int idCompa)
         {
-            var data = db.GetCompanyContent(id);
-            if(data != null)
-            {
-                return Ok(data);
-            }
-            else
-            {
-                return NotFound();
-            }
+            var data = db.GetAllCompanyContents(idCompa);
+            if (data == null) { return NotFound(); }
+            return Ok(data);
         }
         [HttpPost]
         public IActionResult AddCompanyContent([FromBody] CompanyContent companyContent)
