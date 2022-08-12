@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MarfulApi.Infrastructure;
 using MarfulApi.Model;
 using Microsoft.EntityFrameworkCore;
+using MarfulApi.Dto;
 
 
 namespace MarfulApi.Data
@@ -82,27 +83,66 @@ namespace MarfulApi.Data
                 post = _db.Posts.Where(p => p.JobId == jobs.Id).Include(r => r.UserPost).ThenInclude(r => r.Basket).ToList();
                 foreach (Post f in post)
                 {
-                    userPost = _db.UserPosts.Where(p => p.PostId == f.Id).ToList();
+                    var posts = _db.UserPosts.Where(p => p.PostId == f.Id).ToList();
+                    userPost.AddRange(posts);
+                    
                 }
 
                 foreach (UserPost b in userPost)
                 {
-                    basket = _db.Baskets.Where(p => p.UserPostId == b.Id).Include(r => r.Product).ToList();
+                    var baskets= _db.Baskets.Where(p => p.UserPostId == b.Id).Include(r => r.Product).ToList();
+                    basket.AddRange(baskets); 
                 }
                 foreach(Basket h in basket)
                 {
                     num += h.TotalPrice;
                 }
                 double c = jobs.Salary / 100;
-                num = num * 100 * c;
+                num = num  * c;
             }
             if (num != 0) return num;
-          //foreach(Basket e in basket)
-          //  {
-          //      b += e.TotalPrice;
-          //      b=b*100*
-          //  }
             return 0;
+        }
+        public List<InformationDto> GetReport(int IdInf)
+        {
+            var infulonser = _db.Infulonsers.FirstOrDefault(p => p.Id == IdInf);
+            if(infulonser != null)
+            {
+                List<InformationDto> informationDtos = new List<InformationDto>();
+                InformationDto dto = new InformationDto();
+                List<User> u = new List<User>();
+                List<UserPost> userpost = new List<UserPost>();
+               var job = _db.Jobs.Where(p => p.InfulonserId == infulonser.Id).Include(r=>r.Brand).ThenInclude(r=>r.Post).ToList();
+                foreach (Job e in job)
+                {
+                    dto.jobId = e.Id;
+                    var data = _db.CompanyContents.FirstOrDefault(p => p.Id == e.Brand.CompanyContentId);
+                    //foreach (CompanyContent f in data)
+                    //{
+                        var company = _db.Companies.FirstOrDefault(p => p.Id == data.CompanyId);
+                        double h = GetMoney(infulonser.Id, company.Id);
+                        dto.company = company;
+                        dto.salary = h;
+                   // }
+                    var posts = _db.Posts.Where(p=>p.JobId==e.Id ).Include(r=>r.UserPost).ThenInclude(r=>r.User).ToList();
+                    foreach (Post g in posts)
+                    {
+                        userpost = _db.UserPosts.Where(p => p.PostId == g.Id).Include(r => r.User).ToList();
+
+                        foreach (UserPost m in userpost)
+                        {
+                            User user = _db.Users.FirstOrDefault(p => p.Id == m.UserId);
+                            if(u.Contains(user) !=true)
+                            u.Add(user);
+                        }
+                    }
+                    dto.user = u;
+                    informationDtos.Add(dto);
+                }
+                if (informationDtos.Count != 0) return informationDtos;
+                else return null;
+            }
+            return null;
         }
     }
 }

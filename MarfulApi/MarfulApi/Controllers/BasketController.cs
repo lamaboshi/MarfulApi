@@ -77,5 +77,20 @@ namespace MarfulApi.Controllers
             }
 
         }
+        [HttpGet]
+        [ActionName("Information")]
+        public IActionResult Information([FromQuery] int IdInf)
+        {
+            if (IdInf == 0 )
+                return BadRequest();
+            else
+            {
+               var data =db.GetReport(IdInf);
+                if (data.Count != 0)
+                 return Ok(data);
+                else return NotFound();
+            }
+
+        }
     }
 }
