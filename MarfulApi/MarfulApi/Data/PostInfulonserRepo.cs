@@ -13,7 +13,7 @@ namespace MarfulApi.Data
         public IQueryable<PostInfulonser> GetPostInfulonsers => _db.PostInfulonsers;
         public void Delete(int id)
         {
-            var postInfulonser = _db.PostInfulonsers.First(p => p.Id == id);
+            var postInfulonser = _db.PostInfulonsers.FirstOrDefault(p => p.Id == id);
             if (postInfulonser != null)
             {
                 _db.PostInfulonsers.Remove(postInfulonser);

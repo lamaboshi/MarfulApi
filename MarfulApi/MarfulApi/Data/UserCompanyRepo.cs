@@ -14,7 +14,7 @@ namespace MarfulApi.Data
 
         public void Delete(int id)
         {
-            var result = _db.UserCompanies.First(p => p.Id == id);
+            var result = _db.UserCompanies.FirstOrDefault(p => p.Id == id);
             if (result != null)
             {
                 _db.UserCompanies.Remove(result);
@@ -28,9 +28,9 @@ namespace MarfulApi.Data
             return data;
         }
 
-        public UserCompany GetUserCompany(int iduser)
+        public UserCompany GetUserCompany(int id)
         {
-            var result = _db.UserCompanies.First(p => p.UserId == iduser);
+            var result = _db.UserCompanies.First(p => p.Id == id);
             if (result != null) return result;
             else throw new NotImplementedException();
         }
