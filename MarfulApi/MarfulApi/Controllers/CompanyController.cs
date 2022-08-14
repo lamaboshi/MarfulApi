@@ -145,9 +145,9 @@ namespace MarfulApi.Controllers
                 else return NotFound();
             }
         }
-        [HttpGet]
+        [HttpGet("{email}")]
         [ActionName("CompanyContentBrandProduct")]
-        public IActionResult CompanyContentBrandProduct([FromQuery] string email)
+        public IActionResult CompanyContentBrandProduct( string email)
         {
             if (email == null)
             {

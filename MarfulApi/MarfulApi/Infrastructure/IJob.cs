@@ -6,8 +6,8 @@ namespace MarfulApi.Infrastructure
     {
         public void Update(Job job);
         public void Save(Job job);
-        public IQueryable<Job> GetJobs { get; }
+        public List<Job> GetJobsInfo(int info);
         public void Delete(int id);
-        public Job GetJob(int IdJob);
+        public List<Job> GetJobsCompany(int idbrand);
     }
 }

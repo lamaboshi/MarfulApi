@@ -1,5 +1,6 @@
 ﻿using MarfulApi.Infrastructure;
 using MarfulApi.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarfulApi.Data
 {
@@ -10,7 +11,6 @@ namespace MarfulApi.Data
         {
             _db = db;
         }
-        public IQueryable<Job> GetJobs => _db.Jobs;
 
         public void Delete(int id)
         {
@@ -22,10 +22,17 @@ namespace MarfulApi.Data
             }
         }
 
-        public Job GetJob(int IdJob)
+
+        public List<Job> GetJobsCompany(int idbrand)
         {
-              
-            var result = _db.Jobs.First(p => p.Id == IdJob);
+            var result = _db.Jobs.Where(p => p.BrandId == idbrand).Include(t=>t.Brand).ThenInclude(r=>r.CompanyContent).ThenInclude(e=>e.Company).ToList();
+            if (result != null) return result;
+            else throw new NotImplementedException();
+        }
+
+        public List<Job> GetJobsInfo(int info)
+        {
+            var result = _db.Jobs.Where(p => p.InfulonserId == info).Include(t=>t.Infulonser).ToList();
             if (result != null) return result;
             else throw new NotImplementedException();
         }

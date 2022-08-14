@@ -1,6 +1,6 @@
-﻿using MarfulApi.Infrastructure;
+﻿using MarfulApi.Dto;
+using MarfulApi.Infrastructure;
 using MarfulApi.Model;
-using MarfulApi.Dto;
 using Microsoft.EntityFrameworkCore;
 
 namespace MarfulApi.Data
@@ -73,7 +73,7 @@ namespace MarfulApi.Data
             }
             return true;
         }
-        public void ChangePassword(int Id,string password)
+        public void ChangePassword(int Id, string password)
         {
             var data = _db.Companies.First(p => p.Id == Id);
             if (data != null)
@@ -81,10 +81,10 @@ namespace MarfulApi.Data
                 data.Password = password;
                 _db.SaveChanges();
             }
-            
+
         }
 
-        public  List<Post> GetAllCompanyPost(int Id)
+        public List<Post> GetAllCompanyPost(int Id)
         {
 
             var posts = _db.Companies.Where(p => p.Id == Id).SelectMany(p => p.CompanyContent.SelectMany(t => t.Brand.SelectMany(y => y.Post))).Include(r => r.UserPost).Include(r => r.Brand).ToList();
@@ -97,7 +97,7 @@ namespace MarfulApi.Data
             Company company = _db.Companies.FirstOrDefault(p => p.Email == email);
             if (company != null)
             {
-                double inf = _db.CompanyInfulonsers.Where(p => p.CompanyId == company.Id && p.Followed=="company").Count();
+                double inf = _db.CompanyInfulonsers.Where(p => p.CompanyId == company.Id && p.Followed == "company").Count();
                 double user = _db.UserCompanies.Where(p => p.CompanyId == company.Id).Count();
                 return inf + user;
             }
@@ -129,15 +129,19 @@ namespace MarfulApi.Data
         {
             CompanyWebDto data = new CompanyWebDto();
             Company company = _db.Companies.FirstOrDefault(p => p.Email == email);
-            if(company != null)
+            if (company != null)
             {
-                var comp = _db.Companies.Where(p => p.Id == company.Id).SelectMany(p => p.CompanyContent.SelectMany(t => t.Brand.SelectMany(y => y.Product))).Include(r => r.Brand).ThenInclude(r=>r.Product).ToList();
-               if(comp.Count != 0)
-                { 
-                data.company = company;
-                data.products = comp;
-                return data;
-                 }
+                var products = _db.CompanyContents.Where(p => p.CompanyId == company.Id).SelectMany(p => p.Brand.SelectMany(t => t.Product)).ToList();
+                var brands = _db.CompanyContents.Where(p => p.CompanyId == company.Id).SelectMany(p => p.Brand).ToList();
+                var companyContent = _db.CompanyContents.Where(p => p.CompanyId == company.Id).Include(t=>t.Content).ToList();
+                if (products.Count != 0)
+                {
+                    data.company = company;
+                    data.products = products;
+                    data.Brands = brands;
+                    data.CompanyContents = companyContent;
+                    return data;
+                }
             }
             return null;
         }

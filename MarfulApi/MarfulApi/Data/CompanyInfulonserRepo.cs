@@ -22,9 +22,17 @@ namespace MarfulApi.Data
                 throw new FileNotFoundException();
 
         }
-        public CompanyInfulonser GetInfulonserCompany(int id)
+        public CompanyInfulonser GetInfulonserCompany(int idcompany,int idInfo)
         {
-            var infulonserCompany = _db.CompanyInfulonsers.First(p => p.Id == id);
+            var infulonserCompany = new CompanyInfulonser();
+            if (idcompany==0)
+            {
+                infulonserCompany = _db.CompanyInfulonsers.First(p => p.InfulonserId == idInfo);
+            }else if (idInfo == 0)
+            {
+                infulonserCompany = _db.CompanyInfulonsers.First(p => p.CompanyId == idcompany);
+            }
+            
             if (infulonserCompany != null)
                 return infulonserCompany;
             else

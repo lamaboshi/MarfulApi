@@ -79,7 +79,7 @@ namespace MarfulApi.Data
         }
         public SearchDto SearchInfulonser(string search)
         {
-            List<object> inf = _db.Infulonsers.Where(p => p.Name == search).ToList<object>();
+            List<object> inf = _db.Infulonsers.Where(p => p.Name.Contains(search) ).ToList<object>();
             SearchDto dto = new SearchDto();
             if (inf.Count != 0)
             {
@@ -91,19 +91,19 @@ namespace MarfulApi.Data
         }
         public SearchDto SearchCompany(string search)
         {
-            List<object> cmp = _db.Companies.Where(p => p.Name == search).ToList<object>();
+            List<object> cmp = _db.Companies.Where(p => p.Name.Contains(search)).ToList<object>();
             SearchDto dto = new SearchDto();
             if (cmp.Count != 0)
             {
                 dto.search = cmp;
-                dto.Type = "infulonser";
+                dto.Type = "company";
                 return dto;
             }
             return null;
         }
         public SearchDto SearchBrand(string search)
         {
-            List<object> brand = _db.Brands.Where(p => p.Name == search).Include(r => r.Infulonser).Include(r => r.CompanyContent).ToList<object>();
+            var brand = _db.Brands.Where(p => p.Name.Contains(search)).Include(r => r.Infulonser).Include(r => r.CompanyContent).ToList<object>();
             SearchDto dto = new SearchDto();
             if (brand.Count != 0)
             {
@@ -115,7 +115,7 @@ namespace MarfulApi.Data
         }
         public SearchDto SearchProduct(string search)
         {
-            List<object> product = _db.Products.Where(p => p.Name == search).Include(r => r.Brand).ToList<object>();
+            List<object> product = _db.Products.Where(p => p.Name.Contains(search)).Include(r => r.Brand).ToList<object>();
             SearchDto dto = new SearchDto();
             if (product.Count != 0)
             {
@@ -127,7 +127,7 @@ namespace MarfulApi.Data
         }
         public SearchDto SearchContent(string search)
         {
-            List<object> content = _db.Contents.Where(p => p.Name == search).Include(r => r.CompanyContent).Include(r => r.InfulonserContent).ToList<object>();
+            List<object> content = _db.Contents.Where(p => p.Name.Contains(search)).Include(r => r.CompanyContent).Include(r => r.InfulonserContent).ToList<object>();
             SearchDto dto = new SearchDto();
             if (content.Count != 0)
             {

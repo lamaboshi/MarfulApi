@@ -29,15 +29,15 @@ namespace MarfulApi.Data
            
         }
 
-        public List<Infulonser> GetAllInfulonserUsers(int IdUser)
+        public Infulonser GetAllInfulonserUsers(int IdUser)
         {
-            var data = _db.InfulonserUsers.Where(t => t.UserId == IdUser).Include(t=>t.Infulonser).Select(i=>i.Infulonser).ToList();
+            var data = _db.InfulonserUsers.Where(t => t.UserId == IdUser).Include(t=>t.Infulonser).Select(i=>i.Infulonser).First();
             return data;
         }
 
-        public InfulonserUser GetInfulonserUser(int id)
+        public InfulonserUser GetInfulonserUser(int iduser)
         {
-            var infulonserUser = _db.InfulonserUsers.First(p => p.Id == id);
+            var infulonserUser = _db.InfulonserUsers.First(p => p.UserId == iduser);
             if (infulonserUser != null)
 
                 return infulonserUser;
