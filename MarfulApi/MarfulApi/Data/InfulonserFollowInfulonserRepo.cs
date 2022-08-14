@@ -22,9 +22,9 @@ namespace MarfulApi.Data
                 throw new FileNotFoundException();
 
         }
-        public InfulonserFollowInfulonser GetInfulonserFollowInfulonser(int id)
+        public InfulonserFollowInfulonser GetInfulonserFollowInfulonser(int idFollow)
         {
-            var infulonserf = _db.InfulonserFollowInfulonsers.First(p => p.Id == id);
+            var infulonserf = _db.InfulonserFollowInfulonsers.First(p => p.FollowId == idFollow);
             if (infulonserf != null)
                 return infulonserf;
             else

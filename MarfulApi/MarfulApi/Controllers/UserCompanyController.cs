@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MarfulApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserCompanyController : ControllerBase
     {
@@ -15,13 +15,21 @@ namespace MarfulApi.Controllers
             db = _db;
         }
         [HttpGet("{userId}")]
+        [ActionName("GetAllUserCompanys")]
         public IActionResult GetAllUserCompanys(int userId)
         {
             var data = db.GetAllUserCompanys(userId);
             return Ok(data);
         }
 
-
+        [HttpGet("{userId}")]
+        [ActionName("GetUserCompany")]
+        public IActionResult GetUserCompany(int userId)
+        {
+            var data = db.
+                GetUserCompany(userId);
+            return Ok(data);
+        }
         [HttpPost]
         public IActionResult AddUserCompany([FromBody] UserCompany userCompany)
         {

@@ -28,9 +28,9 @@ namespace MarfulApi.Data
             return data;
         }
 
-        public UserCompany GetUserCompany(int id)
+        public UserCompany GetUserCompany(int iduser)
         {
-            var result = _db.UserCompanies.First(p => p.Id == id);
+            var result = _db.UserCompanies.First(p => p.UserId == iduser);
             if (result != null) return result;
             else throw new NotImplementedException();
         }

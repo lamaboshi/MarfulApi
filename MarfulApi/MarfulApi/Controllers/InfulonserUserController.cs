@@ -5,7 +5,7 @@ using MarfulApi.Model;
 
 namespace MarfulApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class InfulonserUserController : ControllerBase
     {
@@ -15,12 +15,20 @@ namespace MarfulApi.Controllers
             db = _db;
         }
         [HttpGet("{userId}")]
-        public IActionResult GetInfilonserUsers(int userId)
+        [ActionName("GetAllInfilonserUsers")]
+        public IActionResult GetAllInfilonserUsers(int userId)
         {
             var data = db.GetAllInfulonserUsers(userId);
             return Ok(data);
         }
-     
+        [HttpGet("{userId}")]
+        [ActionName("GetInfilonserUser")]
+        public IActionResult GetInfilonserUser(int userId)
+        {
+            var data = db.GetInfulonserUser(userId);
+            return Ok(data);
+        }
+
         [HttpPost]
         public IActionResult AddInfulonserUser([FromBody] InfulonserUser infulonserUser)
         {

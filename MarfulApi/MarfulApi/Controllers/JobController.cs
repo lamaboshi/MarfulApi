@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MarfulApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class JobController : ControllerBase
     {
@@ -14,21 +14,18 @@ namespace MarfulApi.Controllers
         {
             db = _db;
         }
-        [HttpGet]
-        public IActionResult GetJob()
+        [HttpGet("{idbrand}")]
+        [ActionName("GetJobsCompany")]
+        public IActionResult GetJobsCompany(int idbrand)
         {
-            IQueryable<Job> data = db.GetJobs;
+           var data = db.GetJobsCompany(idbrand);
             return Ok(data);
         }
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [HttpGet("{idinfo}")]
+        public IActionResult Get(int idinfo)
         {
-            var data = db.GetJob(id);
-            if (data != null)
-            {
-                return Ok(data);
-            }
-            return NotFound();
+            var data = db.GetJobsInfo(idinfo);
+            return Ok(data);
 
         }
 

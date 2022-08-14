@@ -20,10 +20,10 @@ namespace MarfulApi.Controllers
             IQueryable<CompanyInfulonser> data = db.GetInfulonserCompanies;
             return Ok(data);
         }
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [HttpGet("{idcompany}/{idInfo}")]
+        public IActionResult Get(int idcompany,int idInfo)
         {
-            var data = db.GetInfulonserCompany(id);
+            var data = db.GetInfulonserCompany(idcompany, idInfo);
             if (data != null)
             {
                 return Ok(data);

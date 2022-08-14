@@ -20,10 +20,10 @@ namespace MarfulApi.Controllers
             IQueryable<InfulonserFollowInfulonser> data = db.GetInfulonserFollowInfulonsers;
             return Ok(data);
         }
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [HttpGet("{idFollow}")]
+        public IActionResult Get(int idFollow)
         {
-            var data = db.GetInfulonserFollowInfulonser(id);
+            var data = db.GetInfulonserFollowInfulonser(idFollow);
             if (data != null)
             {
                 return Ok(data);
