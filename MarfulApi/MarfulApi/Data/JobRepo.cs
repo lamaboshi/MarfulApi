@@ -17,6 +17,10 @@ namespace MarfulApi.Data
             var result = _db.Jobs.First(p => p.Id == id);
             if (result != null)
             {
+                var meesage = _db.Messages.Where(p => p.JobId == result.Id).ToList();
+                if (meesage.Count != 0) _db.Messages.RemoveRange(meesage);
+                var post = _db.Posts.Where(p => p.JobId == result.Id).ToList();
+                if (post.Count != 0) _db.Posts.RemoveRange(post);
                 _db.Jobs.Remove(result);
                 _db.SaveChanges();
             }

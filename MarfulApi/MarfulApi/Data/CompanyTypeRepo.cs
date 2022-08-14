@@ -12,7 +12,7 @@ namespace MarfulApi.Data
         public IQueryable<CompanyType> GetCompanyTypes => _db.CompanyTypes;
         public void Delete(int id)
         {
-            var type = _db.CompanyTypes.First(p => p.Id == id);
+            var type = _db.CompanyTypes.FirstOrDefault(p => p.Id == id);
             if (type != null)
             {
                 _db.CompanyTypes.Remove(type);

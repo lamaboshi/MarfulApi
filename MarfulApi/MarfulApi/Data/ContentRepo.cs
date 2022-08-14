@@ -14,7 +14,7 @@ namespace MarfulApi.Data
   
         public void Delete(int id)
         {
-            var content = _db.Contents.First(p => p.Id == id);
+            var content = _db.Contents.FirstOrDefault(p => p.Id == id);
             if (content != null)
             {
                 _db.Contents.Remove(content);

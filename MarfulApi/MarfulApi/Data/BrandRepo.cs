@@ -17,6 +17,19 @@ namespace MarfulApi.Data
             var brand = _db.Brands.First(t => t.Id == IdBrand);
             if (brand != null)
             {
+                var product = _db.Products.Where(p => p.BrandId == brand.Id).ToList();
+                if (product.Count != 0) _db.Products.RemoveRange(product);
+                var job = _db.Jobs.Where(p => p.BrandId == brand.Id).ToList();
+                if(job.Count != 0)
+                {
+                    JobRepo repo = new JobRepo(_db);
+                    foreach(Job e in job)
+                    {
+                        repo.Delete(e.Id);
+                    }
+                }
+                var post = _db.Posts.Where(p => p.BrandId == brand.Id).ToList();
+                if (post.Count != 0) _db.Posts.RemoveRange(post);
                 _db.Brands.Remove(brand);
                 _db.SaveChanges();
             }

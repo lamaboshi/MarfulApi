@@ -19,6 +19,14 @@ namespace MarfulApi.Data
             var result = _db.Companies.First(p => p.Id == id);
             if (result != null)
             {
+                var userCmp = _db.UserCompanies.Where(p => p.CompanyId == result.Id).ToList();
+                if (userCmp.Count != 0) _db.UserCompanies.RemoveRange(userCmp);
+                var cmpContent = _db.CompanyContents.Where(p => p.CompanyId == result.Id).ToList();
+                if (cmpContent.Count != 0) _db.CompanyContents.RemoveRange(cmpContent);
+                var conversation = _db.Conversations.Where(p => p.CompanyId == result.Id).ToList();
+                if (conversation.Count != 0) _db.Conversations.RemoveRange(conversation);
+                var cmpType = _db.CompanyTypes.Where(p => p.CompanyId == result.Id).ToList();
+                if (cmpType.Count != 0) _db.CompanyTypes.RemoveRange(cmpType);
                 _db.Companies.Remove(result);
                 _db.SaveChanges();
             }

@@ -18,7 +18,7 @@ namespace MarfulApi.Data
 
         public void Delete(int id)
         {
-            var infulonserUser = _db.InfulonserUsers.First(p => p.Id == id);
+            var infulonserUser = _db.InfulonserUsers.FirstOrDefault(p => p.Id == id);
             if (infulonserUser != null)
             {
                 _db.InfulonserUsers.Remove(infulonserUser);

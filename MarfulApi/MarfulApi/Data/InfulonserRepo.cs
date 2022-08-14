@@ -29,6 +29,32 @@ namespace MarfulApi.Data
             var infulonser = _db.Infulonsers.First(p=>p.Id==id);
             if (infulonser != null)
             {
+                var data = _db.InfulonserFollowInfulonsers.Where(p => p.FollowedId == infulonser.Id).ToList();
+                if (data.Count != 0) _db.InfulonserFollowInfulonsers.RemoveRange(data);
+                var infUser = _db.InfulonserUsers.Where(p => p.InfulonserId == infulonser.Id).ToList();
+                if (infUser.Count != 0) _db.InfulonserUsers.RemoveRange(infUser);
+                var cmpInf = _db.CompanyInfulonsers.Where(p => p.InfulonserId == infulonser.Id).ToList();
+                if (cmpInf.Count != 0) _db.CompanyInfulonsers.RemoveRange(cmpInf);
+                var Job = _db.Jobs.Where(p => p.InfulonserId == infulonser.Id).ToList();
+                if (Job.Count != 0)
+                {
+                    JobRepo repo = new JobRepo(_db);
+                   foreach(Job e in Job)
+                    {
+                        repo.Delete(e.Id);
+                    }
+                }
+                var Conversation = _db.Conversations.Where(p => p.InfulonserId == infulonser.Id).ToList();
+                if (Conversation.Count != 0) _db.Conversations.RemoveRange(Conversation);
+                var infContent = _db.InfulonserContents.Where(p => p.InfulonserId == infulonser.Id).ToList();
+                if (infContent.Count != 0) _db.InfulonserContents.RemoveRange(infContent);
+                var brand = _db.Brands.Where(p => p.InfulonserId == infulonser.Id).ToList();
+                if (brand.Count != 0) _db.Brands.RemoveRange(brand);
+                var Post = _db.Posts.Where(p => p.InfulonserId == infulonser.Id).ToList();
+               if (Post.Count != 0) _db.Posts.RemoveRange(Post);
+               var postInf = _db.PostInfulonsers.Where(p => p.InfulonserId == infulonser.Id).ToList();
+                if (postInf.Count != 0) _db.PostInfulonsers.RemoveRange(postInf);
+                _db.SaveChanges();
                 _db.Infulonsers.Remove(infulonser);
                 _db.SaveChanges();
             }

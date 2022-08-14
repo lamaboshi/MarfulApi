@@ -19,7 +19,7 @@ namespace MarfulApi.Data
 
         public void Delete(int id)
         {
-            var result = _db.Conversations.First(p => p.Id == id);
+            var result = _db.Conversations.FirstOrDefault(p => p.Id == id);
             if (result != null)
             {
                 _db.Conversations.Remove(result);
