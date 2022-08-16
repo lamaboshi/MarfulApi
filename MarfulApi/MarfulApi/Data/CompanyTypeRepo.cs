@@ -51,11 +51,17 @@ namespace MarfulApi.Data
         }
         public CompanyType IsExisting(string Type, string Password)
         {
-            var data = _db.CompanyTypes.First(p => p.type == Type && p.Password == Password);
+            var data = _db.CompanyTypes.FirstOrDefault(p => p.type == Type && p.Password == Password);
             if (data != null)
             {
                 return data;
             }
+            else return null;
+        }
+        public List<CompanyType> getTypes(int IdCmp)
+        {
+            var data = _db.CompanyTypes.Where(p => p.CompanyId == IdCmp).ToList();
+            if (data != null) return data;
             else return null;
         }
     }

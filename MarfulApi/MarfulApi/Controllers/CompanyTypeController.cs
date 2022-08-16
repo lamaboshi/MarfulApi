@@ -80,5 +80,23 @@ namespace MarfulApi.Controllers
                 else return NotFound();
             }
         }
+        [HttpGet]
+        [ActionName("GetTypes")]
+        public IActionResult GetTypes([FromQuery] int IdCmp)
+        {
+            if(IdCmp ==0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var data = db.getTypes(IdCmp);
+                if (data != null)
+                {
+                    return Ok(data);
+                }
+                else return NotFound();
+            }
+        }
     }
 }
