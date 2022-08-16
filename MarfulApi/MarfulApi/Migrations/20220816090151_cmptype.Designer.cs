@@ -4,6 +4,7 @@ using MarfulApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    partial class MarfulDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220816090151_cmptype")]
+    partial class cmptype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,7 +58,7 @@ namespace MarfulApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CompanyContentId")
+                    b.Property<int>("CompanyContentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -167,11 +169,7 @@ namespace MarfulApi.Migrations
                             Description = "Maybelline, is an American multinational cosmetics, skin care, fragrance, and personal care company, based in New York City. It was founded in Chicago in 1914",
                             Email = "MAYBELLINE@test.com",
                             Name = "MAYBELLINE",
-<<<<<<< HEAD
-                            Password = "34345",
-=======
                             Password = "12123",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "4232543"
                         },
@@ -182,11 +180,7 @@ namespace MarfulApi.Migrations
                             Description = "L'Oréal  is a French personal care company headquartered in Clichy, Hauts-de-Seinewith a registered office in Paris. It is the world's largest cosmetics company and has developed activities in the field concentrating on hair color, skin care, sun protection, make-up, perfume, and hair care.",
                             Email = "LOREAL@test.com",
                             Name = "LOREAL",
-<<<<<<< HEAD
-                            Password = "23234",
-=======
                             Password = "12123",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "4232543"
                         },
@@ -197,11 +191,7 @@ namespace MarfulApi.Migrations
                             Description = "Collection ,Sephora offers beauty products including cosmetics, skincare, body, fragrance, nail color, beauty tools, body lotions and haircare.",
                             Email = "SEPHORA@test.com",
                             Name = "SEPHORA",
-<<<<<<< HEAD
-                            Password = "45456",
-=======
                             Password = "12123",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "4232543"
                         },
@@ -234,11 +224,7 @@ namespace MarfulApi.Migrations
                             Description = "The world’s largest athletic apparel company, Nike is best known for its footwear, apparel, and equipment. One of the most valuable brands among sport businesses,The company sponsors top athletes and sports teams around the world.",
                             Email = "NIKE@test.com",
                             Name = "NIKE",
-<<<<<<< HEAD
-                            Password = "78789",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -249,11 +235,7 @@ namespace MarfulApi.Migrations
                             Description = "Puma, is a German multinational corporation that designs and manufactures athletic and casual footwear, apparel and accessories, which is headquartered in Herzogenaurach, Bavaria, Germany. Puma is the third largest sportswear manufacturer in the world",
                             Email = "PUMA@test.com",
                             Name = "PUMA",
-<<<<<<< HEAD
-                            Password = "67678",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -264,11 +246,7 @@ namespace MarfulApi.Migrations
                             Description = "Asics sponsors a variety of sports associations",
                             Email = "REEBOK@test.com",
                             Name = "REEBOK",
-<<<<<<< HEAD
-                            Password = "8989",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -279,11 +257,7 @@ namespace MarfulApi.Migrations
                             Description = "A clothing retailer, the company specializes in fast fashion, and its products include apparel, accessories, footwear, swimwear, cosmetics, and perfume. It is one of the largest clothing retailers in the world which also includes brands such as Bershka and Massimo Dutti.",
                             Email = "ZARA@test.com",
                             Name = "ZARA",
-<<<<<<< HEAD
-                            Password = "0909",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -305,11 +279,7 @@ namespace MarfulApi.Migrations
                             Description = "It is an Italian luxury fashion house specializing in ready-to-wear and haute couture, headquartered in Milan, Italy. Expanded to design raincoats, windbreakers, knitwear, leather goods, shoes, perfume, and accessories",
                             Email = "MONCLER@test.com",
                             Name = "MONCLER",
-<<<<<<< HEAD
-                            Password = "6789",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -331,11 +301,7 @@ namespace MarfulApi.Migrations
                             Description = "It is one of the most famous fashion companies in the world. The group enjoys a unified identity consisting of colours, authentic fashion and quality at democratic prices",
                             Email = "BENETTON@test.com",
                             Name = "BENETTON",
-<<<<<<< HEAD
-                            Password = "9463",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -346,11 +312,7 @@ namespace MarfulApi.Migrations
                             Description = "Kentucky Fried Chicken or KFC is a chain of fast food restaurants that specializes primarily in fried chicken.  It is the second largest chain of fast food restaurants in the world in terms of sales after McDonald's. Kentucky Fried Chicken has nearly twenty thousand branches spread over 123 countries and territories around the world.",
                             Email = "KFC@test.com",
                             Name = "KFC",
-<<<<<<< HEAD
-                            Password = "5252",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -361,11 +323,7 @@ namespace MarfulApi.Migrations
                             Description = "MCDONALD'S is the world's largest restaurant chain by revenue,McDonald's is best known for its hamburgers, cheeseburgers and french fries, although their menus include other items like chicken, fish, fruit, and salads",
                             Email = "MCDONALDS@test.com",
                             Name = "MCDONALDS",
-<<<<<<< HEAD
-                            Password = "99999",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -387,11 +345,7 @@ namespace MarfulApi.Migrations
                             Description = "STARBUCKS is a specialty coffee retailer. It roasts, markets, and retails specialty coffee. The company, through its stores, offers several blends of coffee, handcrafted beverages, merchandise, and food items",
                             Email = "STARBUCKS@test.com",
                             Name = "STARBUCKS",
-<<<<<<< HEAD
-                            Password = "123122",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -402,11 +356,7 @@ namespace MarfulApi.Migrations
                             Description = "Pizza Hut is an American multinational restaurant chain and international franchise founded in 1958 in Wichita, Kansas by Dan and Frank Carney. They serve their signature pan pizza and other dishes including pasta, breadsticks and desserts.",
                             Email = "PIZZAHUT@test.com",
                             Name = "PIZZA HUT",
-<<<<<<< HEAD
-                            Password = "34345",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -428,11 +378,7 @@ namespace MarfulApi.Migrations
                             Description = "The Apple Corporation is an American multinational technology company specializing in consumer electronics, software and online services.  It is one of the top five American IT companies",
                             Email = "APPLE@test.com",
                             Name = "APPLE",
-<<<<<<< HEAD
-                            Password = "77666",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -443,11 +389,7 @@ namespace MarfulApi.Migrations
                             Description = "The Korean LG Group this company is the second largest holding company, producing electronics, chemicals and telecommunications products.  from 80 countries",
                             Email = "LG@test.com",
                             Name = "LG",
-<<<<<<< HEAD
-                            Password = "989887",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -458,11 +400,7 @@ namespace MarfulApi.Migrations
                             Description = "Netflix is   an American entertainment company that specializes in providing live broadcasting, video-on-demand, and mail-delivery of CDs. Netflix has expanded into the production of films and television shows, and online video distribution",
                             Email = "NETFLIX@test.com",
                             Name = "NETFLIX",
-<<<<<<< HEAD
-                            Password = "34567",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -473,11 +411,7 @@ namespace MarfulApi.Migrations
                             Description = "Shahid is the first Arab platform to provide \"Video on Demand\" service in the Middle East, and it has been re-launched by the \"MBC\" media group.  It is worth noting that Shahid,the leading subscription video-on-demand platform, is considered the leading Arab broadcasting platform in the world and the home of original Arabic productions with world-class specifications.along with a live broadcast of a group of the most watched Arab TV channels",
                             Email = "SHAHID@test.com",
                             Name = "SHAHID",
-<<<<<<< HEAD
-                            Password = "888877",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -488,11 +422,7 @@ namespace MarfulApi.Migrations
                             Description = "DIOR Products Clothing, cosmetics, fashion accessories, jewelry, perfumes, watches",
                             Email = "DIOR@test.com",
                             Name = "DIOR",
-<<<<<<< HEAD
-                            Password = "777776",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -503,11 +433,7 @@ namespace MarfulApi.Migrations
                             Description = "Chanel Its products cover clothes, fragrances, handbags and watches",
                             Email = "CHANNEL@test.com",
                             Name = "CHANNEL",
-<<<<<<< HEAD
-                            Password = "333333",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -518,11 +444,7 @@ namespace MarfulApi.Migrations
                             Description = "Gucci offers a range of different luxury  Shoes, ready-to-wear apparel, watches, and jewelry are the other main , however they also sell other products such as perfume and home decor",
                             Email = "Gucci@test.com",
                             Name = "GUCCI",
-<<<<<<< HEAD
-                            Password = "8888882",
-=======
                             Password = "111222",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Phone = "0921423432",
                             TelePhone = "223554"
                         });
@@ -1209,7 +1131,6 @@ namespace MarfulApi.Migrations
                             CompanyId = 12,
                             Followed = "infulonser",
                             InfulonserId = 4
-<<<<<<< HEAD
                         },
                         new
                         {
@@ -1269,67 +1190,6 @@ namespace MarfulApi.Migrations
                         },
                         new
                         {
-=======
-                        },
-                        new
-                        {
-                            Id = 67,
-                            CompanyId = 13,
-                            Followed = "infulonser",
-                            InfulonserId = 7
-                        },
-                        new
-                        {
-                            Id = 68,
-                            CompanyId = 14,
-                            Followed = "infulonser",
-                            InfulonserId = 4
-                        },
-                        new
-                        {
-                            Id = 69,
-                            CompanyId = 15,
-                            Followed = "infulonser",
-                            InfulonserId = 7
-                        },
-                        new
-                        {
-                            Id = 70,
-                            CompanyId = 16,
-                            Followed = "infulonser",
-                            InfulonserId = 6
-                        },
-                        new
-                        {
-                            Id = 71,
-                            CompanyId = 17,
-                            Followed = "infulonser",
-                            InfulonserId = 6
-                        },
-                        new
-                        {
-                            Id = 72,
-                            CompanyId = 18,
-                            Followed = "infulonser",
-                            InfulonserId = 6
-                        },
-                        new
-                        {
-                            Id = 73,
-                            CompanyId = 19,
-                            Followed = "infulonser",
-                            InfulonserId = 4
-                        },
-                        new
-                        {
-                            Id = 74,
-                            CompanyId = 20,
-                            Followed = "infulonser",
-                            InfulonserId = 6
-                        },
-                        new
-                        {
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Id = 75,
                             CompanyId = 20,
                             Followed = "infulonser",
@@ -1537,11 +1397,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-<<<<<<< HEAD
-                            Start = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5254)
-=======
                             Start = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4336)
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                         });
                 });
 
@@ -1620,11 +1476,7 @@ namespace MarfulApi.Migrations
                             Description = "You Tuber/Content Creator",
                             Email = "Ossy@test.com",
                             Name = "Ossy Marwah",
-<<<<<<< HEAD
-                            Password = "2222",
-=======
                             Password = "1111",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Paypal = "dskjffff",
                             Phone = "0965465760",
                             UserName = "Ossy"
@@ -1636,11 +1488,7 @@ namespace MarfulApi.Migrations
                             Description = "Critic/You Tuber",
                             Email = "barhom@test.com",
                             Name = "Ibrahim Almarrawi",
-<<<<<<< HEAD
-                            Password = "3333",
-=======
                             Password = "1111",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Paypal = "dskjffff",
                             Phone = "0965465760",
                             UserName = "barhom"
@@ -1652,11 +1500,7 @@ namespace MarfulApi.Migrations
                             Description = "foodblogger/cars/travel",
                             Email = "feras@test.com",
                             Name = "Feras Abo Shaar",
-<<<<<<< HEAD
-                            Password = "4444",
-=======
                             Password = "1111",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Paypal = "dskjffff",
                             Phone = "0965465760",
                             UserName = "Feras"
@@ -1668,11 +1512,7 @@ namespace MarfulApi.Migrations
                             Description = "The Guy Who Drove Your Dream Car",
                             Email = "kareem@test.com",
                             Name = "Kareem Deeb",
-<<<<<<< HEAD
-                            Password = "5555",
-=======
                             Password = "1111",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Paypal = "dskjffff",
                             Phone = "0965465760",
                             UserName = "Deeb"
@@ -1684,11 +1524,7 @@ namespace MarfulApi.Migrations
                             Description = "journalist & Presenter @mbc1",
                             Email = "Leen@test.com",
                             Name = "Leen AbouShaar",
-<<<<<<< HEAD
-                            Password = "6666",
-=======
                             Password = "1111",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Paypal = "dskjffff",
                             Phone = "0965465760",
                             UserName = "Leen"
@@ -1975,11 +1811,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-<<<<<<< HEAD
-                            SendTime = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5326),
-=======
                             SendTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4388),
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -1987,11 +1819,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-<<<<<<< HEAD
-                            SendTime = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5354),
-=======
                             SendTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4402),
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -2038,88 +1866,56 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Description = " test for infulonser post",
                             InfulonserId = 1,
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5429)
-=======
                             dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4456)
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                         },
                         new
                         {
                             Id = 2,
                             Description = " test another post for infulonser",
                             InfulonserId = 1,
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5455)
-=======
                             dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4471)
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                         },
                         new
                         {
                             Id = 3,
                             BrandId = 1,
                             Description = " test for company post",
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5475)
-=======
                             dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4520)
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                         },
                         new
                         {
                             Id = 4,
                             BrandId = 1,
                             Description = " test another post for company",
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5494)
-=======
                             dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4532)
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                         },
                         new
                         {
                             Id = 5,
                             BrandId = 2,
                             Description = " this is the first post for sport company",
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5514)
-=======
                             dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4542)
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                         },
                         new
                         {
                             Id = 6,
                             BrandId = 2,
                             Description = " this is the second post for sport company",
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5535)
-=======
                             dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4553)
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                         },
                         new
                         {
                             Id = 7,
                             Description = " Im infulonser with content sport",
                             InfulonserId = 2,
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5554)
-=======
                             dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4563)
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                         },
                         new
                         {
                             Id = 8,
                             Description = " Im infulonser with content sport2",
                             InfulonserId = 2,
-<<<<<<< HEAD
-                            dateTime = new DateTime(2022, 8, 16, 1, 36, 18, 706, DateTimeKind.Local).AddTicks(5573)
-=======
                             dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4572)
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                         });
                 });
 
@@ -2317,55 +2113,6 @@ namespace MarfulApi.Migrations
                             Age = 20,
                             Email = "yousfi@test.com",
                             Name = "Haya Yousfi",
-<<<<<<< HEAD
-                            Password = "789",
-                            Paypal = "Lb1267",
-                            Phone = "0964654765",
-                            UserName = "Haya"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Age = 20,
-                            Email = "Eid@test.com",
-                            Name = "Haya Eid",
-                            Password = "101",
-                            Paypal = "Lb1267",
-                            Phone = "0964654765",
-                            UserName = "HayaSy"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Age = 20,
-                            Email = "lama@test.com",
-                            Name = "Lama Boshi",
-                            Password = "121",
-                            Paypal = "Lb1267",
-                            Phone = "0964654765",
-                            UserName = "Lamaz"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Age = 20,
-                            Email = "Hamzeh@test.com",
-                            Name = "Hamze Badinjky",
-                            Password = "141",
-                            Paypal = "Lb1267",
-                            Phone = "0964654765",
-                            UserName = "hamzehS"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Age = 20,
-                            Email = "Adam@test.com",
-                            Name = "Adam Syria",
-                            Password = "161",
-                            Paypal = "Lb1267",
-                            Phone = "0964654765",
-=======
                             Password = "789",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
@@ -2413,7 +2160,6 @@ namespace MarfulApi.Migrations
                             Password = "789",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
->>>>>>> d0327df2a0f8cce9db582156fc404432f030395c
                             UserName = "Adom"
                         });
                 });
@@ -2521,7 +2267,9 @@ namespace MarfulApi.Migrations
                 {
                     b.HasOne("MarfulApi.Model.CompanyContent", "CompanyContent")
                         .WithMany("Brand")
-                        .HasForeignKey("CompanyContentId");
+                        .HasForeignKey("CompanyContentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("MarfulApi.Model.Infulonser", "Infulonser")
                         .WithMany("Brand")
