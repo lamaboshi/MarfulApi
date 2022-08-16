@@ -18,8 +18,7 @@ namespace MarfulApi.Data
                 _db.CompanyTypes.Remove(type);
                 _db.SaveChanges();
             }
-            else
-                throw new FileNotFoundException();
+      
 
         }
         public CompanyType GetCompanyType(int id)
@@ -28,7 +27,7 @@ namespace MarfulApi.Data
             if (type != null)
                 return type;
             else
-                throw new NotImplementedException();
+                return null;
         }
         public void Save(CompanyType companyType)
         {

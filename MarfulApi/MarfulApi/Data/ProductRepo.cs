@@ -21,14 +21,14 @@ namespace MarfulApi.Data
                 _db.Products.Remove(result);
                 _db.SaveChanges();
             }
-            else throw new FileNotFoundException();
+            
         }
 
         public Product GetProduct(int id)
         {
             var result = _db.Products.First(p => p.Id == id);
             if (result != null) return result;
-            else  throw new NotImplementedException();
+            else  return null;
         }
         public void Update(Product product)
         {

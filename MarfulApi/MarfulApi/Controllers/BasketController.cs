@@ -28,14 +28,15 @@ namespace MarfulApi.Controllers
             {
                 return Ok(data);
             }
-            return NotFound();
+            return Ok(new List<object>());
         }
         [HttpPost]
         public IActionResult AddBasket([FromBody] Basket basket)
         {
             if (basket == null)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -48,7 +49,8 @@ namespace MarfulApi.Controllers
         {
             if (basket == null || basket.Id == 0)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -66,14 +68,15 @@ namespace MarfulApi.Controllers
         [ActionName("Salary")]
         public IActionResult Salary([FromQuery] int IdInf,[FromQuery] int IdCmp)
         {
-            if (IdInf == 0 || IdCmp==0)
-                return BadRequest();
+            if (IdInf == 0 || IdCmp == 0)
+                // return BadRequest();
+                return Ok(new List<object>());
             else
             {
-                double data = db.GetMoney(IdInf,IdCmp);
+                double data = db.GetMoney(IdInf, IdCmp);
                 if (data != 0)
                     return Ok(data);
-                else return NotFound();
+                else return Ok(new List<object>()); //return NotFound();
             }
 
         }
@@ -81,14 +84,15 @@ namespace MarfulApi.Controllers
         [ActionName("Information")]
         public IActionResult Information([FromQuery] int IdInf)
         {
-            if (IdInf == 0 )
-                return BadRequest();
+            if (IdInf == 0)
+                // return BadRequest();
+                return Ok(new List<object>());
             else
             {
-               var data =db.GetReport(IdInf);
+                var data = db.GetReport(IdInf);
                 if (data.Count != 0)
-                 return Ok(data);
-                else return NotFound();
+                    return Ok(data);
+                else return Ok(new List<object>());//return NotFound();
             }
 
         }

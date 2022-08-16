@@ -33,14 +33,14 @@ namespace MarfulApi.Data
                 _db.Brands.Remove(brand);
                 _db.SaveChanges();
             }
-            else throw new FileNotFoundException();
+            
         }
 
         public Brand GetBrand(int IdBrand)
         {
-            var brand = _db.Brands.First(t => t.Id == IdBrand);
+            var brand = _db.Brands.FirstOrDefault(t => t.Id == IdBrand);
             if (brand != null) return brand;
-            else throw new FileNotFoundException();
+            else return null;
 
         }
 

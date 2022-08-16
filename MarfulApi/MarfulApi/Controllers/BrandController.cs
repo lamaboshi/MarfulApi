@@ -28,7 +28,7 @@ namespace MarfulApi.Controllers
             {
                 return Ok(data);
             }
-            return NotFound();
+            return Ok(new List<object>());
 
         }
 
@@ -38,7 +38,8 @@ namespace MarfulApi.Controllers
         {
             if (brand == null)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -52,7 +53,8 @@ namespace MarfulApi.Controllers
         {
             if (brand == null || brand.Id == 0)
             {
-                return BadRequest();
+                //return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {

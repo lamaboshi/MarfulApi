@@ -28,14 +28,16 @@ namespace MarfulApi.Controllers
             {
                 return Ok(data);
             }
-            return NotFound();
+            // return NotFound();
+            return Ok(new List<object>());
         }
         [HttpPost]
         public IActionResult AddCompanyType([FromBody] CompanyType type)
         {
             if (type == null)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -48,7 +50,8 @@ namespace MarfulApi.Controllers
         {
             if (type == null || type.Id == 0)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -68,7 +71,8 @@ namespace MarfulApi.Controllers
         {
             if(Type == null || password == null)
             {
-                return BadRequest();
+                //  return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -77,7 +81,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>()); //return NotFound();
             }
         }
         [HttpGet]
@@ -86,7 +90,8 @@ namespace MarfulApi.Controllers
         {
             if(IdCmp ==0)
             {
-                return BadRequest();
+                //return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -95,7 +100,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
     }

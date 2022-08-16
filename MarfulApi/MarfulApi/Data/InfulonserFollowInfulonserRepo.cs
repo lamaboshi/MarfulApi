@@ -18,8 +18,7 @@ namespace MarfulApi.Data
                 _db.InfulonserFollowInfulonsers.Remove(infulonserf);
                 _db.SaveChanges();
             }
-            else
-                throw new FileNotFoundException();
+           
 
         }
         public InfulonserFollowInfulonser GetInfulonserFollowInfulonser(int idFollow)
@@ -28,7 +27,7 @@ namespace MarfulApi.Data
             if (infulonserf != null)
                 return infulonserf;
             else
-                throw new NotImplementedException();
+                return null;
         }
         public void Save(InfulonserFollowInfulonser infulonserFollowInfulonser)
         {

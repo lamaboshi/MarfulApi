@@ -32,7 +32,7 @@ namespace MarfulApi.Data
         {
             var result = _db.UserCompanies.First(p => p.Id == id);
             if (result != null) return result;
-            else throw new NotImplementedException();
+            else return null;
         }
 
         public void Save(UserCompany userCompany)

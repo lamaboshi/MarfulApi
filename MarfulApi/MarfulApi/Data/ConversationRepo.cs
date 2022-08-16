@@ -31,7 +31,7 @@ namespace MarfulApi.Data
         {
             var result = _db.Conversations.First(p => p.Id == IdConversation);
             if (result != null) return result;
-            else throw new NotImplementedException();
+            else return null;
         }
 
         public void Save(Conversation conversation)

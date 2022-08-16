@@ -26,8 +26,7 @@ namespace MarfulApi.Data
                 _db.InfulonserContents.Remove(infulonserContent);
                 _db.SaveChanges();
             }
-            else
-                throw new FileNotFoundException();
+           
             
         }
 

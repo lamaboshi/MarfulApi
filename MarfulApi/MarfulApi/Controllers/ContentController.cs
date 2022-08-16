@@ -30,7 +30,8 @@ namespace MarfulApi.Controllers
             }
             else
             {
-                return NotFound();
+                // return NotFound();
+                return Ok(new List<object>());
             }
         }
         [HttpPost]
@@ -38,7 +39,8 @@ namespace MarfulApi.Controllers
         {
             if (content == null)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -51,7 +53,8 @@ namespace MarfulApi.Controllers
         {
             if(content==null || content.Id==0)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {

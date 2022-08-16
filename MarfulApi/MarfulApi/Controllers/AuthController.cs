@@ -19,7 +19,7 @@ namespace MarfulApi.Controllers
         {
             var data = db.GetAuth(email, password);
             if (data != null) return Ok(data);
-            else return NotFound();
+            else return Ok(new List<object>());
 
         }
 
@@ -31,7 +31,7 @@ namespace MarfulApi.Controllers
             if (data != null)
                 return Ok(data);
             else
-                return NotFound();
+                return Ok(new List<object>());
         }
     }
 }

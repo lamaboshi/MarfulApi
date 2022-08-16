@@ -30,7 +30,7 @@ namespace MarfulApi.Controllers
             {
                 return Ok(data);
             }
-            return NotFound();
+            return Ok(new List<object>());// return NotFound();
         }
         [HttpGet("{idInfu}")]
         [ActionName("GetByInfu")]
@@ -41,8 +41,8 @@ namespace MarfulApi.Controllers
             {
                 return Ok(data);
             }
-            return NotFound();
-
+            // return NotFound();
+            return Ok(new List<object>());
         }
 
 
@@ -53,14 +53,14 @@ namespace MarfulApi.Controllers
         {
             if (postInfulonser == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
               var data= db.Save(postInfulonser);
                 if (data != null)
                     return Ok(data);
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpPut("{id}")]
@@ -68,7 +68,7 @@ namespace MarfulApi.Controllers
         {
             if (postInfulonser == null || postInfulonser.Id == 0)
             {
-                return BadRequest();
+                return Ok(new List<object>());//return BadRequest();
             }
             else
             {

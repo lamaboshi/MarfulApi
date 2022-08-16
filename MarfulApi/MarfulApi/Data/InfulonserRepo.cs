@@ -58,8 +58,7 @@ namespace MarfulApi.Data
                 _db.Infulonsers.Remove(infulonser);
                 _db.SaveChanges();
             }
-            else
-                throw new FileNotFoundException();
+          
         }
         public Infulonser GetInfulonser(int id)
         {
@@ -67,7 +66,7 @@ namespace MarfulApi.Data
             if (infulonser != null)
                 return infulonser;
             else
-                throw new FileNotFoundException();
+                return null;
         }
         public void Save(Infulonser infulonser)
         {

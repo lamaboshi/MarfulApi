@@ -32,7 +32,8 @@ namespace MarfulApi.Controllers
         {
             if(companyContent == null)
             {
-                return BadRequest();
+                //  return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -45,7 +46,8 @@ namespace MarfulApi.Controllers
         {
             if(companyContent ==null || companyContent.Id==0)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {

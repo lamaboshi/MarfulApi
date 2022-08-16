@@ -19,7 +19,7 @@ namespace MarfulApi.Controllers
         {
             if(search == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
@@ -28,7 +28,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -37,7 +37,7 @@ namespace MarfulApi.Controllers
         {
             if(search == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());//return BadRequest();
             }
             else
             {
@@ -46,7 +46,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -55,7 +55,7 @@ namespace MarfulApi.Controllers
         {
             if (search == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());//return BadRequest();
             }
             else
             {
@@ -64,7 +64,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -73,7 +73,7 @@ namespace MarfulApi.Controllers
         {
             if (search == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
@@ -82,7 +82,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -91,7 +91,7 @@ namespace MarfulApi.Controllers
         {
             if (search == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());//return BadRequest();
             }
             else
             {
@@ -100,7 +100,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -109,7 +109,7 @@ namespace MarfulApi.Controllers
         {
             if (search == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
@@ -118,7 +118,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -127,7 +127,7 @@ namespace MarfulApi.Controllers
         {
             if (search == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());//return BadRequest();
             }
             else
             {
@@ -136,7 +136,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
     }

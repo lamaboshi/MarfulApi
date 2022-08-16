@@ -31,14 +31,14 @@ namespace MarfulApi.Data
         {
             var result = _db.Jobs.Where(p => p.BrandId == idbrand).Include(t=>t.Brand).ThenInclude(r=>r.CompanyContent).ThenInclude(e=>e.Company).ToList();
             if (result != null) return result;
-            else throw new NotImplementedException();
+            else return null;
         }
 
         public List<Job> GetJobsInfo(int info)
         {
             var result = _db.Jobs.Where(p => p.InfulonserId == info).Include(t=>t.Infulonser).ToList();
             if (result != null) return result;
-            else throw new NotImplementedException();
+            else return null;
         }
 
         public void Save(Job job)

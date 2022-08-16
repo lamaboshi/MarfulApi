@@ -26,7 +26,8 @@ namespace MarfulApi.Controllers
         {
             var data = db.getAllPostInfulonser(idInfulonser);
             if(data.Any()) return Ok(data);
-            return BadRequest();
+            // return BadRequest();
+            return Ok(new List<object>());
         }
         [HttpGet("{id}")]
         public IActionResult Get(int id)
@@ -34,7 +35,8 @@ namespace MarfulApi.Controllers
             var data = db.GetInfulonser(id);
             if (data == null)
             {
-                return NotFound();
+                //return NotFound();
+                return Ok(new List<object>());
             }
             else
             {
@@ -46,7 +48,8 @@ namespace MarfulApi.Controllers
         {
             if(infulonser == null)
             {
-                return BadRequest();
+                //return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -57,7 +60,7 @@ namespace MarfulApi.Controllers
                     return Ok();
                 }
                 else
-                return NotFound();
+                    return Ok(new List<object>());//return NotFound();
         }
         }
         [HttpPut("{id}")]
@@ -65,7 +68,8 @@ namespace MarfulApi.Controllers
         {
             if(infulonser == null || infulonser.Id==0)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -79,7 +83,8 @@ namespace MarfulApi.Controllers
         {
             if (password == null || Id == 0)
             {
-                return BadRequest();
+                //return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -100,7 +105,7 @@ namespace MarfulApi.Controllers
         {
             if(email == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());  // return BadRequest();
             }
             else
             {
@@ -109,7 +114,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -118,7 +123,7 @@ namespace MarfulApi.Controllers
         {
             if (email == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
@@ -127,7 +132,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -136,14 +141,14 @@ namespace MarfulApi.Controllers
         {
             if (email == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
                 var data = db.GetInfulonserAll(email);
                 if (data != null)
                     return Ok(data);
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
     }
