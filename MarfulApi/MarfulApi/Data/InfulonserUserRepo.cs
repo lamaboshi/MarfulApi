@@ -24,8 +24,7 @@ namespace MarfulApi.Data
                 _db.InfulonserUsers.Remove(infulonserUser);
                 _db.SaveChanges();
             }
-            else
-                throw new FileNotFoundException();
+        
            
         }
 
@@ -42,7 +41,7 @@ namespace MarfulApi.Data
 
                 return infulonserUser;
             else
-                 throw new FileNotFoundException();
+                 return null;
             
 
         }

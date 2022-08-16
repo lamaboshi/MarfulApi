@@ -35,7 +35,7 @@ namespace MarfulApi.Controllers
         {
             if (userCompany == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {

@@ -26,7 +26,7 @@ namespace MarfulApi.Data
         {
             var result = _db.Posts.First(p => p.Id == IdPost);
             if (result != null) return result;
-            else throw new NotImplementedException();
+            else return null;
         }
 
         public void Save(Post post)

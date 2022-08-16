@@ -26,17 +26,15 @@ namespace MarfulApi.Data
                 _db.Baskets.Remove(basket);
                 _db.SaveChanges();
             }
-            else
-                throw new FileNotFoundException();
+            
 
         }
         public Basket GetBasket(int id)
         {
             var basket = _db.Baskets.First(p => p.Id == id);
             if (basket != null)
-               return basket;
-            else
-                 throw new NotImplementedException();
+                return basket;
+            else return null;
         }
         public void Save(Basket basket)
         {

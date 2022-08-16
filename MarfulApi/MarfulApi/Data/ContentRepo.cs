@@ -20,7 +20,7 @@ namespace MarfulApi.Data
                 _db.Contents.Remove(content);
                 _db.SaveChanges();
             }
-            else throw new FileNotFoundException();
+          
             
         }
         public Content GetContent(int id)
@@ -29,7 +29,7 @@ namespace MarfulApi.Data
             if (content != null)
                 return content;
             else
-                throw new FileNotFoundException();
+                return null;
            
         }
         public void Save(Content content)

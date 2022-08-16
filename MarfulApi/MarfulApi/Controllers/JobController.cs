@@ -41,7 +41,7 @@ namespace MarfulApi.Controllers
         {
             if (job == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());//  return BadRequest();
             }
             else
             {
@@ -55,7 +55,7 @@ namespace MarfulApi.Controllers
         {
             if (job == null || job.Id == 0)
             {
-                return BadRequest();
+                return Ok(new List<object>());//return BadRequest();
             }
             else
             {

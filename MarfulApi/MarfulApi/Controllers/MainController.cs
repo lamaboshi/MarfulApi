@@ -19,7 +19,7 @@ namespace MarfulApi.Controllers
         {
             if (email == null || Type== null)
             {
-                return BadRequest();
+                return Ok(new List<object>());//return BadRequest();
             }
             else
             {
@@ -33,7 +33,7 @@ namespace MarfulApi.Controllers
                 if (data != null)
                     return Ok(data);
                 else
-                    return NotFound();
+                    return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -42,7 +42,7 @@ namespace MarfulApi.Controllers
         {
             if (email == null || id == 0)
             {
-                return BadRequest();
+                return Ok(new List<object>());//return BadRequest();
             }
             else
             {
@@ -62,7 +62,7 @@ namespace MarfulApi.Controllers
                 if (data != null)
                     return Ok(data);
                 else
-                    return NotFound();
+                    return Ok(new List<object>());// return NotFound();
             }
         }
         [HttpGet]
@@ -71,7 +71,7 @@ namespace MarfulApi.Controllers
         {
             if(id==0 || type== null)
             {
-               return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
@@ -80,7 +80,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -89,7 +89,7 @@ namespace MarfulApi.Controllers
         {
             if (id == 0 || type == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
@@ -98,7 +98,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
     }

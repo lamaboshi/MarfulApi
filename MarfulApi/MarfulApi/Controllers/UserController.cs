@@ -30,7 +30,7 @@ namespace MarfulApi.Controllers
             {
                 return Ok(data);
             }
-            return NotFound();
+            return Ok(new List<object>());// return NotFound();
 
         }
 
@@ -40,7 +40,7 @@ namespace MarfulApi.Controllers
         {
             if (user == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
@@ -50,7 +50,7 @@ namespace MarfulApi.Controllers
                     db.Save(user);
                     return Ok();
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
 
         }
@@ -59,7 +59,7 @@ namespace MarfulApi.Controllers
         {
             if (user == null || user.Id == 0)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
@@ -72,7 +72,7 @@ namespace MarfulApi.Controllers
         {
             if (password == null || Id == 0)
             {
-                return BadRequest();
+                return Ok(new List<object>());//return BadRequest();
             }
             else
             {
@@ -92,7 +92,7 @@ namespace MarfulApi.Controllers
         {
             if (email == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
@@ -101,7 +101,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
         [HttpGet]
@@ -109,7 +109,7 @@ namespace MarfulApi.Controllers
         {
             if(email== null)
             {
-                return BadRequest();
+                return Ok(new List<object>());//return BadRequest();
             }
             else
             {
@@ -118,7 +118,7 @@ namespace MarfulApi.Controllers
                 {
                     return Ok(data);
                 }
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
         }
     }

@@ -26,7 +26,7 @@ namespace MarfulApi.Data
                 _db.CompanyContents.Remove(companyContent);
                 _db.SaveChanges();
             }
-            else throw new FileNotFoundException();
+         
            
         }
         public List<CompanyContent> GetAllCompanyContents(int IdCompany)
@@ -40,7 +40,7 @@ namespace MarfulApi.Data
             if (companyContent != null)
                 return companyContent;
             else
-                throw new FileNotFoundException();
+                return null;
         }
         public void Save(CompanyContent companyContent)
         {

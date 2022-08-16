@@ -19,8 +19,7 @@ namespace MarfulApi.Data
                 _db.PostInfulonsers.Remove(postInfulonser);
                 _db.SaveChanges();
             }
-            else
-                throw new FileNotFoundException();
+           
 
         }
         public PostInfulonser GetPostInfulonser(int id)
@@ -29,7 +28,7 @@ namespace MarfulApi.Data
             if (postInfuloser != null)
                 return postInfuloser;
             else
-                throw new NotImplementedException();
+                return null;
         }
         public double[] Save(PostInfulonser postInfulonser)
         {

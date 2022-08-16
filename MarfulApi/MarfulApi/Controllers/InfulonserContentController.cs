@@ -27,7 +27,8 @@ namespace MarfulApi.Controllers
         {
             if(infulonserContent== null)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -40,7 +41,8 @@ namespace MarfulApi.Controllers
         {
             if(infulonserContent == null || infulonserContent.Id==0)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {

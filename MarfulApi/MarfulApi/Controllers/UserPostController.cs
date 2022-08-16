@@ -30,7 +30,7 @@ namespace MarfulApi.Controllers
             {
                 return Ok(data);
             }
-            return NotFound();
+            return Ok(new List<object>());// return NotFound();
 
         }
         [HttpGet("{idUser}")]
@@ -42,7 +42,7 @@ namespace MarfulApi.Controllers
             {
                 return Ok(data);
             }
-            return NotFound();
+            return Ok(new List<object>());// return NotFound();
 
         }
 
@@ -51,14 +51,14 @@ namespace MarfulApi.Controllers
         {
             if (userPost == null)
             {
-                return BadRequest();
+                return Ok(new List<object>());// return BadRequest();
             }
             else
             {
                var data= db.Save(userPost);
                 if (data != null)
                     return Ok(data);
-                else return NotFound();
+                else return Ok(new List<object>());//return NotFound();
             }
 
         }

@@ -18,8 +18,7 @@ namespace MarfulApi.Data
                 _db.CompanyInfulonsers.Remove(infulonserCompany);
                 _db.SaveChanges();
             }
-            else
-                throw new FileNotFoundException();
+           
 
         }
         public CompanyInfulonser GetInfulonserCompany(int idcompany,int idInfo)
@@ -36,7 +35,7 @@ namespace MarfulApi.Data
             if (infulonserCompany != null)
                 return infulonserCompany;
             else
-                throw new NotImplementedException();
+                return null;
         }
         public void Save(CompanyInfulonser infulonserCompany)
         {

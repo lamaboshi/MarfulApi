@@ -28,14 +28,16 @@ namespace MarfulApi.Controllers
             {
                 return Ok(data);
             }
-            return NotFound();
+            // return NotFound();
+            return Ok(new List<object>());
         }
         [HttpPost]
         public IActionResult AddBasket([FromBody] CompanyInfulonser companyInfulonser)
         {
             if (companyInfulonser == null)
             {
-                return BadRequest();
+                // return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
@@ -48,7 +50,8 @@ namespace MarfulApi.Controllers
         {
             if (companyInfulonser == null || companyInfulonser.Id == 0)
             {
-                return BadRequest();
+                //return BadRequest();
+                return Ok(new List<object>());
             }
             else
             {
