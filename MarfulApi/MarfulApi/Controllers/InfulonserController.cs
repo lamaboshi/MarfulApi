@@ -14,6 +14,13 @@ namespace MarfulApi.Controllers
         {
             db = _db;
         }
+        [HttpGet("{idInfulonser}")]
+        [ActionName("GetInfulonsersBrand")]
+        public IActionResult GetInfulonsersBrand(int idInfulonser)
+        {
+            var data = db.GetInflBrand(idInfulonser);
+            return Ok(data);
+        }
         [HttpGet]
         public IActionResult GetInfulonsers()
         {

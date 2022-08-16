@@ -26,6 +26,11 @@ namespace MarfulApi.Data
             }
         }
 
+        public Company GetCompany(int idJob)
+        {
+            var data = _db.Jobs.Where(y => y.Id == idJob).Select(t => t.Messages.First().Conversation.Company).First();
+            return data;
+        }
 
         public List<Job> GetJobsCompany(int idbrand)
         {

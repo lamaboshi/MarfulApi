@@ -76,5 +76,17 @@ namespace MarfulApi.Data
             var data = _db.UserPosts.Where(t => t.UserId == IdUser).ToList();
             return data;
         }
+
+        public void Update(UserPost userPost)
+        {
+            var userPostData = _db.UserPosts.First(p => p.Id == userPost.Id);
+            if (userPostData != null)
+            {
+                userPostData.UserId = userPost.UserId;
+                userPostData.InterAction = userPost.InterAction;
+                userPostData.PostId = userPost.PostId;
+                _db.SaveChanges();
+            }
+        }
     }
 }

@@ -68,6 +68,18 @@ namespace MarfulApi.Controllers
             db.Delete(id);
             return Ok();
         }
-
+        [HttpPut("{id}")]
+        public IActionResult Put([FromBody] UserPost userPost)
+        {
+            if (userPost == null || userPost.Id == 0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                db.Update(userPost);
+                return Ok();
+            }
+        }
     }
 }
