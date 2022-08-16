@@ -14,11 +14,11 @@ namespace MarfulApi.Data
         public List<SearchDto> Search(string search)
         {
             List<SearchDto> data = new List<SearchDto>();
-            List<object> inf = _db.Infulonsers.Where(p => p.Name == search).ToList<object>();
-            List<object> cmp = _db.Companies.Where(p => p.Name == search).ToList<object>();
-            List<object> brand = _db.Brands.Where(p => p.Name == search).Include(r => r.Infulonser).Include(r => r.CompanyContent).ToList<object>();
-            List<object> product = _db.Products.Where(p => p.Name == search).Include(r => r.Brand).ToList<object>();
-            List<object> content = _db.Contents.Where(p => p.Name == search).Include(r => r.CompanyContent).Include(r => r.InfulonserContent).ToList<object>();
+            List<object> inf = _db.Infulonsers.Where(p => p.Name.Contains(search)).ToList<object>();
+            List<object> cmp = _db.Companies.Where(p => p.Name.Contains(search)).ToList<object>();
+            List<object> brand = _db.Brands.Where(p => p.Name.Contains(search)).Include(r => r.Infulonser).Include(r => r.CompanyContent).ToList<object>();
+            List<object> product = _db.Products.Where(p => p.Name.Contains(search)).Include(r => r.Brand).ToList<object>();
+            List<object> content = _db.Contents.Where(p => p.Name.Contains(search)).Include(r => r.CompanyContent).Include(r => r.InfulonserContent).ToList<object>();
             if (inf.Count != 0)
             {
                 SearchDto dto = new SearchDto();
