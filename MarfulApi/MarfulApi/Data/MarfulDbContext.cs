@@ -297,7 +297,10 @@ namespace MarfulApi.Data
             modelBuilder.Entity<CompanyInfulonser>().HasData(new CompanyInfulonser { Id = 81, CompanyId = 27, InfulonserId = 6, Followed = "infulonser" });
             modelBuilder.Entity<CompanyInfulonser>().HasData(new CompanyInfulonser { Id = 82, CompanyId = 28, InfulonserId = 3, Followed = "infulonser" });
 
-
+            modelBuilder.Entity<CompanyType>().HasData(new CompanyType { Id = 1, CompanyId = 1,type= "chat employee",Password= "chat employee" });
+            modelBuilder.Entity<CompanyType>().HasData(new CompanyType { Id = 2, CompanyId = 1, type = "Publishing Officer", Password = "Publishing Officer" });
+            modelBuilder.Entity<CompanyType>().HasData(new CompanyType { Id = 3, CompanyId = 1, type = "Editing Officer", Password = "Editing Officer" });
+            modelBuilder.Entity<CompanyType>().HasData(new CompanyType { Id = 4, CompanyId = 1, type = "Owner", Password = "Owner" });
         }
     }
 

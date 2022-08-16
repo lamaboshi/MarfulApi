@@ -49,5 +49,14 @@ namespace MarfulApi.Data
                 _db.SaveChanges();
             }
         }
+        public CompanyType IsExisting(string Type, string Password)
+        {
+            var data = _db.CompanyTypes.First(p => p.type == Type && p.Password == Password);
+            if (data != null)
+            {
+                return data;
+            }
+            else return null;
+        }
     }
 }

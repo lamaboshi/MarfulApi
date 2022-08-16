@@ -5,7 +5,7 @@ using MarfulApi.Model;
 
 namespace MarfulApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CompanyTypeController : ControllerBase
     {
@@ -61,6 +61,24 @@ namespace MarfulApi.Controllers
         {
             db.Delete(id);
             return Ok();
+        }
+        [HttpGet]
+        [ActionName("Existing")]
+        public IActionResult Existing([FromQuery] string Type,[FromQuery] string password)
+        {
+            if(Type == null || password == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var data = db.IsExisting(Type, password);
+                if (data != null)
+                {
+                    return Ok(data);
+                }
+                else return NotFound();
+            }
         }
     }
 }
