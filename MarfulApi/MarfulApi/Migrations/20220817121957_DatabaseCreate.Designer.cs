@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    [Migration("20220817061606_DBCreate")]
-    partial class DBCreate
+    [Migration("20220817121957_DatabaseCreate")]
+    partial class DatabaseCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -150,7 +150,7 @@ namespace MarfulApi.Migrations
                         {
                             Id = 10,
                             CompanyContentId = 10,
-                            Description = "Asics sponsors a variety of sports associations",
+                            Description = "It is an American company that manufactures footwear and sportswear and is part of the Authentic Brands Group",
                             Name = "REEBOK"
                         },
                         new
@@ -257,6 +257,48 @@ namespace MarfulApi.Migrations
                             CompanyContentId = 25,
                             Description = "Shahid is the first Arab platform to provide \"Video on Demand\" service in the Middle East, and it has been re-launched by the \"MBC\" media group.  It is worth noting that Shahid,the leading subscription video-on-demand platform, is considered the leading Arab broadcasting platform in the world and the home of original Arabic productions with world-class specifications.along with a live broadcast of a group of the most watched Arab TV channels",
                             Name = "SHAHID"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CompanyContentId = 25,
+                            Description = "Shahid is the first Arab platform to provide \"Video on Demand\" service in the Middle East, and it has been re-launched by the \"MBC\" media group.  It is worth noting that Shahid,the leading subscription video-on-demand platform, is considered the leading Arab broadcasting platform in the world and the home of original Arabic productions with world-class specifications.along with a live broadcast of a group of the most watched Arab TV channels",
+                            Name = "SHAHID"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CompanyContentId = 26,
+                            Description = "DIOR Products Clothing, cosmetics, fashion accessories, jewelry, perfumes, watches",
+                            Name = "DIOR"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CompanyContentId = 27,
+                            Description = "Chanel Its products cover clothes, fragrances, handbags and watches",
+                            Name = "CHANNEL"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CompanyContentId = 28,
+                            Description = "Gucci offers a range of different luxury  Shoes, ready-to-wear apparel, watches, and jewelry are the other main , however they also sell other products such as perfume and home decor",
+                            Name = "GUCCI"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Description = "Namshi is a Dubai-based e-commerce firm which sells designer clothing. The company, which also provides shoes and accessories",
+                            InfulonserId = 7,
+                            Name = "NAMSHI"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Description = "Clothes Brand For Every Human Habeed",
+                            InfulonserId = 6,
+                            Name = "HABEED"
                         });
                 });
 
@@ -1431,6 +1473,43 @@ namespace MarfulApi.Migrations
                     b.HasIndex("CompanyId");
 
                     b.ToTable("CompanyTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyId = 1,
+                            Password = "chat employee",
+                            type = "chat employee"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompanyId = 1,
+                            Password = "Publishing Officer",
+                            type = "Publishing Officer"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CompanyId = 1,
+                            Password = "Editing Officer",
+                            type = "Editing Officer"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CompanyId = 1,
+                            Password = "Owner",
+                            type = "Owner"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CompanyId = 2,
+                            Password = "chat employee",
+                            type = "chat employee"
+                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Content", b =>
@@ -1528,7 +1607,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-                            Start = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6833)
+                            Start = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9509)
                         });
                 });
 
@@ -2104,7 +2183,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-                            SendTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6933),
+                            SendTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9558),
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -2112,7 +2191,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-                            SendTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6958),
+                            SendTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9570),
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -2157,58 +2236,303 @@ namespace MarfulApi.Migrations
                         new
                         {
                             Id = 1,
-                            Description = " test for infulonser post",
+                            Description = "Great product for sun protection",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7474)
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9817)
                         },
                         new
                         {
                             Id = 2,
-                            Description = " test another post for infulonser",
+                            Description = "interesting series",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7503)
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9869)
                         },
                         new
                         {
                             Id = 3,
-                            BrandId = 1,
-                            Description = " test for company post",
-                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7536)
+                            Description = "Great sports products",
+                            InfulonserId = 2,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9880)
                         },
                         new
                         {
                             Id = 4,
-                            BrandId = 1,
-                            Description = " test another post for company",
-                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7567)
+                            Description = "Excellent electronics",
+                            InfulonserId = 2,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9888)
                         },
                         new
                         {
                             Id = 5,
-                            BrandId = 2,
-                            Description = " this is the first post for sport company",
-                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7661)
+                            Description = "Excellent mobiles",
+                            InfulonserId = 3,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9897)
                         },
                         new
                         {
                             Id = 6,
-                            BrandId = 2,
-                            Description = " this is the second post for sport company",
-                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7687)
+                            Description = "Excellent  Laptop",
+                            InfulonserId = 3,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9908)
                         },
                         new
                         {
                             Id = 7,
-                            Description = " Im infulonser with content sport",
-                            InfulonserId = 2,
-                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7708)
+                            Description = "interesting series",
+                            InfulonserId = 4,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9917)
                         },
                         new
                         {
                             Id = 8,
-                            Description = " Im infulonser with content sport2",
-                            InfulonserId = 2,
-                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7740)
+                            Description = "Gorgeous and comfortable clothes",
+                            InfulonserId = 4,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9926)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Description = "Great sports products",
+                            InfulonserId = 5,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9935)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Description = "Great sports equipment",
+                            InfulonserId = 5,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9944)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Description = "Great Fast Food",
+                            InfulonserId = 6,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9953)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Description = "Excellent Food",
+                            InfulonserId = 6,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9962)
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Description = "Great product for sun protection",
+                            InfulonserId = 7,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9971)
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Description = "Gorgeous and comfortable clothes",
+                            InfulonserId = 7,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9979)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Description = "Gorgeous Perfum",
+                            InfulonserId = 7,
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9989)
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BrandId = 1,
+                            Description = "Excellent beauty products",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9998)
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BrandId = 2,
+                            Description = " Excellent beauty products",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(6)
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BrandId = 3,
+                            Description = "Excellent beauty products",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(16)
+                        },
+                        new
+                        {
+                            Id = 19,
+                            BrandId = 4,
+                            Description = "Excellent beauty products",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(25)
+                        },
+                        new
+                        {
+                            Id = 20,
+                            BrandId = 5,
+                            Description = "Excellent beauty products",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(33)
+                        },
+                        new
+                        {
+                            Id = 21,
+                            BrandId = 6,
+                            Description = "Great sports products",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(42)
+                        },
+                        new
+                        {
+                            Id = 22,
+                            BrandId = 7,
+                            Description = "Great sports products",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(51)
+                        },
+                        new
+                        {
+                            Id = 23,
+                            BrandId = 8,
+                            Description = "Great sports products",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(60)
+                        },
+                        new
+                        {
+                            Id = 24,
+                            BrandId = 9,
+                            Description = "Great sports products",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(68)
+                        },
+                        new
+                        {
+                            Id = 25,
+                            BrandId = 10,
+                            Description = "Great sports products",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(109)
+                        },
+                        new
+                        {
+                            Id = 26,
+                            BrandId = 11,
+                            Description = "Gorgeous and comfortable clothes",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(120)
+                        },
+                        new
+                        {
+                            Id = 27,
+                            BrandId = 12,
+                            Description = "Gorgeous and comfortable clothes",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(129)
+                        },
+                        new
+                        {
+                            Id = 28,
+                            BrandId = 13,
+                            Description = "Gorgeous and comfortable clothes",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(137)
+                        },
+                        new
+                        {
+                            Id = 29,
+                            BrandId = 14,
+                            Description = "Gorgeous and comfortable clothes",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(146)
+                        },
+                        new
+                        {
+                            Id = 30,
+                            BrandId = 15,
+                            Description = "Gorgeous and comfortable clothes",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(154)
+                        },
+                        new
+                        {
+                            Id = 31,
+                            BrandId = 16,
+                            Description = "Great Fast Food",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(163)
+                        },
+                        new
+                        {
+                            Id = 32,
+                            BrandId = 17,
+                            Description = "Great Fast Food",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(172)
+                        },
+                        new
+                        {
+                            Id = 33,
+                            BrandId = 18,
+                            Description = "Great Drinks & Snaks",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(181)
+                        },
+                        new
+                        {
+                            Id = 34,
+                            BrandId = 19,
+                            Description = "Great Drinks",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(191)
+                        },
+                        new
+                        {
+                            Id = 35,
+                            BrandId = 20,
+                            Description = "Great Pizza",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(200)
+                        },
+                        new
+                        {
+                            Id = 36,
+                            BrandId = 21,
+                            Description = "Fantastic portable devices",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(209)
+                        },
+                        new
+                        {
+                            Id = 37,
+                            BrandId = 22,
+                            Description = "Fantastic portable devices",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(218)
+                        },
+                        new
+                        {
+                            Id = 38,
+                            BrandId = 23,
+                            Description = "Cool electronics",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(227)
+                        },
+                        new
+                        {
+                            Id = 39,
+                            BrandId = 24,
+                            Description = "interesting series",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(236)
+                        },
+                        new
+                        {
+                            Id = 40,
+                            BrandId = 25,
+                            Description = "interesting series",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(245)
+                        },
+                        new
+                        {
+                            Id = 41,
+                            BrandId = 26,
+                            Description = "interesting Perfum",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(253)
+                        },
+                        new
+                        {
+                            Id = 42,
+                            BrandId = 27,
+                            Description = "interesting Perfum",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(262)
+                        },
+                        new
+                        {
+                            Id = 43,
+                            BrandId = 28,
+                            Description = "interesting Perfum",
+                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(271)
                         });
                 });
 
@@ -2334,6 +2658,618 @@ namespace MarfulApi.Migrations
                             Description = "This some Text about found",
                             Name = "Tant",
                             Price = 700.0
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BrandId = 2,
+                            Code = "33333",
+                            Description = "This some Text about found",
+                            Name = "Foundation",
+                            Price = 600.0
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BrandId = 2,
+                            Code = "33333",
+                            Description = "This some Text about found",
+                            Name = "CareKream",
+                            Price = 300.0
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BrandId = 2,
+                            Code = "33333",
+                            Description = "This some Text about found",
+                            Name = "Mascara",
+                            Price = 1200.0
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BrandId = 3,
+                            Code = "33333",
+                            Description = "This some Text about found",
+                            Name = "CareSun",
+                            Price = 500.0
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BrandId = 3,
+                            Code = "33333",
+                            Description = "This some Text about found",
+                            Name = "Plasher",
+                            Price = 800.0
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BrandId = 3,
+                            Code = "33333",
+                            Description = "This some Text about found",
+                            Name = "Tant",
+                            Price = 300.0
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BrandId = 4,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "CareSun",
+                            Price = 400.0
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BrandId = 4,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Plasher",
+                            Price = 600.0
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BrandId = 4,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Oclador",
+                            Price = 178.0
+                        },
+                        new
+                        {
+                            Id = 19,
+                            BrandId = 5,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "Foundation",
+                            Price = 350.0
+                        },
+                        new
+                        {
+                            Id = 20,
+                            BrandId = 5,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "CareKream",
+                            Price = 290.0
+                        },
+                        new
+                        {
+                            Id = 21,
+                            BrandId = 5,
+                            Code = "32434",
+                            Description = "This some Text about found",
+                            Name = "CareSun",
+                            Price = 400.0
+                        },
+                        new
+                        {
+                            Id = 22,
+                            BrandId = 6,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Pajamas",
+                            Price = 2000.0
+                        },
+                        new
+                        {
+                            Id = 23,
+                            BrandId = 6,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Shoes",
+                            Price = 1500.0
+                        },
+                        new
+                        {
+                            Id = 24,
+                            BrandId = 6,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Bags",
+                            Price = 1200.0
+                        },
+                        new
+                        {
+                            Id = 25,
+                            BrandId = 7,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Pajamas",
+                            Price = 2000.0
+                        },
+                        new
+                        {
+                            Id = 26,
+                            BrandId = 7,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Shoes",
+                            Price = 1500.0
+                        },
+                        new
+                        {
+                            Id = 27,
+                            BrandId = 7,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Bags",
+                            Price = 1200.0
+                        },
+                        new
+                        {
+                            Id = 28,
+                            BrandId = 8,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Pajamas",
+                            Price = 2000.0
+                        },
+                        new
+                        {
+                            Id = 29,
+                            BrandId = 8,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Shoes",
+                            Price = 1500.0
+                        },
+                        new
+                        {
+                            Id = 30,
+                            BrandId = 8,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Bags",
+                            Price = 1200.0
+                        },
+                        new
+                        {
+                            Id = 31,
+                            BrandId = 9,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Pajamas",
+                            Price = 2000.0
+                        },
+                        new
+                        {
+                            Id = 32,
+                            BrandId = 9,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Shoes",
+                            Price = 1500.0
+                        },
+                        new
+                        {
+                            Id = 33,
+                            BrandId = 9,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Bags",
+                            Price = 1200.0
+                        },
+                        new
+                        {
+                            Id = 34,
+                            BrandId = 10,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Pajamas",
+                            Price = 2000.0
+                        },
+                        new
+                        {
+                            Id = 35,
+                            BrandId = 10,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Shoes",
+                            Price = 1500.0
+                        },
+                        new
+                        {
+                            Id = 36,
+                            BrandId = 10,
+                            Code = "44444",
+                            Description = "This some Text about found",
+                            Name = "Bags",
+                            Price = 1200.0
+                        },
+                        new
+                        {
+                            Id = 37,
+                            BrandId = 11,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "T Shirt",
+                            Price = 800.0
+                        },
+                        new
+                        {
+                            Id = 38,
+                            BrandId = 11,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Pants",
+                            Price = 1000.0
+                        },
+                        new
+                        {
+                            Id = 39,
+                            BrandId = 11,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Jacket",
+                            Price = 1100.0
+                        },
+                        new
+                        {
+                            Id = 40,
+                            BrandId = 12,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "T Shirt",
+                            Price = 800.0
+                        },
+                        new
+                        {
+                            Id = 41,
+                            BrandId = 12,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Pants",
+                            Price = 1000.0
+                        },
+                        new
+                        {
+                            Id = 42,
+                            BrandId = 12,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Jacket",
+                            Price = 1100.0
+                        },
+                        new
+                        {
+                            Id = 43,
+                            BrandId = 13,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "T Shirt",
+                            Price = 800.0
+                        },
+                        new
+                        {
+                            Id = 44,
+                            BrandId = 13,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Pants",
+                            Price = 1000.0
+                        },
+                        new
+                        {
+                            Id = 45,
+                            BrandId = 13,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Jacket",
+                            Price = 1100.0
+                        },
+                        new
+                        {
+                            Id = 46,
+                            BrandId = 14,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "T Shirt",
+                            Price = 800.0
+                        },
+                        new
+                        {
+                            Id = 47,
+                            BrandId = 14,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Pants",
+                            Price = 1000.0
+                        },
+                        new
+                        {
+                            Id = 48,
+                            BrandId = 14,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Jacket",
+                            Price = 1100.0
+                        },
+                        new
+                        {
+                            Id = 49,
+                            BrandId = 15,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "T Shirt",
+                            Price = 800.0
+                        },
+                        new
+                        {
+                            Id = 50,
+                            BrandId = 15,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Pants",
+                            Price = 1000.0
+                        },
+                        new
+                        {
+                            Id = 51,
+                            BrandId = 15,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Jacket",
+                            Price = 1100.0
+                        },
+                        new
+                        {
+                            Id = 52,
+                            BrandId = 16,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Fried",
+                            Price = 100.0
+                        },
+                        new
+                        {
+                            Id = 53,
+                            BrandId = 16,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Sandwich",
+                            Price = 800.0
+                        },
+                        new
+                        {
+                            Id = 54,
+                            BrandId = 16,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Fried chicken",
+                            Price = 1000.0
+                        },
+                        new
+                        {
+                            Id = 55,
+                            BrandId = 17,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Fried",
+                            Price = 100.0
+                        },
+                        new
+                        {
+                            Id = 56,
+                            BrandId = 17,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Sandwich",
+                            Price = 800.0
+                        },
+                        new
+                        {
+                            Id = 57,
+                            BrandId = 17,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Fried chicken",
+                            Price = 1000.0
+                        },
+                        new
+                        {
+                            Id = 58,
+                            BrandId = 18,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Melo",
+                            Price = 500.0
+                        },
+                        new
+                        {
+                            Id = 59,
+                            BrandId = 18,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "3 in 1",
+                            Price = 400.0
+                        },
+                        new
+                        {
+                            Id = 60,
+                            BrandId = 18,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Biscuits",
+                            Price = 200.0
+                        },
+                        new
+                        {
+                            Id = 61,
+                            BrandId = 19,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Milk Shake",
+                            Price = 500.0
+                        },
+                        new
+                        {
+                            Id = 62,
+                            BrandId = 19,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Coffie",
+                            Price = 400.0
+                        },
+                        new
+                        {
+                            Id = 63,
+                            BrandId = 20,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Pizza Mushroom",
+                            Price = 1000.0
+                        },
+                        new
+                        {
+                            Id = 64,
+                            BrandId = 20,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Pizza 4 seasons",
+                            Price = 1200.0
+                        },
+                        new
+                        {
+                            Id = 65,
+                            BrandId = 21,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Mobile",
+                            Price = 5000.0
+                        },
+                        new
+                        {
+                            Id = 66,
+                            BrandId = 21,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Labtop",
+                            Price = 8000.0
+                        },
+                        new
+                        {
+                            Id = 67,
+                            BrandId = 22,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Mobile",
+                            Price = 5000.0
+                        },
+                        new
+                        {
+                            Id = 68,
+                            BrandId = 22,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Labtop",
+                            Price = 8000.0
+                        },
+                        new
+                        {
+                            Id = 69,
+                            BrandId = 23,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Washing Machine",
+                            Price = 9000.0
+                        },
+                        new
+                        {
+                            Id = 70,
+                            BrandId = 23,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "TV",
+                            Price = 6500.0
+                        },
+                        new
+                        {
+                            Id = 71,
+                            BrandId = 24,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Game Og Throns",
+                            Price = 200.0
+                        },
+                        new
+                        {
+                            Id = 72,
+                            BrandId = 24,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Friends",
+                            Price = 200.0
+                        },
+                        new
+                        {
+                            Id = 73,
+                            BrandId = 25,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "باب  الحارة",
+                            Price = 200.0
+                        },
+                        new
+                        {
+                            Id = 74,
+                            BrandId = 25,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "الهيبة",
+                            Price = 200.0
+                        },
+                        new
+                        {
+                            Id = 75,
+                            BrandId = 26,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Dior",
+                            Price = 900.0
+                        },
+                        new
+                        {
+                            Id = 76,
+                            BrandId = 27,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Channel",
+                            Price = 900.0
+                        },
+                        new
+                        {
+                            Id = 77,
+                            BrandId = 28,
+                            Code = "55555",
+                            Description = "This some Text about found",
+                            Name = "Gucci",
+                            Price = 900.0
                         });
                 });
 
