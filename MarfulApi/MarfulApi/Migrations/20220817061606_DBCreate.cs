@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MarfulApi.Migrations
 {
-    public partial class CreateDB : Migration
+    public partial class DBCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -568,7 +568,7 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "Age", "Email", "Image", "Name", "Password", "Paypal", "Phone", "UserName" },
                 values: new object[,]
                 {
-                    { 1, 20, "Hadel@test.com", null, "Hafel Dabbas", "123", "Lb1267", "0964654765", "hadel2000" },
+                    { 1, 20, "Hadel@test.com", null, "Hadel Dabbas", "123", "Lb1267", "0964654765", "hadel2000" },
                     { 2, 20, "Asia@test.com", null, "Asia", "456", "Lb1267", "0964654765", "Asel" },
                     { 3, 20, "yousfi@test.com", null, "Haya Yousfi", "789", "Lb1267", "0964654765", "Haya" },
                     { 4, 20, "Eid@test.com", null, "Haya Eid", "101", "Lb1267", "0964654765", "HayaSy" },
@@ -716,20 +716,9 @@ namespace MarfulApi.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "CompanyTypes",
-                columns: new[] { "Id", "CompanyId", "Password", "type" },
-                values: new object[,]
-                {
-                    { 1, 1, "chat employee", "chat employee" },
-                    { 2, 1, "Publishing Officer", "Publishing Officer" },
-                    { 3, 1, "Editing Officer", "Editing Officer" },
-                    { 4, 1, "Owner", "Owner" }
-                });
-
-            migrationBuilder.InsertData(
                 table: "Conversations",
                 columns: new[] { "Id", "CompanyId", "InfulonserId", "Start" },
-                values: new object[] { 1, 1, 1, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8077) });
+                values: new object[] { 1, 1, 1, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6833) });
 
             migrationBuilder.InsertData(
                 table: "InfulonserContents",
@@ -746,13 +735,9 @@ namespace MarfulApi.Migrations
                     { 8, 5, 2 },
                     { 9, 5, 3 },
                     { 10, 6, 1 },
-                    { 11, 6, 4 }
+                    { 11, 6, 4 },
+                    { 12, 7, 7 }
                 });
-
-            migrationBuilder.InsertData(
-                table: "InfulonserContents",
-                columns: new[] { "Id", "ContentId", "InfulonserId" },
-                values: new object[] { 12, 7, 7 });
 
             migrationBuilder.InsertData(
                 table: "InfulonserFollowInfulonsers",
@@ -761,7 +746,14 @@ namespace MarfulApi.Migrations
                 {
                     { 1, 1, 2 },
                     { 2, 2, 1 },
-                    { 3, 2, 3 },
+                    { 3, 2, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "InfulonserFollowInfulonsers",
+                columns: new[] { "Id", "FollowId", "FollowedId" },
+                values: new object[,]
+                {
                     { 4, 3, 4 },
                     { 5, 4, 5 },
                     { 6, 5, 4 },
@@ -776,7 +768,34 @@ namespace MarfulApi.Migrations
                 values: new object[,]
                 {
                     { 1, 1, 1 },
-                    { 2, 1, 2 }
+                    { 2, 2, 1 },
+                    { 3, 3, 1 },
+                    { 4, 5, 1 },
+                    { 5, 6, 1 },
+                    { 6, 7, 1 },
+                    { 7, 1, 2 },
+                    { 8, 3, 2 },
+                    { 9, 5, 2 },
+                    { 10, 7, 2 },
+                    { 11, 2, 3 },
+                    { 12, 4, 3 },
+                    { 13, 6, 3 },
+                    { 14, 1, 4 },
+                    { 15, 2, 4 },
+                    { 16, 3, 4 },
+                    { 17, 4, 5 },
+                    { 18, 5, 5 },
+                    { 19, 6, 5 },
+                    { 20, 1, 6 },
+                    { 21, 2, 6 },
+                    { 22, 3, 6 },
+                    { 23, 5, 6 },
+                    { 24, 6, 6 },
+                    { 25, 3, 7 },
+                    { 26, 4, 7 },
+                    { 27, 5, 7 },
+                    { 28, 6, 7 },
+                    { 29, 7, 7 }
                 });
 
             migrationBuilder.InsertData(
@@ -784,16 +803,20 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
                 values: new object[,]
                 {
-                    { 1, null, " test for infulonser post", null, 1, null, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8349) },
-                    { 2, null, " test another post for infulonser", null, 1, null, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8394) },
-                    { 7, null, " Im infulonser with content sport", null, 2, null, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8541) },
-                    { 8, null, " Im infulonser with content sport2", null, 2, null, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8671) }
+                    { 1, null, " test for infulonser post", null, 1, null, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7474) },
+                    { 2, null, " test another post for infulonser", null, 1, null, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7503) },
+                    { 7, null, " Im infulonser with content sport", null, 2, null, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7708) },
+                    { 8, null, " Im infulonser with content sport2", null, 2, null, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7740) }
                 });
 
             migrationBuilder.InsertData(
                 table: "UserCompanies",
                 columns: new[] { "Id", "CompanyId", "UserId" },
-                values: new object[] { 1, 1, 1 });
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 1 }
+                });
 
             migrationBuilder.InsertData(
                 table: "Brands",
@@ -801,7 +824,30 @@ namespace MarfulApi.Migrations
                 values: new object[,]
                 {
                     { 1, 1, "Juicy Beauty was first founded in 2012 in Syria, Damascus. Juicy Beauty was first introduced in Lebanon in 2018.Juicy Beauty is an example of innovation in form due to its display with the largest makeup color made of vibrant and pure pigments and in substancethanks to the exclusive formulas and the revolutionary texture of its makeup products.Behind each product is the excellent research of an expert scientific team that develops new technologies and original formulas.High quality and extreme safety in addition to creativity, taste, and a focus on detail.That’s how JUICY ensures the finest standards of excellence through products that are both gentle and highly effective: Makeup formulas are produced in Europe. The range is subjected to accurate and in-depth safety evaluation.Juicy Beauty is the definition of having fun with makeup, trying new things,and feeling free! Not sure where to start? Why not visit our branches that are all over lebanon and test our products!", null, null, "JUICY BEAUTY" },
-                    { 2, 2, "Our company has all kind 0f sport element type", null, null, "Addidas" }
+                    { 2, 2, "Huda Beauty is a cosmetics line  the brand has a positive reputation on some of its products, such as the popular fake eyelashes series, as well as a collection of foundations, eyeshadows and some face palettes", null, null, "HUDA BEAUTY" },
+                    { 3, 3, "Maybelline, is an American multinational cosmetics, skin care, fragrance, and personal care company, based in New York City. It was founded in Chicago in 1914", null, null, "MAYBELLINE" },
+                    { 4, 4, "L'Oréal  is a French personal care company headquartered in Clichy, Hauts-de-Seinewith a registered office in Paris. It is the world's largest cosmetics company and has developed activities in the field concentrating on hair color, skin care, sun protection, make-up, perfume, and hair care.", null, null, "LOREAL" },
+                    { 5, 5, "Collection ,Sephora offers beauty products including cosmetics, skincare, body, fragrance, nail color, beauty tools, body lotions and haircare.", null, null, "SEPHORA" },
+                    { 6, 6, "Asics sponsors a variety of sports associations", null, null, "ASIC" },
+                    { 7, 7, "Manufacturer of sports shoes and apparel. It was the largest sportswear manufacturer in Europe and the second largest after Nike in the world. Adidas products are traditionally distinguished by a three-line brand, which remains an element of the company's latest products", null, null, "ADDIDAS" },
+                    { 8, 8, "The world’s largest athletic apparel company, Nike is best known for its footwear, apparel, and equipment. One of the most valuable brands among sport businesses,The company sponsors top athletes and sports teams around the world.", null, null, "NIKE" },
+                    { 9, 9, "Puma, is a German multinational corporation that designs and manufactures athletic and casual footwear, apparel and accessories, which is headquartered in Herzogenaurach, Bavaria, Germany. Puma is the third largest sportswear manufacturer in the world", null, null, "PUMA" },
+                    { 10, 10, "Asics sponsors a variety of sports associations", null, null, "REEBOK" },
+                    { 11, 11, "A clothing retailer, the company specializes in fast fashion, and its products include apparel, accessories, footwear, swimwear, cosmetics, and perfume. It is one of the largest clothing retailers in the world which also includes brands such as Bershka and Massimo Dutti.", null, null, "ZARA" },
+                    { 12, 12, "Max Fashion is an Indian fashion brand under the banner of the Landmark Group in Dubai", null, null, "MAX" },
+                    { 13, 13, "It is an Italian luxury fashion house specializing in ready-to-wear and haute couture, headquartered in Milan, Italy. Expanded to design raincoats, windbreakers, knitwear, leather goods, shoes, perfume, and accessories", null, null, "MONCLER" },
+                    { 14, 14, "Lacoste S.A. is a French company. It sells clothing, footwear, sportswear, eyewear, leather goods, perfume, towels and watches", null, null, "LACOSTE" },
+                    { 15, 15, "It is one of the most famous fashion companies in the world. The group enjoys a unified identity consisting of colours, authentic fashion and quality at democratic prices", null, null, "BENETTON" },
+                    { 16, 16, "Kentucky Fried Chicken or KFC is a chain of fast food restaurants that specializes primarily in fried chicken.  It is the second largest chain of fast food restaurants in the world in terms of sales after McDonald's. Kentucky Fried Chicken has nearly twenty thousand branches spread over 123 countries and territories around the world.", null, null, "KFC" },
+                    { 17, 17, "MCDONALD'S is the world's largest restaurant chain by revenue,McDonald's is best known for its hamburgers, cheeseburgers and french fries, although their menus include other items like chicken, fish, fruit, and salads", null, null, "MCDONALDS" },
+                    { 18, 18, "Nestlé is a multinational company specializing in the production of canned foods, founded in Vevey, Switzerland.", null, null, "NESTLE" },
+                    { 19, 19, "STARBUCKS is a specialty coffee retailer. It roasts, markets, and retails specialty coffee. The company, through its stores, offers several blends of coffee, handcrafted beverages, merchandise, and food items", null, null, "STARBUCKS" },
+                    { 20, 20, "Pizza Hut is an American multinational restaurant chain and international franchise founded in 1958 in Wichita, Kansas by Dan and Frank Carney. They serve their signature pan pizza and other dishes including pasta, breadsticks and desserts.", null, null, "PIZZA HUT" },
+                    { 21, 21, " Samsung Electronics is the world's largest electronics and information technology company.  Samsung Electronics is part of the Samsung Group, which is the largest conglomerate in South Korea and the global market leader with more than 60 products including semiconductors such as DRAM and flash memory, digital display devices such as liquid crystal TVs  LCD and plasma, consumer electronics such as DVD players, mobile phones, digital cameras and laser printers, household appliances such as refrigerators, microwaves and dishwashers.", null, null, "SAMSUNG" },
+                    { 22, 22, "The Apple Corporation is an American multinational technology company specializing in consumer electronics, software and online services.  It is one of the top five American IT companies", null, null, "APPLE" },
+                    { 23, 23, "The Korean LG Group this company is the second largest holding company, producing electronics, chemicals and telecommunications products.  from 80 countries", null, null, "LG" },
+                    { 24, 24, "Netflix is   an American entertainment company that specializes in providing live broadcasting, video-on-demand, and mail-delivery of CDs. Netflix has expanded into the production of films and television shows, and online video distribution", null, null, "NETFLIX" },
+                    { 25, 25, "Shahid is the first Arab platform to provide \"Video on Demand\" service in the Middle East, and it has been re-launched by the \"MBC\" media group.  It is worth noting that Shahid,the leading subscription video-on-demand platform, is considered the leading Arab broadcasting platform in the world and the home of original Arabic productions with world-class specifications.along with a live broadcast of a group of the most watched Arab TV channels", null, null, "SHAHID" }
                 });
 
             migrationBuilder.InsertData(
@@ -809,8 +855,8 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "ConversationId", "JobId", "MessageStatus", "SendTime", "Text" },
                 values: new object[,]
                 {
-                    { 1, 1, null, false, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8182), "hi thanke you very match for this it was nice one" },
-                    { 2, 1, null, true, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8220), "hi thanke you very match for this it was nice one" }
+                    { 1, 1, null, false, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6933), "hi thanke you very match for this it was nice one" },
+                    { 2, 1, null, true, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6958), "hi thanke you very match for this it was nice one" }
                 });
 
             migrationBuilder.InsertData(
@@ -827,10 +873,10 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
                 values: new object[,]
                 {
-                    { 3, 1, " test for company post", null, null, null, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8424) },
-                    { 4, 1, " test another post for company", null, null, null, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8454) },
-                    { 5, 2, " this is the first post for sport company", null, null, null, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8480) },
-                    { 6, 2, " this is the second post for sport company", null, null, null, new DateTime(2022, 8, 16, 12, 28, 49, 81, DateTimeKind.Local).AddTicks(8513) }
+                    { 3, 1, " test for company post", null, null, null, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7536) },
+                    { 4, 1, " test another post for company", null, null, null, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7567) },
+                    { 5, 2, " this is the first post for sport company", null, null, null, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7661) },
+                    { 6, 2, " this is the second post for sport company", null, null, null, new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7687) }
                 });
 
             migrationBuilder.InsertData(
