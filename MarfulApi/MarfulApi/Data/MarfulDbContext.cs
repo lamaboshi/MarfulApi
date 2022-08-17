@@ -57,7 +57,7 @@ namespace MarfulApi.Data
             modelBuilder.Entity<Company>().HasData(new Company { Id = 8, Name = "NIKE", Description = "The world’s largest athletic apparel company, Nike is best known for its footwear, apparel, and equipment. One of the most valuable brands among sport businesses,The company sponsors top athletes and sports teams around the world.", Address = "From Streat", Email = "NIKE@test.com", Phone = "0921423432", TelePhone = "223554", Password = "78789" });
             modelBuilder.Entity<Company>().HasData(new Company { Id = 9, Name = "PUMA", Description = "Puma, is a German multinational corporation that designs and manufactures athletic and casual footwear, apparel and accessories, which is headquartered in Herzogenaurach, Bavaria, Germany. Puma is the third largest sportswear manufacturer in the world", Address = "From Streat", Email = "PUMA@test.com", Phone = "0921423432", TelePhone = "223554", Password = "67678" });
             modelBuilder.Entity<Company>().HasData(new Company { Id = 10, Name = "REEBOK", Description = "Asics sponsors a variety of sports associations", Address = "Reebok International Limited (/ˈriːbɒk/) is an American fitness footwear and clothing manufacturer that is a part of Authentic Brands Group.", Email = "REEBOK@test.com", Phone = "0921423432", TelePhone = "223554", Password = "8989" });
-
+            
             modelBuilder.Entity<Company>().HasData(new Company { Id = 11, Name = "ZARA", Description = "A clothing retailer, the company specializes in fast fashion, and its products include apparel, accessories, footwear, swimwear, cosmetics, and perfume. It is one of the largest clothing retailers in the world which also includes brands such as Bershka and Massimo Dutti.", Address = "From Streat", Email = "ZARA@test.com", Phone = "0921423432", TelePhone = "223554", Password = "0909" });
             modelBuilder.Entity<Company>().HasData(new Company { Id = 12, Name = "MAX", Description = "Max Fashion is an Indian fashion brand under the banner of the Landmark Group in Dubai", Address = "From Streat", Email = "MAX@test.com", Phone = "0921423432", TelePhone = "223554", Password = "111222" });
             modelBuilder.Entity<Company>().HasData(new Company { Id = 13, Name = "MONCLER", Description = "It is an Italian luxury fashion house specializing in ready-to-wear and haute couture, headquartered in Milan, Italy. Expanded to design raincoats, windbreakers, knitwear, leather goods, shoes, perfume, and accessories", Address = "From Streat", Email = "MONCLER@test.com", Phone = "0921423432", TelePhone = "223554", Password = "6789" });
@@ -133,7 +133,7 @@ namespace MarfulApi.Data
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 7, Name = "ADDIDAS", Description = "Manufacturer of sports shoes and apparel. It was the largest sportswear manufacturer in Europe and the second largest after Nike in the world. Adidas products are traditionally distinguished by a three-line brand, which remains an element of the company's latest products", CompanyContentId = 7 });
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 8, Name = "NIKE", Description = "The world’s largest athletic apparel company, Nike is best known for its footwear, apparel, and equipment. One of the most valuable brands among sport businesses,The company sponsors top athletes and sports teams around the world.", CompanyContentId = 8});
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 9, Name = "PUMA", Description = "Puma, is a German multinational corporation that designs and manufactures athletic and casual footwear, apparel and accessories, which is headquartered in Herzogenaurach, Bavaria, Germany. Puma is the third largest sportswear manufacturer in the world", CompanyContentId = 9 });
-            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 10, Name = "REEBOK", Description = "Asics sponsors a variety of sports associations", CompanyContentId = 10});
+            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 10, Name = "REEBOK", Description = "It is an American company that manufactures footwear and sportswear and is part of the Authentic Brands Group", CompanyContentId = 10});
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 11, Name = "ZARA", Description = "A clothing retailer, the company specializes in fast fashion, and its products include apparel, accessories, footwear, swimwear, cosmetics, and perfume. It is one of the largest clothing retailers in the world which also includes brands such as Bershka and Massimo Dutti.", CompanyContentId = 11});
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 12, Name = "MAX", Description = "Max Fashion is an Indian fashion brand under the banner of the Landmark Group in Dubai", CompanyContentId = 12 });
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 13, Name = "MONCLER", Description = "It is an Italian luxury fashion house specializing in ready-to-wear and haute couture, headquartered in Milan, Italy. Expanded to design raincoats, windbreakers, knitwear, leather goods, shoes, perfume, and accessories", CompanyContentId = 13 });
@@ -149,6 +149,12 @@ namespace MarfulApi.Data
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 23, Name = "LG", Description = "The Korean LG Group this company is the second largest holding company, producing electronics, chemicals and telecommunications products.  from 80 countries", CompanyContentId = 23 });
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 24, Name = "NETFLIX", Description = "Netflix is   an American entertainment company that specializes in providing live broadcasting, video-on-demand, and mail-delivery of CDs. Netflix has expanded into the production of films and television shows, and online video distribution", CompanyContentId = 24 });
             modelBuilder.Entity<Brand>().HasData(new Brand { Id = 25, Name = "SHAHID", Description = "Shahid is the first Arab platform to provide \"Video on Demand\" service in the Middle East, and it has been re-launched by the \"MBC\" media group.  It is worth noting that Shahid,the leading subscription video-on-demand platform, is considered the leading Arab broadcasting platform in the world and the home of original Arabic productions with world-class specifications.along with a live broadcast of a group of the most watched Arab TV channels", CompanyContentId = 25 });
+            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 26, Name = "SHAHID", Description = "Shahid is the first Arab platform to provide \"Video on Demand\" service in the Middle East, and it has been re-launched by the \"MBC\" media group.  It is worth noting that Shahid,the leading subscription video-on-demand platform, is considered the leading Arab broadcasting platform in the world and the home of original Arabic productions with world-class specifications.along with a live broadcast of a group of the most watched Arab TV channels", CompanyContentId = 25 });
+            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 27, Name = "DIOR", Description = "DIOR Products Clothing, cosmetics, fashion accessories, jewelry, perfumes, watches", CompanyContentId = 26 });
+            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 28, Name = "CHANNEL", Description = "Chanel Its products cover clothes, fragrances, handbags and watches", CompanyContentId = 27});
+            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 29, Name = "GUCCI", Description = "Gucci offers a range of different luxury  Shoes, ready-to-wear apparel, watches, and jewelry are the other main , however they also sell other products such as perfume and home decor", CompanyContentId = 28});
+            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 30, Name = "NAMSHI", Description = "Namshi is a Dubai-based e-commerce firm which sells designer clothing. The company, which also provides shoes and accessories", InfulonserId=7 });
+            modelBuilder.Entity<Brand>().HasData(new Brand { Id = 31, Name = "HABEED", Description = "Clothes Brand For Every Human Habeed", InfulonserId = 6 });
 
 
 
@@ -195,6 +201,75 @@ namespace MarfulApi.Data
             modelBuilder.Entity<Product>().HasData(new Product { Id = 7, Name = "Oclador", Price = 178, Description = "This some Text about found", BrandId = 1, Code = "32434" });
             modelBuilder.Entity<Product>().HasData(new Product { Id = 8, Name = "Mascara", Price = 1300, Description = "This some Text about found", BrandId = 1, Code = "32434" });
             modelBuilder.Entity<Product>().HasData(new Product { Id = 9, Name = "Tant", Price = 700, Description = "This some Text about found", BrandId = 1, Code = "32434" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 10, Name = "Foundation", Price = 600, Description = "This some Text about found", BrandId = 2, Code = "33333" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 11, Name = "CareKream", Price = 300, Description = "This some Text about found", BrandId = 2, Code = "33333" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 12, Name = "Mascara", Price = 1200, Description = "This some Text about found", BrandId = 2, Code = "33333" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 13, Name = "CareSun", Price = 500, Description = "This some Text about found", BrandId = 3, Code = "33333" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 14, Name = "Plasher", Price = 800, Description = "This some Text about found", BrandId = 3, Code = "33333" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 15, Name = "Tant", Price = 300, Description = "This some Text about found", BrandId = 3, Code = "33333" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 16, Name = "CareSun", Price = 400, Description = "This some Text about found", BrandId = 4, Code = "32434" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 17, Name = "Plasher", Price = 600, Description = "This some Text about found", BrandId = 4, Code = "32434" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 18, Name = "Oclador", Price = 178, Description = "This some Text about found", BrandId = 4, Code = "32434" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 19, Name = "Foundation", Price = 350, Description = "This some Text about found", BrandId = 5, Code = "32434" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 20, Name = "CareKream", Price = 290, Description = "This some Text about found", BrandId = 5, Code = "32434" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 21, Name = "CareSun", Price = 400, Description = "This some Text about found", BrandId = 5, Code = "32434" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 22, Name = "Pajamas", Price = 2000, Description = "This some Text about found", BrandId = 6, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 23, Name = "Shoes", Price = 1500, Description = "This some Text about found", BrandId = 6, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 24, Name = "Bags", Price = 1200, Description = "This some Text about found", BrandId = 6, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 25, Name = "Pajamas", Price = 2000, Description = "This some Text about found", BrandId = 7, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 26, Name = "Shoes", Price = 1500, Description = "This some Text about found", BrandId = 7, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 27, Name = "Bags", Price = 1200, Description = "This some Text about found", BrandId = 7, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 28, Name = "Pajamas", Price = 2000, Description = "This some Text about found", BrandId = 8, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 29, Name = "Shoes", Price = 1500, Description = "This some Text about found", BrandId = 8, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 30, Name = "Bags", Price = 1200, Description = "This some Text about found", BrandId = 8, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 31, Name = "Pajamas", Price = 2000, Description = "This some Text about found", BrandId = 9, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 32, Name = "Shoes", Price = 1500, Description = "This some Text about found", BrandId = 9, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 33, Name = "Bags", Price = 1200, Description = "This some Text about found", BrandId = 9, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 34, Name = "Pajamas", Price = 2000, Description = "This some Text about found", BrandId = 10, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 35, Name = "Shoes", Price = 1500, Description = "This some Text about found", BrandId = 10, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 36, Name = "Bags", Price = 1200, Description = "This some Text about found", BrandId = 10, Code = "44444" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 37, Name = "T Shirt", Price = 800, Description = "This some Text about found", BrandId = 11, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 38, Name = "Pants", Price = 1000, Description = "This some Text about found", BrandId = 11, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 39, Name = "Jacket", Price = 1100, Description = "This some Text about found", BrandId = 11, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 40, Name = "T Shirt", Price = 800, Description = "This some Text about found", BrandId = 12, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 41, Name = "Pants", Price = 1000, Description = "This some Text about found", BrandId = 12, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 42, Name = "Jacket", Price = 1100, Description = "This some Text about found", BrandId = 12, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 43, Name = "T Shirt", Price = 800, Description = "This some Text about found", BrandId = 13, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 44, Name = "Pants", Price = 1000, Description = "This some Text about found", BrandId = 13, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 45, Name = "Jacket", Price = 1100, Description = "This some Text about found", BrandId = 13, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 46, Name = "T Shirt", Price = 800, Description = "This some Text about found", BrandId = 14, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 47, Name = "Pants", Price = 1000, Description = "This some Text about found", BrandId = 14, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 48, Name = "Jacket", Price = 1100, Description = "This some Text about found", BrandId = 14, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 49, Name = "T Shirt", Price = 800, Description = "This some Text about found", BrandId = 15, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 50, Name = "Pants", Price = 1000, Description = "This some Text about found", BrandId = 15, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 51, Name = "Jacket", Price = 1100, Description = "This some Text about found", BrandId = 15, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 52, Name = "Fried", Price = 100, Description = "This some Text about found", BrandId = 16, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 53, Name = "Sandwich", Price = 800, Description = "This some Text about found", BrandId = 16, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 54, Name = "Fried chicken", Price = 1000, Description = "This some Text about found", BrandId = 16, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 55, Name = "Fried", Price = 100, Description = "This some Text about found", BrandId = 17, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 56, Name = "Sandwich", Price = 800, Description = "This some Text about found", BrandId = 17, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 57, Name = "Fried chicken", Price = 1000, Description = "This some Text about found", BrandId = 17, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 58, Name = "Melo", Price = 500, Description = "This some Text about found", BrandId = 18, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 59, Name = "3 in 1", Price = 400, Description = "This some Text about found", BrandId = 18, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 60, Name = "Biscuits", Price = 200, Description = "This some Text about found", BrandId = 18, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 61, Name = "Milk Shake", Price = 500, Description = "This some Text about found", BrandId = 19, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 62, Name = "Coffie", Price = 400, Description = "This some Text about found", BrandId = 19, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 63, Name = "Pizza Mushroom", Price = 1000, Description = "This some Text about found", BrandId = 20, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 64, Name = "Pizza 4 seasons", Price = 1200, Description = "This some Text about found", BrandId = 20, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 65, Name = "Mobile", Price = 5000, Description = "This some Text about found", BrandId = 21, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 66, Name = "Labtop", Price = 8000, Description = "This some Text about found", BrandId = 21, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 67, Name = "Mobile", Price = 5000, Description = "This some Text about found", BrandId = 22, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 68, Name = "Labtop", Price = 8000, Description = "This some Text about found", BrandId = 22, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 69, Name = "Washing Machine", Price = 9000, Description = "This some Text about found", BrandId = 23, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 70, Name = "TV", Price = 6500, Description = "This some Text about found", BrandId = 23, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 71, Name = "Game Og Throns", Price = 200, Description = "This some Text about found", BrandId = 24, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 72, Name = "Friends", Price = 200, Description = "This some Text about found", BrandId = 24, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 73, Name = "باب  الحارة", Price = 200, Description = "This some Text about found", BrandId = 25, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 74, Name = "الهيبة", Price = 200, Description = "This some Text about found", BrandId = 25, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 75, Name = "Dior", Price = 900, Description = "This some Text about found", BrandId = 26, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 76, Name = "Channel", Price = 900, Description = "This some Text about found", BrandId = 27, Code = "55555" });
+            modelBuilder.Entity<Product>().HasData(new Product { Id = 77, Name = "Gucci", Price = 900, Description = "This some Text about found", BrandId = 28, Code = "55555" });
+
 
             modelBuilder.Entity<Conversation>().HasData(new Conversation { Id = 1, CompanyId = 1, InfulonserId = 1, Start = DateTime.Now, });
 
@@ -389,14 +464,53 @@ namespace MarfulApi.Data
 
 
 
-            modelBuilder.Entity<Post>().HasData(new Post { Id = 1, Description = " test for infulonser post", InfulonserId = 1, dateTime = DateTime.Now });
-            modelBuilder.Entity<Post>().HasData(new Post { Id = 2, Description = " test another post for infulonser", InfulonserId = 1, dateTime = DateTime.Now });
-            modelBuilder.Entity<Post>().HasData(new Post { Id = 3, Description = " test for company post", BrandId = 1, dateTime = DateTime.Now });
-            modelBuilder.Entity<Post>().HasData(new Post { Id = 4, Description = " test another post for company", BrandId = 1, dateTime = DateTime.Now });
-            modelBuilder.Entity<Post>().HasData(new Post { Id = 5, Description = " this is the first post for sport company", BrandId = 2, dateTime = DateTime.Now });
-            modelBuilder.Entity<Post>().HasData(new Post { Id = 6, Description = " this is the second post for sport company", BrandId = 2, dateTime = DateTime.Now });
-            modelBuilder.Entity<Post>().HasData(new Post { Id = 7, Description = " Im infulonser with content sport", InfulonserId = 2, dateTime = DateTime.Now });
-            modelBuilder.Entity<Post>().HasData(new Post { Id = 8, Description = " Im infulonser with content sport2", InfulonserId = 2, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 1, Description = "Great product for sun protection", InfulonserId = 1, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 2, Description = "interesting series", InfulonserId = 1, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 3, Description = "Great sports products", InfulonserId = 2, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 4, Description = "Excellent electronics", InfulonserId = 2, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 5, Description = "Excellent mobiles", InfulonserId = 3, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 6, Description = "Excellent  Laptop", InfulonserId = 3, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 7, Description = "interesting series", InfulonserId = 4, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 8, Description = "Gorgeous and comfortable clothes", InfulonserId = 4, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 9, Description = "Great sports products", InfulonserId = 5, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 10, Description = "Great sports equipment", InfulonserId = 5, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 11, Description = "Great Fast Food", InfulonserId = 6, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 12, Description = "Excellent Food", InfulonserId = 6, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 13, Description = "Great product for sun protection", InfulonserId = 7, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 14, Description = "Gorgeous and comfortable clothes", InfulonserId = 7, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 15, Description = "Gorgeous Perfum", InfulonserId = 7, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 16,Description = "Excellent beauty products", BrandId = 1, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 17, Description = " Excellent beauty products", BrandId = 2, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 18, Description = "Excellent beauty products", BrandId = 3, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 19, Description = "Excellent beauty products", BrandId = 4, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 20, Description = "Excellent beauty products", BrandId = 5, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 21, Description = "Great sports products", BrandId = 6, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 22, Description = "Great sports products", BrandId = 7, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 23, Description = "Great sports products", BrandId = 8, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 24, Description = "Great sports products", BrandId = 9, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 25, Description = "Great sports products", BrandId = 10, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 26, Description = "Gorgeous and comfortable clothes", BrandId = 11, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 27, Description = "Gorgeous and comfortable clothes", BrandId = 12, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 28, Description = "Gorgeous and comfortable clothes", BrandId = 13, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 29, Description = "Gorgeous and comfortable clothes", BrandId = 14, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 30, Description = "Gorgeous and comfortable clothes", BrandId = 15, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 31, Description = "Great Fast Food", BrandId = 16, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 32, Description = "Great Fast Food", BrandId = 17, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id =33, Description = "Great Drinks & Snaks", BrandId = 18, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 34, Description = "Great Drinks", BrandId = 19, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 35, Description = "Great Pizza", BrandId = 20, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 36, Description = "Fantastic portable devices", BrandId = 21, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 37, Description = "Fantastic portable devices", BrandId = 22, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 38, Description = "Cool electronics", BrandId = 23, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 39, Description = "interesting series", BrandId = 24, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 40, Description = "interesting series", BrandId = 25, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 41, Description = "interesting Perfum", BrandId = 26, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 42, Description = "interesting Perfum", BrandId = 27, dateTime = DateTime.Now });
+            modelBuilder.Entity<Post>().HasData(new Post { Id = 43, Description = "interesting Perfum", BrandId = 28, dateTime = DateTime.Now });
+
+
+
+
 
 
 
