@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MarfulApi.Migrations
 {
-    public partial class finalseeds : Migration
+    public partial class DatabaseCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -739,7 +739,7 @@ namespace MarfulApi.Migrations
             migrationBuilder.InsertData(
                 table: "Conversations",
                 columns: new[] { "Id", "CompanyId", "InfulonserId", "Start" },
-                values: new object[] { 1, 1, 1, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(694) });
+                values: new object[] { 1, 1, 1, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9509) });
 
             migrationBuilder.InsertData(
                 table: "InfulonserContents",
@@ -824,21 +824,21 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
                 values: new object[,]
                 {
-                    { 1, null, "Great product for sun protection", null, 1, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1289) },
-                    { 2, null, "interesting series", null, 1, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1304) },
-                    { 3, null, "Great sports products", null, 2, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1314) },
-                    { 4, null, "Excellent electronics", null, 2, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1324) },
-                    { 5, null, "Excellent mobiles", null, 3, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1334) },
-                    { 6, null, "Excellent  Laptop", null, 3, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1345) },
-                    { 7, null, "interesting series", null, 4, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1355) },
-                    { 8, null, "Gorgeous and comfortable clothes", null, 4, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1365) },
-                    { 9, null, "Great sports products", null, 5, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1375) },
-                    { 10, null, "Great sports equipment", null, 5, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1386) },
-                    { 11, null, "Great Fast Food", null, 6, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1395) },
-                    { 12, null, "Excellent Food", null, 6, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1405) },
-                    { 13, null, "Great product for sun protection", null, 7, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1415) },
-                    { 14, null, "Gorgeous and comfortable clothes", null, 7, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1425) },
-                    { 15, null, "Gorgeous Perfum", null, 7, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1434) }
+                    { 1, null, "Great product for sun protection", null, 1, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9817) },
+                    { 2, null, "interesting series", null, 1, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9869) },
+                    { 3, null, "Great sports products", null, 2, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9880) },
+                    { 4, null, "Excellent electronics", null, 2, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9888) },
+                    { 5, null, "Excellent mobiles", null, 3, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9897) },
+                    { 6, null, "Excellent  Laptop", null, 3, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9908) },
+                    { 7, null, "interesting series", null, 4, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9917) },
+                    { 8, null, "Gorgeous and comfortable clothes", null, 4, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9926) },
+                    { 9, null, "Great sports products", null, 5, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9935) },
+                    { 10, null, "Great sports equipment", null, 5, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9944) },
+                    { 11, null, "Great Fast Food", null, 6, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9953) },
+                    { 12, null, "Excellent Food", null, 6, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9962) },
+                    { 13, null, "Great product for sun protection", null, 7, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9971) },
+                    { 14, null, "Gorgeous and comfortable clothes", null, 7, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9979) },
+                    { 15, null, "Gorgeous Perfum", null, 7, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9989) }
                 });
 
             migrationBuilder.InsertData(
@@ -891,8 +891,8 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "ConversationId", "JobId", "MessageStatus", "SendTime", "Text" },
                 values: new object[,]
                 {
-                    { 1, 1, null, false, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(993), "hi thanke you very match for this it was nice one" },
-                    { 2, 1, null, true, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1014), "hi thanke you very match for this it was nice one" }
+                    { 1, 1, null, false, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9558), "hi thanke you very match for this it was nice one" },
+                    { 2, 1, null, true, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9570), "hi thanke you very match for this it was nice one" }
                 });
 
             migrationBuilder.InsertData(
@@ -910,34 +910,34 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
                 values: new object[,]
                 {
-                    { 16, 1, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1444) },
-                    { 17, 2, " Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1454) },
-                    { 18, 3, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1469) },
-                    { 19, 4, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1479) },
-                    { 20, 5, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1488) },
-                    { 21, 6, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1532) },
-                    { 22, 7, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1544) },
-                    { 23, 8, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1554) },
-                    { 24, 9, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1564) },
-                    { 25, 10, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1576) },
-                    { 26, 11, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1585) },
-                    { 27, 12, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1595) },
-                    { 28, 13, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1605) },
-                    { 29, 14, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1615) },
-                    { 30, 15, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1625) },
-                    { 31, 16, "Great Fast Food", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1634) },
-                    { 32, 17, "Great Fast Food", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1644) },
-                    { 33, 18, "Great Drinks & Snaks", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1654) },
-                    { 34, 19, "Great Drinks", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1665) },
-                    { 35, 20, "Great Pizza", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1675) },
-                    { 36, 21, "Fantastic portable devices", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1685) },
-                    { 37, 22, "Fantastic portable devices", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1695) },
-                    { 38, 23, "Cool electronics", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1704) },
-                    { 39, 24, "interesting series", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1714) },
-                    { 40, 25, "interesting series", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1724) },
-                    { 41, 26, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1734) },
-                    { 42, 27, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1743) },
-                    { 43, 28, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 12, 13, 26, 69, DateTimeKind.Local).AddTicks(1753) }
+                    { 16, 1, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9998) },
+                    { 17, 2, " Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(6) },
+                    { 18, 3, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(16) },
+                    { 19, 4, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(25) },
+                    { 20, 5, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(33) },
+                    { 21, 6, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(42) },
+                    { 22, 7, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(51) },
+                    { 23, 8, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(60) },
+                    { 24, 9, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(68) },
+                    { 25, 10, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(109) },
+                    { 26, 11, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(120) },
+                    { 27, 12, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(129) },
+                    { 28, 13, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(137) },
+                    { 29, 14, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(146) },
+                    { 30, 15, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(154) },
+                    { 31, 16, "Great Fast Food", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(163) },
+                    { 32, 17, "Great Fast Food", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(172) },
+                    { 33, 18, "Great Drinks & Snaks", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(181) },
+                    { 34, 19, "Great Drinks", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(191) },
+                    { 35, 20, "Great Pizza", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(200) },
+                    { 36, 21, "Fantastic portable devices", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(209) },
+                    { 37, 22, "Fantastic portable devices", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(218) },
+                    { 38, 23, "Cool electronics", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(227) },
+                    { 39, 24, "interesting series", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(236) },
+                    { 40, 25, "interesting series", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(245) },
+                    { 41, 26, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(253) },
+                    { 42, 27, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(262) },
+                    { 43, 28, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(271) }
                 });
 
             migrationBuilder.InsertData(
