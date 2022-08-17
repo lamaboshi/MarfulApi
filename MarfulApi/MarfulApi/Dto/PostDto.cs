@@ -10,5 +10,6 @@ namespace MarfulApi.Dto
         public double NumberLike { get; set; }
         public double NumDislike { get; set; }
         public byte[]? Image { set; get; }
+        public string IdCompany { set; get; }
     }
 }

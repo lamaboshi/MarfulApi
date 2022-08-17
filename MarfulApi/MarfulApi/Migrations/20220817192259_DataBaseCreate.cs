@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MarfulApi.Migrations
 {
-    public partial class DatabaseCreate : Migration
+    public partial class DataBaseCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -582,8 +582,8 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "CompanyContentId", "Description", "Image", "InfulonserId", "Name" },
                 values: new object[,]
                 {
-                    { 30, null, "Namshi is a Dubai-based e-commerce firm which sells designer clothing. The company, which also provides shoes and accessories", null, 7, "NAMSHI" },
-                    { 31, null, "Clothes Brand For Every Human Habeed", null, 6, "HABEED" }
+                    { 29, null, "Namshi is a Dubai-based e-commerce firm which sells designer clothing. The company, which also provides shoes and accessories", null, 7, "NAMSHI" },
+                    { 30, null, "Clothes Brand For Every Human Habeed", null, 6, "HABEED" }
                 });
 
             migrationBuilder.InsertData(
@@ -733,13 +733,141 @@ namespace MarfulApi.Migrations
                     { 2, 1, "Publishing Officer", "Publishing Officer" },
                     { 3, 1, "Editing Officer", "Editing Officer" },
                     { 4, 1, "Owner", "Owner" },
-                    { 5, 2, "chat employee", "chat employee" }
+                    { 5, 2, "chat employee", "chat employee" },
+                    { 6, 2, "Publishing Officer", "Publishing Officer" },
+                    { 7, 2, "Editing Officer", "Editing Officer" },
+                    { 8, 2, "Owner", "Owner" },
+                    { 9, 3, "chat employee", "chat employee" },
+                    { 10, 3, "Publishing Officer", "Publishing Officer" },
+                    { 11, 3, "Editing Officer", "Editing Officer" },
+                    { 12, 3, "Owner", "Owner" },
+                    { 13, 4, "chat employee", "chat employee" },
+                    { 14, 4, "Publishing Officer", "Publishing Officer" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CompanyTypes",
+                columns: new[] { "Id", "CompanyId", "Password", "type" },
+                values: new object[,]
+                {
+                    { 15, 4, "Editing Officer", "Editing Officer" },
+                    { 16, 4, "Owner", "Owner" },
+                    { 17, 5, "chat employee", "chat employee" },
+                    { 18, 5, "Publishing Officer", "Publishing Officer" },
+                    { 19, 5, "Editing Officer", "Editing Officer" },
+                    { 20, 5, "Owner", "Owner" },
+                    { 21, 6, "chat employee", "chat employee" },
+                    { 22, 6, "Publishing Officer", "Publishing Officer" },
+                    { 23, 6, "Editing Officer", "Editing Officer" },
+                    { 24, 6, "Owner", "Owner" },
+                    { 25, 7, "chat employee", "chat employee" },
+                    { 26, 7, "Publishing Officer", "Publishing Officer" },
+                    { 27, 7, "Editing Officer", "Editing Officer" },
+                    { 28, 7, "Owner", "Owner" },
+                    { 29, 8, "chat employee", "chat employee" },
+                    { 30, 8, "Publishing Officer", "Publishing Officer" },
+                    { 31, 8, "Editing Officer", "Editing Officer" },
+                    { 32, 8, "Owner", "Owner" },
+                    { 33, 9, "chat employee", "chat employee" },
+                    { 34, 9, "Publishing Officer", "Publishing Officer" },
+                    { 35, 9, "Editing Officer", "Editing Officer" },
+                    { 36, 9, "Owner", "Owner" },
+                    { 37, 10, "chat employee", "chat employee" },
+                    { 38, 10, "Publishing Officer", "Publishing Officer" },
+                    { 39, 10, "Editing Officer", "Editing Officer" },
+                    { 40, 10, "Owner", "Owner" },
+                    { 41, 11, "chat employee", "chat employee" },
+                    { 42, 11, "Publishing Officer", "Publishing Officer" },
+                    { 43, 11, "Editing Officer", "Editing Officer" },
+                    { 44, 11, "Owner", "Owner" },
+                    { 45, 12, "chat employee", "chat employee" },
+                    { 46, 12, "Publishing Officer", "Publishing Officer" },
+                    { 47, 12, "Editing Officer", "Editing Officer" },
+                    { 48, 12, "Owner", "Owner" },
+                    { 49, 13, "chat employee", "chat employee" },
+                    { 50, 13, "Publishing Officer", "Publishing Officer" },
+                    { 51, 13, "Editing Officer", "Editing Officer" },
+                    { 52, 13, "Owner", "Owner" },
+                    { 53, 14, "chat employee", "chat employee" },
+                    { 54, 14, "Publishing Officer", "Publishing Officer" },
+                    { 55, 14, "Editing Officer", "Editing Officer" },
+                    { 56, 14, "Owner", "Owner" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CompanyTypes",
+                columns: new[] { "Id", "CompanyId", "Password", "type" },
+                values: new object[,]
+                {
+                    { 57, 15, "chat employee", "chat employee" },
+                    { 58, 15, "Publishing Officer", "Publishing Officer" },
+                    { 59, 15, "Editing Officer", "Editing Officer" },
+                    { 60, 15, "Owner", "Owner" },
+                    { 61, 16, "chat employee", "chat employee" },
+                    { 62, 16, "Publishing Officer", "Publishing Officer" },
+                    { 63, 16, "Editing Officer", "Editing Officer" },
+                    { 64, 16, "Owner", "Owner" },
+                    { 65, 17, "chat employee", "chat employee" },
+                    { 66, 17, "Publishing Officer", "Publishing Officer" },
+                    { 67, 17, "Editing Officer", "Editing Officer" },
+                    { 68, 17, "Owner", "Owner" },
+                    { 69, 18, "chat employee", "chat employee" },
+                    { 70, 18, "Publishing Officer", "Publishing Officer" },
+                    { 71, 18, "Editing Officer", "Editing Officer" },
+                    { 72, 18, "Owner", "Owner" },
+                    { 73, 19, "chat employee", "chat employee" },
+                    { 74, 19, "Publishing Officer", "Publishing Officer" },
+                    { 75, 19, "Editing Officer", "Editing Officer" },
+                    { 76, 19, "Owner", "Owner" },
+                    { 77, 20, "chat employee", "chat employee" },
+                    { 78, 20, "Publishing Officer", "Publishing Officer" },
+                    { 79, 20, "Editing Officer", "Editing Officer" },
+                    { 80, 20, "Owner", "Owner" },
+                    { 81, 21, "chat employee", "chat employee" },
+                    { 82, 21, "Publishing Officer", "Publishing Officer" },
+                    { 83, 21, "Editing Officer", "Editing Officer" },
+                    { 84, 21, "Owner", "Owner" },
+                    { 85, 22, "chat employee", "chat employee" },
+                    { 86, 22, "Publishing Officer", "Publishing Officer" },
+                    { 87, 22, "Editing Officer", "Editing Officer" },
+                    { 88, 22, "Owner", "Owner" },
+                    { 89, 23, "chat employee", "chat employee" },
+                    { 90, 23, "Publishing Officer", "Publishing Officer" },
+                    { 91, 23, "Editing Officer", "Editing Officer" },
+                    { 92, 23, "Owner", "Owner" },
+                    { 93, 24, "chat employee", "chat employee" },
+                    { 94, 24, "Publishing Officer", "Publishing Officer" },
+                    { 95, 24, "Editing Officer", "Editing Officer" },
+                    { 96, 24, "Owner", "Owner" },
+                    { 97, 25, "chat employee", "chat employee" },
+                    { 98, 25, "Publishing Officer", "Publishing Officer" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CompanyTypes",
+                columns: new[] { "Id", "CompanyId", "Password", "type" },
+                values: new object[,]
+                {
+                    { 99, 25, "Editing Officer", "Editing Officer" },
+                    { 100, 25, "Owner", "Owner" },
+                    { 101, 26, "chat employee", "chat employee" },
+                    { 102, 26, "Publishing Officer", "Publishing Officer" },
+                    { 103, 26, "Editing Officer", "Editing Officer" },
+                    { 104, 26, "Owner", "Owner" },
+                    { 105, 27, "chat employee", "chat employee" },
+                    { 106, 27, "Publishing Officer", "Publishing Officer" },
+                    { 107, 27, "Editing Officer", "Editing Officer" },
+                    { 108, 27, "Owner", "Owner" },
+                    { 109, 28, "chat employee", "chat employee" },
+                    { 110, 28, "Publishing Officer", "Publishing Officer" },
+                    { 111, 28, "Editing Officer", "Editing Officer" },
+                    { 112, 28, "Owner", "Owner" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Conversations",
                 columns: new[] { "Id", "CompanyId", "InfulonserId", "Start" },
-                values: new object[] { 1, 1, 1, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9509) });
+                values: new object[] { 1, 1, 1, new DateTime(2022, 8, 17, 22, 22, 57, 592, DateTimeKind.Local).AddTicks(6776) });
 
             migrationBuilder.InsertData(
                 table: "InfulonserContents",
@@ -753,14 +881,7 @@ namespace MarfulApi.Migrations
                     { 5, 3, 7 },
                     { 6, 3, 4 },
                     { 7, 4, 6 },
-                    { 8, 5, 2 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "InfulonserContents",
-                columns: new[] { "Id", "ContentId", "InfulonserId" },
-                values: new object[,]
-                {
+                    { 8, 5, 2 },
                     { 9, 5, 3 },
                     { 10, 6, 1 },
                     { 11, 6, 4 },
@@ -793,7 +914,14 @@ namespace MarfulApi.Migrations
                     { 3, 3, 1 },
                     { 4, 5, 1 },
                     { 5, 6, 1 },
-                    { 6, 7, 1 },
+                    { 6, 7, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "InfulonserUsers",
+                columns: new[] { "Id", "InfulonserId", "UserId" },
+                values: new object[,]
+                {
                     { 7, 1, 2 },
                     { 8, 3, 2 },
                     { 9, 5, 2 },
@@ -824,21 +952,21 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
                 values: new object[,]
                 {
-                    { 1, null, "Great product for sun protection", null, 1, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9817) },
-                    { 2, null, "interesting series", null, 1, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9869) },
-                    { 3, null, "Great sports products", null, 2, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9880) },
-                    { 4, null, "Excellent electronics", null, 2, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9888) },
-                    { 5, null, "Excellent mobiles", null, 3, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9897) },
-                    { 6, null, "Excellent  Laptop", null, 3, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9908) },
-                    { 7, null, "interesting series", null, 4, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9917) },
-                    { 8, null, "Gorgeous and comfortable clothes", null, 4, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9926) },
-                    { 9, null, "Great sports products", null, 5, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9935) },
-                    { 10, null, "Great sports equipment", null, 5, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9944) },
-                    { 11, null, "Great Fast Food", null, 6, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9953) },
-                    { 12, null, "Excellent Food", null, 6, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9962) },
-                    { 13, null, "Great product for sun protection", null, 7, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9971) },
-                    { 14, null, "Gorgeous and comfortable clothes", null, 7, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9979) },
-                    { 15, null, "Gorgeous Perfum", null, 7, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9989) }
+                    { 1, null, "Great product for sun protection", null, 1, null, new DateTime(2022, 8, 17, 22, 22, 57, 592, DateTimeKind.Local).AddTicks(9908) },
+                    { 2, null, "interesting series", null, 1, null, new DateTime(2022, 8, 17, 22, 22, 57, 592, DateTimeKind.Local).AddTicks(9945) },
+                    { 3, null, "Great sports products", null, 2, null, new DateTime(2022, 8, 17, 22, 22, 57, 592, DateTimeKind.Local).AddTicks(9974) },
+                    { 4, null, "Excellent electronics", null, 2, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(11) },
+                    { 5, null, "Excellent mobiles", null, 3, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(29) },
+                    { 6, null, "Excellent  Laptop", null, 3, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(50) },
+                    { 7, null, "interesting series", null, 4, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(69) },
+                    { 8, null, "Gorgeous and comfortable clothes", null, 4, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(93) },
+                    { 9, null, "Great sports products", null, 5, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(112) },
+                    { 10, null, "Great sports equipment", null, 5, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(132) },
+                    { 11, null, "Great Fast Food", null, 6, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(150) },
+                    { 12, null, "Excellent Food", null, 6, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(170) },
+                    { 13, null, "Great product for sun protection", null, 7, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(228) },
+                    { 14, null, "Gorgeous and comfortable clothes", null, 7, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(248) },
+                    { 15, null, "Gorgeous Perfum", null, 7, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(266) }
                 });
 
             migrationBuilder.InsertData(
@@ -847,7 +975,187 @@ namespace MarfulApi.Migrations
                 values: new object[,]
                 {
                     { 1, 1, 1 },
-                    { 2, 2, 1 }
+                    { 2, 2, 1 },
+                    { 3, 3, 1 },
+                    { 4, 4, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "UserCompanies",
+                columns: new[] { "Id", "CompanyId", "UserId" },
+                values: new object[,]
+                {
+                    { 5, 5, 1 },
+                    { 6, 6, 1 },
+                    { 7, 7, 1 },
+                    { 8, 8, 1 },
+                    { 9, 9, 1 },
+                    { 10, 10, 1 },
+                    { 11, 11, 1 },
+                    { 12, 12, 1 },
+                    { 13, 13, 1 },
+                    { 14, 14, 1 },
+                    { 15, 15, 1 },
+                    { 16, 16, 1 },
+                    { 17, 17, 1 },
+                    { 18, 18, 1 },
+                    { 19, 19, 1 },
+                    { 20, 20, 1 },
+                    { 21, 21, 1 },
+                    { 22, 22, 1 },
+                    { 23, 23, 1 },
+                    { 24, 24, 1 },
+                    { 25, 25, 1 },
+                    { 26, 26, 1 },
+                    { 27, 27, 1 },
+                    { 28, 28, 1 },
+                    { 29, 1, 2 },
+                    { 30, 2, 2 },
+                    { 31, 3, 2 },
+                    { 32, 4, 2 },
+                    { 33, 5, 2 },
+                    { 34, 24, 2 },
+                    { 35, 25, 2 },
+                    { 36, 21, 2 },
+                    { 37, 22, 2 },
+                    { 38, 23, 2 },
+                    { 39, 6, 2 },
+                    { 40, 7, 2 },
+                    { 41, 8, 2 },
+                    { 42, 9, 2 },
+                    { 43, 10, 2 },
+                    { 44, 11, 2 },
+                    { 45, 12, 2 },
+                    { 46, 13, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "UserCompanies",
+                columns: new[] { "Id", "CompanyId", "UserId" },
+                values: new object[,]
+                {
+                    { 47, 14, 2 },
+                    { 48, 15, 2 },
+                    { 49, 26, 2 },
+                    { 50, 27, 2 },
+                    { 51, 28, 2 },
+                    { 52, 16, 3 },
+                    { 53, 17, 3 },
+                    { 54, 18, 3 },
+                    { 55, 19, 3 },
+                    { 56, 20, 3 },
+                    { 57, 24, 3 },
+                    { 58, 25, 3 },
+                    { 59, 11, 3 },
+                    { 60, 12, 3 },
+                    { 61, 13, 3 },
+                    { 62, 14, 3 },
+                    { 63, 15, 3 },
+                    { 64, 6, 3 },
+                    { 65, 7, 3 },
+                    { 66, 8, 3 },
+                    { 67, 9, 3 },
+                    { 68, 10, 3 },
+                    { 69, 1, 4 },
+                    { 70, 2, 4 },
+                    { 71, 3, 4 },
+                    { 72, 4, 4 },
+                    { 73, 5, 4 },
+                    { 74, 24, 4 },
+                    { 75, 25, 4 },
+                    { 76, 6, 4 },
+                    { 77, 7, 4 },
+                    { 78, 8, 4 },
+                    { 79, 9, 4 },
+                    { 80, 10, 4 },
+                    { 81, 21, 4 },
+                    { 82, 22, 4 },
+                    { 83, 23, 4 },
+                    { 84, 11, 5 },
+                    { 85, 12, 5 },
+                    { 86, 13, 5 },
+                    { 87, 14, 5 },
+                    { 88, 15, 5 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "UserCompanies",
+                columns: new[] { "Id", "CompanyId", "UserId" },
+                values: new object[,]
+                {
+                    { 89, 24, 5 },
+                    { 90, 25, 5 },
+                    { 91, 6, 5 },
+                    { 92, 7, 5 },
+                    { 93, 8, 5 },
+                    { 94, 9, 5 },
+                    { 95, 10, 5 },
+                    { 96, 22, 5 },
+                    { 97, 23, 5 },
+                    { 98, 24, 5 },
+                    { 99, 1, 6 },
+                    { 100, 2, 6 },
+                    { 101, 3, 6 },
+                    { 102, 4, 6 },
+                    { 103, 5, 6 },
+                    { 104, 6, 6 },
+                    { 105, 7, 6 },
+                    { 106, 8, 6 },
+                    { 107, 9, 6 },
+                    { 108, 10, 6 },
+                    { 109, 11, 6 },
+                    { 110, 12, 6 },
+                    { 111, 13, 6 },
+                    { 112, 14, 6 },
+                    { 113, 15, 6 },
+                    { 114, 16, 6 },
+                    { 115, 17, 6 },
+                    { 116, 18, 6 },
+                    { 117, 19, 6 },
+                    { 118, 20, 6 },
+                    { 119, 21, 6 },
+                    { 120, 22, 6 },
+                    { 121, 23, 6 },
+                    { 122, 24, 6 },
+                    { 123, 25, 6 },
+                    { 124, 26, 6 },
+                    { 125, 27, 6 },
+                    { 126, 28, 6 },
+                    { 127, 21, 7 },
+                    { 128, 22, 7 },
+                    { 129, 23, 7 },
+                    { 130, 11, 7 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "UserCompanies",
+                columns: new[] { "Id", "CompanyId", "UserId" },
+                values: new object[,]
+                {
+                    { 131, 12, 7 },
+                    { 132, 13, 7 },
+                    { 133, 14, 7 },
+                    { 134, 15, 7 },
+                    { 135, 24, 7 },
+                    { 136, 25, 7 },
+                    { 137, 6, 7 },
+                    { 138, 7, 7 },
+                    { 139, 8, 7 },
+                    { 140, 9, 7 },
+                    { 141, 10, 7 },
+                    { 142, 16, 7 },
+                    { 143, 17, 7 },
+                    { 144, 18, 7 },
+                    { 145, 19, 7 },
+                    { 146, 20, 7 },
+                    { 147, 1, 7 },
+                    { 148, 2, 7 },
+                    { 149, 3, 7 },
+                    { 150, 4, 7 },
+                    { 151, 5, 7 },
+                    { 152, 26, 7 },
+                    { 153, 27, 7 },
+                    { 154, 28, 7 }
                 });
 
             migrationBuilder.InsertData(
@@ -880,10 +1188,9 @@ namespace MarfulApi.Migrations
                     { 23, 23, "The Korean LG Group this company is the second largest holding company, producing electronics, chemicals and telecommunications products.  from 80 countries", null, null, "LG" },
                     { 24, 24, "Netflix is   an American entertainment company that specializes in providing live broadcasting, video-on-demand, and mail-delivery of CDs. Netflix has expanded into the production of films and television shows, and online video distribution", null, null, "NETFLIX" },
                     { 25, 25, "Shahid is the first Arab platform to provide \"Video on Demand\" service in the Middle East, and it has been re-launched by the \"MBC\" media group.  It is worth noting that Shahid,the leading subscription video-on-demand platform, is considered the leading Arab broadcasting platform in the world and the home of original Arabic productions with world-class specifications.along with a live broadcast of a group of the most watched Arab TV channels", null, null, "SHAHID" },
-                    { 26, 25, "Shahid is the first Arab platform to provide \"Video on Demand\" service in the Middle East, and it has been re-launched by the \"MBC\" media group.  It is worth noting that Shahid,the leading subscription video-on-demand platform, is considered the leading Arab broadcasting platform in the world and the home of original Arabic productions with world-class specifications.along with a live broadcast of a group of the most watched Arab TV channels", null, null, "SHAHID" },
-                    { 27, 26, "DIOR Products Clothing, cosmetics, fashion accessories, jewelry, perfumes, watches", null, null, "DIOR" },
-                    { 28, 27, "Chanel Its products cover clothes, fragrances, handbags and watches", null, null, "CHANNEL" },
-                    { 29, 28, "Gucci offers a range of different luxury  Shoes, ready-to-wear apparel, watches, and jewelry are the other main , however they also sell other products such as perfume and home decor", null, null, "GUCCI" }
+                    { 26, 26, "DIOR Products Clothing, cosmetics, fashion accessories, jewelry, perfumes, watches", null, null, "DIOR" },
+                    { 27, 27, "Chanel Its products cover clothes, fragrances, handbags and watches", null, null, "CHANNEL" },
+                    { 28, 28, "Gucci offers a range of different luxury  Shoes, ready-to-wear apparel, watches, and jewelry are the other main , however they also sell other products such as perfume and home decor", null, null, "GUCCI" }
                 });
 
             migrationBuilder.InsertData(
@@ -891,18 +1198,8 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "ConversationId", "JobId", "MessageStatus", "SendTime", "Text" },
                 values: new object[,]
                 {
-                    { 1, 1, null, false, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9558), "hi thanke you very match for this it was nice one" },
-                    { 2, 1, null, true, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9570), "hi thanke you very match for this it was nice one" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "UserPosts",
-                columns: new[] { "Id", "InterAction", "PostId", "UserId" },
-                values: new object[,]
-                {
-                    { 1, true, 1, 1 },
-                    { 2, false, 2, 1 },
-                    { 3, true, 4, 1 }
+                    { 1, 1, null, false, new DateTime(2022, 8, 17, 22, 22, 57, 592, DateTimeKind.Local).AddTicks(6955), "hi thanke you very match for this it was nice one" },
+                    { 2, 1, null, true, new DateTime(2022, 8, 17, 22, 22, 57, 592, DateTimeKind.Local).AddTicks(6980), "hi thanke you very match for this it was nice one" }
                 });
 
             migrationBuilder.InsertData(
@@ -910,34 +1207,34 @@ namespace MarfulApi.Migrations
                 columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
                 values: new object[,]
                 {
-                    { 16, 1, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9998) },
-                    { 17, 2, " Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(6) },
-                    { 18, 3, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(16) },
-                    { 19, 4, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(25) },
-                    { 20, 5, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(33) },
-                    { 21, 6, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(42) },
-                    { 22, 7, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(51) },
-                    { 23, 8, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(60) },
-                    { 24, 9, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(68) },
-                    { 25, 10, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(109) },
-                    { 26, 11, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(120) },
-                    { 27, 12, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(129) },
-                    { 28, 13, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(137) },
-                    { 29, 14, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(146) },
-                    { 30, 15, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(154) },
-                    { 31, 16, "Great Fast Food", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(163) },
-                    { 32, 17, "Great Fast Food", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(172) },
-                    { 33, 18, "Great Drinks & Snaks", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(181) },
-                    { 34, 19, "Great Drinks", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(191) },
-                    { 35, 20, "Great Pizza", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(200) },
-                    { 36, 21, "Fantastic portable devices", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(209) },
-                    { 37, 22, "Fantastic portable devices", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(218) },
-                    { 38, 23, "Cool electronics", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(227) },
-                    { 39, 24, "interesting series", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(236) },
-                    { 40, 25, "interesting series", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(245) },
-                    { 41, 26, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(253) },
-                    { 42, 27, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(262) },
-                    { 43, 28, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(271) }
+                    { 16, 1, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(284) },
+                    { 17, 2, " Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(304) },
+                    { 18, 3, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(416) },
+                    { 19, 4, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(438) },
+                    { 20, 5, "Excellent beauty products", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(456) },
+                    { 21, 6, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(475) },
+                    { 22, 7, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(493) },
+                    { 23, 8, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(512) },
+                    { 24, 9, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(535) },
+                    { 25, 10, "Great sports products", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(554) },
+                    { 26, 11, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(573) },
+                    { 27, 12, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(595) },
+                    { 28, 13, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(690) },
+                    { 29, 14, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(710) },
+                    { 30, 15, "Gorgeous and comfortable clothes", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(729) },
+                    { 31, 16, "Great Fast Food", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(752) },
+                    { 32, 17, "Great Fast Food", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(771) },
+                    { 33, 18, "Great Drinks & Snaks", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(789) },
+                    { 34, 19, "Great Drinks", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(809) },
+                    { 35, 20, "Great Pizza", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(827) },
+                    { 36, 21, "Fantastic portable devices", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(845) },
+                    { 37, 22, "Fantastic portable devices", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(863) },
+                    { 38, 23, "Cool electronics", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(883) },
+                    { 39, 24, "interesting series", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(901) },
+                    { 40, 25, "interesting series", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(919) },
+                    { 41, 26, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(1011) },
+                    { 42, 27, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(1034) },
+                    { 43, 28, "interesting Perfum", null, null, null, new DateTime(2022, 8, 17, 22, 22, 57, 593, DateTimeKind.Local).AddTicks(1054) }
                 });
 
             migrationBuilder.InsertData(

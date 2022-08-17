@@ -68,8 +68,10 @@ namespace MarfulApi.Data
                 }
                 if (posts.Count != 0)
                 {
+
                     GetUserPostsReaction(posts);
                     postDtos.OrderByDescending(p => p.post.dateTime);
+
                     return postDtos;
                 }
                  return null;
@@ -136,6 +138,7 @@ namespace MarfulApi.Data
                         dto.post = e;
                         dto.Name = e.Infulonser !=null?e.Infulonser.Name:" ";
                         dto.Image = e.Infulonser != null ? e.Infulonser.Image:null;
+                        dto.IdCompany = company.Email;
                         postDtos.Add(dto);
                     }
                     return postDtos;
@@ -256,6 +259,7 @@ namespace MarfulApi.Data
                             PostDto dto = new PostDto();
                             dto.Name = e.Infulonser != null ? e.Infulonser.Name : " ";
                             dto.Image = e.Infulonser != null ? e.Infulonser.Image : null;
+                            dto.IdCompany = company.Email;
                             dto.post = e;
                             postDtos.Add(dto);
                         }
@@ -319,6 +323,7 @@ namespace MarfulApi.Data
                         p.NoInteraction = false;
                         p.Name = compName.Name;
                         p.Image = compName.Image;
+                        p.IdCompany = compName.Email;
                         p.NumberLike = GetLikesCount(e.Id, "user");
                         p.NumDislike = GetDisLikesCount(e.Id, "user");
                         postDtos.Add(p);
@@ -344,6 +349,7 @@ namespace MarfulApi.Data
                         p.NoInteraction = true;
                         p.Name = compName.Name;
                         p.Image = compName.Image;
+                        p.IdCompany = compName.Email;
                         p.NumberLike = GetLikesCount(e.Id, "user");
                         p.NumDislike = GetDisLikesCount(e.Id, "user");
                         postDtos.Add(p);
@@ -386,6 +392,7 @@ namespace MarfulApi.Data
                         p.NoInteraction = false;
                         p.Name = compName.Name;
                         p.Image = compName.Image;
+                        p.IdCompany = compName.Email;
                         p.NumberLike = GetLikesCount(e.Id, "infulonser");
                         p.NumDislike = GetDisLikesCount(e.Id, "infulonser");
                         postDtos.Add(p);
@@ -411,6 +418,7 @@ namespace MarfulApi.Data
                         p.NoInteraction = true;
                         p.Name = compName.Name;
                         p.Image = compName.Image;
+                        p.IdCompany = compName.Email;
                         p.NumberLike = GetLikesCount(e.Id, "infulonser");
                         p.NumDislike = GetDisLikesCount(e.Id, "infulonser");
                         postDtos.Add(p);
