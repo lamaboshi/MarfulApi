@@ -29,7 +29,7 @@ namespace MarfulApi.Data
             var infulonser = _db.Infulonsers.First(p=>p.Id==id);
             if (infulonser != null)
             {
-                var data = _db.InfulonserFollowInfulonsers.Where(p => p.FollowedId == infulonser.Id).ToList();
+                var data = _db.InfulonserFollowInfulonsers.Where(p => p.FollowedId == infulonser.Id || p.FollowId==infulonser.Id).ToList();
                 if (data.Count != 0) _db.InfulonserFollowInfulonsers.RemoveRange(data);
                 var infUser = _db.InfulonserUsers.Where(p => p.InfulonserId == infulonser.Id).ToList();
                 if (infUser.Count != 0) _db.InfulonserUsers.RemoveRange(infUser);
@@ -54,7 +54,6 @@ namespace MarfulApi.Data
                if (Post.Count != 0) _db.Posts.RemoveRange(Post);
                var postInf = _db.PostInfulonsers.Where(p => p.InfulonserId == infulonser.Id).ToList();
                 if (postInf.Count != 0) _db.PostInfulonsers.RemoveRange(postInf);
-                _db.SaveChanges();
                 _db.Infulonsers.Remove(infulonser);
                 _db.SaveChanges();
             }

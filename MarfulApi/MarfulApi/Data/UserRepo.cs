@@ -18,6 +18,12 @@ namespace MarfulApi.Data
             if (result != null)
             {
                 _db.Users.Remove(result);
+                var infUser = _db.InfulonserUsers.Where(p => p.UserId == id).ToList();
+                if (infUser.Count != 0) _db.InfulonserUsers.RemoveRange(infUser);
+                var CmpUser = _db.CompanyInfulonsers.Where(p => p.CompanyId == id).ToList();
+                if (CmpUser.Count != 0) _db.CompanyInfulonsers.RemoveRange(CmpUser);
+                var UserPost = _db.UserPosts.Where(p => p.UserId == id).ToList();
+                if (UserPost.Count != 0) _db.UserPosts.RemoveRange(UserPost);
                 _db.SaveChanges();
             }
         }

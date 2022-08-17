@@ -22,7 +22,19 @@ namespace MarfulApi.Data
                 var userCmp = _db.UserCompanies.Where(p => p.CompanyId == result.Id).ToList();
                 if (userCmp.Count != 0) _db.UserCompanies.RemoveRange(userCmp);
                 var cmpContent = _db.CompanyContents.Where(p => p.CompanyId == result.Id).ToList();
-                if (cmpContent.Count != 0) _db.CompanyContents.RemoveRange(cmpContent);
+                if (cmpContent.Count != 0)
+                {
+                    _db.CompanyContents.RemoveRange(cmpContent);
+                    BrandRepo repo = new BrandRepo(_db);
+                    foreach(CompanyContent e in cmpContent)
+                    {
+                        var brand = _db.Brands.Where(p => p.CompanyContentId == e.Id).FirstOrDefault();
+                        if (brand != null) repo.Delete(brand.Id);
+                    }
+                    
+                }
+                var cmpInf = _db.CompanyInfulonsers.Where(p => p.CompanyId == result.Id).ToList();
+                if (cmpInf.Count != 0) _db.CompanyInfulonsers.RemoveRange(cmpInf);
                 var conversation = _db.Conversations.Where(p => p.CompanyId == result.Id).ToList();
                 if (conversation.Count != 0) _db.Conversations.RemoveRange(conversation);
                 var cmpType = _db.CompanyTypes.Where(p => p.CompanyId == result.Id).ToList();
