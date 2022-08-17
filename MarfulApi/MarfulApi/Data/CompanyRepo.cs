@@ -155,5 +155,11 @@ namespace MarfulApi.Data
             }
             return null;
         }
+
+        public Company getCompanyByBrandId(int IdBrand)
+        {
+            var data = _db.Brands.Where(w => w.Id == IdBrand).Select(r => r.CompanyContent.Company).First();
+            return data;
+        }
     }
 }

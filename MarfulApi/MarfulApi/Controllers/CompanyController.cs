@@ -54,7 +54,17 @@ namespace MarfulApi.Controllers
             // return NotFound();
             return Ok(new List<object>());
         }
-
+        [HttpGet("{idBrand}")]
+        [ActionName("getCompanyByBrandId")]
+        public IActionResult getCompanyByBrandId(int idBrand)
+        {
+            var data = db.getCompanyByBrandId(idBrand);
+            if (data != null)
+            {
+                return Ok(data);
+            }
+           return NotFound();
+        }
         [HttpPost]
         public IActionResult AddCompany([FromBody] Company company)
         {
