@@ -5,162 +5,203 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MarfulApi.Migrations
 {
-    public partial class @try : Migration
+    public partial class updateSeeds : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.InsertData(
+                table: "CompanyTypes",
+                columns: new[] { "Id", "CompanyId", "Password", "type" },
+                values: new object[,]
+                {
+                    { 1, 1, "chat employee", "chat employee" },
+                    { 2, 1, "Publishing Officer", "Publishing Officer" },
+                    { 3, 1, "Editing Officer", "Editing Officer" },
+                    { 4, 1, "Owner", "Owner" },
+                    { 5, 2, "chat employee", "chat employee" }
+                });
+
             migrationBuilder.UpdateData(
                 table: "Conversations",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "Start",
-                value: new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4742));
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5140));
 
             migrationBuilder.UpdateData(
                 table: "Messages",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "SendTime",
-                value: new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4793));
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5204));
 
             migrationBuilder.UpdateData(
                 table: "Messages",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "SendTime",
-                value: new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4807));
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5223));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4859));
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5639));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4875));
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5662));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4886));
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5678));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4898));
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5694));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 5,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4957));
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5710));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 6,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4972));
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5728));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 7,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4983));
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5745));
 
-            migrationBuilder.InsertData(
+            migrationBuilder.UpdateData(
                 table: "Posts",
-                columns: new[] { "Id", "BrandId", "Description", "Image", "InfulonserId", "JobId", "dateTime" },
-                values: new object[] { 8, null, " Im infulonser with content sport2", null, 2, null, new DateTime(2022, 8, 8, 10, 50, 47, 208, DateTimeKind.Local).AddTicks(4995) });
+                keyColumn: "Id",
+                keyValue: 8,
+                column: "dateTime",
+                value: new DateTime(2022, 8, 17, 9, 28, 45, 138, DateTimeKind.Local).AddTicks(5760));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DeleteData(
-                table: "Posts",
+                table: "CompanyTypes",
                 keyColumn: "Id",
-                keyValue: 8);
+                keyValue: 1);
+
+            migrationBuilder.DeleteData(
+                table: "CompanyTypes",
+                keyColumn: "Id",
+                keyValue: 2);
+
+            migrationBuilder.DeleteData(
+                table: "CompanyTypes",
+                keyColumn: "Id",
+                keyValue: 3);
+
+            migrationBuilder.DeleteData(
+                table: "CompanyTypes",
+                keyColumn: "Id",
+                keyValue: 4);
+
+            migrationBuilder.DeleteData(
+                table: "CompanyTypes",
+                keyColumn: "Id",
+                keyValue: 5);
 
             migrationBuilder.UpdateData(
                 table: "Conversations",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "Start",
-                value: new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3566));
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6833));
 
             migrationBuilder.UpdateData(
                 table: "Messages",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "SendTime",
-                value: new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3609));
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6933));
 
             migrationBuilder.UpdateData(
                 table: "Messages",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "SendTime",
-                value: new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3621));
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6958));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3697));
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7474));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3711));
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7503));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3720));
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7536));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3729));
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7567));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 5,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3738));
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7661));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 6,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3749));
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7687));
 
             migrationBuilder.UpdateData(
                 table: "Posts",
                 keyColumn: "Id",
                 keyValue: 7,
                 column: "dateTime",
-                value: new DateTime(2022, 8, 6, 23, 54, 47, 941, DateTimeKind.Local).AddTicks(3758));
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7708));
+
+            migrationBuilder.UpdateData(
+                table: "Posts",
+                keyColumn: "Id",
+                keyValue: 8,
+                column: "dateTime",
+                value: new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7740));
         }
     }
 }

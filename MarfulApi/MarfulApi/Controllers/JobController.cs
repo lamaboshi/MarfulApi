@@ -28,7 +28,13 @@ namespace MarfulApi.Controllers
             return Ok(data);
 
         }
-
+        [HttpGet("{idJob}")]
+        [ActionName("GetCompany")]
+        public IActionResult GetCompany(int idJob)
+        {
+            var data = db.GetCompany(idJob);
+            return Ok(data);
+        }
 
         [HttpPost]
         public IActionResult AddJob([FromBody] Job job)

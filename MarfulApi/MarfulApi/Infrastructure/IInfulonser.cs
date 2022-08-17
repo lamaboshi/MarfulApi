@@ -16,6 +16,7 @@ namespace MarfulApi.Infrastructure
        public void Delete(int id);
        public void Update(Infulonser infulonser);
         public bool IsExisting(string email);
+        public List<Brand> GetInflBrand(int id);
         public void ChangePassword(int Id,string password);
         public double GetFollowersCount(string email);
         public List<object> GetFollowers(string email);

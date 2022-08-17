@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    [Migration("20220816090151_cmptype")]
-    partial class cmptype
+    [Migration("20220817061606_DBCreate")]
+    partial class DBCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -58,7 +58,7 @@ namespace MarfulApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CompanyContentId")
+                    b.Property<int?>("CompanyContentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -94,8 +94,169 @@ namespace MarfulApi.Migrations
                         {
                             Id = 2,
                             CompanyContentId = 2,
-                            Description = "Our company has all kind 0f sport element type",
-                            Name = "Addidas"
+                            Description = "Huda Beauty is a cosmetics line  the brand has a positive reputation on some of its products, such as the popular fake eyelashes series, as well as a collection of foundations, eyeshadows and some face palettes",
+                            Name = "HUDA BEAUTY"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CompanyContentId = 3,
+                            Description = "Maybelline, is an American multinational cosmetics, skin care, fragrance, and personal care company, based in New York City. It was founded in Chicago in 1914",
+                            Name = "MAYBELLINE"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CompanyContentId = 4,
+                            Description = "L'Oréal  is a French personal care company headquartered in Clichy, Hauts-de-Seinewith a registered office in Paris. It is the world's largest cosmetics company and has developed activities in the field concentrating on hair color, skin care, sun protection, make-up, perfume, and hair care.",
+                            Name = "LOREAL"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CompanyContentId = 5,
+                            Description = "Collection ,Sephora offers beauty products including cosmetics, skincare, body, fragrance, nail color, beauty tools, body lotions and haircare.",
+                            Name = "SEPHORA"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CompanyContentId = 6,
+                            Description = "Asics sponsors a variety of sports associations",
+                            Name = "ASIC"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CompanyContentId = 7,
+                            Description = "Manufacturer of sports shoes and apparel. It was the largest sportswear manufacturer in Europe and the second largest after Nike in the world. Adidas products are traditionally distinguished by a three-line brand, which remains an element of the company's latest products",
+                            Name = "ADDIDAS"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CompanyContentId = 8,
+                            Description = "The world’s largest athletic apparel company, Nike is best known for its footwear, apparel, and equipment. One of the most valuable brands among sport businesses,The company sponsors top athletes and sports teams around the world.",
+                            Name = "NIKE"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CompanyContentId = 9,
+                            Description = "Puma, is a German multinational corporation that designs and manufactures athletic and casual footwear, apparel and accessories, which is headquartered in Herzogenaurach, Bavaria, Germany. Puma is the third largest sportswear manufacturer in the world",
+                            Name = "PUMA"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CompanyContentId = 10,
+                            Description = "Asics sponsors a variety of sports associations",
+                            Name = "REEBOK"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CompanyContentId = 11,
+                            Description = "A clothing retailer, the company specializes in fast fashion, and its products include apparel, accessories, footwear, swimwear, cosmetics, and perfume. It is one of the largest clothing retailers in the world which also includes brands such as Bershka and Massimo Dutti.",
+                            Name = "ZARA"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CompanyContentId = 12,
+                            Description = "Max Fashion is an Indian fashion brand under the banner of the Landmark Group in Dubai",
+                            Name = "MAX"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CompanyContentId = 13,
+                            Description = "It is an Italian luxury fashion house specializing in ready-to-wear and haute couture, headquartered in Milan, Italy. Expanded to design raincoats, windbreakers, knitwear, leather goods, shoes, perfume, and accessories",
+                            Name = "MONCLER"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CompanyContentId = 14,
+                            Description = "Lacoste S.A. is a French company. It sells clothing, footwear, sportswear, eyewear, leather goods, perfume, towels and watches",
+                            Name = "LACOSTE"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CompanyContentId = 15,
+                            Description = "It is one of the most famous fashion companies in the world. The group enjoys a unified identity consisting of colours, authentic fashion and quality at democratic prices",
+                            Name = "BENETTON"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CompanyContentId = 16,
+                            Description = "Kentucky Fried Chicken or KFC is a chain of fast food restaurants that specializes primarily in fried chicken.  It is the second largest chain of fast food restaurants in the world in terms of sales after McDonald's. Kentucky Fried Chicken has nearly twenty thousand branches spread over 123 countries and territories around the world.",
+                            Name = "KFC"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CompanyContentId = 17,
+                            Description = "MCDONALD'S is the world's largest restaurant chain by revenue,McDonald's is best known for its hamburgers, cheeseburgers and french fries, although their menus include other items like chicken, fish, fruit, and salads",
+                            Name = "MCDONALDS"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CompanyContentId = 18,
+                            Description = "Nestlé is a multinational company specializing in the production of canned foods, founded in Vevey, Switzerland.",
+                            Name = "NESTLE"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CompanyContentId = 19,
+                            Description = "STARBUCKS is a specialty coffee retailer. It roasts, markets, and retails specialty coffee. The company, through its stores, offers several blends of coffee, handcrafted beverages, merchandise, and food items",
+                            Name = "STARBUCKS"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CompanyContentId = 20,
+                            Description = "Pizza Hut is an American multinational restaurant chain and international franchise founded in 1958 in Wichita, Kansas by Dan and Frank Carney. They serve their signature pan pizza and other dishes including pasta, breadsticks and desserts.",
+                            Name = "PIZZA HUT"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CompanyContentId = 21,
+                            Description = " Samsung Electronics is the world's largest electronics and information technology company.  Samsung Electronics is part of the Samsung Group, which is the largest conglomerate in South Korea and the global market leader with more than 60 products including semiconductors such as DRAM and flash memory, digital display devices such as liquid crystal TVs  LCD and plasma, consumer electronics such as DVD players, mobile phones, digital cameras and laser printers, household appliances such as refrigerators, microwaves and dishwashers.",
+                            Name = "SAMSUNG"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CompanyContentId = 22,
+                            Description = "The Apple Corporation is an American multinational technology company specializing in consumer electronics, software and online services.  It is one of the top five American IT companies",
+                            Name = "APPLE"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CompanyContentId = 23,
+                            Description = "The Korean LG Group this company is the second largest holding company, producing electronics, chemicals and telecommunications products.  from 80 countries",
+                            Name = "LG"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CompanyContentId = 24,
+                            Description = "Netflix is   an American entertainment company that specializes in providing live broadcasting, video-on-demand, and mail-delivery of CDs. Netflix has expanded into the production of films and television shows, and online video distribution",
+                            Name = "NETFLIX"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CompanyContentId = 25,
+                            Description = "Shahid is the first Arab platform to provide \"Video on Demand\" service in the Middle East, and it has been re-launched by the \"MBC\" media group.  It is worth noting that Shahid,the leading subscription video-on-demand platform, is considered the leading Arab broadcasting platform in the world and the home of original Arabic productions with world-class specifications.along with a live broadcast of a group of the most watched Arab TV channels",
+                            Name = "SHAHID"
                         });
                 });
 
@@ -169,7 +330,7 @@ namespace MarfulApi.Migrations
                             Description = "Maybelline, is an American multinational cosmetics, skin care, fragrance, and personal care company, based in New York City. It was founded in Chicago in 1914",
                             Email = "MAYBELLINE@test.com",
                             Name = "MAYBELLINE",
-                            Password = "12123",
+                            Password = "34345",
                             Phone = "0921423432",
                             TelePhone = "4232543"
                         },
@@ -180,7 +341,7 @@ namespace MarfulApi.Migrations
                             Description = "L'Oréal  is a French personal care company headquartered in Clichy, Hauts-de-Seinewith a registered office in Paris. It is the world's largest cosmetics company and has developed activities in the field concentrating on hair color, skin care, sun protection, make-up, perfume, and hair care.",
                             Email = "LOREAL@test.com",
                             Name = "LOREAL",
-                            Password = "12123",
+                            Password = "23234",
                             Phone = "0921423432",
                             TelePhone = "4232543"
                         },
@@ -191,7 +352,7 @@ namespace MarfulApi.Migrations
                             Description = "Collection ,Sephora offers beauty products including cosmetics, skincare, body, fragrance, nail color, beauty tools, body lotions and haircare.",
                             Email = "SEPHORA@test.com",
                             Name = "SEPHORA",
-                            Password = "12123",
+                            Password = "45456",
                             Phone = "0921423432",
                             TelePhone = "4232543"
                         },
@@ -224,7 +385,7 @@ namespace MarfulApi.Migrations
                             Description = "The world’s largest athletic apparel company, Nike is best known for its footwear, apparel, and equipment. One of the most valuable brands among sport businesses,The company sponsors top athletes and sports teams around the world.",
                             Email = "NIKE@test.com",
                             Name = "NIKE",
-                            Password = "111222",
+                            Password = "78789",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -235,7 +396,7 @@ namespace MarfulApi.Migrations
                             Description = "Puma, is a German multinational corporation that designs and manufactures athletic and casual footwear, apparel and accessories, which is headquartered in Herzogenaurach, Bavaria, Germany. Puma is the third largest sportswear manufacturer in the world",
                             Email = "PUMA@test.com",
                             Name = "PUMA",
-                            Password = "111222",
+                            Password = "67678",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -246,7 +407,7 @@ namespace MarfulApi.Migrations
                             Description = "Asics sponsors a variety of sports associations",
                             Email = "REEBOK@test.com",
                             Name = "REEBOK",
-                            Password = "111222",
+                            Password = "8989",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -257,7 +418,7 @@ namespace MarfulApi.Migrations
                             Description = "A clothing retailer, the company specializes in fast fashion, and its products include apparel, accessories, footwear, swimwear, cosmetics, and perfume. It is one of the largest clothing retailers in the world which also includes brands such as Bershka and Massimo Dutti.",
                             Email = "ZARA@test.com",
                             Name = "ZARA",
-                            Password = "111222",
+                            Password = "0909",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -279,7 +440,7 @@ namespace MarfulApi.Migrations
                             Description = "It is an Italian luxury fashion house specializing in ready-to-wear and haute couture, headquartered in Milan, Italy. Expanded to design raincoats, windbreakers, knitwear, leather goods, shoes, perfume, and accessories",
                             Email = "MONCLER@test.com",
                             Name = "MONCLER",
-                            Password = "111222",
+                            Password = "6789",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -301,7 +462,7 @@ namespace MarfulApi.Migrations
                             Description = "It is one of the most famous fashion companies in the world. The group enjoys a unified identity consisting of colours, authentic fashion and quality at democratic prices",
                             Email = "BENETTON@test.com",
                             Name = "BENETTON",
-                            Password = "111222",
+                            Password = "9463",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -312,7 +473,7 @@ namespace MarfulApi.Migrations
                             Description = "Kentucky Fried Chicken or KFC is a chain of fast food restaurants that specializes primarily in fried chicken.  It is the second largest chain of fast food restaurants in the world in terms of sales after McDonald's. Kentucky Fried Chicken has nearly twenty thousand branches spread over 123 countries and territories around the world.",
                             Email = "KFC@test.com",
                             Name = "KFC",
-                            Password = "111222",
+                            Password = "5252",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -323,7 +484,7 @@ namespace MarfulApi.Migrations
                             Description = "MCDONALD'S is the world's largest restaurant chain by revenue,McDonald's is best known for its hamburgers, cheeseburgers and french fries, although their menus include other items like chicken, fish, fruit, and salads",
                             Email = "MCDONALDS@test.com",
                             Name = "MCDONALDS",
-                            Password = "111222",
+                            Password = "99999",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -345,7 +506,7 @@ namespace MarfulApi.Migrations
                             Description = "STARBUCKS is a specialty coffee retailer. It roasts, markets, and retails specialty coffee. The company, through its stores, offers several blends of coffee, handcrafted beverages, merchandise, and food items",
                             Email = "STARBUCKS@test.com",
                             Name = "STARBUCKS",
-                            Password = "111222",
+                            Password = "123122",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -356,7 +517,7 @@ namespace MarfulApi.Migrations
                             Description = "Pizza Hut is an American multinational restaurant chain and international franchise founded in 1958 in Wichita, Kansas by Dan and Frank Carney. They serve their signature pan pizza and other dishes including pasta, breadsticks and desserts.",
                             Email = "PIZZAHUT@test.com",
                             Name = "PIZZA HUT",
-                            Password = "111222",
+                            Password = "34345",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -378,7 +539,7 @@ namespace MarfulApi.Migrations
                             Description = "The Apple Corporation is an American multinational technology company specializing in consumer electronics, software and online services.  It is one of the top five American IT companies",
                             Email = "APPLE@test.com",
                             Name = "APPLE",
-                            Password = "111222",
+                            Password = "77666",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -389,7 +550,7 @@ namespace MarfulApi.Migrations
                             Description = "The Korean LG Group this company is the second largest holding company, producing electronics, chemicals and telecommunications products.  from 80 countries",
                             Email = "LG@test.com",
                             Name = "LG",
-                            Password = "111222",
+                            Password = "989887",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -400,7 +561,7 @@ namespace MarfulApi.Migrations
                             Description = "Netflix is   an American entertainment company that specializes in providing live broadcasting, video-on-demand, and mail-delivery of CDs. Netflix has expanded into the production of films and television shows, and online video distribution",
                             Email = "NETFLIX@test.com",
                             Name = "NETFLIX",
-                            Password = "111222",
+                            Password = "34567",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -411,7 +572,7 @@ namespace MarfulApi.Migrations
                             Description = "Shahid is the first Arab platform to provide \"Video on Demand\" service in the Middle East, and it has been re-launched by the \"MBC\" media group.  It is worth noting that Shahid,the leading subscription video-on-demand platform, is considered the leading Arab broadcasting platform in the world and the home of original Arabic productions with world-class specifications.along with a live broadcast of a group of the most watched Arab TV channels",
                             Email = "SHAHID@test.com",
                             Name = "SHAHID",
-                            Password = "111222",
+                            Password = "888877",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -422,7 +583,7 @@ namespace MarfulApi.Migrations
                             Description = "DIOR Products Clothing, cosmetics, fashion accessories, jewelry, perfumes, watches",
                             Email = "DIOR@test.com",
                             Name = "DIOR",
-                            Password = "111222",
+                            Password = "777776",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -433,7 +594,7 @@ namespace MarfulApi.Migrations
                             Description = "Chanel Its products cover clothes, fragrances, handbags and watches",
                             Email = "CHANNEL@test.com",
                             Name = "CHANNEL",
-                            Password = "111222",
+                            Password = "333333",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         },
@@ -444,7 +605,7 @@ namespace MarfulApi.Migrations
                             Description = "Gucci offers a range of different luxury  Shoes, ready-to-wear apparel, watches, and jewelry are the other main , however they also sell other products such as perfume and home decor",
                             Email = "Gucci@test.com",
                             Name = "GUCCI",
-                            Password = "111222",
+                            Password = "8888882",
                             Phone = "0921423432",
                             TelePhone = "223554"
                         });
@@ -1270,36 +1431,6 @@ namespace MarfulApi.Migrations
                     b.HasIndex("CompanyId");
 
                     b.ToTable("CompanyTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CompanyId = 1,
-                            Password = "chat employee",
-                            type = "chat employee"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CompanyId = 1,
-                            Password = "Publishing Officer",
-                            type = "Publishing Officer"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CompanyId = 1,
-                            Password = "Editing Officer",
-                            type = "Editing Officer"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CompanyId = 1,
-                            Password = "Owner",
-                            type = "Owner"
-                        });
                 });
 
             modelBuilder.Entity("MarfulApi.Model.Content", b =>
@@ -1397,7 +1528,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-                            Start = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4336)
+                            Start = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6833)
                         });
                 });
 
@@ -1476,7 +1607,7 @@ namespace MarfulApi.Migrations
                             Description = "You Tuber/Content Creator",
                             Email = "Ossy@test.com",
                             Name = "Ossy Marwah",
-                            Password = "1111",
+                            Password = "2222",
                             Paypal = "dskjffff",
                             Phone = "0965465760",
                             UserName = "Ossy"
@@ -1488,7 +1619,7 @@ namespace MarfulApi.Migrations
                             Description = "Critic/You Tuber",
                             Email = "barhom@test.com",
                             Name = "Ibrahim Almarrawi",
-                            Password = "1111",
+                            Password = "3333",
                             Paypal = "dskjffff",
                             Phone = "0965465760",
                             UserName = "barhom"
@@ -1500,7 +1631,7 @@ namespace MarfulApi.Migrations
                             Description = "foodblogger/cars/travel",
                             Email = "feras@test.com",
                             Name = "Feras Abo Shaar",
-                            Password = "1111",
+                            Password = "4444",
                             Paypal = "dskjffff",
                             Phone = "0965465760",
                             UserName = "Feras"
@@ -1512,7 +1643,7 @@ namespace MarfulApi.Migrations
                             Description = "The Guy Who Drove Your Dream Car",
                             Email = "kareem@test.com",
                             Name = "Kareem Deeb",
-                            Password = "1111",
+                            Password = "5555",
                             Paypal = "dskjffff",
                             Phone = "0965465760",
                             UserName = "Deeb"
@@ -1524,7 +1655,7 @@ namespace MarfulApi.Migrations
                             Description = "journalist & Presenter @mbc1",
                             Email = "Leen@test.com",
                             Name = "Leen AbouShaar",
-                            Password = "1111",
+                            Password = "6666",
                             Paypal = "dskjffff",
                             Phone = "0965465760",
                             UserName = "Leen"
@@ -1739,8 +1870,170 @@ namespace MarfulApi.Migrations
                         new
                         {
                             Id = 2,
+                            InfulonserId = 2,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            InfulonserId = 3,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            InfulonserId = 5,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            InfulonserId = 6,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            InfulonserId = 7,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
                             InfulonserId = 1,
                             UserId = 2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            InfulonserId = 3,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 9,
+                            InfulonserId = 5,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 10,
+                            InfulonserId = 7,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 11,
+                            InfulonserId = 2,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 12,
+                            InfulonserId = 4,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 13,
+                            InfulonserId = 6,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 14,
+                            InfulonserId = 1,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 15,
+                            InfulonserId = 2,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 16,
+                            InfulonserId = 3,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 17,
+                            InfulonserId = 4,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 18,
+                            InfulonserId = 5,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 19,
+                            InfulonserId = 6,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 20,
+                            InfulonserId = 1,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 21,
+                            InfulonserId = 2,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 22,
+                            InfulonserId = 3,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 23,
+                            InfulonserId = 5,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 24,
+                            InfulonserId = 6,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 25,
+                            InfulonserId = 3,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 26,
+                            InfulonserId = 4,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 27,
+                            InfulonserId = 5,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 28,
+                            InfulonserId = 6,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 29,
+                            InfulonserId = 7,
+                            UserId = 7
                         });
                 });
 
@@ -1811,7 +2104,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-                            SendTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4388),
+                            SendTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6933),
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -1819,7 +2112,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-                            SendTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4402),
+                            SendTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(6958),
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -1866,56 +2159,56 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Description = " test for infulonser post",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4456)
+                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7474)
                         },
                         new
                         {
                             Id = 2,
                             Description = " test another post for infulonser",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4471)
+                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7503)
                         },
                         new
                         {
                             Id = 3,
                             BrandId = 1,
                             Description = " test for company post",
-                            dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4520)
+                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7536)
                         },
                         new
                         {
                             Id = 4,
                             BrandId = 1,
                             Description = " test another post for company",
-                            dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4532)
+                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7567)
                         },
                         new
                         {
                             Id = 5,
                             BrandId = 2,
                             Description = " this is the first post for sport company",
-                            dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4542)
+                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7661)
                         },
                         new
                         {
                             Id = 6,
                             BrandId = 2,
                             Description = " this is the second post for sport company",
-                            dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4553)
+                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7687)
                         },
                         new
                         {
                             Id = 7,
                             Description = " Im infulonser with content sport",
                             InfulonserId = 2,
-                            dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4563)
+                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7708)
                         },
                         new
                         {
                             Id = 8,
                             Description = " Im infulonser with content sport2",
                             InfulonserId = 2,
-                            dateTime = new DateTime(2022, 8, 16, 12, 1, 49, 109, DateTimeKind.Local).AddTicks(4572)
+                            dateTime = new DateTime(2022, 8, 17, 9, 16, 3, 714, DateTimeKind.Local).AddTicks(7740)
                         });
                 });
 
@@ -2090,7 +2383,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Age = 20,
                             Email = "Hadel@test.com",
-                            Name = "Hafel Dabbas",
+                            Name = "Hadel Dabbas",
                             Password = "123",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
@@ -2124,7 +2417,7 @@ namespace MarfulApi.Migrations
                             Age = 20,
                             Email = "Eid@test.com",
                             Name = "Haya Eid",
-                            Password = "789",
+                            Password = "101",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "HayaSy"
@@ -2135,7 +2428,7 @@ namespace MarfulApi.Migrations
                             Age = 20,
                             Email = "lama@test.com",
                             Name = "Lama Boshi",
-                            Password = "789",
+                            Password = "121",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "Lamaz"
@@ -2146,7 +2439,7 @@ namespace MarfulApi.Migrations
                             Age = 20,
                             Email = "Hamzeh@test.com",
                             Name = "Hamze Badinjky",
-                            Password = "789",
+                            Password = "141",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "hamzehS"
@@ -2157,7 +2450,7 @@ namespace MarfulApi.Migrations
                             Age = 20,
                             Email = "Adam@test.com",
                             Name = "Adam Syria",
-                            Password = "789",
+                            Password = "161",
                             Paypal = "Lb1267",
                             Phone = "0964654765",
                             UserName = "Adom"
@@ -2191,6 +2484,12 @@ namespace MarfulApi.Migrations
                         {
                             Id = 1,
                             CompanyId = 1,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompanyId = 2,
                             UserId = 1
                         });
                 });
@@ -2267,9 +2566,7 @@ namespace MarfulApi.Migrations
                 {
                     b.HasOne("MarfulApi.Model.CompanyContent", "CompanyContent")
                         .WithMany("Brand")
-                        .HasForeignKey("CompanyContentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CompanyContentId");
 
                     b.HasOne("MarfulApi.Model.Infulonser", "Infulonser")
                         .WithMany("Brand")

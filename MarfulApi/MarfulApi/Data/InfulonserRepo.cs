@@ -169,5 +169,12 @@ namespace MarfulApi.Data
             }
             return null;
         }
+
+        public List<Brand> GetInflBrand(int id)
+        {
+            var result = _db.Brands.Where(p => p.InfulonserId == id).ToList();
+            if (result != null) return result;
+            throw new NotImplementedException();
+        }
     }
 }

@@ -51,6 +51,8 @@ namespace MarfulApi.Data
             {
                 _db.Companies.Add(company);
                 _db.SaveChanges();
+                _db.CompanyTypes.Add(new CompanyType { CompanyId = company.Id, Password = company.Password, type = "Owner" });
+                _db.SaveChanges();
             }
         }
 

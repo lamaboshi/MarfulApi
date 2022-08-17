@@ -9,5 +9,6 @@ namespace MarfulApi.Infrastructure
         public List<Job> GetJobsInfo(int info);
         public void Delete(int id);
         public List<Job> GetJobsCompany(int idbrand);
+        public Company GetCompany(int idJob);
     }
 }
