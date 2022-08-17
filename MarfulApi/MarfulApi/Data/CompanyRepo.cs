@@ -74,7 +74,7 @@ namespace MarfulApi.Data
         }
         public bool IsExisting(string email)
         {
-            bool data = _db.Companies.Any(p => p.Email == email);
+            bool data = _db.Companies.Any(p => p.Email == email );
             if (data == false)
             {
                 return false;
