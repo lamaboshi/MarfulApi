@@ -4,6 +4,7 @@ using MarfulApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarfulApi.Migrations
 {
     [DbContext(typeof(MarfulDbContext))]
-    partial class MarfulDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220817181738_initial-ignoreChanges")]
+    partial class initialignoreChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2347,7 +2349,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             CompanyId = 1,
                             InfulonserId = 1,
-                            Start = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9509)
+                            Start = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(845)
                         });
                 });
 
@@ -2923,7 +2925,7 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             ConversationId = 1,
                             MessageStatus = false,
-                            SendTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9558),
+                            SendTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(909),
                             Text = "hi thanke you very match for this it was nice one"
                         },
                         new
@@ -2931,7 +2933,7 @@ namespace MarfulApi.Migrations
                             Id = 2,
                             ConversationId = 1,
                             MessageStatus = true,
-                            SendTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9570),
+                            SendTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(924),
                             Text = "hi thanke you very match for this it was nice one"
                         });
                 });
@@ -2978,302 +2980,301 @@ namespace MarfulApi.Migrations
                             Id = 1,
                             Description = "Great product for sun protection",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9817)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2723)
                         },
                         new
                         {
                             Id = 2,
                             Description = "interesting series",
                             InfulonserId = 1,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9869)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2748)
                         },
                         new
                         {
                             Id = 3,
                             Description = "Great sports products",
                             InfulonserId = 2,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9880)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2768)
                         },
                         new
                         {
                             Id = 4,
                             Description = "Excellent electronics",
                             InfulonserId = 2,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9888)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2822)
                         },
                         new
                         {
                             Id = 5,
                             Description = "Excellent mobiles",
                             InfulonserId = 3,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9897)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2839)
                         },
                         new
                         {
                             Id = 6,
                             Description = "Excellent  Laptop",
                             InfulonserId = 3,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9908)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2853)
                         },
                         new
                         {
                             Id = 7,
                             Description = "interesting series",
                             InfulonserId = 4,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9917)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2864)
                         },
                         new
                         {
                             Id = 8,
                             Description = "Gorgeous and comfortable clothes",
                             InfulonserId = 4,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9926)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2880)
                         },
                         new
                         {
                             Id = 9,
                             Description = "Great sports products",
                             InfulonserId = 5,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9935)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2892)
                         },
                         new
                         {
                             Id = 10,
                             Description = "Great sports equipment",
                             InfulonserId = 5,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9944)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2905)
                         },
                         new
                         {
                             Id = 11,
                             Description = "Great Fast Food",
                             InfulonserId = 6,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9953)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2916)
                         },
                         new
                         {
                             Id = 12,
                             Description = "Excellent Food",
                             InfulonserId = 6,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9962)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2928)
                         },
                         new
                         {
                             Id = 13,
                             Description = "Great product for sun protection",
                             InfulonserId = 7,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9971)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2966)
                         },
                         new
                         {
                             Id = 14,
                             Description = "Gorgeous and comfortable clothes",
                             InfulonserId = 7,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9979)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2978)
                         },
                         new
                         {
                             Id = 15,
                             Description = "Gorgeous Perfum",
                             InfulonserId = 7,
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9989)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(2990)
                         },
                         new
                         {
                             Id = 16,
                             BrandId = 1,
                             Description = "Excellent beauty products",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 93, DateTimeKind.Local).AddTicks(9998)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3001)
                         },
                         new
                         {
                             Id = 17,
                             BrandId = 2,
                             Description = " Excellent beauty products",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(6)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3013)
                         },
                         new
                         {
                             Id = 18,
                             BrandId = 3,
                             Description = "Excellent beauty products",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(16)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3027)
                         },
                         new
                         {
                             Id = 19,
                             BrandId = 4,
                             Description = "Excellent beauty products",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(25)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3038)
                         },
                         new
                         {
                             Id = 20,
                             BrandId = 5,
                             Description = "Excellent beauty products",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(33)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3049)
                         },
                         new
                         {
                             Id = 21,
                             BrandId = 6,
                             Description = "Great sports products",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(42)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3061)
                         },
                         new
                         {
                             Id = 22,
                             BrandId = 7,
                             Description = "Great sports products",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(51)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3072)
                         },
                         new
                         {
                             Id = 23,
                             BrandId = 8,
                             Description = "Great sports products",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(60)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3083)
                         },
                         new
                         {
                             Id = 24,
                             BrandId = 9,
                             Description = "Great sports products",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(68)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3098)
                         },
                         new
                         {
                             Id = 25,
                             BrandId = 10,
                             Description = "Great sports products",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(109)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3110)
                         },
                         new
                         {
                             Id = 26,
                             BrandId = 11,
                             Description = "Gorgeous and comfortable clothes",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(120)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3121)
                         },
                         new
                         {
                             Id = 27,
                             BrandId = 12,
                             Description = "Gorgeous and comfortable clothes",
-                    dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(129)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3134)
                         },
                         new
                         {
                             Id = 28,
                             BrandId = 13,
                             Description = "Gorgeous and comfortable clothes",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(137)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3214)
                         },
                         new
                         {
                             Id = 29,
                             BrandId = 14,
                             Description = "Gorgeous and comfortable clothes",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(146)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3228)
                         },
                         new
                         {
                             Id = 30,
                             BrandId = 15,
                             Description = "Gorgeous and comfortable clothes",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(154)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3239)
                         },
                         new
                         {
                             Id = 31,
                             BrandId = 16,
                             Description = "Great Fast Food",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(163)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3253)
                         },
                         new
                         {
                             Id = 32,
                             BrandId = 17,
                             Description = "Great Fast Food",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(172)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3268)
                         },
                         new
                         {
                             Id = 33,
                             BrandId = 18,
                             Description = "Great Drinks & Snaks",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(181)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3279)
                         },
                         new
                         {
                             Id = 34,
                             BrandId = 19,
                             Description = "Great Drinks",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(191)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3293)
                         },
                         new
                         {
                             Id = 35,
                             BrandId = 20,
                             Description = "Great Pizza",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(200)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3305)
                         },
                         new
                         {
                             Id = 36,
                             BrandId = 21,
                             Description = "Fantastic portable devices",
-                    dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(209)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3316)
                         },
                         new
                         {
                             Id = 37,
                             BrandId = 22,
                             Description = "Fantastic portable devices",
-
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(218)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3328)
                         },
                         new
                         {
                             Id = 38,
                             BrandId = 23,
                             Description = "Cool electronics",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(227)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3339)
                         },
                         new
                         {
                             Id = 39,
                             BrandId = 24,
                             Description = "interesting series",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(236)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3351)
                         },
                         new
                         {
                             Id = 40,
                             BrandId = 25,
                             Description = "interesting series",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(245)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3362)
                         },
                         new
                         {
                             Id = 41,
                             BrandId = 26,
                             Description = "interesting Perfum",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(253)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3373)
                         },
                         new
                         {
                             Id = 42,
                             BrandId = 27,
                             Description = "interesting Perfum",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(262)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3384)
                         },
                         new
                         {
                             Id = 43,
                             BrandId = 28,
                             Description = "interesting Perfum",
-                            dateTime = new DateTime(2022, 8, 17, 15, 19, 57, 94, DateTimeKind.Local).AddTicks(271)
+                            dateTime = new DateTime(2022, 8, 17, 21, 17, 35, 191, DateTimeKind.Local).AddTicks(3396)
                         });
                 });
 
