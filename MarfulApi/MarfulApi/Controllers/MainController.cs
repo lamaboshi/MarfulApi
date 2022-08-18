@@ -55,7 +55,7 @@ namespace MarfulApi.Controllers
                 {
                     data = db.GetInfulonserPostByConent(id, email);
                 }
-                else if (Type == "company")
+                else if (Type == "comapny")
                 {
                     data = db.GetCompanyPostByConent(id, email);
                 }

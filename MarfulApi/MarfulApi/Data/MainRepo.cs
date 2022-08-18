@@ -257,8 +257,8 @@ namespace MarfulApi.Data
                         foreach (Post e in posts)
                         {
                             PostDto dto = new PostDto();
-                            dto.Name = e.Infulonser != null ? e.Infulonser.Name : " ";
-                            dto.Image = e.Infulonser != null ? e.Infulonser.Image : null;
+                            dto.Name = e.Infulonser != null ? e.Infulonser.Name : company.Name;
+                            dto.Image = e.Infulonser != null ? e.Infulonser.Image : company.Image;
                             dto.IdCompany = company.Email;
                             dto.post = e;
                             postDtos.Add(dto);
