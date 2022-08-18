@@ -28,6 +28,10 @@ namespace MarfulApi.Controllers
         {
             var data = db.
                 GetUserCompany(userId);
+            if (data == null)
+            {
+                return Ok(new UserCompany());
+            }
             return Ok(data);
         }
         [HttpPost]
